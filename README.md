@@ -2,7 +2,7 @@
 
 ------------
 
-**Weatherscan 2004** is a simulated recreation of "Weatherscan" by The Weather Channel in HTML/CSS/JS, by ***mist weather media***
+**Weatherscan v1 2.0** is a simulated recreation of "Weatherscan" by The Weather Channel in HTML/CSS/JS, by ***mist weather media***
 
 Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 
@@ -16,6 +16,7 @@ Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 **COLSTER** - Developer  
 **JensonWX** - Developer  
 **Miceoroni** - Map Developer  
+**zachNet** - README
 
 and the rest of the Mist Creative Team for their support!
 
@@ -24,14 +25,6 @@ and the rest of the Mist Creative Team for their support!
 Need support beyond the scope of this README? Have any questions? Feel free to join our Discord for support!
 
 [***mist weather media*** on Discord](https://discord.gg/hV2w5sZQxz)
-
-# Initial Setup (Releases)
-
-![](https://img.shields.io/github/release/MistWeatherMedia/weatherscan-local.svg)
-
-There is no setup required to run the packaged releases. Simply click on the .exe and go! 
-
-However, if you are looking for extra customization beyond the in-app settings menu, you'll want to stick to the source code.
 
 # Initial Setup (Source code)
 
