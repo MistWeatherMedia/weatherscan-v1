@@ -2,7 +2,7 @@
 
 ------------
 
-**Weatherscan 2004** is a simulated recreation of "Weatherscan" by The Weather Channel in HTML/CSS/JS, by ***mist weather media***
+**Weatherscan v1 2.0** is a simulated recreation of "Weatherscan" by The Weather Channel in HTML/CSS/JS, by ***mist weather media***
 
 Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 
@@ -16,6 +16,7 @@ Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 **COLSTER** - Developer  
 **JensonWX** - Developer  
 **Miceoroni** - Map Developer  
+**zachNet** - README
 
 and the rest of the Mist Creative Team for their support!
 
