@@ -35,7 +35,7 @@ if (windowStatus == "nationalForecast") {
     HERE_key = systemSettings.apiKeys.HERE_key
   })
 } else {
-  $.getJSON("configs/myConfig-joe.json", function(data) {
+  $.getJSON("configs/yourConfig.json", function(data) {
     systemSettings = data.jsonSystemSettings
     //console.log("Updated location settings:", systemSettings);
     //console.log(slideSettings.order[0])
