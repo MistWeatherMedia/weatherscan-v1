@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- PRELOAD -->
+    <link rel="preload" as="style" href="weatherscan.css" />
+
+    <link rel="preload" as="style" href="utilities/mapbox-gl.css" />
+    <link rel="preload" as="script" href="utilities/mapbox-gl.js" />
+    <link rel="preload" as="script" href="utilities/mapbox-gl.js.map" />
+    <link rel="preload" as="style" href="utilities/maplibre-gl.css" />
+    <link rel="preload" as="script" href="utilities/maplibre-gl.js" />
+    <link rel="preload" as="script" href="utilities/maplibre-gl.js.map" />
+    <link rel="preload" as="script" href="utilities/jquery-3.7.1.min.js" />
+    <link rel="preload" as="script" href="utilities/jquery.marquee.min.js" />
+    <!--<link rel="preload" as="script" href="utilities/maps.css" />-->
+    <!--<link rel="preload" as="script" href="utilities/maps-web.min.js" />-->
+    <link rel="preload" as="script" href="js/jplayer/jquery.jplayer.min.js" />
+    <link rel="preload" as="script" href="js/date_fns.min.js" />
+    <link rel="preload" as="script" href="js/date_fns.min.js.map" />
+    <link rel="preload" as="script" href="js/config.js" />
+    <link rel="preload" as="script" href="js/extras.js" />
+    <link rel="preload" as="script" href="js/location.js" />
+    <link rel="preload" as="script" href="js/settingspanel.js" />
+    <!--<link rel="preload" as="script" href="js/radar.js" />-->
+    <link rel="preload" as="script" href="js/slides.js" />
+    <link rel="preload" as="script" href="js/loops.js" />
+    <link rel="preload" as="script" href="js/crawl.js" />
+    <link rel="preload" as="script" href="js/main.js" />
+    <link rel="preload" as="script" href="js/data.js" />
+    <link rel="preload" as="script" href="js/audio.js" />
+    <!--<link rel="preload" as="script" href="js/map.js" />-->
+
+    <meta charset="utf-8" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Weatherscan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="weatherscan.css" />
+    <script type="text/javascript" src="utilities/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="utilities/mapbox-gl.css"/>
+    <script type="text/javascript" src="utilities/maplibre-gl.js"></script>
+    <link href="utilities/maplibre-gl.css" rel="stylesheet"/>
+    <!--<link href="utilities/maps.css" rel="stylesheet"/>-->
+    <!--<script type="text/javascript" href="utilities/maps-web.min.js"></script>-->
+    <link  type="text/css" href="utilities/maps.css" rel="stylesheet" />
+    <script src="utilities/maps-web.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="utilities/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+    <script src="/js/date_fns.min.js"></script>
+    <script src="utilities/jquery.marquee.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/extras.js"></script>
+    <script type="text/javascript" src="js/location.js"></script>
+    <script type="text/javascript" src="js/settingspanel.js"></script>
+    <script type="text/javascript" src="js/radar.js"></script>
+    <script type="text/javascript" src="js/slides.js"></script>
+    <script type="text/javascript" src="js/loops.js"></script>
+    <script type="text/javascript" src="js/crawl.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/audio.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+
+    <div id="backplating"></div>
+    <div id="startup" style="display: none">
+      <img class="intellistarlogo" src="images/assets/istarLogo.png">
+      <div class="white"></div>
+      <div class="headendid shrinkY">headend Id: 019874</div>
+      <div class="serialnumber shrinkY">serial number: TWC501030018</div>
+      <div class="locationname shrinkY">location name:</div>
+      <div class="affiliatename shrinkY">affiliate name: </div>
+      <img id="startup-weatherscan-logo" style="display: none;" src="images/assets/wxScanLogo.png">
+      <img id="startup-twc-logo" style="display: none;" src="images/assets/twcLogo.png">
+    </div>
+
+    <div id="main">
+      <div class="udl shrinkY"></div>
+      <div class="normal-lowerarea">
+        <div class="upnext-ticker shrinkY"></div>
+        <div id="crawl-main">
+          <div class="crawl shrinkY"></div>
+          <div class="gradient"></div>
+        </div>
+      </div>
+      <div class="severe-lowerarea">
+        <div class="banner"></div>
+        <div class="alertheader shrinkY"></div>
+        <div id="crawl-severe">
+          <div class="crawl shrinkY"></div>
+          <div class="gradient"></div>
+        </div>
+      </div>
+      <div id="date-time" class="shrinkY"></div>
+      <div class="logobranding">
+        <img id="weatherscan-logo" src="images/assets/wxScanLogo.png">
+        <img id="twc-logo" src="images/assets/twcLogo.png">
+      </div>
+
+      <div id="slides">
+
+        <div id="slides-background"></div>
+
+        <div class="titletext shrinkY"></div>
+        <div class="headertext shrinkY"></div>
+        <div class="titlearrow"></div>
+
+        <div class="tempunavailable shrinkY" style="display: none;">Temporarily Unavailable</div>
+        <div class="noreport shrinkY" style="display: none;">No Report</div>
+        <div class="datanotavailable shrinkY" style="display: none;">Data Not Available</div>
+
+        <!--FORECAST-->
+        <div class="city-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <div class="bottombar" style="display: none;"></div>
+          <div class="bottomgradient" style="display: none;"></div>
+          <div class="scrollingtext" style="display: none;"></div>
+          <img class="wordmark" src="images/assets/wxScanLogo_large.png" style="display: none;">
+          <img class="logo" src="images/assets/twcLogo_Website.png" style="display: none;">
+          <div class="locationname shrinkY" style="display: none;">Cranford</div>
+          <img class="sidearc" src="images/assets/arc_sideyellow.png" style="display: none;">
+          <div class="topgradient" style="display: none;"></div>
+          <div class="toptext-one shrinkY" style="display: none;"></div>
+          <div class="toptext-two shrinkY" style="display: none;"></div>
+        </div>
+
+        <div class="upnext" style="display: none;">
+          <div class="background"></div>
+          <div class="bluefilter"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sideyellow.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="upnext-pre shrinkY" style="display: none;">Up Next...</div>
+          <div class="upnext-slot one shrinkY" style="display: none;"></div>
+          <div class="upnext-slot two shrinkY" style="display: none;"></div>
+          <div class="upnext-slot three shrinkY" style="display: none;"></div>
+          <div class="upnext-slot four shrinkY" style="display: none;"></div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+
+        <div class="bulletin" style="display: none;">
+          <div class="background"></div>
+          <div class="secondheader group shrinkY">FROM THE NATIONAL WEATHER SERVICE</div>
+          <div class="orangepanel group"></div>
+          <div class="cityname group shrinkY">Cranford Area</div>
+          <div class="alertsbox">
+            <div class="alerts group shrinkY">Gale Warning from 12PM EDT SAT until 6AM EDT SUN<br><br>Gale Warning from 12PM EDT SAT until 6AM EDT SUN<br><br>Gale Warning from 12PM EDT SAT until 6AM EDT SUN<br><br>Gale Warning from 12PM EDT SAT until 6AM EDT SUNGale Warning from 12PM EDT SAT until 6AM EDT SUN</div>
+          </div>
+        </div>
+
+        <div class="current-conditions" style="display: none">
+          <div class="panel left"></div>
+          <div class="labels shrinkY"></div>
+          <div class="data shrinkY"></div>
+          <div class="pressure shrinkY"></div>
+          <div class="panel right"></div>
+          <div class="icon largeicon"></div>
+          <div class="condition shrinkY"></div>
+          <div class="temperature shrinkY"></div>
+        </div>
+
+        <div class="nearby-cities" style="display: none;">
+          <div class="panel one"></div>
+          <div class="cityname one shrinkY"></div>
+          <div class="temperature one shrinkY"></div>
+          <div class="icon one smallicon"></div>
+          <div class="wind one shrinkY"></div>
+          <div class="no-report one shrinkY">No Report</div>
+          <div class="panel two"></div>
+          <div class="cityname two shrinkY"></div>
+          <div class="temperature two shrinkY"></div>
+          <div class="icon two smallicon"></div>
+          <div class="wind two shrinkY"></div>
+          <div class="no-report two shrinkY">No Report</div>
+          <div class="panel three"></div>
+          <div class="cityname three shrinkY"></div>
+          <div class="temperature three shrinkY"></div>
+          <div class="icon three smallicon"></div>
+          <div class="wind three shrinkY"></div>
+          <div class="no-report three shrinkY">No Report</div>
+          <div class="panel four"></div>
+          <div class="cityname four shrinkY"></div>
+          <div class="temperature four shrinkY"></div>
+          <div class="icon four smallicon"></div>
+          <div class="wind four shrinkY"></div>
+          <div class="no-report four shrinkY">No Report</div>
+        </div>
+        
+        <div class="doppler-radar" style="display: none;">
+          <div class="radar-legend" style="display: none;">
+            <div class="timestamp shrinkY">Past 3 Hours</div>
+            <div class="radar-legend-heavy shrinkY">Heavy</div>
+            <div class="radar-legend-bar"></div>
+            <div class="radar-legend-light shrinkY">Light</div>
+          </div>
+          <div id="radar-basemap" class="radar-shrink"></div>
+          <div id="sat-basemap" class="sat-shrink"></div>
+          <div id="sat-echoes" class="sat-shrink"></div>
+          <div id="sat-amenities" class="sat-shrink"></div>
+          <div id="radar-amenities" class="radar-shrink"></div>
+          <div class="icons" style="display: none;"></div>
+          <div class="cities" style="display: none;"></div>
+          
+          <div id="radar-echoes" class="radar-shrink"></div>
+
+          <div id="radar-amenities-trans" class="radar-shrink"></div>
+          <div class="icons-trans" style="display: none;"></div>
+          <div class="cities-trans" style="display: none;"></div>
+
+          <div class="radar-overlay"></div>
+          <img class="mapcorner yellow" src="images/assets/map_curve_yellow.png">
+          <img class="mapcorner severe" src="images/assets/map_curve_red.png">
+        </div>
+
+        <div class="local-forecast" style="display: none;">
+          <div class="panel"></div>
+          <div class="timetitle group shrinkY"></div>
+          <div class="forecast group shrinkY"></div>
+        </div>
+
+        <div class="daypart-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel"></div>
+          <div class="section one">
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section two">
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section three">
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section four">
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+        </div>
+
+        <div class="extended-forecast" style="display: none">
+          <div class="darkpanel"></div>
+          <div class="dividerpanel"></div>
+          <div class="brightpanel"></div>
+          <div class="column one">
+            <div class="panel top"></div>
+            <div class="panel bottom"></div>
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+          </div>
+          <div class="column two">
+            <div class="panel top"></div>
+            <div class="panel bottom"></div>
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+          </div>
+          <div class="column three">
+            <div class="panel top"></div>
+            <div class="panel bottom"></div>
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+          </div>
+          <div class="column four">
+            <div class="panel top"></div>
+            <div class="panel bottom"></div>
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+          </div>
+          <div class="column five">
+            <div class="panel top"></div>
+            <div class="panel bottom"></div>
+            <div class="time shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="condition shrinkY"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+          </div>
+          <div class="verticaldividerpanel one"></div>
+          <div class="verticaldividerpanel two"></div>
+          <div class="verticaldividerpanel three"></div>
+          <div class="verticaldividerpanel four"></div>
+        </div>
+
+        <div class="almanac" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel dimmerpanel"></div>
+          <div class="purplepanel"></div>
+          <div class="day shrinkY"></div>
+          <div class="averagetitle shrinkY">Average</div>
+          <div class="atexth shrinkY">High</div>
+          <div class="atextl shrinkY">Low</div>
+          <div class="ahigh shrinkY"></div>
+          <div class="alow shrinkY"></div>
+          <div class="recordtitle shrinkY">Record</div>
+          <div class="rtexth shrinkY">High</div>
+          <div class="rtextl shrinkY">Low</div>
+          <div class="rhigh shrinkY"></div>
+          <div class="rlow shrinkY"></div>
+          <div class="rhighyear shrinkY"></div>
+          <div class="rlowyear shrinkY"></div>
+          <div class="sunrisetitle shrinkY">Sunrise</div>
+          <div class="sunsettitle shrinkY">Sunset</div>
+          <div class="sunrise shrinkY"></div>
+          <div class="sunset shrinkY"></div>
+          <div class="column one">
+            <div class="phase shrinkY"></div>
+            <div class="icon"></div>
+            <div class="date shrinkY"></div>
+          </div>
+          <div class="column two">
+            <div class="phase shrinkY"></div>
+            <div class="icon"></div>
+            <div class="date shrinkY"></div>
+          </div>
+          <div class="column three">
+            <div class="phase shrinkY"></div>
+            <div class="icon"></div>
+            <div class="date shrinkY"></div>
+          </div>
+          <div class="column four">
+            <div class="phase shrinkY"></div>
+            <div class="icon"></div>
+            <div class="date shrinkY"></div>
+          </div>
+        </div>
+        <!--TRAFFIC-->
+        <div class="traffic-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sidetraffic.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Traffic Report</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+
+        <div class="traffic-overview" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="clear box"></div>
+          <div class="clear text shrinkY">Clear</div>
+          <div class="moderate box"></div>
+          <div class="moderate text shrinkY">Moderate</div>
+          <div class="heavy box"></div>
+          <div class="heavy text shrinkY">Heavy</div>
+          <div class="unavailable box"></div>
+          <div class="unavailable text shrinkY">Unavailable</div>
+          <div class="panel"></div>
+          <div class="trafmap-container">
+            <div id="trafmap"></div>
+          </div>
+          <div class="trafficcredit shrinkY">Traffic from: Traffic Pulse</div>
+        </div>
+
+        <div class="traffic-report" style="display: none">
+          <div class="darkpanel top"></div>
+          <div class="panel top dimmerpanel"></div>
+          <div class="darkpanel bottom bottomgroup"></div>
+          <div class="panel bottom bottomgroup dimmerpanel"></div>
+          <div class="panel full bottom dimmerpanel" style="display: none;"></div>
+          <div class="incident top shrinkY"></div>
+          <div class="intensity top shrinkY"></div>
+          <div class="intensitycover top shrinkY"></div>
+          <div class="description top shrinkY"></div>
+          <div class="incident bottom bottomgroup shrinkY"></div>
+          <div class="intensity bottom bottomgroup shrinkY"></div>
+          <div class="intensitycover bottom bottomgroup shrinkY"></div>
+          <div class="description bottom bottomgroup shrinkY"></div>
+          <div class="trafficcredit shrinkY">Traffic from: Traffic Pulse</div>
+        </div>
+
+        <div class="traffic-flow" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel one">
+            <div class="lbpanel one"></div>
+            <div class="routeicon fullgroup"></div>
+            <div class="description fullgroup shrinkY"></div>
+            <div class="trafficflow fullgroup shrinkY"></div>
+            <div class="mph mingroup fullgroup shrinkY">MPH</div>
+            <div class="trafficflowcover fullgroup shrinkY"></div>
+            <div class="triptime mingroup fullgroup shrinkY"></div>
+            <div class="min mingroup fullgroup shrinkY">MIN</div>
+          </div>
+          <div class="panel two">
+            <div class="lbpanel two"></div>
+            <div class="routeicon fullgroup"></div>
+            <div class="description fullgroup shrinkY"></div>
+            <div class="trafficflow fullgroup shrinkY"></div>
+            <div class="mph mingroup fullgroup shrinkY">MPH</div>
+            <div class="trafficflowcover fullgroup shrinkY"></div>
+            <div class="triptime mingroup fullgroup shrinkY"></div>
+            <div class="min mingroup fullgroup shrinkY">MIN</div>
+          </div>
+          <div class="panel three">
+            <div class="lbpanel three"></div>
+            <div class="routeicon fullgroup"></div>
+            <div class="description fullgroup shrinkY"></div>
+            <div class="trafficflow fullgroup shrinkY"></div>
+            <div class="mph mingroup fullgroup shrinkY">MPH</div>
+            <div class="trafficflowcover fullgroup shrinkY"></div>
+            <div class="triptime mingroup fullgroup shrinkY"></div>
+            <div class="min mingroup fullgroup shrinkY">MIN</div>
+          </div>
+          <div class="trafficcredit shrinkY">Traffic from: Traffic Pulse</div>
+          <div class="trafficheader shrinkY">TRAFFIC</div>
+          <div class="timeheader shrinkY">TRIP TIME</div>
+        </div>
+        <!--TRAVEL-->
+        <div class="travel-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sideairport.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Travel Forecast</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+
+        <div class="travel-weather" style="display: none;">
+          <div id="travel-weather-map" style="display: none;"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_airport.png">
+          <div class="legend" style="display: none;">
+            <div class="snow text shrinkY">Snow</div>
+            <div class="snow box"></div>
+            <div class="mix text shrinkY">Mix</div>
+            <div class="mix box"></div>
+            <div class="icy text shrinkY">Icy</div>
+            <div class="icy box"></div>
+            <div class="sct text shrinkY">Sct</div>
+            <div class="sct box"></div>
+            <div class="rain text shrinkY">Rain</div>
+            <div class="rain box"></div>
+          </div>
+        </div>
+
+        <div class="travel-forecast" style="display: none;">
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_airport.png">
+          <div class="basemap"></div>
+          <div class="map-borders" style="display: none;"></div>
+          <div class="cities" style="display: none;"></div>
+        </div>
+
+        <div class="destination-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="daytitle one shrinkY"></div>
+          <div class="daytitle two shrinkY"></div>
+          <div class="daytitle three shrinkY"></div>
+          <div class="panel one">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+          <div class="panel two">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+          <div class="panel three">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+        </div>
+        <!--AIRPORT-->
+        <div class="airport-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sideairport.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Airport Conditions</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+
+        <div class="airport-conditions" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="airportname shrinkY"></div>
+          <div class="panel top dimmerpanel"></div>
+          <div class="panel bottom dimmerpanel"></div>
+          <div class="panel right dimmerpanel"></div>
+          <div class="arrivals">
+            <div class="title shrinkY">Arrivals</div>
+            <div class="delaytitle shrinkY">DELAY</div>
+            <div class="delay shrinkY"></div>
+            <div class="reasontitle shrinkY">REASON</div>
+            <div class="reason shrinkY"></div>
+          </div>
+          <div class="departures">
+            <div class="title shrinkY">Departures</div>
+            <div class="delaytitle shrinkY">DELAY</div>
+            <div class="delay shrinkY"></div>
+            <div class="reasontitle shrinkY">REASON</div>
+            <div class="reason shrinkY"></div>
+          </div>
+          <div class="source shrinkY">Source: FAA</div>
+          <div class="icon mediumicon"></div>
+          <div class="condition shrinkY"></div>
+          <div class="temperature shrinkY"></div>
+        </div>
+
+        <div class="national-airports" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="temptitle shrinkY">TEMP</div>
+          <div class="delaytitle shrinkY">DELAY</div>
+          <div class="panel dimmerpanel"></div>
+          <div class="source shrinkY">Source: FAA</div>
+          <div class="airport one shrinkY"></div>
+          <div class="temperature one shrinkY"></div>
+          <div class="icon one smallicon"></div>
+          <div class="delay one shrinkY"></div>
+          <div class="airport two shrinkY"></div>
+          <div class="temperature two shrinkY"></div>
+          <div class="icon two smallicon"></div>
+          <div class="delay two shrinkY"></div>
+          <div class="airport three shrinkY"></div>
+          <div class="temperature three shrinkY"></div>
+          <div class="icon three smallicon"></div>
+          <div class="delay three shrinkY"></div>
+          <div class="airport four shrinkY"></div>
+          <div class="temperature four shrinkY"></div>
+          <div class="icon four smallicon"></div>
+          <div class="delay four shrinkY"></div>
+        </div>
+        <!--INTERNATIONAL-->
+        <div class="international-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sideinternational.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">International Forecast</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="international-map" style="display: none;">
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_international.png">
+          <div class="dayname shrinkY"></div>
+          <div class="map canada"></div>
+          <div class="cities canada">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city six">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city seven">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map mexico"></div>
+          <div class="cities mexico">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map caribbean"></div>
+          <div class="cities caribbean">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map southamerica"></div>
+          <div class="cities southamerica">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map britain"></div>
+          <div class="cities britain">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map europe"></div>
+          <div class="cities europe">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city six">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city seven">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map africa"></div>
+          <div class="cities africa">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city six">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map india"></div>
+          <div class="cities india">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map eastasia"></div>
+          <div class="cities eastasia">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map oceania"></div>
+          <div class="cities oceania">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city six">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+          <div class="map australia"></div>
+          <div class="cities australia">
+            <div class="city zero">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city one">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city two">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city three">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city four">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+            <div class="city five">
+              <div class="cityname shrinkY"></div>
+              <div class="temperature shrinkY"></div>
+              <div class="icon mapicon"></div>
+            </div>
+          </div>
+        </div>
+        <div class="international-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="daytitle one shrinkY"></div>
+          <div class="daytitle two shrinkY"></div>
+          <div class="daytitle three shrinkY"></div>
+          <div class="panel one">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+          <div class="panel two">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+          <div class="panel three">
+            <div class="cityname shrinkY"></div>
+            <div class="day one">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day two">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+            <div class="day three">
+              <div class="icon smallicon"></div>
+              <div class="high shrinkY"></div>
+              <div class="low shrinkY"></div>
+            </div>
+          </div>
+        </div>
+        <!--GOLF-->
+        <div class="golf-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sidegolf.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Golf Forecast</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="teetime" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel dimmerpanel"></div>
+          <div class="section one">
+            <div class="time shrinkY"></div>
+            <div class="dayname shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section two">
+            <div class="time shrinkY"></div>
+            <div class="dayname shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section three">
+            <div class="time shrinkY"></div>
+            <div class="dayname shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section four">
+            <div class="time shrinkY"></div>
+            <div class="dayname shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+          <div class="section five">
+            <div class="time shrinkY"></div>
+            <div class="dayname shrinkY"></div>
+            <div class="icon smallicon"></div>
+            <div class="bar"></div>
+            <div class="temperature shrinkY"></div>
+            <div class="wind shrinkY"></div>
+          </div>
+        </div>
+        <div class="golf-index" style="display: none;">
+          <div class="data-map" id="golf-index-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend" style="display: none;">
+            <div class="day shrinkY">Tuesday</div>
+            <div class="good shrinkY">10 Excellent</div>
+            <div class="gradient"></div>
+            <div class="poor shrinkY">Very Poor 0</div>
+          </div>
+        </div>
+        <div class="course-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel first dimmerpanel"></div>
+          <div class="panel second dimmerpanel"></div>
+          <div class="panel third dimmerpanel"></div>
+          <div class="purplepanel first"></div>
+          <div class="purplepanel second"></div>
+          <div class="purplepanel third"></div>
+          <div class="coursename shrinkY"></div>
+          <div class="indextitle shrinkY">Golf Index</div>
+          <div class="section one">
+            <div class="dayname shrinkY"></div>
+            <div class="icon mediumicon"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+            <div class="wind shrinkY"></div>
+            <div class="index shrinkY"></div>
+            <div class="bar"></div>
+            <div class="arrow"></div>
+          </div>
+          <div class="section two">
+            <div class="dayname shrinkY"></div>
+            <div class="icon mediumicon"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+            <div class="wind shrinkY"></div>
+            <div class="index shrinkY"></div>
+            <div class="bar"></div>
+            <div class="arrow"></div>
+          </div>
+          <div class="section three">
+            <div class="dayname shrinkY"></div>
+            <div class="icon mediumicon"></div>
+            <div class="high shrinkY"></div>
+            <div class="low shrinkY"></div>
+            <div class="wind shrinkY"></div>
+            <div class="index shrinkY"></div>
+            <div class="bar"></div>
+            <div class="arrow"></div>
+          </div>
+        </div>
+        <div class="golf-promo" style="display: none;">
+          <img class="promo" src="images/assets/golf_promo.png">
+          <div class="promotext shrinkY">Check the forecast for any<br>golf course in the U.S.<br>at weather.com/golf</div>
+        </div>
+        <!--HEALTH-->
+        <div class="health-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sidehealth.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Weather & Your Health</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="outdoor-activity" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="panel right dimmerpanel"></div>
+          <div class="darkheader one"></div>
+          <div class="darkheader two"></div>
+          <div class="darkheader three"></div>
+          <div class="dayname shrinkY"></div>
+          <div class="icon largeicon"></div>
+          <div class="lowlabel shrinkY">Low</div>
+          <div class="low shrinkY"></div>
+          <div class="highlabel shrinkY">High</div>
+          <div class="high shrinkY"></div>
+          <div class="feelslike shrinkY"></div>
+          <div class="preciplabel shrinkY">Chance of Precipitation</div>
+          <div class="precip shrinkY"></div>
+          <div class="humiditylabel shrinkY">Humidity</div>
+          <div class="humidity shrinkY"></div>
+          <div class="windlabel shrinkY">Wind</div>
+          <div class="wind shrinkY"></div>
+        </div>
+        <div class="allergy-report" style="display: none;">
+          <div class="darkpanel left"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="darkpanel right count"></div>
+          <div class="panel right count dimmerpanel"></div>
+          <div class="panel right moreinfo dimmerpanel"></div>
+          <div class="dayname shrinkY"></div>
+          <div class="tree shrinkY">Tree Pollen</div>
+          <div class="treetype shrinkY">Oak</div>
+          <div class="bar one"></div>
+          <div class="arrow one"></div>
+          <div class="grass shrinkY">Grass Pollen</div>
+          <div class="bar two"></div>
+          <div class="arrow two"></div>
+          <div class="ragweed shrinkY">Ragweed</div>
+          <div class="bar three"></div>
+          <div class="arrow three"></div>
+          <div class="mold shrinkY">Mold Spores</div>
+          <div class="bar four"></div>
+          <div class="arrow four"></div>
+          <div class="none shrinkY">None</div>
+          <div class="veryhigh shrinkY">Very High</div>
+          <div class="counttitle count shrinkY">Total<br>Pollen Count</div>
+          <div class="pollencount count shrinkY"></div>
+          <div class="pollencategory count shrinkY"></div>
+          <div class="ad moreinfo shrinkY">More allergy<br>information at<br>weather.com/<br>health</div>
+        </div>
+        <div class="health-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel top"></div>
+          <div class="panel bottom"></div>
+          <div class="dayname shrinkY">Wednesday</div>
+          <div class="achestitle shrinkY">Aches and Pains Index</div>
+          <div class="achesdesc shrinkY">Potential for feeling aches and pains based on weather conditions.</div>
+          <div class="bar one"></div>
+          <div class="arrow one"></div>
+          <div class="index one shrinkY"></div>
+          <div class="resptitle shrinkY">Respiratory Index</div>
+          <div class="respdesc shrinkY">Weather's influence on breathing conditions, excluding pollen or<br>‏‏‎ ‎air quality.</div>
+          <div class="bar two"></div>
+          <div class="arrow two"></div>
+          <div class="index two shrinkY"></div>
+        </div>
+        <div class="air-quality" style="display: none;">
+          <div class="darkpanel left"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="darkpanel right"></div>
+          <div class="panel right dimmerpanel"></div>
+          <div class="dayname shrinkY"></div>
+          <div class="box purple"></div>
+          <div class="box red"></div>
+          <div class="box orange"></div>
+          <div class="box yellow"></div>
+          <div class="box green"></div>
+          <div class="arrow"></div>
+          <div class="index shrinkY"></div>
+          <div class="pcp shrinkY">Primary<br>Contributing Pollutant</div>
+          <div class="pollutant shrinkY"></div>
+          <img class="ozone-action" src="images/assets/ozoneActionLogo.png">
+          <div class="source shrinkY">Source: EPA</div>
+        </div>
+        <div class="uv-index" style="display: none;">
+          <div class="panel white"></div>
+          <div class="darkpanel"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="panel right dimmerpanel"></div>
+          <img class="raysawareness" src="images/assets/raysLogo.png">
+          <div class="currentgroup">
+            <div class="currently shrinkY">Currently</div>
+            <div class="bar current"></div>
+            <div class="index current shrinkY"></div>
+            <div class="description current shrinkY"></div>
+          </div>
+          <div class="fcstgroup">
+            <div class="time one shrinkY"></div>
+            <div class="time two shrinkY"></div>
+            <div class="time three shrinkY"></div>
+            <div class="day one shrinkY"></div>
+            <div class="day two shrinkY"></div>
+            <div class="day three shrinkY"></div>
+            <div class="bar one"></div>
+            <div class="index one shrinkY"></div>
+            <div class="description one shrinkY"></div>
+            <div class="bar two"></div>
+            <div class="index two shrinkY"></div>
+            <div class="description two shrinkY"></div>
+            <div class="bar three"></div>
+            <div class="index three shrinkY"></div>
+            <div class="description three shrinkY"></div>
+          </div>
+          <div class="refbar"></div>
+          <div class="high shrinkY">10+</div>
+          <div class="middle shrinkY">5</div>
+          <div class="low shrinkY">0</div>
+          <div class="uvunavailable shrinkY">Temporarily Unavailable</div>
+        </div>
+        <div class="health-tip" style="display: none;">
+          <div class="panel white"></div>
+          <div class="panel bottom dimmerpanel"></div>
+          <img class="raysawareness" src="images/assets/raysLogo.png">
+          <div class="healthtip shrinkY"></div>
+          <div class="source shrinkY">The American Cancer Society's Cancer Facts and Figures and The Centers for Disease Control</div>
+        </div>
+        <div class="health-promo" style="display: none;">
+          <img class="promo" src="images/assets/health_promo.png">
+          <div class="promotext shrinkY">For more on weather and your health,<br>tune to The Weather Channel or go<br>to weather.com/health</div>
+        </div>
+        <!--GARDEN-->
+        <div class="garden-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sidegolf.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Garden</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="garden-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="panel right dimmerpanel"></div>
+          <div class="darkheader one"></div>
+          <div class="darkheader two"></div>
+          <div class="darkheader three"></div>
+          <div class="dayname shrinkY"></div>
+          <div class="icon mediumicon"></div>
+          <div class="lowtitle shrinkY">LOW</div>
+          <div class="low shrinkY"></div>
+          <div class="hightitle shrinkY">HIGH</div>
+          <div class="high shrinkY"></div>
+          <div class="preciptitle shrinkY">Chance of Precip</div>
+          <div class="precip shrinkY"></div>
+          <div class="wateringheader shrinkY">Watering Needs Index</div>
+          <div class="box one shrinkY">1</div>
+          <div class="box two shrinkY">2</div>
+          <div class="box three shrinkY">3</div>
+          <div class="box four shrinkY">4</div>
+          <div class="box five shrinkY">5</div>
+          <div class="box six shrinkY">6</div>
+          <div class="box seven shrinkY">7</div>
+          <div class="box eight shrinkY">8</div>
+          <div class="box nine shrinkY">9</div>
+          <div class="box ten shrinkY">10</div>
+          <div class="arrow"></div>
+          <div class="index shrinkY"></div>
+          <div class="covertitle shrinkY">Cloud Cover</div>
+          <div class="cloudcover shrinkY"></div>
+        </div>
+        <div class="estimated-precip" style="display: none;">
+          <div class="data-map" id="estimated-precip-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend" style="display: none;">
+            <div class="timestamp shrinkY">Past 24 Hours</div>
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="number one shrinkY">.25</div>
+            <div class="number two shrinkY">1</div>
+            <div class="number three shrinkY">3</div>
+            <div class="number four shrinkY">6</div>
+            <div class="number five shrinkY">10+</div>
+            <div class="label shrinkY">(in.)</div>
+          </div>
+        </div>
+        <div class="precip-forecast" style="display: none;">
+          <div class="data-map" id="precip-forecast-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend" style="display: none;">
+            <div class="timestamp shrinkY"></div>
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+            <div class="box seven"></div>
+            <div class="number one shrinkY">12+</div>
+            <div class="number two shrinkY">6-12</div>
+            <div class="number three shrinkY">3-6</div>
+            <div class="number four shrinkY">1-3</div>
+            <div class="number five shrinkY">1</div>
+            <div class="number six shrinkY">.5</div>
+            <div class="number seven shrinkY">.1</div>
+            <div class="label shrinkY">(in.)</div>
+          </div>
+        </div>
+        <div class="drought-monitor" style="display: none;">
+          <div class="data-map" id="drought-monitor-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend" style="display: none;">
+            <div class="exceptional shrinkY">Excessively<br>Dry</div>
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+            <div class="dry shrinkY">Extremely<br>Moist</div>
+            <div class="timestamp shrinkY"></div>
+          </div>
+        </div>
+        <div class="frost-freeze" style="display: none;">
+          <div class="data-map" id="frost-freeze-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend">
+            <div class="timestamp shrinkY"></div>
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="freeze shrinkY">Freeze</div>
+            <div class="frost shrinkY">Frost</div>
+          </div>
+        </div>
+        <div class="garden-promo" style="display: none;">
+          <img class="promo" src="images/assets/garden_promo.png">
+          <div class="promotext shrinkY">For more information on weather<br>and your lawn and garden,<br>go to weather.com/garden.</div>
+        </div>
+        <!--SKI-->
+        <div class="ski-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sideski.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Ski & Snow</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="ski-report" style="display: none;">
+          <div class="darkpanel one"></div>
+          <div class="panel one dimmerpanel"></div>
+          <div class="darkpanel two"></div>
+          <div class="panel two dimmerpanel"></div>
+          <div class="darkpanel three"></div>
+          <div class="panel three dimmerpanel"></div>
+          <div class="resortname one shrinkY">Vail, CO</div>
+          <div class="status one shrinkY">Open - 245 Trails</div>
+          <div class="newtitle one shrinkY">NEW SNOW</div>
+          <div class="newsnow one shrinkY">2"</div>
+          <div class="basetitle one shrinkY">BASE SNOW</div>
+          <div class="basesnow one shrinkY">44 - 44"</div>
+          <div class="type one shrinkY">Machine Groomed</div>
+          <div class="resortname two shrinkY">Jackson Hole, WY</div>
+          <div class="status two shrinkY">Open - 75 Trails</div>
+          <div class="newtitle two shrinkY">NEW SNOW</div>
+          <div class="newsnow two shrinkY">7"</div>
+          <div class="basetitle two shrinkY">BASE SNOW</div>
+          <div class="basesnow two shrinkY">17 - 61"</div>
+          <div class="type two shrinkY">Powder</div>
+          <div class="resortname three shrinkY">Aspen Highlands, CO</div>
+          <div class="status three shrinkY">Open - 107 Trails</div>
+          <div class="newtitle three shrinkY">NEW SNOW</div>
+          <div class="newsnow three shrinkY">0"</div>
+          <div class="basetitle three shrinkY">BASE SNOW</div>
+          <div class="basesnow three shrinkY">32 - 42"</div>
+          <div class="type three shrinkY">Packed Powder</div>
+        </div>
+        <div class="snowfall-forecast" style="display: none;">
+          <div class="data-map" id="snowfall-forecast-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_ski.png">
+          <div class="legend" style="display: none;">
+            <div class="timestamp shrinkY">Through Saturday Evening</div>
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="number one shrinkY">12+</div>
+            <div class="number two shrinkY">6-12</div>
+            <div class="number three shrinkY">3-6</div>
+            <div class="number four shrinkY">1-3</div>
+            <div class="label shrinkY">(in.)</div>
+          </div>
+        </div>
+        <div class="ski-tip" style="display: none;">
+          <div class="panel white"></div>
+          <div class="panel bottom dimmerpanel"></div>
+          <img class="raysawareness" src="images/assets/raysLogo.png">
+          <div class="skitip shrinkY"></div>
+          <div class="source shrinkY">The American Cancer Society's Cancer Facts and Figures and The Centers for Disease Control</div>
+        </div>
+        <!--BOAT AND BEACH-->
+        <div class="beach-intro" style="display: none;">
+          <div class="background"></div>
+          <div class="circle-one circlegroup"></div>
+          <div class="circle-two circlegroup"></div>
+          <div class="circle-three circlegroup"></div>
+          <img class="sidearc" src="images/assets/arc_sidegolf.png">
+          <div class="scrollingtext" style="display: none;"></div>
+          <div class="intro-title shrinkY" style="display: none;">Boat & Beach</div>
+          <div class="topbar"></div>
+          <div class="bottombar"></div>
+        </div>
+        <div class="surf-report" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel left dimmerpanel"></div>
+          <div class="panel right dimmerpanel"></div>
+          <div class="locationname shrinkY"></div>
+          <div class="windtitle shrinkY">Wind</div>
+          <div class="wind shrinkY"></div>
+          <div class="periodtitle shrinkY">Wave Period</div>
+          <div class="waveperiod shrinkY"></div>
+          <div class="temptitle shrinkY">Surface Water Temperature</div>
+          <div class="tempbar"></div>
+          <div class="tempnumbers one shrinkY">30</div>
+          <div class="tempnumbers two shrinkY">40</div>
+          <div class="tempnumbers three shrinkY">50</div>
+          <div class="tempnumbers four shrinkY">60</div>
+          <div class="tempnumbers five shrinkY">70</div>
+          <div class="tempnumbers six shrinkY">80</div>
+          <div class="tempnumbers seven shrinkY">90</div>
+          <div class="arrow"></div>
+          <div class="temp shrinkY"></div>
+          <div class="wavetitle shrinkY">Average<br>Wave Height</div>
+          <div class="wavebar"></div>
+          <div class="wavenum shrinkY"></div>
+          <div class="feet shrinkY"></div>
+        </div>
+        <div class="water-temps" style="display: none;">
+          <div class="data-map" id="water-temps-map"></div>
+          <div class="overlay"></div>
+          <img class="mapcorner" src="images/assets/map_curve_green.png">
+          <div class="legend" style="display: none;">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+            <div class="number one shrinkY">80</div>
+            <div class="number two shrinkY">70</div>
+            <div class="number three shrinkY">60</div>
+            <div class="number four shrinkY">50</div>
+            <div class="number five shrinkY">40</div>
+            <div class="number six shrinkY">30</div>
+          </div>
+        </div>
+        <div class="coastal-forecast" style="display: none;">
+          <div class="darkpanel"></div>
+          <div class="panel dimmerpanel"></div>
+          <div class="nws shrinkY">FROM THE NATIONAL WEATHER SERVICE</div>
+          <div class="coastbox">
+            <div class="advisory shrinkY"></div>
+            <div class="forecast shrinkY"></div>
+          </div>
+        </div>
+        <div class="tides" style="display: none;">
+          <div class="panel one dimmerpanel"></div>
+          <div class="panel two dimmerpanel"></div>
+          <div class="panel three dimmerpanel"></div>
+          <div class="hightitle shrinkY">HIGH TIDE</div>
+          <div class="lowtitle shrinkY">LOW TIDE</div>
+          <div class="locationname one shrinkY">Atlantic City, Ocean</div>
+          <div class="hightide one shrinkY">10:51 pm Mon<br>11:25 am Tue</div>
+          <div class="lowtide one shrinkY">5:27 am Tue<br>5:18 pm Tue</div>
+          <div class="locationname two shrinkY">Ventnor City, Ocean Pier</div>
+          <div class="hightide two shrinkY">10:49 pm Mon<br>11:23 am Tue</div>
+          <div class="lowtide two shrinkY">5:25 am Tue<br>5:16 pm Tue</div>
+          <div class="alamanaclocation shrinkY">Atlantic City</div>
+          <div class="sunrisetitle shrinkY">Sunrise</div>
+          <div class="sunrise shrinkY">5:33 am Tue</div>
+          <div class="sunsettitle shrinkY">Sunset</div>
+          <div class="sunset shrinkY">8:18 pm Mon</div>
+        </div>
+        <!--SEVERE-->
+        <div class="severe-message" style="display: none;">
+          <img class="image" src="images/assets/sev_wx_statement.png">
+          <div class="text shrinkY"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

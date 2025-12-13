@@ -1,0 +1,7540 @@
+@font-face {
+  font-family: Frutiger;
+  src: url(fonts/Frutiger_Roman.woff) format("woff");
+  font-style: normal
+}
+
+@font-face {
+  font-family: Frutiger;/*bold*/
+  src: url(fonts/Frutiger_Bold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Frutiger Bold Cn';
+  src: url(fonts/Frutiger_Bold_Cond.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Frutiger Black';
+  src: url(fonts/Frutiger_Black.woff) format("woff");
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Frutiger BQ';
+  src: url(fonts/Frutiger_Black_Cond.woff) format("woff");
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Frutiger Bold Italic';
+  src: url(fonts/Frutiger_Bold_Italic.woff) format("woff");
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Interstate';
+  src: url(fonts/Interstate-Regular.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Interstate';/*bold*/
+  src: url(fonts/Interstate-Bold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Interstate Black Cn';
+  src: url(fonts/Interstate-BlackCondensed.woff) format("woff");
+  font-style: normal;
+}
+a,
+body,
+div,
+h1,
+html,
+p {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1px;
+  color: #ebebeb;
+  font-style: normal;
+  font-family: "Frutiger";
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+html * {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+body,
+html {
+  height: 100%;
+  background-color: #000;
+  font-size: 100%;
+}
+/* BUTTONS AND UTILITIES*/
+button {
+    background-color: #000;
+    border-radius: 15px;
+    color: #ffd40e;
+    font-weight: 700;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+#backplating {
+  position: absolute;
+  height: 1080px;
+  width: 1620px;
+  background-color: #111011;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  will-change: transform;
+}
+/*SETTINGS PANEL*/
+#json-load {
+    position: absolute;
+    height: 1080px;
+    width: 1620px;
+    background-color: #111011;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+}
+#json-load a {
+  color:#16bfdd;
+}
+.jsontexts {
+    position: absolute;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    top: 300px;
+}
+button#templateDownload {
+    position: absolute;
+    top: 400px;
+    left: 700px;
+    font-size: 40px;
+}
+button#exampleDownload {
+    position: absolute;
+    top: 400px;
+    left: 1119px;
+    font-size: 40px;
+}
+.upload-container {
+    position: absolute;
+    top: 400px;
+    left: 300px;
+}
+input#fileInput {
+    font-size: 31px;
+}
+button#uploadButton {
+    position: absolute;
+    font-size: 40px;
+    top: 60px;
+    width: 351px;
+    left: 0px;
+}
+button.start-button {
+    position: absolute;
+    display: flex;
+    top: 550px;
+    font-size: 50px;
+}
+img#mist-logo {
+    position: absolute;
+    height: 200px;
+    top: 50px;
+}
+.jsonsupport {
+    position: absolute;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    top: 650px;
+}
+.json-warning {
+    position: absolute;
+    z-index: 50;
+    color: #ff4040;
+    background-color: #000000a0;
+    padding: 16px;
+    font-size: 24px;
+    top: 470px;
+}
+.json-valid {
+    position: absolute;
+    z-index: 50;
+    color: greenyellow;
+    background-color: #000000a0;
+    padding: 16px;
+    font-size: 24px;
+    top: 470px;
+}
+/*END OF SETTINGS PANEL*/
+#startup {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  background-color: #111011;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+#startup-ref {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#startup .intellistarlogo {
+    position: absolute;
+    height: 538px;
+    margin-top: 270px;
+    z-index: 5;
+}
+#startup .white {
+  position: absolute;
+  top: 0px;
+  height: 854px;
+  width: 100%;
+  background-color: #d9d8d8;
+}
+#startup .headendid {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    bottom: 174px;
+    left: 154px;
+    font-size: 34px;
+}
+#startup .serialnumber {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    bottom: 136px;
+    left: 154px;
+    font-size: 34px;
+}
+#startup .locationname {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    bottom: 102px;
+    left: 154px;
+    font-size: 34px;
+}
+#startup .affiliatename {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    bottom: 64px;
+    left: 154px;
+    font-size: 34px;
+}
+@keyframes weatherscanintroslide {
+  100% {right: 347px;}
+}
+#startup #startup-weatherscan-logo {
+    position: absolute;
+    z-index: 10;
+    bottom: 100px;
+    right: 173px;
+    height: 41px;
+    animation: weatherscanintroslide 0.25s linear normal forwards;
+}
+#startup #startup-twc-logo {
+    position: absolute;
+    bottom: 101px;
+    right: 166px;
+    height: 87px;
+    z-index: 1;
+}
+#main {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  width: 1620px;
+  height: 1080px;
+  will-change: transform;
+}
+#date-time {
+    position: absolute;
+    z-index: 3;
+    font-family: 'Frutiger';
+    font-size: 43px;
+    bottom: 153px;
+    font-weight: bold;
+    right: 347px;
+    white-space: pre;
+    text-align: right;
+}
+.provider {
+    position: absolute;
+    bottom: 934px;
+    /*height: 54px;*/
+    right: 157px;
+    z-index: 10;
+    display: none;
+    scale: 1.4;
+    transform-origin: bottom right;
+    transform: scale(1.4);
+}
+.adArea {
+    position: absolute;
+    bottom: 934px;
+    /*height: 54px;*/
+    right: 157px;
+    z-index: 10;
+    display: none;
+    scale: 1.4;
+    transform-origin: bottom right;
+}
+#weatherscan-logo {
+  position: absolute;
+  z-index: 10;
+  bottom: 100px;
+  right: 347px;
+  height: 41px;
+}
+#twc-logo {
+  position: absolute;
+  bottom: 101px;
+  right: 166px;
+  height: 87px;
+  z-index: 10;
+}
+#slides {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  overflow: hidden;
+}
+#slides-background {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  background: url(images/backgrounds/core_bg.png);
+  background-size: 100% 100%;
+}
+.skeleton {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  z-index: 1;
+}
+.slide-data {
+  position: absolute;
+  z-index: 1;
+  width: 1620px;
+  height: 1080px;
+}
+/*
+#slides * {
+  z-index: 1;
+}*/
+.tempunavailable {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 511px;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 74px;
+    text-align: center;
+    z-index: 10;
+}
+.noreport {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 503px;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 75px;
+    text-align: center;
+    z-index: 10;
+}
+.datanotavailable {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 503px;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 75px;
+    text-align: center;
+    z-index: 10;
+}
+/*FORECAST*/
+.panel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/middle_blue.png);
+  background-size: 1458px, 614px;
+}
+.dimmerpanel {
+  background: url(images/assets/middle_darkblue.png) !important;
+  background-size: 1458px, 614px !important;
+}
+.darkpanel {
+  position: absolute;
+  width: 1458px;
+  height: 49px;
+  background: url(images/assets/middle_darkerpurple.png);
+  background-size: 1458px, 614px;
+}
+.brightpanel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/middle_bluehighlight.png);
+  background-size: 1458px, 614px;
+}
+.dividerpanel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/middle_darkblue.png);/*background: url(images/assets/middle_purple.png);*/
+  background-size: 1458px, 614px;
+}
+.verticaldividerpanel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/middle_darkerpurple.png);
+  background-size: 1458px, 614px;
+}
+.purplepanel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/bottom_purple.png);
+  background-size: 1458px, 614px;
+}
+.orangepanel {
+  position: absolute;
+  width: 1458px;
+  height: 614px;
+  background: url(images/assets/middle_red.png);
+  background-size: 1458px, 614px;
+}
+.smallicon {
+  width: 168.75px !important;
+  height: 153px !important;
+}
+.mapicon {
+  width: 168.75px !important;
+  height: 153px !important;
+}
+.mediumicon {
+  width: 258.75px !important;
+  height: 234px !important;
+}
+.largeicon {
+  width: 312.75px !important;
+  height: 281.25px !important;
+}
+.shrinkY {
+  transform: scaleY(0.91);
+  text-shadow: #141414  2px 4px 1px;
+  transform-origin: top;
+}
+.titletext {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    z-index: 3;
+    font-size: 61px;
+    top: 159px;
+    left: 199px;
+}
+.headertext {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 45px;
+    z-index: 3;
+    text-align: right;
+    top: 166px;
+    right: 225px;
+}
+.titlearrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
+  border-left: 47px solid #ffd40e;
+  filter: drop-shadow(6px 6px rgba(20, 20, 20, 0.75));
+  left: 132px;
+  top: 168px;
+}
+.udl {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-size: 45.5px;
+    color: #ffd40e;
+    z-index: 3;
+    top: 96px;
+    left: 201px;
+    white-space: pre;
+}
+.udl em {
+  font-style: normal;
+  font-weight: bold;
+}
+.upnext-ticker {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47px;
+    color: #ffd40e;
+    z-index: 3;
+    left: 189px;
+    top: 937px;
+    white-space: pre;
+}
+#crawl-main {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 52px;
+    z-index: 3;
+    left: 178px;
+    top: 933px;
+    width: 700px;
+    height: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#crawl-main .crawl {
+    position: absolute;
+    z-index: 3;
+    left: 2px;
+    top: 2px;
+    width: 696px;
+    overflow: hidden;
+}
+#crawl-main .gradient {
+    position: absolute;
+    z-index: 5;
+    width: 705px;
+    height: 500px;
+    top: -212px;
+    left: -5px;
+    transform: rotate(8deg);
+    background: radial-gradient(rgba(16, 17, 17, 0) 63%, rgba(16, 17, 17, 1) 70%);
+}
+/*
+#crawl-main .gradient {
+    position: absolute;
+    z-index: 3;
+    width: 665px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(16, 17, 17, 1) 0%, rgba(16, 17, 17, 0) 4%, rgba(16, 17, 17, 0) 96%, rgba(16, 17, 17, 1) 100%);
+}*/
+#crawl-severe {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 52px;
+    z-index: 10;
+    left: 178px;
+    top: 933px;
+    width: 890px;
+    height: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#crawl-severe .crawl {
+    position: absolute;
+    z-index: 10;
+    width: 886px;
+    left: 2px;
+    top: 2px;
+    text-shadow: none !important;
+    overflow: hidden;
+}
+#crawl-severe .gradient {
+    position: absolute;
+    z-index: 10;
+    width: 895px;
+    height: 500px;
+    top: -212px;
+    left: -5px;
+    transform: rotate(8deg);
+    background: radial-gradient(rgba(16, 17, 17, 0) 63%, rgba(16, 17, 17, 1) 70%);
+}/*
+#crawl-severe .gradient {
+    position: absolute;
+    z-index: 3;
+    width: 835px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(16, 17, 17, 1) 0%, rgba(16, 17, 17, 0) 3%, rgba(16, 17, 17, 0) 97%, rgba(16, 17, 17, 1) 100%);
+    /*linear-gradient(to right, rgba(16, 170, 17, 1) 0%, rgba(16, 170, 17, 0) 3%, rgba(16, 17, 17, 0) 97%, rgba(16, 17, 17, 1) 100%)*//*
+}*/
+.severe-lowerarea {
+  display: none;
+}
+.severe-lowerarea .banner {
+    position: absolute;
+    z-index: 10;
+    width: 780px;
+    height: 208px;
+    top: 864px;
+    left: 103px;
+    background: url(images/assets/severe_banner_red.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.severe-lowerarea .alertheader {
+    position: absolute;
+    z-index: 10;
+    font-family: 'Frutiger';
+    font-size: 39px;
+    bottom: 156px;
+    font-weight: bold;
+    left: 168px;
+}
+.city-intro {
+  position: absolute;
+  overflow: hidden;
+  width: 1620px;
+  height: 1080px;
+}
+.city-intro .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*background-image: url(images/introbase1.png);*/
+  background-image: url(images/backgrounds/ocean_bg.png);/*
+  background-image: url(images/backgrounds/philadelphia_bg.png);*/
+  /*background-image: url(images/backgrounds/cranford_bg_two.png);*/
+  background-size: 100% 100%;
+  z-index: 5;
+}
+.city-intro .circlegroup {
+  display: none;
+}
+/*i am so sorry i had to use the beta code, but this is so unbelievably hard and annoying t code i had no choice
+its not 1 for 1 code using so i mean i guess its aight
+-Joe*/
+@keyframes circle-one-movement {
+  100% { transform: rotate(-30deg);}
+}
+.city-intro .circle-one {
+  position: absolute;
+  background-color: rgb(10,10,160,0.4);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 5;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+@keyframes circle-two-movement {
+  100% { transform: rotate(-24.9deg);}
+}
+.city-intro .circle-two {
+  position: absolute;
+  background-color: rgb(255,212,14,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+@keyframes circle-three-movement {
+  100% { transform: translate(-4.7943%, -9.75%) rotate(-50.1deg);}
+}
+.city-intro .circle-three {
+  position: absolute;
+  background-color: rgb(255,212,14,0.5);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+.city-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.city-intro .bottomgradient {
+  position: absolute;
+  width: 100%;
+  height: 111px;
+  bottom: 212px;
+  background: linear-gradient(to left, rgba(16, 16, 16, 1) 53%, rgba(16, 16, 16, 0) 93%);
+  z-index: 7;
+}
+@keyframes city-intro-wordmark-slide {
+  100% { right: 510px;}
+}
+.city-intro .wordmark {
+  position: absolute;
+  height: 75px;
+  width: 697px;
+  bottom: 247px;
+  right: 288px;
+  z-index: 8;
+  animation: city-intro-wordmark-slide 2s linear normal forwards;
+}
+.city-intro .logo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 8;
+}
+.city-intro .locationname {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 83px;
+    z-index: 8;
+    bottom: 343px;
+    left: 405px;
+    text-shadow: none !important;
+}
+.city-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  opacity: 0.9;
+}
+.city-intro .toptext-one {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 45.2px;
+    width: 740px;
+    top: 89px;
+    left: 175px;
+    line-height: 117%;
+    z-index: 9;
+    text-shadow: none !important;
+}
+.city-intro .toptext-two {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 20.5px;
+    width: 740px;
+    top: 117px;
+    left: 174px;
+    z-index: 9;
+    text-shadow: none !important;
+}
+@keyframes scrollingwordmark {
+  100% {transform: translate(1000px, 0);}
+}
+.city-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 48px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 3.33% 100%;
+    opacity: 0.4;
+    bottom: 315px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.city-intro .topgradient {
+  position: absolute;
+  height: 206px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(16, 16, 16, 1) 22%, rgba(16, 16, 16, 0) 100%);
+  z-index: 9;
+}
+.upnext {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.upnext .circlegroup {
+  display: none;
+}
+.upnext .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/city_bg.png);
+  background-size: 100% 100%;
+}
+.upnext .circle-one {
+  position: absolute;
+  background-color: rgb(10,10,160,0.4);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.upnext .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(255,212,14,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.upnext .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(255,212,14,0.5);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+.upnext .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  opacity: 0.9;
+}
+.upnext .scrollingtext {
+    position: absolute;
+    left: -3306px;
+    width: 500%;
+    height: 40px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.51% 100%;
+    opacity: 0.4;
+    bottom: 212px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.upnext .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 213px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.upnext .topbar {
+  position: absolute;
+  width: 100%;
+  height: 159px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.upnext .upnext-pre {
+    position: absolute;
+    color: #ffd40e;
+    z-index: 5;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 65px;
+    left: 356px;
+    top: 349px;
+}
+.upnext .upnext-slot {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 65.5px;
+    left: 675px;
+    line-height: 190%;
+    white-space: pre;
+    top: 305px;
+    transform: scaleY(.91);
+}
+.upnext .upnext-slot.one {
+  top: 327px;
+}
+.upnext .upnext-slot.two {
+  top: 440px;
+}
+.upnext .upnext-slot.three {
+  top: 553px;
+}
+.upnext .upnext-slot.four {
+  top: 666px;
+}
+.upnext em {
+  transform: scaleY(0.91);
+  text-shadow: #141414  2px 4px 1px;
+  font-style: normal;
+}
+.upnext .bluefilter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 256, 0.2);
+  z-index: 4;
+}
+.bulletin {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.bulletin .group {
+  display: none;
+}
+.bulletin .background {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  background: url(images/backgrounds/weather_bulletin_bg.png);
+  background-size: 100% 100%;
+  transform: translate(-162px, -247px);
+}
+.bulletin .secondheader {
+    position: absolute;
+    font-family: 'Frutiger Bold Italic';
+    font-size: 32px;
+    right: 228px;
+    top: -70px;
+    color: rgb(245, 146, 120);
+    text-shadow: none !important;
+}
+.bulletin .cityname {
+    position: absolute;
+    color: #ffd40e;
+    font-family: Frutiger;
+    font-weight: bold;
+    left: 106px;
+    top: 10px;
+    font-size: 52px;
+}
+.bulletin .alertsbox {
+  position: absolute;
+  top: 81px;
+  left: 106px;
+  width: 1100px;
+  height: 485px;
+  overflow: hidden;
+}
+.bulletin .alerts {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 61px;
+    line-height: 123%;
+    width: 1100px;
+    white-space: pre-wrap;
+}
+.current-conditions {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.current-conditions .panel.left {
+  width: 775px;
+}
+.current-conditions .labels {
+    position: absolute;
+    font-family: 'Frutiger Bold CN';
+    top: 2px;
+    left: 127px;
+    color: #ffd40e;
+    line-height: 177%;
+    font-size: 59px;
+    white-space: pre-wrap;
+}
+.current-conditions .data {
+    position: absolute;
+    font-family: 'Frutiger Bold CN';
+    top: 2px;
+    right: 755px;
+    color: #ebebeb;
+    line-height: 177%;
+    font-size: 59px;
+    text-align: right;
+    white-space: pre-wrap;
+}
+.current-conditions .pressure {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 58px;
+    top: 207px;
+    right: 754px;
+    height: 100px;
+    width: 30px;
+    /* background: url(images/assets/down_arrow.png); */
+    /* background-size: 100% 45px; */
+    /* background-position-y: 12px; */
+    /* background-repeat: no-repeat; */
+    /* transform: scaleY(1); */
+}
+.current-conditions .panel.right {
+  position: absolute;
+  left: 787px;
+  width: 671px;
+  background-position-x: -787px !important;
+}
+.current-conditions .icon {
+    position: absolute;
+    left: 921px;
+    top: -10px;
+    width: 311px;
+    height: 280px;
+    background-size: 100% 100%;
+}
+.current-conditions .condition {
+    position: absolute;
+    font-family: Frutiger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    font-weight: bold;
+    line-height: 110%;
+    top: 310px;
+    text-align: center;
+    width: 400px;
+    left: 867px;
+    white-space: pre;
+}
+.current-conditions .temperature {
+    position: absolute;
+    font-family: 'Frutiger BQ';
+    font-size: 110px;
+    left: 970px;
+    top: 446px;
+    width: 200px;
+    text-align: center;
+}
+.nearby-cities {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.nearby-cities .panel {
+  height: 146px;
+}
+.nearby-cities .panel.one {
+  top: 0px;
+}
+.nearby-cities .panel.two {
+  top: 156px;
+  background-position-y: -156px !important;
+}
+.nearby-cities .panel.three {
+  top: 312px;
+  background-position-y: -312px !important;
+  height: 143px;
+}
+.nearby-cities .panel.four {
+  top: 464px;
+  background-position-y: -464px !important;
+}
+
+.nearby-cities .cityname {
+  position: absolute;
+  z-index: 2;
+  font-family: 'Frutiger Bold Cn';
+  font-size: 52px;
+}
+.nearby-cities .cityname.one {
+  top: 57px;
+  left: 110px;
+}
+.nearby-cities .cityname.two {
+  top: 211px;
+  left: 41px;
+}
+.nearby-cities .cityname.three {
+  left: 44px;
+  top: 365px;
+}
+.nearby-cities .cityname.four {
+  left: 88px;
+  top: 518px;
+}
+.nearby-cities .temperature {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Frutiger Bold CN';
+    font-size: 76px;
+}
+.nearby-cities .temperature.one {
+  top: 36px;
+  right: 717px;
+  transform: scaleY(0.91);
+  letter-spacing: 2px;
+  font-size: 78px;
+}
+.nearby-cities .temperature.two {
+  top: 189px;
+  right: 717px;
+  /*right: 721px;*/
+  transform: scaleY(0.91);
+  letter-spacing: 2px;
+  font-size: 78px;
+}
+.nearby-cities .temperature.three {
+  top: 340px;
+  right: 715px;
+  transform: scaleY(0.91);
+  letter-spacing: 2px;
+  font-size: 78px;
+}
+.nearby-cities .temperature.four {
+  top: 496px;
+  right: 707px;
+  transform: scaleY(0.91);
+  letter-spacing: 2px;
+  font-size: 78px;
+}
+.nearby-cities .icon {
+  position: absolute;
+  z-index: 2;
+  left: 757px;
+  width: 168px;
+  height: 151px;
+  background-size: 100% 100%;
+}
+.nearby-cities .icon.one {
+  top: -2px;
+  left: 756px;
+}
+.nearby-cities .icon.two {
+  top: 152px;
+  left: 756px;
+}
+.nearby-cities .icon.three {
+  top: 307px;
+  left: 755px;
+}
+.nearby-cities .icon.four {
+  top: 460px;
+  left: 754px;
+}
+
+.nearby-cities .wind {
+  position: absolute;
+  z-index: 2;
+  font-family: 'Frutiger Bold Cn';
+  font-size: 57px;
+}
+.nearby-cities .wind.one {
+  top: 53px;
+  right: 223px;
+}
+.nearby-cities .wind.two {
+  top: 207px;
+  right: 223px;
+}
+.nearby-cities .wind.three {
+  top: 361px;
+  right: 222px;
+}
+.nearby-cities .wind.four {
+  top: 514px;
+  right: 224px;
+}
+.nearby-cities .no-report.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    left: 848px;
+    top: 51px;
+    display: none;
+}
+.nearby-cities .no-report.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    left: 848px;
+    top: 204px;
+    display: none;
+}
+.nearby-cities .no-report.three {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    left: 848px;
+    top: 357px;
+    display: none;
+}
+.nearby-cities .no-report.four {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    left: 848px;
+    top: 512px;
+    display: none;
+}
+.doppler-radar {
+  position: absolute;
+  width: 100%;
+  height: 100%;/*
+  opacity: 0;*/
+}
+.radar-overlay {
+  position: absolute;
+  z-index: 2;
+  background: transparent url(/images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.mapcorner {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 159px;
+  z-index: 2;
+}
+.tempbg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-color: green;
+}
+.data-map {
+  position: absolute;
+  display: none;
+  width: 1620px;
+  height: 1080px;
+  z-index: 0;
+  background: transparent url(/images/maps/lambert.us.png) no-repeat;
+  background-size: 100%;
+}
+.blackcover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #000;
+}
+#radar-basemap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;
+  /*opacity: 0;*/
+  display: none;
+}
+#sat-basemap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+#radar-amenities {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+#radar-echoes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1 !important;
+  filter: drop-shadow(12px 8px 0 #141414);/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+#sat-echoes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+#sat-amenities {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+#radar-amenities-trans {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+  z-index: 2 !important;/*
+  opacity: 0;
+  transition: opacity 0.566s linear;*/
+  display: none;
+}
+.doppler-radar .radar-legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+.doppler-radar .radar-legend .timestamp {
+    position: absolute;
+    z-index: 3;
+    font-family: Frutiger;
+    font-weight: bold;
+    right: 164px;
+    top: 158px;
+    font-size: 36px;
+}
+.doppler-radar .radar-legend .radar-legend-heavy {
+  position: absolute;
+  z-index: 3;
+  font-family: Frutiger;
+  font-weight: bold;
+  right: 164px;
+  top: 194px;
+  font-size: 36px;
+}
+.doppler-radar .radar-legend .radar-legend-bar {
+  position: absolute;
+  background: transparent url(images/assets/radarlegend.png) no-repeat;
+  height: 24px;
+  width: 225px;
+  right: 292px;
+  top: 202px;
+  z-index: 3;
+  background-size: 100% 100%;
+  box-shadow: 3px 3px 0px 0 rgba(20, 20, 20, 1);
+}
+.doppler-radar .radar-legend .radar-legend-light {
+  position: absolute;
+  z-index: 3;
+  font-family: Frutiger;
+  font-weight: bold;
+  right: 528px;
+  top: 194px;
+  font-size: 36px;
+}
+.doppler-radar .cities {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.doppler-radar .cities-trans {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.doppler-radar .cities .city {
+    position: absolute;
+    z-index: 0;
+    width: 0px;
+    height: 0px;
+    /*top: 820px;
+    left: 850px;*/
+}
+.doppler-radar .cities-trans .city {
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    /*top: 820px;
+    left: 850px;*/
+}
+.doppler-radar .cities .city .dot, .doppler-radar .cities .city .dot-outline, .doppler-radar .cities-trans .city .dot-trans, .doppler-radar .cities-trans .city .dot-outline {
+  height: 35px;
+  width: 35px;
+}
+.doppler-radar .cities .city .dot {
+  position: absolute;
+  z-index: 0;
+  background: transparent url(images/assets/locatorDot.png) no-repeat;
+  background-size: 100% 100%;
+}
+.doppler-radar .cities .city .dot-outline {
+  position: absolute;
+  z-index: 0;
+  background: transparent url(images/assets/locatorDotOutline.png) no-repeat;
+  background-size: 100% 100%;
+}
+.doppler-radar .cities-trans .city .dot-trans {
+  position: absolute;
+  z-index: 2;
+  background: transparent url(images/assets/locatorDotOutline.70.png) no-repeat;
+  background-size: 100% 100%;
+}
+.doppler-radar .cities-trans .city .dot-outline {
+  position: absolute;
+  z-index: 0;
+  background: transparent url(images/assets/locatorDotOutline.png) no-repeat;
+  background-size: 100% 100%;
+}
+.doppler-radar .cities .city .name {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 43px;
+    color: rgba(230, 230, 230);
+    -webkit-text-stroke: rgba(20, 20, 20, 1);
+    -webkit-text-stroke-width: 1.5px;
+    text-shadow: 2px 5px 1px rgba(20, 20, 20, 1);
+    white-space: pre;
+    z-index: 0;
+}
+/*above radar*/
+.doppler-radar .cities-trans .city .name-trans {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 43px;
+    color: rgba(230, 230, 230, 1);
+    -webkit-text-stroke: rgba(20, 20, 20, 1);
+    -webkit-text-stroke-width: 1.5px;
+    text-shadow: 2px 5px 1px rgba(20, 20, 20, 1);
+    white-space: pre;
+    z-index: 2;
+    opacity: 70%;
+}
+.doppler-radar .cities-trans .city .name-outline {/*second name layer*/
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 43px;
+    color: rgba(230, 230, 230, 0);
+    -webkit-text-stroke: rgba(20, 20, 20, 1);
+    -webkit-text-stroke-width: 1.5px;
+    /* text-shadow: rgba(20, 20, 20, 1) 2px 5px 1px !important; */
+    text-shadow: none !important;
+    white-space: pre;
+    z-index: 2;
+    opacity: 0%;
+    /* filter: opacity(0%);*/
+}
+.doppler-radar .icons {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.doppler-radar .icons-trans {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.doppler-radar .icon {
+  position: absolute;
+}
+.doppler-radar .icons .text {
+  position: absolute;
+}
+.doppler-radar .icons-trans .text {
+  position: absolute;
+}
+.doppler-radar .icons .icon.usHwySign {
+  position: absolute;
+  z-index: 0;
+  background: transparent url(images/assets/usHwySign.png) no-repeat;
+  background-size: 100% 100%;
+  height: 70px;
+  width: 70px;
+}
+.doppler-radar .icons .icon-outline.usHwySign {
+  position: absolute;
+  z-index: 0;
+  background: transparent url(images/assets/usHwySignOutline.png) no-repeat;
+  background-size: 100% 100%;
+  height: 70px;
+  width: 70px;
+}
+.doppler-radar .icons .text.usHwySign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 0;
+    top: 19px;
+    text-align: center;
+    transform: scaleY(0.91);
+}
+.doppler-radar .icons-trans .icon.usHwySign {
+  position: absolute;
+  z-index: 2;
+  background: transparent url(images/assets/usHwySign70.png) no-repeat;
+  background-size: 100% 100%;
+  height: 70px;
+  width: 70px;
+}
+.doppler-radar .icons-trans .icon-outline.usHwySign {
+  position: absolute;
+  z-index: 2;
+  background: transparent url(images/assets/usHwySignOutline.png) no-repeat;
+  background-size: 100% 100%;
+  height: 70px;
+  width: 70px;
+}
+.doppler-radar .icons-trans .text.usHwySign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 2;
+    top: 19px;
+    text-align: center;
+    transform: scaleY(0.91);
+    opacity: 70%;
+}
+.doppler-radar .icons .icon.stateHwySign {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/stateHwySign.png) no-repeat;
+    background-size: 100% 100%;
+    height: 61px;
+    width: 70px;
+}
+.doppler-radar .icons .icon-outline.stateHwySign {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/stateHwySignOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 61px;
+    width: 70px;
+}
+.doppler-radar .icons .text.stateHwySign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 0;
+    top: 8px;
+    text-align: center;
+    transform: scaleY(0.91);
+}
+.doppler-radar .icons-trans .icon.stateHwySign {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/stateHwySign70.png) no-repeat;
+    background-size: 100% 100%;
+    height: 61px;
+    width: 70px;
+}
+.doppler-radar .icons-trans .icon-outline.stateHwySign {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/stateHwySignOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 61px;
+    width: 70px;
+}
+.doppler-radar .icons-trans .text.stateHwySign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 2;
+    top: 8px;
+    text-align: center;
+    opacity: 70%;
+    transform: scaleY(0.91);
+}
+.doppler-radar .icons .icon.interstateSign {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/interstateSign.png) no-repeat;
+    background-size: 100% 100%;
+    height: 62px;
+    width: 71px;
+}
+.doppler-radar .icons .icon-outline.interstateSign {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/interstateSignOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 62px;
+    width: 71px;
+}
+.doppler-radar .icons .text.interstateSign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 0;
+    top: 11px;
+    text-align: center;
+    transform: scaleY(0.91);
+}
+.doppler-radar .icons-trans .icon.interstateSign {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/interstateSign70.png) no-repeat;
+    background-size: 100% 100%;
+    height: 62px;
+    width: 71px;
+}
+.doppler-radar .icons-trans .icon-outline.interstateSign {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/interstateSignOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 62px;
+    width: 71px;
+}
+.doppler-radar .icons-trans .text.interstateSign {
+    position: absolute;
+    font-family: 'Frutiger Black';
+    font-size: 35px;
+    width: 72px;
+    z-index: 2;
+    top: 11px;
+    text-align: center;
+    transform: scaleY(0.91);
+    opacity: 70%;
+}
+.doppler-radar .icons .icon.airplane {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/airplane.png) no-repeat;
+    background-size: 100% 100%;
+    height: 71px;
+    width: 55px;
+}
+.doppler-radar .icons .icon-outline.airplane {
+    position: absolute;
+    z-index: 0;
+    background: transparent url(images/assets/airplaneOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 71px;
+    width: 55px;
+}
+.doppler-radar .icons .text.airplane {
+    position: absolute;
+    display: none;
+}
+.doppler-radar .icons-trans .icon.airplane {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/airplane70.png) no-repeat;
+    background-size: 100% 100%;
+    height: 71px;
+    width: 55px;
+}
+.doppler-radar .icons-trans .icon-outline.airplane {
+    position: absolute;
+    z-index: 2;
+    background: transparent url(images/assets/airplaneOutline.png) no-repeat;
+    background-size: 100% 100%;
+    height: 71px;
+    width: 55px;
+}
+.doppler-radar .icons-trans .text.airplane {
+    position: absolute;
+    display: none;
+}
+.doppler-radar .simulated-radar {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background: green;
+    z-index: 2;
+    top: 72%;
+    left: 51.3%;
+}
+.local-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.local-forecast .panel {
+    height: 614px;
+}
+.local-forecast .timetitle {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 66px;
+    color: #ffd40e;
+    top: 5px;
+    left: 117px;
+}
+.local-forecast .forecast {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 82.3px;
+    top: 72px;
+    left: 120px;
+    line-height: 114%;
+    width: 1175px;
+    transform-origin: top;
+    /*height: 564px;*/
+}
+.daypart-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.daypart-forecast .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.daypart-forecast .section {
+  width: 214px;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.daypart-forecast .section.one {
+  left: 120px;
+}
+.daypart-forecast .section.two {
+  left: 426px;
+}
+.daypart-forecast .section.three {
+  left: 728px;
+}
+.daypart-forecast .section.four {
+  left: 1032px;
+}
+.daypart-forecast .time {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 46px;
+    width: 100%;
+    top: -5px;
+    text-align: center;
+    text-shadow: none !important;
+}
+.daypart-forecast .bar {
+  position: absolute;
+  width: 100%;
+  height: 0px;/*160px is lowest, 228 is highest*/
+  bottom: 27px;
+  background: linear-gradient(to top, #f7f62d 0, #cd431a 100%)
+}
+.daypart-forecast .temperature {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 88px;
+    width: 100%;
+    height: 228px;/*160px is lowest, 228 is highest*/
+    bottom: 32px;
+    display: none;
+    text-align: center;
+}
+.daypart-forecast .wind {
+  position: absolute;
+  color: #1e4498;
+  font-family: Frutiger;
+  font-size: 48px;
+  text-align: center;
+  bottom: 26px;
+  width: 100%;
+  font-weight: bold;
+  display: none;
+  text-shadow: none !important;
+}
+.daypart-forecast .condition {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 41px;
+    text-align: center;
+    width: 115%;
+    white-space: pre;
+    top: 215px;
+}
+.daypart-forecast .icon {
+  position: absolute;
+  height: 159px;
+  width: 177px;
+  top: 50px;
+  background-size: 100% 100%;
+}
+
+.extended-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.extended-forecast .column {
+  position: absolute;
+  height: 100%;
+}
+.extended-forecast .column.one {
+  width: 277px;
+}
+.extended-forecast .column .panel {
+  width: 100%;
+}
+.extended-forecast .darkpanel {
+  height: 614px;
+}
+.extended-forecast .brightpanel {
+  position: absolute;
+  width: 1458px;
+  height: 100px;
+  background-position-y: -380px !important;
+  left: 0px;
+  top: 380px;
+}
+.extended-forecast .dividerpanel {
+  position: absolute;
+  top: 380px;
+  height: 106px;
+  width: 1458px;
+  left: 0px;
+  background-position-y: -380px !important;
+}
+.extended-forecast .column .panel.top {
+  position: absolute;
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 331px;
+}
+.extended-forecast .column.one .panel.top {
+  height: 331px;
+}
+.extended-forecast .column .panel.bottom {
+  top: 486px;
+  height: 128px;
+  background-position-y: -486px !important;
+}
+.extended-forecast .verticaldividerpanel {
+  position: absolute;
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.extended-forecast .verticaldividerpanel.one {
+  width: 9px;
+  left: 277px;
+  background-position-x: -277px !important;
+}
+.extended-forecast .verticaldividerpanel.two {
+  width: 10px;
+  left: 536px;
+  background-position-x: -536px !important;
+}
+.extended-forecast .verticaldividerpanel.three {
+  left: 796px;
+  width: 10px;
+  background-position-x: -796px !important;
+}
+.extended-forecast .verticaldividerpanel.four {
+  width: 12px;
+  left: 1052px;
+  background-position-x: -1052px !important;
+}
+.extended-forecast .column.two .panel {
+  background-position-x: -286px !important;
+}
+.extended-forecast .column.two {
+  width: 250px;
+  left: 286px;
+}
+.extended-forecast .column.three {
+  width: 250px;
+  left: 546px;
+}
+.extended-forecast .column.three .panel {
+  background-position-x: -546px !important;
+}
+.extended-forecast .column.four {
+  width: 246px;
+  left: 806px;
+}
+.extended-forecast .column.four .panel {
+  background-position-x: -806px !important;
+}
+.extended-forecast .column.five {
+  width: 394px;
+  left: 1064px;
+}
+.extended-forecast .column.five .panel {
+  background-position-x: -1064px !important;
+}
+.extended-forecast .time {
+  position: absolute;
+  font-family: 'Frutiger Bold Cn';
+  font-size: 45px;
+  width: 250px;
+  text-align: center;
+}
+.extended-forecast .column.two, .extended-forecast .column.three, .extended-forecast .column.four {
+  display: flex;
+  justify-content: center;
+}
+.extended-forecast .column.one {
+  display: flex;
+  justify-content: right;
+}
+.extended-forecast .column.five {
+  display: flex;
+  justify-content: left;
+}
+.extended-forecast .high {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 88px;
+    width: 250px;
+    height: 100px;
+    top: 380px;
+    line-height: 105px;
+    text-align: center;
+}
+.extended-forecast .low {
+position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 88px;
+    width: 252px;
+    height: 128px;
+    top: 484px;
+    line-height: 124px;
+    text-align: center;
+}
+.extended-forecast .condition {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 42px;
+    text-align: center;
+    line-height: 125%;
+    width: 250px;
+    top: 224px;
+    padding: 10px;
+    white-space: pre;
+}
+.extended-forecast .icon {
+  position: absolute;
+  height: 159px;
+  width: 177px;
+  top: 65px;
+  background-size: 100% 100%;
+}
+.extended-forecast .column.one .icon {
+  margin-right: 40px;
+}
+.extended-forecast .column.five .icon {
+  margin-left: 40px;
+}
+.almanac {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.almanac .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 285px;
+}
+.almanac .purplepanel {
+  top: 334px;
+  height: 280px;
+}
+.almanac .day {
+    position: absolute;
+    font-family: Frutiger;
+    font-size: 47.6px;
+    font-weight: bold;
+    left: 132px;
+    top: 0px;
+    text-shadow: none !important;
+}
+.almanac .averagetitle {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    font-size: 52px;
+    top: 75px;
+    left: 106px;
+}
+.almanac .atexth {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 47px;
+    left: 227px;
+    top: 161px;
+}
+.almanac .atextl {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 46px;
+    left: 228px;
+    top: 247px;
+}
+.almanac .ahigh {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 79px;
+    left: 405px;
+    top: 138px;
+    width: 140px;
+    text-align: center;
+}
+.almanac .alow {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 79px;
+    left: 405px;
+    top: 226px;
+    width: 140px;
+    text-align: center;
+}
+.almanac .recordtitle {
+    position: absolute;
+    font-family: Frutiger;
+    color: #ffd40e;
+    font-weight: bold;
+    font-size: 52px;
+    top: 75px;
+    left: 637px;
+}
+.almanac .rtexth {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 46px;
+    left: 723px;
+    top: 161px;
+}
+.almanac .rtextl {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 47px;
+    left: 723px;
+    top: 245px;
+}
+.almanac .rhigh {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 79px;
+    left: 869px;
+    top: 138px;
+    width: 140px;
+    text-align: center;
+}
+.almanac .rlow {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 79px;
+    left: 869px;
+    top: 226px;
+    width: 140px;
+    text-align: center;
+}
+.almanac .rhighyear {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 52px;
+    left: 1023px;
+    top: 156px;
+    width: 150px;
+    text-align: center;
+}
+.almanac .rlowyear {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 52px;
+    left: 1023px;
+    top: 244px;
+    width: 150px;
+    text-align: center;
+}
+.almanac .sunrisetitle {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    color: #ffd40e;
+    font-size: 52px;
+    left: 55px;
+    top: 399px;
+}
+.almanac .sunsettitle {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    color: #ffd40e;
+    font-size: 52px;
+    left: 55px;
+    top: 497px;
+}
+.almanac .sunrise {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 57px;
+    left: 278px;
+    top: 396px;
+}
+.almanac .sunset {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 57px;
+    left: 280px;
+    top: 492px;
+}
+.almanac .column {
+  position: absolute;
+  top: 334px;
+  height: 280px;
+  width: 190px;
+  display: flex;
+  justify-content: center;
+}
+.almanac .column.one {
+  left: 559px;
+}
+.almanac .column.two {
+  left: 754px;
+}
+.almanac .column.three {
+  left: 948px;
+}
+.almanac .column.four {
+  left: 1142px;
+}
+.almanac .phase {
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  font-family: Frutiger;
+  font-weight: bold;
+  color: #ffd40e;
+  font-size: 34px;
+  text-align: center;
+}
+.almanac .icon {
+  position: absolute;
+  background-image: url(images/moonphases/NEW.png);
+  background-size: 100% 100%;
+  /*height: 182.25px;
+  width: 204.75px;*/
+  height: 139px;
+  width: 147px;
+  top: 62px;
+  filter: drop-shadow(0 0 10px rgba(20, 20, 20, .95));
+}
+.almanac .date {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    bottom: 15px;
+    font-size: 39px;
+}
+/*TRAFFIC*/
+.traffic-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.traffic-intro .circlegroup {
+  display: none;
+}
+.traffic-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/traffic_intro_bg.png);
+  background-size: 100% 100%;
+}
+.traffic-intro .circle-one {
+  position: absolute;
+  background-color: rgb(214,141,33,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.traffic-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(176,121,35,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.traffic-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(183,128,50,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.traffic-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.traffic-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#df932b, rgba(223,147,43,0.9)
+  #af7424, rgba(175,116,36,255)*/
+  opacity: 0.9;
+}
+.traffic-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.traffic-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.traffic-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.traffic-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.traffic-overview {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.traffic-overview .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 529px;
+}
+.traffic-overview .box {
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  filter: drop-shadow(4px 4px #141414);
+  top: 8px;
+}
+.traffic-overview .text {
+  position: absolute;
+  top: 3px;
+  font-size: 39px;
+  font-weight: bold;
+  font-family: Frutiger;
+}
+.traffic-overview .clear.box {
+  background-color: #46cb47;
+  left: 152px;
+}
+.traffic-overview .clear.text {
+  left: 208px;
+}
+.traffic-overview .moderate.box {
+  left: 356px;
+  background-color: #ece958;
+}
+.traffic-overview .moderate.text {
+  left: 412px;
+}
+.traffic-overview .heavy.box {
+  background-color: #f32f35;
+  left: 647px;
+}
+.traffic-overview .heavy.text {
+  left: 698px;
+}
+.traffic-overview .unavailable.box {
+  background-color: #858887;
+  left: 868px;
+}
+.traffic-overview .unavailable.text {
+  left: 920px;
+}
+.traffic-overview .trafmap-container {
+  position: absolute;
+  top: 49px;
+  left: 91px;
+  height: 515px;
+  width: 1227px;
+  overflow: hidden;
+}
+.traffic-overview .trafficcredit {
+    position: absolute;
+    top: 580px;
+    left: 102px;
+    /* font-weight: bold; */
+    font-family: 'Frutiger Bold Cn';
+    font-size: 39px;
+}
+#trafmap {
+    position: absolute;
+    height: 535px;
+    width: 1227px;
+    z-index: 2;
+}
+.traffic-report {
+  position: absolute;
+  top: 257px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.traffic-report .darkpanel {
+  height: 60px;
+}
+.traffic-report .darkpanel.top {
+  height: 60px;
+}
+.traffic-report .panel.top {
+  top: 60px;
+  background-position-y: -60px !important;
+  height: 213px;
+}
+.traffic-report .darkpanel.bottom {
+  top: 282px;
+  background-position-y: -282px !important;
+}
+.traffic-report .panel.bottom {
+  top: 342px;
+  background-position-y: -342px !important;
+  height: 228px;
+}
+.panel.full.bottom {
+  display: none;
+  top: 282px;
+  height: 288px;
+  background-position-y: -282px !important;
+}
+.traffic-report .intensity {
+    background-image: url(images/assets/trafficblock.png);
+    background-size: 100% 100%;
+    font-size: 43.2px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: black;
+    padding-bottom: 5px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 7px;
+    text-shadow: none !important;
+}
+.traffic-report .intensitycover {
+    background-color: #dfcd26;
+    font-size: 43.2px;
+    mix-blend-mode: multiply;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: #dfcd26;
+    padding-bottom: 5px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 7px;
+    text-shadow: none !important;
+}
+.traffic-report .incident.top {
+    position: absolute;
+    top: 0px;
+    left: 139px;
+    font-size: 47px;
+    font-weight: bold;
+    font-family: Frutiger;
+    width: 1160px;
+    height: 60px;
+    overflow: hidden;
+}
+.traffic-report .intensity.top {
+    position: absolute;
+    top: 74px;
+    left: 87px;
+}
+.traffic-report .intensitycover.top {
+    position: absolute;
+    top: 74px;
+    left: 87px;
+}
+.traffic-report .description.top {
+    position: absolute;
+    top: 68px;
+    left: 72px;
+    width: 1160px;
+    height: 194px;
+    overflow: hidden;
+    line-height: 140%;
+    font-size: 45px;
+    white-space: pre-wrap;
+    font-weight: bold;
+    font-family: 'Frutiger';
+}
+.traffic-report .incident.bottom {
+    position: absolute;
+    top: 284px;
+    left: 44px;
+    font-size: 47px;
+    font-weight: bold;
+    font-family: Frutiger;
+    width: 1260px;
+    height: 60px;
+    overflow: hidden;
+}
+.traffic-report .intensity.bottom {
+    position: absolute;
+    top: 359px;
+    left: 86px;
+}
+.traffic-report .intensitycover.bottom {
+    position: absolute;
+    top: 359px;
+    left: 86px;
+}
+.traffic-report .description.bottom {
+    position: absolute;
+    top: 352px;
+    left: 102px;
+    width: 1160px;
+    height: 194px;
+    overflow: hidden;
+    line-height: 140%;
+    font-size: 45px;
+    white-space: pre-wrap;
+    font-weight: bold;
+    font-family: 'Frutiger';
+}
+.traffic-report .trafficcredit {
+    position: absolute;
+    top: 569px;
+    left: 99px;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 39.5px;
+}
+.traffic-flow {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.traffic-flow .trafficcredit {
+    position: absolute;
+    left: 134px;
+    top: 3px;
+    font-size: 40px;
+    font-family: 'Frutiger Bold Cn';
+    /* font-weight: bold; */
+    letter-spacing: 1.2px;
+}
+.traffic-flow .trafficheader {
+    position: absolute;
+    left: 813px;
+    top: 5px;
+    font-size: 35px;
+    font-family: 'Frutiger Bold Cn';
+}
+.traffic-flow .timeheader {
+    position: absolute;
+    left: 1089px;
+    top: 5px;
+    font-size: 35px;
+    font-family: 'Frutiger Bold Cn';
+}
+.traffic-flow .panel.one {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 181px;
+}
+.traffic-flow .lbpanel.one {
+  background-position-y: -49px !important;
+  height: 181px;
+  width: 240px;
+  background: url("images/assets/middle_lightblue.png") 0% 0% / 1458px,  0% 0% / 614px;
+}
+.traffic-flow .panel.two {
+  top: 240px;
+  background-position-y: -240px !important;
+  height: 181px;
+}
+.traffic-flow .lbpanel.two {
+  background-position-y: -240px !important;
+  height: 181px;
+  width: 240px;
+  background: url("images/assets/middle_lightblue.png") 0% 0% / 1458px,  0% 0% / 614px;
+}
+.traffic-flow .panel.three {
+  top: 431px;
+  background-position-y: -431px !important;
+  height: 181px;
+}
+.traffic-flow .lbpanel.three {
+  background-position-y: -431px !important;
+  height: 181px;
+  width: 240px;
+  background: url("images/assets/middle_lightblue.png") 0% 0% / 1458px,  0% 0% / 614px;
+}
+.traffic-flow .description {
+    position: absolute;
+    font-size: 47px;
+    width: 420px;
+    line-height: 111%;
+    left: 260px;
+    top: 18px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+}
+.traffic-flow .routeicon {
+    position: absolute;
+    height: 188px;
+    width: 204px;
+    left: 46px;
+    top: -7px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.traffic-flow .panel.two .routeicon {
+  left: 5px;
+}
+.traffic-flow .trafficflow {
+    position: absolute;
+    left: 740px;
+    top: 16px;
+    width: 278px;
+    height: 165px;
+    padding-top: 0px;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Frutiger Black';
+    color: #141414;
+    text-shadow: none !important;
+    background-image: url(images/assets/trafficblockbig.png);
+    background-size: 100% 100%;
+}
+.traffic-flow .trafficflowcover {
+    position: absolute;
+    left: 740px;
+    top: 16px;
+    width: 278px;
+    height: 165px;
+    background-color: #dfcd26;
+    mix-blend-mode: multiply;
+}
+.traffic-flow .mph {
+    position: absolute;
+    font-family: 'Interstate';
+    font-weight: bold;
+    font-size: 40px;
+    color: #141414;
+    left: 833px;
+    top: 105px;
+    text-shadow: none !important;
+}
+.traffic-flow .triptime {
+    position: absolute;
+    right: 290px;
+    top: 49px;
+    text-align: right;
+    letter-spacing: 4px;
+    font-size: 87px;
+    font-family: 'Interstate Black Cn';
+}
+.traffic-flow .min {
+  position: absolute;
+  right: 203px;
+  top: 90px;
+  font-family: 'Interstate';
+  font-weight: bold;
+  font-size: 36px;
+}
+/*TRAVEL*/
+.travel-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.travel-intro .circlegroup {
+  display: none;
+}
+.travel-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/travel_intro_bg.png);
+  background-size: 100% 100%;
+}
+.travel-intro .circle-one {
+  position: absolute;
+  background-color: rgb(105,134,198,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.travel-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(105,134,198,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.travel-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(105,134,198,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.travel-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.travel-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#df932b, rgba(223,147,43,0.9)
+  #af7424, rgba(175,116,36,255)*/
+  opacity: 0.9;
+}
+.travel-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.travel-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.travel-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.travel-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.travel-weather {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#travel-weather-map {
+    position: absolute;
+    display: none;
+    width: 1620px;
+    height: 1080px;
+    top: 27%;
+    left: 1.5%;;
+    z-index: 0;
+    scale: 1.6;
+    background: transparent url(/images/maps/lambert.us.travel.png) no-repeat;
+    background-size: 100%;
+}
+.travel-weather .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(/images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.travel-weather .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.travel-weather .text {
+  position: absolute;
+  z-index: 2;
+  top: 190px;
+  font-size: 36px;
+  font-family: 'Frutiger';
+  font-weight: bold;
+}
+.travel-weather .box {
+    position: absolute;
+    z-index: 2;
+    top: 193px;
+    width: 50px;
+    height: 28px;
+}
+.travel-weather .snow.text {
+  right: 176px;
+}
+.travel-weather .snow.box {
+  right: 287px;
+  background-color: #d2d2d2;
+}
+.travel-weather .mix.text {
+  right: 360px;
+}
+.travel-weather .mix.box {
+  background-color: #d782be;
+  right: 438px;
+}
+.travel-weather .icy.text {
+  right: 511px;
+}
+.travel-weather .icy.box {
+  right: 570px;
+  background-color: #d22277;
+}
+.travel-weather .sct.text {
+  right: 649px;
+}
+.travel-weather .sct.box {
+  background-image: url(images/assets/sct.png);
+  background-size: 100% 100%;
+  right: 709px;
+}
+.travel-weather .rain.text {
+  right: 784px;
+}
+.travel-weather .rain.box {
+  background-color: #3cbe3c;
+  right: 871px;
+}
+.travel-forecast {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.travel-forecast .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(/images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.travel-forecast .basemap {
+    position: absolute;
+    width: 1620px;
+    height: 1080px;
+    z-index: 0;
+    overflow: hidden;
+    background: url(images/maps/travelforecast/regional_map.png);
+    background-size: 457%;
+    /*background-position-x: -4971px;
+    background-position-y: -1010px;*/
+}
+.travel-forecast .map-borders {
+    position: absolute;
+    width: 1620px;
+    height: 1080px;
+    z-index: 0;
+    overflow: hidden;
+    background: url(images/maps/travelforecast/travelmapborders.png);
+    background-size: 457%;
+    /*background-position-x: -4971px;
+    background-position-y: -1010px;*/
+}
+.travel-forecast .city {
+  position: absolute;
+  width: 370px;
+  height: 221px;
+}
+.travel-forecast .cityname {
+    position: absolute;
+    width: 96%;
+    top: 3px;
+    font-family: 'Frutiger Black';
+    font-size: 41px;
+    text-align: center;
+    margin-left: -4px;
+}
+.travel-forecast .temperature {
+    position: absolute;
+    top: 68px;
+    right: 211px;
+    font-size: 55px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: #ffd40e;
+}
+.travel-forecast .icon {
+    position: absolute;
+    background-size: 100% 100%;
+    bottom: 17px;
+    right: 36px;
+    height: 150px;
+    width: 167px;
+}
+.destination-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.destination-forecast .darkpanel {
+  height: 74px;
+}
+.destination-forecast .panel.one {
+  top: 74px;
+  background-position-y: -74px !important;
+  height: 172px;
+}
+.destination-forecast .panel.two {
+  top: 260px;
+  background-position-y: -260px !important;
+  height: 172px;
+}
+.destination-forecast .panel.three {
+  top: 444px;
+  background-position-y: -441px !important;
+  height: 172px;
+}
+.destination-forecast .daytitle {
+    position: absolute;
+    color: #ffd40e;
+    width: 341px;
+    text-align: center;
+    top: 16px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.destination-forecast .cityname {
+    position: absolute;
+    font-size: 52px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    top: 54px;
+    left: 49px;
+}
+.destination-forecast .panel.two .cityname {
+  left: 19px;
+}
+.destination-forecast .day {
+  position: absolute;
+  width: 260px;
+}
+.destination-forecast .day.one {
+  left: 520px;
+}
+.destination-forecast .daytitle.one {
+  left: 518px;
+}
+.destination-forecast .day.two {
+  left: 788px;
+}
+.destination-forecast .daytitle.two {
+  left: 775px;
+}
+.destination-forecast .day.three {
+  left: 1056px;
+}
+.destination-forecast .daytitle.three {
+  left: 1020px;
+}
+.destination-forecast .day .icon {
+  background-size: 100% 100%;
+  position: absolute;
+  height: 155px;
+  width: 172px;
+  left: 14px;
+  top: 9px;
+}
+.destination-forecast .day .high {
+    position: absolute;
+    left: 179px;
+    top: 20px;
+    font-size: 62px;
+    font-family: 'Frutiger Bold Cn';
+}
+.destination-forecast .day .low {
+    position: absolute;
+    left: 179px;
+    top: 86px;
+    font-size: 62px;
+    font-family: 'Frutiger Bold Cn';
+}
+.destination-forecast .panel.two .low {
+    top: 86px;
+}
+.destination-forecast .panel.two .high {
+  top: 25px;
+}
+.destination-forecast .panel.three .high {
+  top: 20px;
+}
+.destination-forecast .panel.three .low {
+  top: 84px;
+}
+/*AIRPORT*/
+.airport-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.airport-intro .circlegroup {
+  display: none;
+}
+.airport-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/airport_intro_bg.png);
+  background-size: 100% 100%;
+}
+.airport-intro .circle-one {
+  position: absolute;
+  background-color: rgb(105,134,198,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.airport-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(105,134,198,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.airport-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(105,134,198,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.airport-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.airport-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#df932b, rgba(223,147,43,0.9)
+  #af7424, rgba(175,116,36,255)*/
+  opacity: 0.9;
+}
+.airport-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.airport-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.airport-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.airport-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.airport-conditions {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.airport-conditions .panel.top {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 260px;
+  width: 850px;
+}
+.airport-conditions .panel.bottom {
+  top: 318px;
+  background-position-y: -318px !important;
+  height: 296px;
+  width: 850px;
+}
+.airport-conditions .panel.right {
+  top: 49px;
+  left: 860px;
+  background-position-x: -860px !important;
+  background-position-y: -49px !important;
+  height: 565px;
+  width: 850px;
+}
+.airport-conditions em {
+  font-size: 57px;
+  font-style: normal;
+}
+.airport-conditions .airportname {
+    position: absolute;
+    left: 135px;
+    top: 1px;
+    font-size: 43px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+}
+.airport-conditions .arrivals .title {
+    position: absolute;
+    color: #ffd40e;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 55px;
+    top: 77px;
+    left: 97px;
+}
+.airport-conditions .arrivals .delaytitle {
+    position: absolute;
+    top: 177px;
+    left: 129px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+}
+.airport-conditions .arrivals .delay {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 48px;
+    left: 410px;
+    bottom: 388px;
+}
+.airport-conditions .arrivals .reasontitle {
+    position: absolute;
+    top: 261px;
+    left: 129px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+}
+.airport-conditions .arrivals .reason {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 48px;
+    left: 410px;
+    top: 252px;
+}
+.airport-conditions .departures .title {
+    position: absolute;
+    color: #ffd40e;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 55px;
+    top: 348px;
+    left: 66px;
+}
+.airport-conditions .departures .delaytitle {
+    position: absolute;
+    top: 433px;
+    left: 129px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+}
+.airport-conditions .departures .delay {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 48px;
+    left: 410px;
+    bottom: 132px;
+}
+.airport-conditions .departures .reasontitle {
+    position: absolute;
+    top: 505px;
+    left: 129px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+}
+.airport-conditions .departures .reason {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 48px;
+    left: 410px;
+    top: 496px;
+}
+.airport-conditions .source {
+    position: absolute;
+    top: 572px;
+    left: 80px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 34px;
+    color: #ffd40e;
+}
+.airport-conditions .icon {
+    position: absolute;
+    background-size: 100% 100%;
+    width: 242px;
+    height: 218px;
+    left: 977px;
+    top: 35px;
+}
+.airport-conditions .condition {
+    position: absolute;
+    font-family: Frutiger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 130%;
+    top: 322px;
+    text-align: center;
+    width: 400px;
+    left: 905px;
+}
+.airport-conditions .temperature {
+    position: absolute;
+    left: 956px;
+    top: 471px;
+    width: 300px;
+    text-align: center;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 123px;
+}
+.national-airports {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.national-airports .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.national-airports .temptitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    color: #ffd40e;
+    right: 641px;
+    top: 5px;
+}
+.national-airports .delaytitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    color: #ffd40e;
+    right: 180px;
+    top: 5px;
+}
+.national-airports .source {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 34px;
+    color: #ffd40e;
+    right: 180px;
+    top: 52px;
+}
+.national-airports .airport.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.7px;
+    left: 85px;
+    top: 99px;
+}
+.national-airports .airport.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.7px;
+    left: 41px;
+    top: 236px;
+}
+.national-airports .airport.three {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.7px;
+    left: 41px;
+    top: 374px;
+}
+.national-airports .airport.four {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.7px;
+    left: 68px;
+    top: 511px;
+}
+.national-airports .temperature {
+    width: 120px;
+    right: 634px;
+    text-align: center;
+}
+.national-airports .temperature.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 62px;
+    top: 96px;
+}
+.national-airports .temperature.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 62px;
+    top: 232px;
+}
+.national-airports .temperature.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 62px;
+    top: 369px;
+}
+.national-airports .temperature.four {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 62px;
+    top: 508px;
+}
+.national-airports .icon.one {
+    position: absolute;
+    width: 167px;
+    height: 151px;
+    background-size: 100% 100%;
+    top: 55px;
+    left: 813px;
+}
+.national-airports .icon.two {
+    position: absolute;
+    width: 167px;
+    height: 151px;
+    background-size: 100% 100%;
+    left: 813px;
+    top: 192px;
+}
+.national-airports .icon.three {
+    position: absolute;
+    width: 167px;
+    height: 151px;
+    background-size: 100% 100%;
+    left: 813px;
+    top: 330px;
+}
+.national-airports .icon.four {
+    position: absolute;
+    width: 167px;
+    height: 151px;
+    background-size: 100% 100%;
+    left: 813px;
+    top: 467px;
+}
+.national-airports .delay em {
+    font-size: 57px;
+    font-style: normal;
+}
+.national-airports .delay.one {
+    position: absolute;
+    right: 180px;
+    bottom: 450px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+}
+.national-airports .delay.two {
+    position: absolute;
+    right: 180px;
+    bottom: 313px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+}
+.national-airports .delay.three {
+    position: absolute;
+    right: 180px;
+    bottom: 175px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+}
+.national-airports .delay.four {
+    position: absolute;
+    right: 180px;
+    bottom: 37px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+}
+/*INTERNATIONAL*/
+.international-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.international-intro .circlegroup {
+  display: none;
+}
+.international-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/international_intro_bg.png);
+  background-size: 100% 100%;
+}
+.international-intro .circle-one {
+  position: absolute;
+  background-color: rgb(156,159,161,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.international-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(156,159,161,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.international-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(156,159,161,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.international-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.international-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#df932b, rgba(223,147,43,0.9)
+  #af7424, rgba(175,116,36,255)*/
+  opacity: 0.9;
+}
+.international-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.international-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.international-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.international-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.international-map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.international-map .blackcover {
+  z-index: 1;
+}
+.international-map .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.international-map .dayname {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 48px;
+    z-index: 2;
+    right: 157px;
+    width: 400px;
+    top: 163px;
+    text-align: right;
+}
+.international-map .cities {
+  display: none;
+}
+.international-map .map {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+  display: none;
+}
+.international-map .city {
+  position: absolute;
+  width: 370px;
+  height: 221px;
+}
+.international-map .cityname {
+    position: absolute;
+    width: 93%;
+    top: 3px;
+    font-family: 'Frutiger Black';
+    font-size: 41px;
+    text-align: center;
+}
+.international-map .temperature {
+    position: absolute;
+    top: 68px;
+    right: 211px;
+    font-size: 55px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: #ffd40e;
+}
+.international-map .icon {
+    position: absolute;
+    background-size: 100% 100%;
+    bottom: 17px;
+    right: 36px;
+    height: 150px;
+    width: 167px;
+}
+.international-map .map.canada {
+  background: transparent url(images/maps/canada.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.canada .city.zero {
+    top: 234px;
+    left: 115px;
+}
+.international-map .cities.canada .city.one {
+    top: 348px;
+    left: 394px;
+}
+.international-map .cities.canada .city.two {
+    top: 450px;
+    left: 679px;
+}
+.international-map .cities.canada .city.three {
+    top: 456px;
+    left: 1131px;
+}
+.international-map .cities.canada .city.four {
+    top: 643px;
+    left: 134px;
+}
+.international-map .cities.canada .city.five {
+    top: 560px;
+    left: 378px;
+}
+.international-map .cities.canada .city.six {
+    top: 665px;
+    left: 657px;
+}
+.international-map .cities.canada .city.seven {
+    top: 668px;
+    left: 1047px;
+}
+.international-map .map.mexico {
+  background: transparent url(images/maps/mexico.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.mexico .city.zero {
+    top: 288px;
+    left: 296px;
+}
+.international-map .cities.mexico .city.one {
+    top: 422px;
+    left: 612px;
+}
+.international-map .cities.mexico .city.two {
+    top: 499px;
+    left: 313px;
+}
+.international-map .cities.mexico .city.three {
+    top: 655px;
+    left: 663px;
+}
+.international-map .cities.mexico .city.four {
+    top: 598px;
+    left: 1125px;
+}
+.international-map .map.caribbean {
+  background: transparent url(images/maps/caribbean.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.caribbean .city.zero {
+    top: 233px;
+    left: 480px;
+}
+.international-map .cities.caribbean .city.one {
+    top: 340px;
+    left: 124px;
+}
+.international-map .cities.caribbean .city.two {
+    top: 497px;
+    left: 498px;
+}
+.international-map .cities.caribbean .city.three {
+    top: 468px;
+    left: 942px;
+}
+.international-map .cities.caribbean .city.four {
+    top: 615px;
+    left: 152px;
+}
+.international-map .cities.caribbean .city.five {
+    top: 668px;
+    left: 798px;
+}
+.international-map .map.southamerica {
+  background: transparent url(images/maps/southamerica.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.southamerica .city.zero {
+    top: 255px;
+    left: 669px;
+}
+.international-map .cities.southamerica .city.one {
+    top: 317px;
+    left: 1127px;
+}
+.international-map .cities.southamerica .city.two {
+    top: 359px;
+    left: 433px;
+}
+.international-map .cities.southamerica .city.three {
+    top: 399px;
+    left: 912px;
+}
+.international-map .cities.southamerica .city.four {
+    top: 577px;
+    left: 487px;
+}
+.international-map .cities.southamerica .city.five {
+    top: 600px;
+    left: 793px;
+}
+.international-map .map.britain {
+  background: transparent url(images/maps/britain.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.britain .city.zero {
+    top: 323px;
+    left: 667px;
+}
+.international-map .cities.britain .city.one {
+    top: 490px;
+    left: 433px;
+}
+.international-map .cities.britain .city.two {
+    top: 521px;
+    left: 705px;
+}
+.international-map .cities.britain .city.three {
+    top: 664px;
+    left: 256px;
+}
+.international-map .cities.britain .city.four {
+    top: 663px;
+    left: 948px;
+}
+.international-map .map.europe {
+  background: transparent url(images/maps/europe.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.europe .city.zero {
+    top: 332px;
+    left: 402px;
+}
+.international-map .cities.europe .city.one {
+    top: 317px;
+    left: 680px;
+}
+.international-map .cities.europe .city.two {
+    top: 237px;
+    left: 1120px;
+}
+.international-map .cities.europe .city.three {
+    top: 533px;
+    left: 452px;
+}
+.international-map .cities.europe .city.four {
+    top: 517px;
+    left: 820px;
+}
+.international-map .cities.europe .city.five {
+    top: 668px;
+    left: 275px;
+}
+.international-map .cities.europe .city.six {
+    top: 670px;
+    left: 670px;
+}
+.international-map .cities.europe .city.seven {
+    top: 671px;
+    left: 1078px;
+}
+.international-map .map.africa {
+  background: transparent url(images/maps/africa.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.africa .city.zero {
+    top: 337px;
+    left: 146px;
+}
+.international-map .cities.africa .city.one {
+    top: 357px;
+    left: 462px;
+}
+.international-map .cities.africa .city.two {
+    top: 240px;
+    left: 775px;
+}
+.international-map .cities.africa .city.three {
+    top: 242px;
+    left: 1058px;
+}
+.international-map .cities.africa .city.four {
+    top: 487px;
+    left: 892px;
+}
+.international-map .cities.africa .city.five {
+    top: 569px;
+    left: 530px;
+}
+.international-map .cities.africa .city.six {
+    top: 676px;
+    left: 840px;
+}
+.international-map .map.india {
+  background: transparent url(images/maps/india.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.india .city.zero {
+    top: 273px;
+    left: 360px;
+}
+.international-map .cities.india .city.one {
+    top: 237px;
+    left: 640px;
+}
+.international-map .cities.india .city.two {
+    top: 367px;
+    left: 923px;
+}
+.international-map .cities.india .city.three {
+    top: 472px;
+    left: 494px;
+}
+.international-map .cities.india .city.four {
+    top: 614px;
+    left: 741px;
+}
+.international-map .cities.india .city.five {
+    top: 568px;
+    left: 1142px;
+}
+.international-map .map.eastasia {
+  background: transparent url(images/maps/eastasia.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.eastasia .city.zero {
+    top: 263px;
+    left: 289px;
+}
+.international-map .cities.eastasia .city.one {
+    top: 352px;
+    left: 568px;
+}
+.international-map .cities.eastasia .city.two {
+    top: 406px;
+    left: 857px;
+}
+.international-map .cities.eastasia .city.three {
+    top: 464px;
+    left: 132px;
+}
+.international-map .cities.eastasia .city.four {
+    top: 509px;
+    left: 428px;
+}
+.international-map .cities.eastasia .city.five {
+    top: 670px;
+    left: 205px;
+}
+.international-map .map.oceania {
+  background: transparent url(images/maps/oceania.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.oceania .city.zero {
+    top: 279px;
+    left: 286px;
+}
+.international-map .cities.oceania .city.one {
+    top: 237px;
+    left: 557px;
+}
+.international-map .cities.oceania .city.two {
+    top: 396px;
+    left: 807px;
+}
+.international-map .cities.oceania .city.three {
+    top: 491px;
+    left: 1139px;
+}
+.international-map .cities.oceania .city.four {
+    top: 549px;
+    left: 636px;
+}
+.international-map .cities.oceania .city.five {
+    top: 636px;
+    left: 436px;
+}
+.international-map .cities.oceania .city.six {
+    top: 665px;
+    left: 895px;
+}
+.international-map .map.australia {
+  background: transparent url(images/maps/australia.png) no-repeat;
+  background-size: 100% 100%;
+}
+.international-map .cities.australia .city.zero {
+    top: 278px;
+    left: 327px;
+}
+.international-map .cities.australia .city.one {
+    top: 271px;
+    left: 895px;
+}
+.international-map .cities.australia .city.two {
+    top: 403px;
+    left: 634px;
+}
+.international-map .cities.australia .city.three {
+    top: 518px;
+    left: 1044px;
+}
+.international-map .cities.australia .city.four {
+    top: 534px;
+    left: 226px;
+}
+.international-map .cities.australia .city.five {
+    top: 669px;
+    left: 885px;
+}
+.international-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.international-forecast .darkpanel {
+  height: 74px;
+}
+.international-forecast .panel.one {
+  top: 74px;
+  background-position-y: -74px !important;
+  height: 172px;
+}
+.international-forecast .panel.two {
+  top: 260px;
+  background-position-y: -260px !important;
+  height: 172px;
+}
+.international-forecast .panel.three {
+  top: 444px;
+  background-position-y: -441px !important;
+  height: 172px;
+}
+.international-forecast .daytitle {
+    position: absolute;
+    color: #ffd40e;
+    width: 341px;
+    text-align: center;
+    top: 16px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.international-forecast .cityname {
+    position: absolute;
+    font-size: 52px;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    top: 54px;
+    left: 49px;
+}
+.international-forecast .panel.two .cityname {
+  left: 19px;
+}
+.international-forecast .day {
+  position: absolute;
+  width: 260px;
+}
+.international-forecast .day.one {
+  left: 520px;
+}
+.international-forecast .daytitle.one {
+  left: 518px;
+}
+.international-forecast .day.two {
+  left: 788px;
+}
+.international-forecast .daytitle.two {
+  left: 775px;
+}
+.international-forecast .day.three {
+  left: 1056px;
+}
+.international-forecast .daytitle.three {
+  left: 1020px;
+}
+.international-forecast .day .icon {
+  background-size: 100% 100%;
+  position: absolute;
+  height: 155px;
+  width: 172px;
+  left: 14px;
+  top: 9px;
+}
+.international-forecast .day .high {
+    position: absolute;
+    left: 179px;
+    top: 20px;
+    font-size: 62px;
+    font-family: 'Frutiger Bold Cn';
+}
+.international-forecast .day .low {
+    position: absolute;
+    left: 179px;
+    top: 86px;
+    font-size: 62px;
+    font-family: 'Frutiger Bold Cn';
+}
+.international-forecast .panel.two .low {
+    top: 86px;
+}
+.international-forecast .panel.two .high {
+  top: 25px;
+}
+.international-forecast .panel.three .high {
+  top: 20px;
+}
+.international-forecast .panel.three .low {
+  top: 84px;
+}
+/*GOLF*/
+.golf-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.golf-intro .circlegroup {
+  display: none;
+}
+.golf-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  /*background-image: url(images/golfintrofull.png);*/
+  background-image: url(images/backgrounds/golf_intro_bg.png);
+  background-size: 100% 100%;
+}
+.golf-intro .circle-one {
+  position: absolute;
+  background-color: rgb(163,192,87,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.golf-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(47,130,31,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.golf-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(26,100,25,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.golf-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.golf-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#3e9017, rgba(62,144,23,255)*/
+  opacity: 0.9;
+}
+.golf-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.golf-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.golf-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.golf-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.teetime {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.teetime .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.teetime .section {
+  width: 181px;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.teetime .section.one {
+  left: 111px;
+}
+.teetime .section.two {
+  left: 347px;
+}
+.teetime .section.three {
+  left: 582px;
+}
+.teetime .section.four {
+  left: 815px;
+}
+.teetime .section.five {
+  left: 1051px;
+}
+.teetime .time {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 49px;
+    width: 100%;
+    top: -3px;
+    text-align: center;
+}
+.teetime .bar {
+  position: absolute;
+  width: 100%;
+  height: 0px;/*205px is lowest, 295 is highest*/
+  bottom: 27px;
+  background: linear-gradient(to top, #f7f62d 0, #cd431a 100%);
+}
+.teetime .temperature {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 89px;
+    width: 100%;
+    height: 295px;
+    bottom: 32px;
+    display: none;
+    left: -1px;
+    text-align: center;
+}
+.teetime .wind {
+    position: absolute;
+    color: #1e4498;
+    font-family: Frutiger;
+    font-size: 39px;
+    text-align: center;
+    bottom: 27px;
+    width: 100%;
+    font-weight: bold;
+    display: none;
+    text-shadow: none !important;
+}
+.teetime .icon {
+  position: absolute;
+  height: 159px;
+  width: 177px;
+  top: 106px;
+  background-size: 100% 100%;
+}
+.teetime .dayname {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 55px;
+}
+.golf-index {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.golf-index .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.golf-index .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.golf-index .legend .day {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    right: 161px;
+    top: 153px;
+}
+.golf-index .legend .good {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40.5px;
+    right: 163px;
+    top: 192px;
+}
+.golf-index .legend .gradient {
+    position: absolute;
+    z-index: 2;
+    right: 414px;
+    top: 198px;
+    height: 30px;
+    width: 148px;
+    box-shadow: #141414 2px 4px 1px;
+    background: linear-gradient(
+  to right,
+  #5a3f1e 0%,
+  #745f1e 10%,
+  #8e7f1e 20%,
+  #a89f1e 30%,
+  #c2c31d 40%,
+  #a7c51f 50%,
+  #82be21 60%,
+  #5dc323 70%,
+  #41b120 80%,
+  #269f1e 90%,
+  #267e1e 100%
+);
+}
+.golf-index .legend .poor {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40.5px;
+    right: 578px;
+    top: 191px;
+}
+.course-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.course-forecast .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.course-forecast .panel.first {
+  width: 473px;
+}
+.course-forecast .panel.second {
+    width: 393px;
+    left: 483px;
+    background-position-x: -483px !important;
+}
+.course-forecast .panel.third {
+    left: 888px;
+    background-position-x: -888px !important;
+    width: 570px;
+}
+.course-forecast .coursename {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+    top:-3px;
+    left: 115px;
+}
+.course-forecast .purplepanel {
+    bottom: 0px;
+    height: 167px;
+}
+.course-forecast .purplepanel.first {
+    width: 473px;
+}
+.course-forecast .purplepanel.second {
+    width: 393px;
+    left: 483px;
+    background-position-x: -483px !important;
+}
+.course-forecast .purplepanel.third {
+    left: 888px;
+    background-position-x: -888px !important;
+    width: 570px;
+}
+.course-forecast .indextitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: #ffd40e;
+    font-size: 43px;
+    top: 458px;
+    left: 60px;
+}
+.course-forecast .dayname {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    color: #ffd40e;
+    font-size: 43px;
+    width: 300px;
+    left: 125px;
+    top: 61px;
+    text-align: center;
+}
+.course-forecast .icon {
+    position: absolute;
+    height: 190px;
+    width: 211px;
+    top: 106px;
+    left: 66px;
+    background-size: 100% 100%;
+}
+.course-forecast .high {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 89px;
+    left: 322px;
+    top: 122px;
+}
+.course-forecast .low {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 89px;
+    left: 321px;
+    top: 218px;
+}
+.course-forecast .wind {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 62px;
+    width: 500px;
+    left: 27px;
+    top: 375px;
+    text-align: center;
+}
+.course-forecast .bar {
+    position: absolute;
+    width: 310px;
+    height: 35px;
+    top: 565px;
+    left: 122px;
+    background: linear-gradient(
+  to right,
+  #5a3f1e 0%,
+  #745f1e 10%,
+  #8e7f1e 20%,
+  #a89f1e 30%,
+  #c2c31d 40%,
+  #a7c51f 50%,
+  #82be21 60%,
+  #5dc323 70%,
+  #41b120 80%,
+  #269f1e 90%,
+  #267e1e 100%
+);
+}
+.course-forecast .index {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 43px;
+    top: 507px;
+    left: 70px;
+    width: 300px;
+    text-align: center;
+    display: none;
+}
+.course-forecast .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 558px;
+    left: 101px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.course-forecast .two {
+  transform: translate(406px, 0px);
+}
+.course-forecast .three {
+  transform: translate(810px, 0px);
+}
+.golf-promo {
+    position: absolute;
+    top: 249px;
+    left: 162px;
+    width: 1458px;
+    height: 614px;
+}
+.golf-promo img.promo {
+    position: absolute;
+    width: 1458px;
+    height: 614px;
+}
+.golf-promo .promotext {
+    position: absolute;
+    font-family: "Frutiger";
+    font-weight: bold;
+    font-size: 47.6px;
+    line-height: 209%;
+    text-align: right;
+    top: 31px;
+    right: 176px;
+}
+/*HEALTH*/
+.health-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.health-intro .circlegroup {
+  display: none;
+}
+.health-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/health_intro_bg.png);
+  background-size: 100% 100%;
+}
+.health-intro .circle-one {
+  position: absolute;
+  background-color: rgb(11,182,192,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.health-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(11,182,192,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.health-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(11,182,192,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.health-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.health-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#3e9017, rgba(62,144,23,255)*/
+  opacity: 0.9;
+}
+.health-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.health-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.health-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.health-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.outdoor-activity {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.outdoor-activity .panel.left {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+  width: 578px;
+}
+.outdoor-activity .panel.right {
+    top: 49px;
+    background-position-y: -49px !important;
+    background-position-x: -577px !important;
+    left: 588px;
+    height: 565px;
+    width: 870px;
+}
+.outdoor-activity .darkheader.one {
+    position: absolute;
+    left: 665px;
+    top: 72px;
+    height: 58px;
+    width: 614px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent);
+}
+.outdoor-activity .darkheader.two {
+    position: absolute;
+    left: 665px;
+    top: 260px;
+    height: 58px;
+    width: 614px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent);
+}
+.outdoor-activity .darkheader.three {
+    position: absolute;
+    left: 665px;
+    top: 449px;
+    height: 58px;
+    width: 614px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent);
+}
+.outdoor-activity .dayname {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 47.6px;
+    left: 128px;
+    top: -4px;
+}
+.outdoor-activity .icon {
+    position: absolute;
+    height: 277px;
+    width: 308px;
+    top: 48px;
+    left: 140px;
+}
+.outdoor-activity .lowlabel {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    top: 335px;
+    left: 125px;
+}
+.outdoor-activity .low {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 97px;
+    top: 396px;
+    left: 93px;
+    width: 150px;
+    text-align: center;
+}
+.outdoor-activity .highlabel {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    top: 335px;
+    left: 382px;
+}
+.outdoor-activity .high {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 97px;
+    top: 397px;
+    left: 356px;
+    width: 150px;
+    text-align: center;
+}
+.outdoor-activity .feelslike {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    white-space: pre;
+    top: 535px;
+    left: 110px;
+    color: #ffd40e;
+    width: 400px;
+    text-align: center;
+}
+.outdoor-activity .preciplabel {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 686px;
+    top: 70px;
+}
+.outdoor-activity .precip {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 80px;
+    top: 140px;
+    left: 733px;
+}
+.outdoor-activity .humiditylabel {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 686px;
+    top: 259px;
+}
+.outdoor-activity .humidity {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 80px;
+    top: 330px;
+    left: 733px;
+}
+.outdoor-activity .windlabel {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 689px;
+    top: 448px;
+}
+.outdoor-activity .wind {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 80px;
+    top: 519px;
+    left: 736px;
+}
+.allergy-report {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.allergy-report .darkpanel.left {
+  width: 869px;
+}
+.allergy-report .panel.left {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+  width: 869px;
+}
+.allergy-report .panel.right.moreinfo {
+  left: 880px;
+  background-position-x: -880px !important;
+  width: 578px;
+}
+.allergy-report .panel.right.count {
+    left: 880px;
+    background-position-x: -880px !important;
+    background-position-y: -142px !important;
+    width: 578px;
+    top: 142px;
+    height: 472px;
+}
+.allergy-report .darkpanel.right.count {
+    left: 880px;
+    background-position-x: -880px !important;
+    width: 578px;
+    height: 142px;
+}
+.allergy-report .dayname {
+    position: absolute;
+    font-family: Frutiger;
+    font-size: 47px;
+    font-weight: bold;
+    left: 133px;
+}
+.allergy-report .tree {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    top: 112px;
+    left: 72px;
+}
+.allergy-report .treetype {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 42px;
+    left: 71px;
+    top: 168px;
+}
+.allergy-report .grass {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    top: 236px;
+    left: 25px;
+}
+.allergy-report .ragweed {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    top: 360px;
+    left: 25px;
+}
+.allergy-report .mold {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    top: 484px;
+    left: 70px;
+}
+.allergy-report .bar.one {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 123px;
+    left: 378px;
+    background: linear-gradient(
+    to right,
+    #d1ca60 0%,
+    #d5970f 33%, 
+    #ed6009 66%, 
+    #810510 100%
+);
+}
+.allergy-report .bar.two {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 246px;
+    left: 378px;
+    background: linear-gradient(
+    to right,
+    #d1ca60 0%,
+    #d5970f 33%, 
+    #ed6009 66%, 
+    #810510 100%
+);
+}
+.allergy-report .bar.three {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 370px;
+    left: 378px;
+    background: linear-gradient(
+    to right,
+    #d1ca60 0%,
+    #d5970f 33%, 
+    #ed6009 66%, 
+    #810510 100%
+);
+}
+.allergy-report .bar.four {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 493px;
+    left: 378px;
+    background: linear-gradient(
+    to right,
+    #d1ca60 0%,
+    #d5970f 33%, 
+    #ed6009 66%, 
+    #810510 100%
+);
+}
+.allergy-report .arrow.one {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 116px;
+    left: 368px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.allergy-report .arrow.two {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 239px;
+    left: 368px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.allergy-report .arrow.three {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 363px;
+    left: 368px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.allergy-report .arrow.four {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 486px;
+    left: 368px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.allergy-report .none {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 43px;
+    color: #ffd40e;
+    top: 566px;
+    left: 376px;
+}
+.allergy-report .veryhigh {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 43px;
+    color: #ffd40e;
+    top: 566px;
+    left: 652px;
+}
+.allergy-report .ad {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-weight: bold;
+    font-size: 52px;
+    top: 164px;
+    left: 944px;
+    line-height: 143%;
+    text-align: center;
+}
+.allergy-report .counttitle {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 47.6px;
+    left: 976px;
+    top: 7px;
+    line-height: 130%;
+    text-align: center;
+}
+.allergy-report .pollencount {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 92px;
+    left: 1029px;
+    top: 236px;
+    width: 160px;
+    text-align: center;
+}
+.allergy-report .pollencategory {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 65.5px;
+    top: 372px;
+    left: 957px;
+    text-align: center;
+    width: 300px;
+}
+.health-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.health-forecast .panel.top {
+    top: 49px;
+    background-position-y: -49px !important;
+    height: 289px;
+}
+.health-forecast .panel.bottom {
+    top: 338px;
+    background: url(images/assets/middle_saturatedblue.png) !important;
+    background-size: 1458px, 614px !important;
+    background-position-y: -338px !important;
+    height: 276px;
+}
+.health-forecast .dayname {
+    position: absolute;
+    font-family: Frutiger;
+    font-size: 48px;
+    font-weight: bold;
+    left: 129px;
+    top: -2px;
+}
+.health-forecast .achestitle {
+    position: absolute;
+    font-family: "Frutiger Bold Cn";
+    font-size: 51.8px;
+    top: 126px;
+    left: 74px;
+}
+.health-forecast .achesdesc {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    color: #52c6d8;
+    font-size: 40.4px;
+    top: 204px;
+    left: 54px;
+}
+.health-forecast .resptitle {
+    position: absolute;
+    font-family: "Frutiger Bold Cn";
+    font-size: 51.8px;
+    top: 412px;
+    left: 53px;
+}
+.health-forecast .respdesc {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    color: #52c6d8;
+    font-size: 40.4px;
+    top: 490px;
+    left: 74px;
+    width: 1200px;
+}
+.health-forecast .bar.one {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 135px;
+    left: 717px;
+    background: linear-gradient(to right, #6E6E6E 0%, #D1CA60 25%, #D4982A 50%, #E65022 75%, #8C1010 100%)
+}
+.health-forecast .arrow.one {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 131px;
+    left: 706px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(5px 4px 0px rgba(20, 20, 20, .65))
+}
+.health-forecast .index.one {
+    position: absolute;
+    display: flex;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 43px;
+    left: 722px;
+    top: 79px;
+    width: 0px;
+    justify-content: center;
+    white-space: pre;
+}
+.health-forecast .bar.two {
+    position: absolute;
+    width: 459px;
+    height: 35px;
+    top: 422px;
+    left: 717px;
+    background: linear-gradient(to right, #6E6E6E 0%, #D1CA60 25%, #D4982A 50%, #E65022 75%, #8C1010 100%)
+}
+.health-forecast .arrow.two {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 416px;
+    left: 706px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(5px 4px 0px rgba(20, 20, 20, .65))
+}
+.health-forecast .index.two {
+    position: absolute;
+    display: flex;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 43px;
+    left: 722px;
+    top: 365px;
+    width: 0px;
+    justify-content: center;
+    white-space: pre;
+}
+.air-quality {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.air-quality .darkpanel.left {
+    width: 732px;
+}
+.air-quality .panel.left {
+    top: 49px;
+    background-position-y: -49px !important;
+    height: 565px;
+    width: 732px;
+}
+.air-quality .darkpanel.right {
+    left: 744px;
+    background-position-x: -744px !important;
+    height: 121px;
+}
+.air-quality .panel.right {
+    left: 744px;
+    background-position-x: -744px !important;
+    background-position-y: -125px !important;
+    top: 125px;
+    height: 489px;
+}
+.air-quality .dayname {
+    position: absolute;
+    font-family: Frutiger;
+    font-size: 48px;
+    font-weight: bold;
+    left: 133px;
+    top: -2px;
+    text-shadow: none !important;
+}
+.air-quality .box {
+    position: absolute;
+    width: 169px;
+    height: 88px;
+    left: 147px;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, 0.75));
+}
+.air-quality .box.purple {
+    top: 80px;
+    background: #A00A5A;
+}
+.air-quality .box.red {
+    top: 184px;
+    background: #E34320;
+}
+.air-quality .box.orange {
+    top: 290px;
+    background: #D5A32B;
+}
+.air-quality .box.yellow {
+    top: 397px;
+    background: #D3D536;
+}
+.air-quality .box.green {
+    top: 502px;
+    background: #47B047;
+}
+
+.air-quality .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 42px;
+    left: 86px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 46px solid #ebebeb;
+    transform: rotate(-90deg);
+    filter: drop-shadow(-6px 6px 0px rgba(20, 20, 20, 0.75));
+}
+.air-quality .index {
+    position: absolute;
+    font-family: "Frutiger Bold Cn";
+    font-size: 47.7px;
+    bottom: 37px;
+    left: 343px;
+    width: 360px;
+    line-height: 117%;
+    transform-origin: bottom;
+}
+.air-quality .pcp {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    line-height: 119%;
+    text-align: center;
+    left: 768px;
+    top: -3px;
+}
+.air-quality .pollutant {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-weight: bold;
+    font-size: 65px;
+    left: 822px;
+    top: 198px;
+    width: 400px;
+    line-height: 117%;
+    text-align: center;
+}
+.air-quality .source {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 38px;
+    bottom: 11px;
+    left: 792px;
+}
+.air-quality img.ozone-action {
+    position: absolute;
+    height: 117px;
+    top: 378px;
+    left: 852px;
+}
+.uv-index {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.uv-index .panel.white {
+    background: url(images/assets/middle_white.png);
+    background-size: 1458px, 614px;
+    height: 154px;
+}
+.uv-index .darkpanel {
+    top: 154px;
+    height: 61px;
+    background-position-y: -154px !important;
+}
+.uv-index .panel.left {
+    top: 217px;
+    background-position-y: -217px !important;
+    height: 397px;
+    width: 357px;
+}
+.uv-index .panel.right {
+    top: 217px;
+    background-position-y: -217px !important;
+    height: 397px;
+    width: 1088px;
+    left: 370px;
+    background-position-x: -370px !important;
+}
+.uv-index img.raysawareness {
+    position: absolute;
+    width: 1012px;
+    left: 74px;
+    top: 5px;
+}
+.uv-index .currently {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 49px;
+    top: 158px;
+    left: 84px;
+}
+.uv-index .time.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 49px;
+    top: 158px;
+    left: 401px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .time.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 49px;
+    top: 158px;
+    left: 648px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .time.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 49px;
+    top: 158px;
+    left: 897px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .day.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    top: 220px;
+    left: 402px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .day.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    top: 220px;
+    left: 649px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .day.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    top: 220px;
+    left: 897px;
+    width: 200px;
+    text-align: center;
+}
+.uv-index .refbar {
+    position: absolute;
+    bottom: 19px;
+    left: 1143px;
+    width: 23px;
+    height: 246px;
+    background: linear-gradient(
+    to top,
+    #59554F,
+    #777673,
+    #969696,
+    #8A6E5D,
+    #BDAF4E,
+    #F1F13F,
+    #DE8812,
+    #DE4B10,
+    #DE0F0F,
+    #D73F8C
+);
+}
+.uv-index .high {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-weight: bold;
+    font-size: 41px;
+    color: #ffd40e;
+    left: 1171px;
+    bottom: 216px;
+}
+.uv-index .middle {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 41px;
+    color: #ffd40e;
+    left: 1172px;
+    bottom: 106px;
+}
+.uv-index .low {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 41px;
+    color: #ffd40e;
+    left: 1172px;
+    bottom: 1px;
+}
+.uv-index .bar.one {
+    position: absolute;
+    bottom: 19px;
+    left: 400px;/*three is 895*/
+    width: 204px;
+    height: 22px;/*three is 112*/
+    background: linear-gradient(
+    to top,
+    #59554F 0px,
+    #777673 28px,
+    #969696 53px,
+    #8A6E5D 82px,
+    #BDAF4E 109px,
+    #F1F13F 135px,
+    #DE8812 169px,
+    #DE4B10 191px,
+    #DE0F0F 225px,
+    #D73F8C 244px
+);
+}
+.uv-index .index.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 78px;
+    bottom: 1px;
+    width: 204px;
+    text-align: center;
+    left: 400px;
+    margin-bottom: 30px;
+}
+.uv-index .description.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    bottom: -27px;
+    width: 204px;
+    text-align: center;
+    left: 400px;
+    margin-bottom: 30px;
+}
+.uv-index .bar.current {
+    position: absolute;
+    bottom: 19px;
+    left: 94px;
+    width: 204px;
+    height: 0px;
+    background: linear-gradient(
+    to top,
+    #59554F 0px,
+    #777673 28px,
+    #969696 53px,
+    #8A6E5D 82px,
+    #BDAF4E 109px,
+    #F1F13F 135px,
+    #DE8812 169px,
+    #DE4B10 191px,
+    #DE0F0F 225px,
+    #D73F8C 244px
+);
+}
+.uv-index .index.current {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 78px;
+    bottom: 1px;
+    width: 204px;
+    text-align: center;
+    left: 94px;
+    margin-bottom: 30px;
+}
+.uv-index .description.current {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    bottom: -27px;
+    width: 204px;
+    text-align: center;
+    left: 94px;
+    margin-bottom: 30px;
+}
+.uv-index .bar.two {
+    position: absolute;
+    bottom: 19px;
+    left: 647px;
+    width: 204px;
+    height: 135px;
+    background: linear-gradient(
+    to top,
+    #59554F 0px,
+    #777673 28px,
+    #969696 53px,
+    #8A6E5D 82px,
+    #BDAF4E 109px,
+    #F1F13F 135px,
+    #DE8812 169px,
+    #DE4B10 191px,
+    #DE0F0F 225px,
+    #D73F8C 244px
+);
+}
+.uv-index .index.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 78px;
+    bottom: 1px;
+    width: 204px;
+    text-align: center;
+    left: 647px;
+    margin-bottom: 135px;/*margin bottom value = bar height*/
+}
+.uv-index .description.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    bottom: -27px;
+    width: 204px;
+    text-align: center;
+    left: 647px;
+    margin-bottom: 135px;/*margin bottom value = bar height*/
+}
+.uv-index .bar.three {
+    position: absolute;
+    bottom: 19px;
+    left: 895px;
+    width: 204px;
+    height: 112px;
+    background: linear-gradient(
+    to top,
+    #59554F 0px,
+    #777673 28px,
+    #969696 53px,
+    #8A6E5D 82px,
+    #BDAF4E 109px,
+    #F1F13F 135px,
+    #DE8812 169px,
+    #DE4B10 191px,
+    #DE0F0F 225px,
+    #D73F8C 244px
+);
+}
+.uv-index .index.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 78px;
+    bottom: 1px;
+    width: 204px;
+    text-align: center;
+    left: 895px;
+    margin-bottom: 112px;/*margin bottom value = bar height*/
+}
+.uv-index .description.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    bottom: -27px;
+    width: 204px;
+    text-align: center;
+    left: 895px;
+    margin-bottom: 112px;/*margin bottom value = bar height*/
+}
+.uv-index .uvunavailable {
+    position: absolute;
+    font-family: "Frutiger";
+    font-weight: bold;
+    font-size: 50px;
+    top: 386px;
+    left: 458px;
+    display: none;
+}
+.health-tip {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.health-tip .panel.white {
+    background: url(images/assets/middle_white.png);
+    background-size: 1458px, 614px;
+    height: 154px;
+}
+.health-tip .panel.bottom {
+    top: 154px;
+    height: 460px;
+    background-position-y: -154px !important;
+}
+.health-tip img.raysawareness {
+    position: absolute;
+    width: 1012px;
+    left: 96px;
+    top: 3px;
+}
+.health-tip .healthtip {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.8px;
+    white-space: pre;
+    line-height: 116%;
+    left: 111px;
+    top: 170px;
+}
+.health-tip .source {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 27px;
+    top: 574px;
+    left: 74px;
+    color: #ffd40e;
+}
+.health-promo {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.health-promo img.promo {
+    position: absolute;
+    width: 1458px;
+    height: 614px;
+}
+.health-promo .promotext {
+    position: absolute;
+    font-family: "Frutiger";
+    font-weight: bold;
+    font-size: 47.6px;
+    line-height: 209%;
+    text-align: right;
+    top: 31px;
+    right: 176px;
+}
+/*GARDEN*/
+.garden-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.garden-intro .circlegroup {
+  display: none;
+}
+.garden-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/garden_intro_bg.png);
+  background-size: 100% 100%;
+}
+.garden-intro .circle-one {
+  position: absolute;
+  background-color: rgb(163,192,87,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.garden-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(47,130,31,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.garden-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(26,100,25,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.garden-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.garden-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#3e9017, rgba(62,144,23,255)*/
+  opacity: 0.9;
+}
+.garden-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.garden-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.garden-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.garden-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.garden-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.garden-forecast .panel.left {
+    top: 49px;
+    background-position-y: -49px !important;
+    height: 565px;
+    width: 586px;
+}
+.garden-forecast .panel.right {
+    top: 49px;
+    background-position-y: -49px !important;
+    background-position-x: -594px !important;
+    height: 565px;
+    width: 864px;
+    left: 594px;
+}
+.garden-forecast .dayname {
+    position: absolute;
+    font-family: Frutiger;
+    font-size: 47.6px;
+    font-weight: bold;
+    left: 122px;
+    top: 1px;
+}
+.garden-forecast .darkheader.one {
+    position: absolute;
+    left: 54px;
+    top: 420px;
+    height: 69px;
+    width: 530px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent)
+}
+.garden-forecast .darkheader.two {
+    position: absolute;
+    left: 658px;
+    top: 58px;
+    height: 69px;
+    width: 530px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent)
+}
+.garden-forecast .darkheader.three {
+    position: absolute;
+    left: 658px;
+    top: 420px;
+    height: 69px;
+    width: 530px;
+    background: linear-gradient(to right, rgba(26, 26, 128, 0.8), transparent)
+}
+.garden-forecast .icon {
+    position: absolute;
+    height: 234px;
+    width: 260px;
+    left: 158px;
+    top: 44px;
+}
+.garden-forecast .lowtitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 284px;
+    left: 134px;
+}
+.garden-forecast .low {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 88px;
+    left: 115px;
+    top: 332px;
+    width: 130px;
+    text-align: center;
+}
+.garden-forecast .hightitle{
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 284px;
+    left: 334px;
+}
+.garden-forecast .high {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 88px;
+    left: 317px;
+    top: 332px;
+    width: 130px;
+    text-align: center;
+}
+.garden-forecast .preciptitle {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 70px;
+    top: 425px;
+}
+.garden-forecast .precip {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 77px;
+    left: 128px;
+    top: 522px;
+}
+.garden-forecast .wateringheader {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 677px;
+    top: 63px;
+}
+.garden-forecast .box {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 54px;
+    top: 221px;
+    width: 61px;
+    height: 78px;
+    padding-top: 10px;
+    text-align: center;
+}
+.garden-forecast .box.one {
+    left: 657px;
+    background: #259e1d;
+}
+.garden-forecast .box.two {
+    left: 718px;
+    background: #40b21f;
+}
+.garden-forecast .box.three {
+    left: 779px;
+    background: #5dc322;
+}
+.garden-forecast .box.four {
+    left: 840px;
+    background: #84bd20;
+}
+.garden-forecast .box.five {
+    left: 901px;
+    background: #a5c41e;
+}
+.garden-forecast .box.six {
+    left: 962px;
+    background: #c2c31f;
+}
+.garden-forecast .box.seven {
+    left: 1023px;
+    background: #a79e1d;
+}
+.garden-forecast .box.eight {
+    left: 1084px;
+    background: #8d7f1e;
+}
+.garden-forecast .box.nine {
+    left: 1145px;
+    background: #745f1e;
+}
+.garden-forecast .box.ten {
+    left: 1206px;
+    background: #593f1e;
+}
+.garden-forecast .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 177px;
+    left: 664px;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 49px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.garden-forecast .index {
+    position: absolute;
+    display: flex;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 61px;
+    left: 684px;
+    top: 331px;
+    width: 0px;
+    text-align: center;
+    justify-content: center;
+    display: none;
+}
+.garden-forecast .covertitle {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    color: #ffd40e;
+    left: 682px;
+    top: 426px;
+}
+.garden-forecast .cloudcover {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 77px;
+    left: 703px;
+    top: 523px;
+}
+.estimated-precip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.estimated-precip .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.estimated-precip .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.estimated-precip .timestamp {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    right: 183px;
+    top: 150px;
+}
+.estimated-precip .label {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-weight: bold;
+    font-size: 39px;
+    right: 180px;
+    top: 188px;
+}
+.estimated-precip .box.five {
+    position: absolute;
+    top: 195px;
+    right: 250px;
+    width: 79px;
+    height: 35px;
+    background: #4f1309;
+}
+.estimated-precip .box.four {
+    position: absolute;
+    top: 195px;
+    right: 329px;
+    width: 78px;
+    height: 35px;
+    background: #e61e1e;
+}
+.estimated-precip .box.three {
+    position: absolute;
+    top: 195px;
+    right: 405px;
+    width: 80px;
+    height: 35px;
+    background: #c8c832;
+}
+.estimated-precip .box.two {
+    position: absolute;
+    top: 195px;
+    right: 485px;
+    width: 75px;
+    height: 35px;
+    background: #208420;
+}
+.estimated-precip .box.one {
+    position: absolute;
+    top: 195px;
+    right: 560px;
+    width: 75px;
+    height: 35px;
+    background: #46e346;
+}
+.estimated-precip .number.five {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 257px;
+}
+.estimated-precip .number.four {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 356px;
+}
+.estimated-precip .number.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 434px;
+}
+.estimated-precip .number.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 512px;
+}
+.estimated-precip .number.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 572px;
+}
+.precip-forecast {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.precip-forecast .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.precip-forecast .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.precip-forecast .timestamp {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    right: 162px;
+    top: 150px;
+}
+.precip-forecast .label {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-weight: bold;
+    font-size: 39px;
+    right: 162px;
+    top: 188px;
+}
+.precip-forecast .number {
+  text-shadow: none !important;
+}
+.precip-forecast .number.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 248px;
+    color: #141414;
+}
+.precip-forecast .number.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 321px;
+    color: #141414;
+}
+.precip-forecast .number.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 410px;
+    color: #141414;
+}
+.precip-forecast .number.four {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 489px;
+    color: #141414;
+}
+.precip-forecast .number.five {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 584px;
+    color: #141414;
+}
+.precip-forecast .number.six {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 659px;
+    color: #141414;
+}
+.precip-forecast .number.seven {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    top: 193px;
+    right: 736px;
+    color: #141414;
+}
+/* .precip-forecast .number.eight {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 34px;
+    top: 192px;
+    right: 819px;
+    color: #141414;
+}
+.precip-forecast .number.nine {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 34px;
+    top: 192px;
+    right: 894px;
+    color: #141414;
+} */
+.precip-forecast .box.one {
+    position: absolute;
+    top: 195px;
+    right: 242px;
+    width: 79px;
+    height: 35px;
+    background: #9A3CFF;
+}
+.precip-forecast .box.two {
+    position: absolute;
+    top: 195px;
+    right: 321px;
+    width: 79px;
+    height: 35px;
+    background: #DAA5FF;
+}
+.precip-forecast .box.three {
+    position: absolute;
+    top: 195px;
+    right: 400px;
+    width: 80px;
+    height: 35px;
+    background: #E6E6E6;
+}
+.precip-forecast .box.four {
+    position: absolute;
+    top: 195px;
+    right: 480px;
+    width: 79px;
+    height: 35px;
+    background: #AAAAAA;
+}
+.precip-forecast .box.five {
+    position: absolute;
+    top: 195px;
+    right: 558px;
+    width: 79px;
+    height: 35px;
+    background: #199619;
+}
+.precip-forecast .box.six {
+    position: absolute;
+    top: 195px;
+    right: 637px;
+    width: 79px;
+    height: 35px;
+    background: #3CBE3C;
+}
+.precip-forecast .box.seven {
+    position: absolute;
+    top: 195px;
+    right: 715px;
+    width: 79px;
+    height: 35px;
+    background: #64E664;
+}
+/*.precip-forecast .box.eight {
+    position: absolute;
+    top: 195px;
+    right: 795px;
+    width: 75px;
+    height: 33px;
+    background: #3ab73d;
+}
+.precip-forecast .box.nine {
+    position: absolute;
+    top: 195px;
+    right: 870px;
+    width: 78px;
+    height: 33px;
+    background: #63e371;
+}*/
+.drought-monitor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.drought-monitor .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.drought-monitor .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.drought-monitor .exceptional {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    right: 157px;
+    top: 151px;
+    text-align: right;
+    line-height: 109%;
+}
+.drought-monitor .dry {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 41px;
+    right: 461px;
+    top: 151px;
+    line-height: 109%;
+    text-align: left;
+}
+.drought-monitor .box.one {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #C10020;
+    top: 195px;
+    right: 248px;
+}
+.drought-monitor .box.two {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #EF9D16;
+    top: 195px;
+    right: 299px;
+}
+.drought-monitor .box.three {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #FFED1B;
+    top: 195px;
+    right: 348px;
+}
+.drought-monitor .box.four {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #64E664;
+    top: 195px;
+    right: 398px;
+}
+.drought-monitor .box.five {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #3CBE3C;
+    top: 195px;
+    right: 447px;
+}
+.drought-monitor .box.six {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    background-color: #216421;
+    top: 195px;
+    right: 496px;
+}
+.drought-monitor .timestamp {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    right: 157px;
+    top: 247px;
+    text-align: right;
+    letter-spacing: 0.3px;
+}
+.frost-freeze {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.frost-freeze .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.frost-freeze .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.frost-freeze .timestamp {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 38px;
+    right: 183px;
+    top: 150px;
+}
+.frost-freeze .freeze {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 35px;
+    right: 227px;
+    top: 191px;
+}
+.frost-freeze .frost {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 35px;
+    right: 418px;
+    top: 191px;
+}
+.frost-freeze .box.one {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    background-color: #d31d5f;
+    top: 192px;
+    right: 182px;
+    box-shadow: #141414 3px 3px 3px;
+}
+.frost-freeze .box.two {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    background-color: #e37f94;
+    top: 192px;
+    right: 370px;
+    box-shadow: #141414 3px 3px 3px;
+}
+.garden-promo {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.garden-promo img.promo {
+    position: absolute;
+    width: 1458px;
+    height: 614px;
+}
+.garden-promo .promotext {
+    position: absolute;
+    font-family: "Frutiger";
+    font-weight: bold;
+    font-size: 47.6px;
+    line-height: 209%;
+    text-align: right;
+    top: 31px;
+    right: 176px;
+}
+/*SKI*/
+.ski-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.ski-intro .circlegroup {
+  display: none;
+}
+.ski-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/ski_intro_bg.png);
+  background-size: 100% 100%;
+}
+.ski-intro .circle-one {
+  position: absolute;
+  background-color: rgb(136,77,172,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.ski-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(136,77,172,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.ski-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(136,77,172,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.ski-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.ski-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#3e9017, rgba(62,144,23,255)*/
+  opacity: 0.9;
+}
+.ski-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.ski-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.ski-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.ski-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.ski-report {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.ski-report .darkpanel.one {
+    height: 57px;
+}
+.ski-report .panel.one {
+    top: 57px;
+    background-position-y: -57px !important;
+    height: 148px;
+}
+.ski-report .darkpanel.two {
+    top: 214px;
+    height: 57px;
+    background-position-y: -214px !important;
+}
+.ski-report .panel.two {
+    top: 271px;
+    height: 143px;
+    background-position-y: -271px !important;
+}
+.ski-report .darkpanel.three {
+    top: 425px;
+    height: 57px;
+    background-position-y: -425px !important;
+}
+.ski-report .panel.three {
+    top: 482px;
+    background-position-y: -482px !important;
+    height: 132px;
+}
+.ski-report .resortname.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    left: 124px;
+    top: 0px;
+}
+.ski-report .status.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.7px;
+    right: 159px;
+    top: 2px;
+}
+.ski-report .newtitle.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 64px;
+    left: 127px;
+    color: #ffd40e;
+}
+.ski-report .newsnow.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 127px;
+    top: 115px;
+    width: 234px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .basetitle.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 64px;
+    left: 503px;
+    color: #ffd40e;
+}
+.ski-report .basesnow.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 500px;
+    top: 115px;
+    width: 245px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .type.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.6px;
+    top: 118px;
+    right: 159px;
+}
+.ski-report .resortname.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    left: 124px;
+    top: 212px;
+}
+.ski-report .status.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.7px;
+    right: 159px;
+    top: 213px;
+}
+.ski-report .newtitle.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 276px;
+    left: 127px;
+    color: #ffd40e;
+}
+.ski-report .newsnow.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 127px;
+    top: 327px;
+    width: 234px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .basetitle.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 276px;
+    left: 503px;
+    color: #ffd40e;
+}
+.ski-report .basesnow.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 500px;
+    top: 327px;
+    width: 245px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .type.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.6px;
+    top: 330px;
+    right: 159px;
+}
+.ski-report .resortname.three {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 52px;
+    left: 124px;
+    top: 424px;
+}
+.ski-report .status.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.7px;
+    right: 159px;
+    top: 425px;
+}
+.ski-report .newtitle.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 488px;
+    left: 127px;
+    color: #ffd40e;
+}
+.ski-report .newsnow.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 127px;
+    top: 538px;
+    width: 234px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .basetitle.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 39px;
+    top: 488px;
+    left: 503px;
+    color: #ffd40e;
+}
+.ski-report .basesnow.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    left: 500px;
+    top: 538px;
+    width: 245px;
+    text-align: center;
+    white-space: nowrap;
+}
+.ski-report .type.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.6px;
+    top: 541px;
+    right: 159px;
+}
+.snowfall-forecast {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.snowfall-forecast .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.snowfall-forecast .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.snowfall-forecast .timestamp {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 36.5px;
+    right: 155px;
+    top: 152px;
+}
+.snowfall-forecast .label {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 32px;
+    right: 155px;
+    top: 192px;
+}
+.snowfall-forecast .number {
+    color: #141414;
+    text-shadow: none !important;
+    font-size: 36px;
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    top: 193px;
+    width: 91px;
+    text-align: center;
+}
+.snowfall-forecast .box.one {
+    position: absolute;
+    top: 196px;
+    right: 231px;
+    width: 91px;
+    height: 34px;
+    background: #9A3CFF;
+}
+.snowfall-forecast .box.two {
+    position: absolute;
+    top: 196px;
+    right: 322px;
+    width: 90px;
+    height: 34px;
+    background: #DAA5FF;
+}
+.snowfall-forecast .box.three {
+    position: absolute;
+    top: 196px;
+    right: 412px;
+    width: 90px;
+    height: 34px;
+    background: #E6E6E6;
+}
+.snowfall-forecast .box.four {
+    position: absolute;
+    top: 196px;
+    right: 502px;
+    width: 90px;
+    height: 34px;
+    background: #AAAAAA;
+}
+.snowfall-forecast .number.one {
+    right: 231px;
+}
+.snowfall-forecast .number.two {
+    right: 320px;
+}
+.snowfall-forecast .number.three {
+    right: 410px;
+}
+.snowfall-forecast .number.four {
+    right: 501px;
+}
+.ski-tip {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.ski-tip .panel.white {
+    background: url(images/assets/middle_white.png);
+    background-size: 1458px, 614px;
+    height: 154px;
+}
+.ski-tip .panel.bottom {
+    top: 154px;
+    height: 460px;
+    background-position-y: -154px !important;
+}
+.ski-tip img.raysawareness {
+    position: absolute;
+    width: 1012px;
+    left: 96px;
+    top: 3px;
+}
+.ski-tip .skitip {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 51.8px;
+    white-space: pre;
+    line-height: 116%;
+    left: 111px;
+    top: 170px;
+}
+.ski-tip .source {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 27px;
+    top: 574px;
+    left: 74px;
+    color: #ffd40e;
+}
+/*BOAT AND BEACH*/
+.beach-intro {
+  position: absolute;
+  width: 1620px;
+  height: 1080px;
+}
+.beach-intro .circlegroup {
+  display: none;
+}
+.beach-intro .background {
+  position: absolute;
+  width: 1620px;
+  z-index: 4;
+  height: 1080px;
+  background-image: url(images/backgrounds/boatbeach_intro_bg.png);
+  background-size: 100% 100%;
+}
+.beach-intro .circle-one {
+  position: absolute;
+  background-color: rgb(163,192,87,0.6);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 124%; 
+  height: 141%;
+  left: -10.5%; 
+  bottom: -20%;
+  z-index: 4;
+  animation: circle-one-movement 10s linear normal forwards;
+}
+.beach-intro .circle-two {
+  display: none;
+  position: absolute;
+  background-color: rgb(47,130,31,0.9);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 145%; 
+  height: 166%;
+  left: -27%; 
+  bottom: -30%;
+  z-index: 5;
+  animation: circle-two-movement 10s linear normal forwards;
+}
+.beach-intro .circle-three {
+  display: none;
+  position: absolute;
+  background-color: rgb(26,100,25,0.7);
+  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-size: 100% 100%;
+  width: 148%; 
+  height: 164%;
+  left: -15%; 
+  bottom: -40.5%;
+  z-index: 6;
+  animation: circle-three-movement 10s linear normal forwards;
+}
+/*
+.beach-intro .sidearc-shadow {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 7;
+  opacity: 0.9;
+}*/
+.beach-intro .sidearc {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  z-index: 8;
+  /*filter: ;#3e9017, rgba(62,144,23,255)*/
+  opacity: 0.9;
+}
+.beach-intro .scrollingtext {
+    position: absolute;
+    left: -3420px;
+    width: 500%;
+    height: 38px;
+    background-image: url(images/assets/wxscan_crawlgrey.png);
+    background-size: 2.54% 100%;
+    opacity: 0.4;
+    bottom: 213px;
+    z-index: 7;
+    animation: scrollingwordmark 10s linear normal forwards;
+}
+.beach-intro .bottombar {
+  position: absolute;
+  width: 100%;
+  height: 212px;
+  bottom: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.beach-intro .topbar {
+  position: absolute;
+  width: 100%;
+  height: 151px;
+  top: 0px;
+  background-color: #101010;
+  z-index: 7;
+}
+.beach-intro .intro-title {
+    position: absolute;
+    z-index: 5;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 82px;
+    right: 266px;
+    text-align: right;
+    bottom: 304px;
+}
+.surf-report {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.surf-report .panel.left {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+  width: 850px;
+}
+.surf-report .panel.right {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+  width: 598px;
+  left: 860px;
+  background-position-x: -860px !important;
+}
+.surf-report .locationname {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 45.5px;
+    top: 0px;
+    left: 129px;
+}
+.surf-report .windtitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 123px;
+    left: 98px;
+    color: #ffd40e;
+}
+.surf-report .wind {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 57px;
+    top: 118px;
+    left: 284px;
+}
+.surf-report .periodtitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 241px;
+    left: 98px;
+    color: #ffd40e;
+}
+.surf-report .waveperiod {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 57px;
+    left: 458px;
+    top: 236px;
+}
+.surf-report .temptitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 359px;
+    left: 95px;
+    color: #ffd40e;
+}
+.surf-report .tempbar {
+    position: absolute;
+    height: 68px;
+    width: 676px;
+    top: 506px;
+    left: 107px;
+    background: linear-gradient(
+    to right,
+    #5AAAFF 0%,
+    #4781E2 10%,
+    #3459C5 20%,
+    #2231A8 30%,
+    #635D65 40%,
+    #8C8857 50%,
+    #C1BE3C 60%,
+    #D7CC29 70%,
+    #DC9600 80%,
+    #DC6800 90%,
+    #AA1000 95%,
+    #700000 100%
+);
+}
+.surf-report .tempnumbers {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 56px;
+    top: 512px;
+    white-space: pre;
+    color: #141414;
+    text-shadow: none !important;
+}
+.surf-report .tempnumbers.one {
+  left: 126px;
+}
+.surf-report .tempnumbers.two {
+  left: 224px;
+}
+.surf-report .tempnumbers.three {
+  left: 317px;
+}
+.surf-report .tempnumbers.four {
+  left: 415px;
+}
+.surf-report .tempnumbers.five {
+  left: 511px;
+}
+.surf-report .tempnumbers.six {
+  left: 610px;
+}
+.surf-report .tempnumbers.seven {
+  left: 706px;
+}
+.surf-report .arrow {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 500px;
+    left: 90px;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 48px solid #ebebeb;
+    filter: drop-shadow(6px 6px 0px rgba(20, 20, 20, .75));
+}
+.surf-report .temp {
+    position: absolute;
+    font-family: 'Frutiger';
+    display: none;
+    font-weight: bold;
+    font-size: 66px;
+    top: 429px;
+    left: 51px;
+    width: 130px;
+    text-align: center;
+}
+.surf-report .wavetitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 63px;
+    left: 954px;
+    color: #ffd40e;
+    line-height: 116%;
+    text-align: center;
+}
+.surf-report .wavebar {
+    position: absolute;
+    width: 190px;
+    height: 0px;
+    left: 1027px;
+    bottom: 42px;
+    background: linear-gradient(to top, #756B46 10%, #0ADEF2 80%);
+}
+.surf-report .wavenum {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 67px;
+    bottom: 37px;
+    left: 1027px;
+    height: 125px;
+    width: 190px;
+    text-align: center;
+    text-shadow: none !important;
+    margin-bottom: 0px;
+    color: #141414;
+}
+.surf-report .feet {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 40px;
+    bottom: 40px;
+    left: 1027px;
+    height: 59px;
+    width: 190px;
+    color: #141414;
+    text-shadow: none !important;
+    text-align: center;
+}
+.water-temps {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.water-temps .overlay {
+  position: absolute;
+  z-index: 1;
+  background: transparent url(images/backgrounds/map_banner_bg.png) no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.water-temps .legend {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.water-temps .box.one {
+    position: absolute;
+    width: 92px;
+    height: 45px;
+    top: 170px;
+    right: 167px;
+    background: #9A1000;
+}
+.water-temps .box.two {
+    position: absolute;
+    width: 91px;
+    height: 45px;
+    top: 170px;
+    right: 259px;
+    background: #DC9600;
+}
+.water-temps .box.three {
+    position: absolute;
+    width: 91px;
+    height: 45px;
+    top: 170px;
+    right: 350px;
+    background: #C1BE3C;
+}
+.water-temps .box.four {
+    position: absolute;
+    width: 90px;
+    height: 45px;
+    top: 170px;
+    right: 441px;
+    background: #635D65;
+}
+.water-temps .box.five {
+    position: absolute;
+    width: 90px;
+    height: 45px;
+    top: 170px;
+    right: 531px;
+    background: #3459C5;
+}
+.water-temps .box.six {
+    position: absolute;
+    width: 91px;
+    height: 45px;
+    top: 170px;
+    right: 621px;
+    background: #5AAAFF;
+}
+.water-temps .number.one {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 168px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.water-temps .number.two {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 260px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.water-temps .number.three {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 349px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.water-temps .number.four {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 440px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.water-temps .number.five {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 529px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.water-temps .number.six {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 42px;
+    width: 91px;
+    top: 174px;
+    right: 620px;
+    text-align: center;
+    color: #141414;
+    text-shadow: none !important;
+}
+.coastal-forecast {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.coastal-forecast .panel {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 565px;
+}
+.coastal-forecast .nws {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 34.5px;
+    left: 127px;
+    top: 4px;
+}
+.coastal-forecast .coastbox {
+  position: absolute;
+  width: 1160px;
+  left: 107px;
+  top: 44px;
+  height: 531px;
+  overflow: hidden;
+}
+.coastal-forecast .forecast {
+    position: relative;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 60.7px;
+    width: 1160px;
+    line-height: 114%;
+    white-space: pre-wrap;
+}
+.coastal-forecast .advisory {
+    position: relative;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 60.7px;
+    width: 1160px;
+    line-height: 102%;
+    white-space: pre-wrap;
+    top: 17px;
+    color: #ffd40e;
+}
+.coastal-forecast .forecast em {
+    font-style: normal;
+    color: #ffd40e;
+    line-height: 163%;
+}
+.tides {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+}
+.tides .panel.one {
+  top: 49px;
+  background-position-y: -49px !important;
+  height: 187px;
+}
+.tides .panel.two {
+    top: 248px;
+    background-position-y: -248px !important;
+    height: 187px;
+}
+.tides .panel.three {
+    top: 455px;
+    background-position-y: -455px !important;
+    height: 159px;
+}
+.tides .hightitle {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 43px;
+    left: 482px;
+    top: -2px;
+    color: #ffd40e;
+}
+.tides .lowtitle {
+    position: absolute;
+    font-family: Frutiger;
+    font-weight: bold;
+    font-size: 43px;
+    left: 931px;
+    top: -2px;
+    color: #ffd40e;
+}
+.tides .locationname.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    left: 101px;
+    top: 63px;
+}
+.tides .hightide.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    line-height: 123%;
+    top: 108px;
+    left: 467px;
+}
+.tides .lowtide.one {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    line-height: 123%;
+    top: 108px;
+    left: 905px;
+}
+.tides .locationname.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    left: 101px;
+    top: 259px;
+}
+.tides .hightide.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    line-height: 123%;
+    top: 304px;
+    left: 469px;
+}
+.tides .lowtide.two {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    line-height: 123%;
+    top: 304px;
+    left: 903px;
+}
+.tides .alamanaclocation {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    top: 464px;
+    left: 101px;
+}
+.tides .sunrisetitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 537px;
+    left: 102px;
+    color: #ffd40e;
+}
+.tides .sunrise {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    top: 535px;
+    left: 324px;
+}
+.tides .sunsettitle {
+    position: absolute;
+    font-family: 'Frutiger';
+    font-weight: bold;
+    font-size: 50px;
+    top: 537px;
+    left: 745px;
+    color: #ffd40e;
+}
+.tides .sunset {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 50px;
+    top: 535px;
+    left: 967px;
+}
+.severe-message {
+    position: absolute;
+    top: 233px;
+    width: 1620px;
+    height: 710px;
+}
+.severe-message img.image {
+    position: absolute;
+    width: 1535px;
+    height: 700px;
+    right: 0px;
+    z-index: 4;
+}
+.severe-message .text {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 61px;
+    line-height: 183%;
+    text-align: center;
+    width: 1458px;
+    right: 60px;
+    top: 100px;
+    z-index: 5;
+}
+/*SLIDES CSS ENDS HERE*/
+/*
+.mapboxgl-canvas {
+  width: 1620px !important;
+  height: 1080px !important;
+}
+  */

@@ -1,0 +1,545 @@
+var api_key = "";
+var map_key = "";
+var traf_key = "";
+var HERE_key = "";
+function randomTrafKey() {
+  codeval = Math.random() * (2.9 - 0)
+  codeval = codeval.toString().substring(0,1)
+  let finalcodeval = Number(codeval);
+  var tkeys = ['O4oaqTxH53uWF2yRCknGZb367LIZvrBr',
+    'ZGbDSq2LAIgaEArstZfeMWV8HQwG2Dlu',
+    'cJG5MpqFVuqA6VfHYFcDxz2NoQOmmBVG'];
+  traf_key = tkeys[finalcodeval]
+}
+//randomTrafKey();
+//var systemSettings
+var systemSettings = {
+  apiKeys: {
+    api_key: "e1f10a1e78da46f5b10a1e78da96f525",
+    map_key: "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjbHAxbHNjdncwaDhvMmptcno1ZTdqNDJ0In0.iywE3NefjboFg11a11ON0Q",
+    traf_key: "cJG5MpqFVuqA6VfHYFcDxz2NoQOmmBVG",
+    HERE_key: ""
+  },
+  systemLocation: "",
+  appearanceSettings: {
+    nationalConfig: false,
+    providerName: "Mist Digital Cable",
+    startupTime: 10000,
+    crawlMode: "both",
+    adMessage: ["network"],
+    providerType: "provider",
+    providerImage: "mistdc",
+    adImages: [],
+    version: "1.0"
+  },
+  audioSettings: {
+    enableMusic: true,
+    shuffle: false,
+    randomStart: true,
+    narrations: true,
+    order: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+  },
+  packageSettings: ["forecast","health","traffic","travel", "airport","extralocal","minicoreone","garden","ski", "international"],
+  LBar: {
+    locationName: "",
+    lat: "",
+    lon: "",
+    airportName: "",
+    obsIcaoCode: "",
+    ccTicker:{
+      airports:[],
+      cities:[]
+    },
+    radar: {
+      lat: "",
+      lon: "",
+      auto: true,
+      zoom: 8,
+      radarCities: [
+        //{ locationName: "", dotTopPos: "", dotLeftPos: "", nameTopMargin: "", nameLeftMargin: "" }
+      ]
+    }
+  },
+  dataMaps: {
+    leftPos: "",
+    topPos: "",
+    zoom: 3.3
+  },
+  mainCity: {
+    autoFind: true,
+    locationName: "",
+    bulletinName: "",
+    lat: "",
+    lon: "",
+    airportName: "",
+    obsIcaoCode: "",
+    almanacLocationName: "",
+    introBG: "neighborhood_bg",
+    upNextBG: "neighborhood_bg",
+    slidesBG: "core_bg",
+    radar: {
+      lat: "",
+      lon: "",
+      auto: true,
+      zoom: 8,
+      satCoords: [0, 0],
+      radarCities: [
+        //{ locationName: "", dotTopPos: "", dotLeftPos: "", nameTopMargin: "", nameLeftMargin: "" }
+      ],
+      radarIcons: [
+        //{ type: "", text: "", topPos: "", leftPos: "" }
+      ]
+    }
+  },
+  extraCity: {
+    autoFind: true,
+    maxCities: 3,
+    cities: [
+      // {
+      //   locationName: "",
+      //   bulletinName: "",
+      //   lat: "",
+      //   lon: "",
+      //   airportName: "",
+      //   obsIcaoCode: "",
+      //   upNextBG: "",
+      //   slidesBG: "",
+      //   radar: {
+      //     lat: "", lon: "", auto: false, zoom: 8, satCoords: [0, 0],
+      //     radarCities: [
+      //       { locationName: "", dotTopPos: "", dotLeftPos: "", nameTopMargin: "-", nameLeftMargin: "" }
+      //     ],
+      //     radarIcons: [
+      //       { type: "", text: "", topPos: "", leftPos: "" }
+      //     ]
+      //   }
+      // }
+    ]
+  },
+  nearbyCities: {
+    autoFind: true,
+    cities: [/*
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      },
+      {
+        locationName: "",
+        obsIcaoCode: ""
+      }
+    */]
+  },
+  upperDisplayCity: {
+    autoFind: true,
+    enabled: true,
+    locationName: "",
+    lat: "",
+    lon: "",
+    airportName: "",
+    obsIcaoCode: ""
+  },
+  traffic: {
+    autoFind: true,
+    locationName: "",
+    lat: "",
+    lon: "",
+    zoomOut: 9.4,
+    zoomIn: 8.6,
+    routes: [
+      //{ from: "", fromStreet: "", to: "", toStreet: "", routeIcon: "" },
+      //{ from: "", fromStreet: "", to: "", toStreet: "", routeIcon: "" },
+      //{ from: "", fromStreet: "", to: "", toStreet: "", routeIcon: "" }
+    ]
+  },
+  travel: {
+    regionalMap: {
+      enabled: true,
+      autoFind: true,
+      mapTop: "",
+      mapLeft: "",
+      cities: [
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+        { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" }
+      ]
+    },
+    destinationForecast: [
+      { locationName: "New York City", lat: "40.730610", lon: "-73.935242" },
+      { locationName: "Chicago", lat: "41.881832", lon: "-87.623177" },
+      { locationName: "Los Angeles", lat: "34.052235", lon: "-118.243683" },
+      { locationName: "Atlanta", lat: "33.753746", lon: "-84.386330" },
+      { locationName: "Dallas", lat: "32.779167", lon: "-96.808891" },
+      { locationName: "Boston", lat: "42.361145", lon: "-71.057083" },
+      { locationName: "Orlando", lat: "28.538336", lon: "-81.379234" },
+      { locationName: "Washington, DC", lat: "38.889805", lon: "-77.009056" },
+      { locationName: "San Francisco", lat: "37.773972", lon: "-122.431297" }
+    ]
+  },
+  health: {
+    autoFind: true,
+    locationName: "",
+    lat: "",
+    lon: "",
+    airportName: "",
+    obsIcaoCode: ""
+  },
+  airport: {
+    autoFind: true,
+    mainEnabled: true,
+    main: [
+      { airportName: "", iataCode: "" },
+      { airportName: "", iataCode: "" }
+    ],
+    national: [
+      { airportName: "New York / LaGuardia", iataCode: "LGA" },
+      { airportName: "Chicago O'Hare Int'l", iataCode: "ORD" },
+      { airportName: "Los Angeles Int'l", iataCode: "LAX" },
+      { airportName: "Atlanta International", iataCode: "ATL" },
+      { airportName: "Dallas / Ft. Worth Int'l", iataCode: "DFW" },
+      { airportName: "Denver International", iataCode: "DEN" },
+      { airportName: "Boston / Logan Int'l", iataCode: "BOS" },
+      { airportName: "Salt Lake City Int'l", iataCode: "SLC" },
+      { airportName: "Miami International", iataCode: "MIA" },
+      { airportName: "Phoenix / Sky Harbor", iataCode: "PHX" },
+      { airportName: "Minneapolis - St. Paul", iataCode: "MSP" },
+      { airportName: "Washington Dulles Int'l", iataCode: "IAD" },
+      { airportName: "San Francisco Int'l", iataCode: "SFO" },
+      { airportName: "Philadelphia Int'l", iataCode: "PHL" },
+      { airportName: "Seattle - Tacoma Int'l", iataCode: "SEA" },
+      { airportName: "Lambert - St. Louis Int'l", iataCode: "STL" }
+    ]
+  },
+  international: {
+    map: {
+      canada: [
+        { locationName: "Dawson", lat: "64.0639", lon: "-139.4333" },
+        { locationName: "Yellowknife", lat: "62.4540", lon: "-114.3718" },
+        { locationName: "Churchill", lat: "58.7679", lon: "-94.1696" },
+        { locationName: "Churchill Falls", lat: "53.5317", lon: "-64.0064" },
+        { locationName: "Vancouver", lat: "49.2827", lon: "-123.1207" },
+        { locationName: "Edmonton", lat: "53.5461", lon: "-113.4937" },
+        { locationName: "Winnipeg", lat: "49.8954", lon: "-97.1385" },
+        { locationName: "Montreal", lat: "45.5019", lon: "-73.5674" }
+      ],
+      mexico: [
+        { locationName: "Guaymas", lat: "27.9111", lon: "-110.9091" },
+        { locationName: "Monterrey", lat: "25.6866", lon: "-100.3161" },
+        { locationName: "La Paz", lat: "24.1426", lon: "-110.3128" },
+        { locationName: "Mexico City", lat: "19.4326", lon: "-99.1332" },
+        { locationName: "Cancun", lat: "21.1619", lon: "-86.8515" }
+      ],
+      caribbean: [
+        { locationName: "Nassau", lat: "25.0443", lon: "-77.3504" },
+        { locationName: "Cancun", lat: "21.1619", lon: "-86.8515" },
+        { locationName: "Kingston", lat: "18.0179", lon: "-76.8099" },
+        { locationName: "San Juan", lat: "18.4153", lon: "-66.0594" },
+        { locationName: "Tegucigalpa", lat: "14.0607", lon: "-87.1825" },
+        { locationName: "Aruba", lat: "12.5211", lon: "-69.9683" }
+      ],
+      southamerica: [
+        { locationName: "Manaus", lat: "-3.1190", lon: "-60.0217" },
+        { locationName: "Recife", lat: "-8.0578", lon: "-34.8829" },
+        { locationName: "Lima", lat: "-12.0467", lon: "-77.0431" },
+        { locationName: "Brasilia", lat: "-15.7975", lon: "-47.8919" },
+        { locationName: "Santiago", lat: "-33.4489", lon: "-70.6693" },
+        { locationName: "Buenos Aires", lat: "-34.6037", lon: "-58.3821" }
+      ],
+      britain: [
+        { locationName: "Edinburgh", lat: "55.9533", lon: "-3.1883" },
+        { locationName: "Dublin", lat: "53.3498", lon: "-6.2603" },
+        { locationName: "Manchester", lat: "53.4808", lon: "-2.2426" },
+        { locationName: "Cork", lat: "51.8985", lon: "-8.4756" },
+        { locationName: "London", lat: "51.5072", lon: "-0.1276" }
+      ],
+      europe: [
+        { locationName: "London", lat: "51.5072", lon: "-0.1276" },
+        { locationName: "Berlin", lat: "52.5200", lon: "13.4050" },
+        { locationName: "Moscow", lat: "55.7569", lon: "37.6151" },
+        { locationName: "Paris", lat: "48.8575", lon: "2.3514" },
+        { locationName: "Budapest", lat: "47.4979", lon: "19.0402" },
+        { locationName: "Madrid", lat: "40.4167", lon: "-3.7033" },
+        { locationName: "Rome", lat: "41.8967", lon: "12.4822" },
+        { locationName: "Istanbul", lat: "41.0082", lon: "28.9784" }
+      ],
+      africa: [
+        { locationName: "Dakar", lat: "14.7167", lon: "-17.4677" },
+        { locationName: "Abuja", lat: "9.0563", lon: "7.4985" },
+        { locationName: "Cairo", lat: "30.0444", lon: "31.2357" },
+        { locationName: "Riyadh", lat: "24.7136", lon: "46.6753" },
+        { locationName: "Nairobi", lat: "-1.2921", lon: "36.8219" },
+        { locationName: "Luanda", lat: "-8.8147", lon: "13.2302" },
+        { locationName: "Maputo", lat: "-25.9692", lon: "32.5732" }
+      ],
+      india: [
+        { locationName: "Karachi", lat: "24.8607", lon: "67.0011" },
+        { locationName: "New Delhi", lat: "28.6139", lon: "77.2088" },
+        { locationName: "Calcutta", lat: "22.5744", lon: "88.3629" },
+        { locationName: "Bombay", lat: "18.9582", lon: "72.8321" },
+        { locationName: "Madras", lat: "13.0843", lon: "80.2705" },
+        { locationName: "Yangon", lat: "16.8409", lon: "96.1735" }
+      ],
+      eastasia: [
+        { locationName: "Beijing", lat: "39.9042", lon: "116.4074" },
+        { locationName: "Seoul", lat: "37.5503", lon: "126.9971" },
+        { locationName: "Tokyo", lat: "35.6764", lon: "139.6500" },
+        { locationName: "Chongqing", lat: "29.5657", lon: "106.5512" },
+        { locationName: "Shanghai", lat: "31.2304", lon: "121.4737" },
+        { locationName: "Guangzhou", lat: "23.1291", lon: "113.2644" }
+      ],
+      oceania: [
+        { locationName: "Singapore", lat: "1.3521", lon: "103.8198" },
+        { locationName: "Davao", lat: "7.0647", lon: "125.6088" },
+        { locationName: "Moresby", lat: "-9.4790", lon: "147.1494" },
+        { locationName: "Suva/Fiji", lat: "-18.1266", lon: "178.4399" },
+        { locationName: "Alice Springs", lat: "-23.6980", lon: "133.8807" },
+        { locationName: "Perth", lat: "-31.9514", lon: "115.8617" },
+        { locationName: "Sydney", lat: "-33.8727", lon: "151.2057" }
+      ],
+      australia: [
+        { locationName: "Port Hedland", lat: "-20.3111", lon: "118.6094" },
+        { locationName: "Townsville", lat: "-19.2599", lon: "146.8137" },
+        { locationName: "Alice Springs", lat: "-23.6980", lon: "133.8807" },
+        { locationName: "Sydney", lat: "-33.8727", lon: "151.2057" },
+        { locationName: "Bunbury", lat: "-33.3270", lon: "115.6408" },
+        { locationName: "Melbourne", lat: "-37.8136", lon: "144.9631" }
+      ]
+    },
+    forecast: [
+      { locationName: "Toronto", lat: "43.6532", lon: "-79.3832" },
+      { locationName: "London", lat: "51.5072", lon: "-0.1276" },
+      { locationName: "Paris", lat: "48.8575", lon: "2.3514" },
+      { locationName: "Cancun", lat: "21.1619", lon: "-86.8515" },
+      { locationName: "Tokyo", lat: "35.6764", lon: "139.6500" },
+      { locationName: "Sydney", lat: "-33.8727", lon: "151.2057" },
+      { locationName: "Rome", lat: "41.8967", lon: "12.4822" },
+      { locationName: "Vancouver", lat: "49.2827", lon: "-123.1207" },
+      { locationName: "Hong Kong", lat: "22.3193", lon: "114.1694" },
+      { locationName: "Nassau", lat: "25.0443", lon: "-77.3504" },
+      { locationName: "Amsterdam", lat: "52.3676", lon: "4.9041" },
+      { locationName: "Buenos Aires", lat: "-34.6037", lon: "-58.3821" }
+    ]
+  },
+  golf: {
+    autoFind: true,
+    teeTime: {
+      locationName: "",
+      lat: "",
+      lon: ""
+    },
+    indexMap: [
+      //  { locationName: "", lat: "", lon: "", topPos: "", leftPos: "" },
+    ],
+    courses: []
+  },
+  garden: {
+    autoFind: true,
+    locationName: "",
+    lat: "",
+    lon: ""
+  },
+  ski: {
+    resorts: [
+      { displayName: "Snowshow Mountain", state: "WV", resortId: "304001" },
+      { displayName: "Baker Mountain", state: "ME", resortId: "207024" },
+      { displayName: "Bolton Valley Resort", state: "VT", resortId: "802002" },
+      { displayName: "Berkshire East Ski Resort", state: "MA", resortId: "413001" },
+      { displayName: "Bear Creek Ski Resort", state: "PA", resortId: "215003" },
+      { displayName: "Arrowhead Ski Area", state: "NH", resortId: "603031" },
+      { displayName: "Big Bear Mtn. Resort", state: "CA", resortId: "909002" },
+      { displayName: "Arapahoe Basin", state: "CO", resortId: "303001" },
+      { displayName: "Beaver Mountain", state: "UT", resortId: "801002" },
+      { displayName: "Bristol Mountain", state: "NY", resortId: "716001" },
+      { displayName: "Grand Targhee Resort", state: "WY", resortId: "307002" },
+      { displayName: "Aspen Highlands", state: "CO", resortId: "303004" }
+      //find ski resorts at https://feeds.snocountry.net/
+    ]
+  },
+  beach: {
+    surfReport: {
+      buoy: "",
+      displayName: ""
+    },
+    coastalForecast: {
+      office: "",
+      zone: "",
+      zoneName: ""
+    },
+    tides: {
+      stations: [
+        { id: "", name: "" },
+        { id: "", name: "" }
+      ],
+      almanac: {
+        airportName: "",
+        icaoCode: ""
+      }
+    }
+  }
+}
+
+var slideSettings = {
+  order: [
+    {slideLineup: [
+    ]},
+    {slideLineup: [
+      {group: "severe", slides: [
+        { function: "severeMessage" },
+        { function: "bulletin" },
+        { function: "currentConditions" },
+        { function: "nearbyCities" },
+        { function: "radarChooser" },
+        { function: "localForecast" },
+        { function: "extendedForecast" },
+      ]}
+    ]},
+  ],
+};
+var introPackage = {
+  group: "intro", slides: [
+    { function: "cityIntro" },
+  ]
+}
+var forecastPackage = {
+  group: "forecast", slides: [
+    { function: "upNext" },
+    { function: "bulletin" },
+    { function: "currentConditions" },
+    { function: "nearbyCities" },
+    { function: "radarChooser" },
+    { function: "localForecast" },
+    { function: "extendedForecast" },
+    { function: "almanac" },
+  ]
+}
+var miniPackageOne = {
+  group: "minicoreone", slides: [
+    { function: "upNext" },
+    { function: "bulletin" },
+    { function: "currentConditions" },
+    { function: "radarChooser" },
+    { function: "dayPart" },
+    { function: "extendedForecast" },
+  ]
+}
+var miniPackageTwo = {
+  group: "minicoretwo", slides: [
+    { function: "upNext" },
+    { function: "bulletin" },
+    { function: "currentConditions" },
+    { function: "radarChooser" },
+    { function: "localForecast" },
+  ]
+}
+var eBaseLU = [
+  { function: "upNext" },
+  { function: "bulletin" },
+  { function: "currentConditions" },
+  { function: "radarChooser" },
+  { function: "dayPart" },
+  { function: "extendedForecast" },
+  { function: "changeELoc" },
+]
+var extraPackage = {
+  group: "extralocal", slides: [
+  ]
+}
+for (var i = 0; i < systemSettings.extraCity.cities.length; i++) {
+  for (var ii = 0; ii < eBaseLU.length; ii++) {
+    extraPackage.slides.push(eBaseLU[ii])
+  }
+}
+var spanishPackage = {group: "spanish", slides: [
+  { function: "upNext" },
+  { function: "currentConditions" },
+  { function: "radarChooser" },
+  { function: "dayPart" },
+  { function: "extendedForecast" },
+]}
+var trafficPackage = {group: "traffic", slides: [
+  { function: "trafficIntro" },
+  { function: "trafficOverview" },
+  { function: "trafficReport" },
+]}
+var travelPackage = {group: "travel", slides: [
+  { function: "travelIntro" },
+  { function: "travelWeather" },
+  { function: "travelForecast" },
+  { function: "destinationForecast" },
+]}
+var airportPackage = {group: "airport", slides: [
+  { function: "airportIntro" },
+  { function: "airportConditions" },
+  { function: "nationalAirports" },
+]}
+var internationalPackage = {group: "international", slides: [
+  { function: "internationalIntro" },
+  { function: "internationalMap" },
+  { function: "internationalForecast" },
+]}
+var golfPackage  = {group: "golf", slides: [
+  { function: "golfIntro" },
+  { function: "teeTime" },
+  { function: "golfIndex" },
+  { function: "courseForecast" },
+  { function: "golfPromo" },
+]}
+var healthPackage = {group: "health", slides: [
+  { function: "healthIntro" },
+  { function: "outdoorActivity" },
+  { function: "allergyReport" },
+  { function: "healthForecast" },
+  { function: "airQuality" },
+  { function: "uvIndex" },
+  { function: "healthTip" },
+  { function: "healthPromo" },
+]}
+var gardenPackage = {group: "garden", slides: [
+  { function: "gardenIntro" },
+  { function: "gardenForecast" },
+  { function: "estimatedPrecip" },
+  { function: "precipForecast" },
+  { function: "droughtMonitor" },
+  //{ function: "frostFreeze" },
+  { function: "gardenPromo" },
+]}
+var skiPackage = {group: "ski", slides: [
+  { function: "skiIntro" },
+  { function: "skiReport" },
+  { function: "snowfallForecast" },
+  { function: "skiTip" },
+]}
+var beachPackage = {group: "beach", slides: [
+  { function: "beachIntro" },
+  { function: "surfReport" },
+  { function: "waterTemps" },
+  { function: "coastalForecast" },
+  { function: "tides" },
+]}
