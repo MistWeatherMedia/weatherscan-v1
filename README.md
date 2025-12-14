@@ -8,6 +8,9 @@ Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 
 © Mist Weather Media 2025.
 
+##NOTE
+To adjust location settings, edit main/configs/yourConfig.json
+
 ------------
 
 **Special thanks to these talented minds who made this project possible!**
