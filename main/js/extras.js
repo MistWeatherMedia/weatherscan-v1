@@ -2583,7 +2583,7 @@ function setMainCityBackground(name, state){
 function versionCheck(version) {
 	$.getJSON("https://mistwx.com/crawlnetwork.json", function(data) {
 		if (version != data.simVersions.scanv1) {
-			alert("New update available. Download latest version at\nhttps://github.com/MistWeatherMedia/weatherscan2004")
+			alert("New update available. Download latest version at\nhttps://github.com/MistWeatherMedia/weatherscan-v1")
 		}
 	})
 }
