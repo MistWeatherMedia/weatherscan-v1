@@ -2,13 +2,13 @@
 
 ------------
 
-**Weatherscan v1 2.0** is a simulated recreation of "Weatherscan" by The Weather Channel in HTML/CSS/JS, by ***mist weather media***
+**Weatherscan v1 2.0** is a simulated recreation of "Weatherscan" by The Weather Channel from 2003 to 2005 in HTML/CSS/JS, by ***mist weather media***
 
 Online demo: [v1.weatherscan.net](https://v1.weatherscan.net)
 
 © Mist Weather Media 2025.
 
-##NOTE
+## NOTE
 To adjust location settings, edit main/configs/yourConfig.json
 
 ------------
