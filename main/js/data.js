@@ -2158,7 +2158,7 @@ function getBeachData() {
     } else {
       $.get(`/cwf/${cwfid}`, function(data){
         weatherData.coastalForecast.noReport = false
-        var stringedData = data.productText.replaceAll(".SUN", "X~Sunday").replaceAll(".MON", "X~Monday").replaceAll(".TUE", "X~Tuesday").replaceAll(".WED", "X~Wednesday").replaceAll(".THU", "X~Thursday").replaceAll(".FRI", "X~Friday").replaceAll(".SAT", "X~Saturday").replaceAll(".TODAY", "X~Today").replaceAll(".TONIGHT", "X~Tonight").replaceAll(".THIS AFTERNOON", "X~This Afternoon").replaceAll(".REST OF TODAY...", "X~Rest of Today").replaceAll(".REST OF TONIGHT...", "X~Rest of Tonight").split(/\r?\n/)
+        var stringedData = data.productText.replaceAll(".SUNDAY", "X~Sunday").replaceAll(".MONDAY", "X~Monday").replaceAll(".TUESDAY", "X~Tuesday").replaceAll(".WEDNESDAY", "X~Wednesday").replaceAll(".THURSDAY", "X~Thursday").replaceAll(".FRIDAY", "X~Friday").replaceAll(".SATURDAY", "X~Saturday").replaceAll(".SUN", "X~Sunday").replaceAll(".MON", "X~Monday").replaceAll(".TUE", "X~Tuesday").replaceAll(".WED", "X~Wednesday").replaceAll(".THU", "X~Thursday").replaceAll(".FRI", "X~Friday").replaceAll(".SAT", "X~Saturday").replaceAll(".TODAY", "X~Today").replaceAll(".TONIGHT", "X~Tonight").replaceAll(".THIS AFTERNOON", "X~This afternoon").replaceAll(".REST OF TODAY", "X~Rest of Today").replaceAll(".OVERNIGHT", "X~Overnight").replaceAll(".REST OF TONIGHT", "X~Rest of Tonight").replaceAll(".THROUGH", "X~Through").split(/\r?\n/)
         for (var i = 0; i < stringedData.length; i++) {
           //console.log(stringedData[i])
         }
