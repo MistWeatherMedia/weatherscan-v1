@@ -1934,7 +1934,7 @@ function getGolfData() {
           targetHours = [6, 8, 10, 12, 14];
       }
      var ii = 0
-      weatherData.teeTime.locationName = systemSettings.mainCity.locationName
+      weatherData.teeTime.locationName = systemSettings.golf.teeTime.locationName
       weatherData.teeTime.noReport = false
       for (var i = 0; i < data.validTimeLocal.length; i++) {
         if (ii < 5) {
@@ -1952,7 +1952,7 @@ function getGolfData() {
         }
       }
     }).fail(function() {
-      weatherData.teeTime.locationName = systemSettings.mainCity.locationName
+      weatherData.teeTime.locationName = systemSettings.golf.teeTime.locationName
       weatherData.teeTime.noReport = true
     })
   }
