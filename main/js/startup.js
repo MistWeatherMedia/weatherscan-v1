@@ -1,10 +1,12 @@
 var simId = "scanv!"
 var packageLibrary = {
+  "intro":introPackage,
   "forecast":forecastPackage,
   "minicoreone":miniPackageOne,
   "minicoretwo":miniPackageTwo,
   "extralocal":extraPackage,
-  "spanish":spanishPackage,
+  "spanish1":spanishPackageOne,
+  "spanish2":spanishPackageTwo,
   "traffic":trafficPackage,
   "travel":travelPackage,
   "airport":airportPackage,
@@ -14,16 +16,23 @@ var packageLibrary = {
   "garden":gardenPackage,
   "ski":skiPackage,
   "beach":beachPackage,
+  "radar":radarPackage,
+  "severeA":severePackageA,
+  "severeB":severePackageB,
+  "severe2":severePackageTwo,
 }
 
-function startupAnimations() {
+async function startupAnimations() {
+  setTimeout(() => {
+    $("#startup #startup-weatherscan-logo").fadeIn(0)
+    setTimeout(() => {
+      $("#startup #startup-twc-logo").fadeIn(250)
+    }, 400);
+  }, 3000);
   //start spinning the logo
   //delay 3 seconds
-  $("#startup #startup-weatherscan-logo").fadeIn(0)
-  setTimeout(() => {
-    $("#startup #startup-twc-logo").fadeIn(250)
-  }, 400);
 }
+
 var windowStatus = window.location.search ? window.location.search.split("?")[1] : undefined;
 if (windowStatus == "nationalForecast") {
   $.getJSON("configs/national.json", function(data) {
@@ -33,7 +42,6 @@ if (windowStatus == "nationalForecast") {
     api_key = systemSettings.apiKeys.api_key
     map_key = systemSettings.apiKeys.map_key
     traf_key = systemSettings.apiKeys.traf_key
-    HERE_key = systemSettings.apiKeys.HERE_key
   })
 } else if (windowStatus == "debugJoeMist") {
   $.getJSON("configs/myConfig-joe.json", function(data) {
@@ -43,7 +51,25 @@ if (windowStatus == "nationalForecast") {
     api_key = systemSettings.apiKeys.api_key
     map_key = systemSettings.apiKeys.map_key
     traf_key = systemSettings.apiKeys.traf_key
-    HERE_key = systemSettings.apiKeys.HERE_key
+  })
+} else if (windowStatus == "debugJensonMist") {
+  $.getJSON("configs/myConfig-jenson.json", function(data) {
+    systemSettings = data.jsonSystemSettings
+    //console.log("Updated location settings:", systemSettings);
+    //console.log(slideSettings.order[0])
+    api_key = systemSettings.apiKeys.api_key
+    map_key = systemSettings.apiKeys.map_key
+    traf_key = systemSettings.apiKeys.traf_key
+  })
+} else if (windowStatus == "debugColsterMist") {
+  //no more debug configs after this one i swear
+  $.getJSON("configs/myConfig-colster.json", function(data) {
+    systemSettings = data.jsonSystemSettings
+    //console.log("Updated location settings:", systemSettings);
+    //console.log(slideSettings.order[0])
+    api_key = systemSettings.apiKeys.api_key
+    map_key = systemSettings.apiKeys.map_key
+    traf_key = systemSettings.apiKeys.traf_key
   })
 } else {
   $.getJSON("configs/yourConfig.json", function(data) {
@@ -53,46 +79,22 @@ if (windowStatus == "nationalForecast") {
     api_key = systemSettings.apiKeys.api_key
     map_key = systemSettings.apiKeys.map_key
     traf_key = systemSettings.apiKeys.traf_key
-    HERE_key = systemSettings.apiKeys.HERE_key
+
+    //var q = window.location.search ? window.location.search.split("?")[1] : undefined;
+    //if (q != "nationalForecast" /**temp code for now -> */ && q != "debugJoeMist" && q != "debugJensonMist" && q != "debugColsterMist") {
+    //    locationJS()
+    //}
   })
 }
 
   
-function startSystem() {
-  console.log(systemSettings)
-  //api_key = systemSettings.apiKeys.api_key
-  //map_key = systemSettings.apiKeys.map_key
-  //traf_key = systemSettings.apiKeys.traf_key
-  //HERE_key = systemSettings.apiKeys.HERE_key
-  locationJS()
-  setTimeout(() => {
-    //versionCheck(systemSettings.appearanceSettings.version)
-    if (systemSettings.appearanceSettings.adMessage[0] == "network") {
-      $.getJSON("https://mistwx.com/crawlnetwork.json", function(data) {
-        systemSettings.appearanceSettings.adMessage = data.crawls.scanv1
-      })
-    }
-    slideSettings.order[0].slideLineup.push(introPackage);
+async function startSystem() {
+  $("#startup .locationname").text(`location name: ${systemSettings.systemLocation}`);
+  $("#startup .affiliatename").text(`affiliate name: ${systemSettings.appearanceSettings.providerName}`);
 
-    if (!systemSettings.traffic.autoFind && HERE_key != "nada" && HERE_key != "") {
-      trafficPackage.slides.push({function: "trafficFlow"})
-    }
-    for (var i = 0; i < systemSettings.extraCity.cities.length; i++) {
-      for (var ii = 0; ii < eBaseLU.length; ii++) {
-        extraPackage.slides.push(eBaseLU[ii])
-      }
-    }
-  
-    for (var i = 0; i < systemSettings.packageSettings.length; i++) {
-      slideSettings.order[0].slideLineup.push(packageLibrary[systemSettings.packageSettings[i]])
-    }
-    //locationJS()
-    $('#main').fadeIn(0);
-    $("#startup").fadeIn(0);
-    audioPlayer = new AudioManager();
-    audioPlayer.initializeAudio()
-    audioPlayer.startPlaying(audioPlayer.playlist, true);
-    
+  $('#main').fadeIn(0);
+  $("#startup").fadeIn(0);
+
     const logo = document.getElementsByClassName("intellistarlogo")[0];
 
 // accumulated rotation (radians)
@@ -132,18 +134,81 @@ function animate(now) {
     requestAnimationFrame(animate);
 }
 
-requestAnimationFrame(animate);
-      $("#startup .locationname").text(`location name: ${systemSettings.systemLocation}`);
-      $("#startup .affiliatename").text(`affiliate name: ${systemSettings.appearanceSettings.providerName}`);
-    dataJS();
-    setTimeout(() => {
-      console.log(systemSettings)
-    }, 5000);
-    setTimeout(() => {
-      startupAnimations()
-    }, 3000);
-  }, 1000);
+  requestAnimationFrame(animate);
+      
+  audioPlayer = new AudioManager();
+  audioPlayer.initializeAudio()
+  audioPlayer.startPlaying(audioPlayer.playlist, true);
+
+  try {
+    await locationJS();
+  } catch (error) {
+    console.error(error)
+  }
+  
+  await startupAnimations()
+
+   if (systemSettings.appearanceSettings.adMessage[0] == "network") {
+    $.getJSON("https://mistwx.com/crawlnetwork.json", function(data) {
+      systemSettings.appearanceSettings.adMessage = data.crawls.scanv1
+    })
+  }
+
+  if (traf_key == "nada" || traf_key == "") {
+    function fl(id) {
+      return id != "traffic"
+    }
+    systemSettings.packageSettings = systemSettings.packageSettings.filter(fl)
+  }
+
+  for (var i = 0; i < systemSettings.extraCity.cities.length; i++) {
+    for (var ii = 0; ii < eBaseLU.length; ii++) {
+      //extraPackage.slides.push(eBaseLU[ii])
+    }
+  }
+  
+  for (var i = 0; i < systemSettings.packageSettings.length; i++) {
+    slideSettings.order[0].slideLineup.push(packageLibrary[systemSettings.packageSettings[i]])
+  }
+
+  for (var i = 0; i < systemSettings.severePackageSettings.length; i++) {
+    slideSettings.order[1].slideLineup.push(packageLibrary[systemSettings.severePackageSettings[i]])
+  }
+
+  //all starting data calls
+  console.log("systemSettings", systemSettings)
+
+  if (!systemSettings.appearanceSettings.nationalConfig) {
+    try {
+      await checkWarningCrawl()
+    } catch (error) {
+      console.error(error)
+      weatherData.crawlAlerts = { locationname: systemSettings.mainCity.locationName, warnings: [] };
+      weatherData.severemode = false;
+    }
+  }
+  
+  console.log("warning crawl data", weatherData.crawlAlerts)
+
+  try {
+    await allData();
+  } catch (error) {
+    console.error(error)
+  }
+
+  console.log("weatherData", weatherData)
+
+  try {
+    await getUdlData()
+  } catch (error) {
+    console.error(error)
+  }
+
+  console.log("UDL Data", udlData)
+  
+  await startPrograms()
 }
+
 setTimeout(() => {
   startSystem()
 }, 1500);
@@ -154,6 +219,7 @@ function savePageSettings(page) {
     systemSettings.appearanceSettings.providerType = document.getElementById("providerTypes").value
   }
 }
+
 function welcomefuncs(type) {
   if (type == "proceed") {
     $("#setup-welcome").fadeOut(0);

@@ -1,103 +1,82 @@
 var crawlIndex = 0;
-var whatNext = ""
 var alertCrawlActive = false
-function adCrawl() {
-    if (whatNext == "crawl") {
-        $("#crawl-main").fadeIn(0)
+function adCrawl(crawlDuration, customCrawl, adIndex) {
+    $("#crawl-main .crawl").marquee('destroy')
+    $("#crawl-main").css({"opacity":"0"})
+    $(".upnext-ticker").fadeIn(0)
+
+    if (systemSettings.appearanceSettings.adMessage.length > 0) {
         $(".upnext-ticker").fadeOut(0)
-        $("#crawl-main .crawl").text(systemSettings.appearanceSettings.adMessage[crawlIndex])
-        $("#crawl-main .crawl").marquee({speed: 103, pauseOnHover: false}).on("finished", () => {
-            $("#crawl-main .crawl").marquee("destroy");
-            crawlIndex++
-            if (crawlIndex > systemSettings.appearanceSettings.adMessage.length) {
-                crawlIndex = 0
-            }
-            if (whatNext == "upnext") {
-                crawlKickOff()
-                $("#crawl-main").fadeOut(0)
-                $(".upnext-ticker").fadeIn(0)
-            } else if (whatNext == "crawl") {
-                $("#crawl-main .crawl").text("")
-                setTimeout(() => {
-                    adCrawl()
-                }, 500);
-            }
-        })
+        $("#crawl-main").css({"opacity":"1"})
+    
+        if(customCrawl == true && systemSettings.appearanceSettings.adImages[adIndex].adMessage != undefined){
+            $("#crawl-main .crawl span").text(systemSettings.appearanceSettings.adImages[adIndex].adMessage);
+        }else{
+            $("#crawl-main .crawl span").text(systemSettings.appearanceSettings.adMessage[crawlIndex])
+        }
+        var crawlWidth = $("#crawl-main .crawl span").width();
+        var crawlTime = (696 + crawlWidth)/189
+        var repeat = Math.floor((crawlDuration/1000)/crawlTime)
+        var crawlSpeed = (repeat * (696 + crawlWidth))/((crawlDuration+175)/1000)
+        //console.log("crawl info")
+        //console.log("crawlWidth", crawlWidth, "speed",crawlSpeed, "repeat", repeat, "crawlTime",crawlTime, "time",crawlDuration)
+  	    $("#crawl-main .crawl").marquee({speed: crawlSpeed, pauseOnHover: false, gap:0, direction: 'left', delayBeforeStart: 0})
+        crawlIndex++
+        if (crawlIndex >= systemSettings.appearanceSettings.adMessage.length) {crawlIndex = 0}
     }
 }
-function crawlKickOff() {
-    if (systemSettings.appearanceSettings.crawlMode == "both") {
-        $("#crawl-main").fadeOut(0)
-        $(".upnext-ticker").fadeIn(0)
-        whatNext = "crawl"
-        setTimeout(() => {
-            adCrawl()
-            setTimeout(() => {
-                whatNext = "upnext"
-            }, 10);
-        }, 15000);
-    } else if (systemSettings.appearanceSettings.crawlMode == "crawl") {
-        $("#crawl-main").fadeIn(0)
-        $(".upnext-ticker").fadeOut(0)
-        whatNext = "crawl"
-        setTimeout(() => {
-            adCrawl()
-        }, 100);
-    } else if (systemSettings.appearanceSettings.crawlMode == "upnext") {
-        whatNext = "upnext"
-        $("#crawl-main").fadeOut(0)
-        $(".upnext-ticker").fadeIn(0)
-    }
-}
-function checkWarningCrawl() {
-    getAllAlerts()
-    setTimeout(() => {
-        //console.log(weatherData.crawlAlerts.alertsAmount)
-        if (weatherData.crawlAlerts.alertsAmount > 0) {
-            if ($("#crawl-severe .crawl").text() != weatherData.crawlAlerts.warnings[0].warningdesc) {
-                if (alertCrawlActive == false) {
-                    $("#twc-logo").fadeOut(250)
-                    $("#weatherscan-logo").animate({"right":"173px"}, {duration: 400, easing: "linear",})
-                    alertCrawlActive == true
-                }
-                $(".severe-lowerarea").fadeIn(0)
-                $(".normal-lowerarea").fadeOut(0)
-                $(".severe-lowerarea .alertheader").text(weatherData.crawlAlerts.warnings[0].warningtitle)
-                $("#crawl-severe .crawl").text("")
-                if (weatherData.crawlAlerts.warnings[0].severe == true) {
+async function checkWarningCrawl() {
+    await getCrawlAlerts()
+    if (weatherData.crawlAlerts.warnings.length > 0) {
+        const topWarning = weatherData.crawlAlerts.warnings[0];
+
+        if ($("#crawl-severe .crawl").text() != topWarning.crawl) {
+            $("#crawl-severe .crawl").marquee("destroy")
+            $(".severe-lowerarea").fadeIn(0)
+            $(".normal-lowerarea").fadeOut(0)
+            //animation
+            if (alertCrawlActive == false) {
+                $("#twc-logo").fadeOut(250)
+                $("#weatherscan-logo").animate({"right":"173px"}, {duration: 400, easing: "linear",})
+                alertCrawlActive = true
+            }
+            
+            //color
+            $(".severe-lowerarea .banner").css({"background":"transparent url(images/assets/severe_banner_" + topWarning.color + ".png)", "background-size":"100%", "background-repeat":"no-repeat"})
+            
+            //beep if severe
+            if (topWarning.severe == true) {
+                audioPlayer.playWarningBeep()
+                $("#crawl-severe .crawl").css("text-transform", "uppercase")
+            } else {
+                $("#crawl-severe .crawl").css("text-transform", "normal")
+            }
+
+            //set texts and destroy previous marquee
+            $(".severe-lowerarea .alertheader").text(topWarning.event)
+            $("#crawl-severe .crawl").text(topWarning.crawl)
+            $("#crawl-severe .crawl").marquee({speed: 103, pauseOnHover: false, delayBeforeStart: 400})
+
+            $("#crawl-severe .crawl").on("finished", () => {
+                if (topWarning.severe == true) {
                     audioPlayer.playWarningBeep()
                 }
-                $(".severe-lowerarea .banner").css({"background":"transparent url(images/assets/severe_banner_" + weatherData.crawlAlerts.warnings[0].color + ".png)", "background-size":"100%", "background-repeat":"no-repeat"})
-                //setTimeout(() => {
-                    $("#crawl-severe .crawl").text(weatherData.crawlAlerts.warnings[0].warningdesc)
-                    if (isSevere(weatherData.crawlAlerts.warnings[0].warningtitle) == true) {
-                        $("#crawl-severe .crawl").css("text-transform", "uppercase")
-                    } else {
-                        $("#crawl-severe .crawl").css("text-transform", "normal")
-                    }
-                    $("#crawl-severe .crawl").marquee({speed: 103, pauseOnHover: false, delayBeforeStart: 400})
-                    $("#crawl-severe .crawl").on("finished", () => {
-                        if (weatherData.crawlAlerts.warnings[0].severe == true) {
-                            audioPlayer.playWarningBeep()
-                        }
-                    })
-                //}, 400);
-            }
-        } else {
-            //if (orderidx == 0) {
-                if ($("#crawl-severe .crawl").text() != "") {
-                    $("#twc-logo").fadeIn(250)
-                    $("#weatherscan-logo").animate({"right":"347px"}, {duration: 400, easing: "linear",})
-                    $(".severe-lowerarea").fadeOut(0)
-                    $(".normal-lowerarea").fadeIn(0)
-                    if ($("#crawl-severe .crawl").text() != "") {
-                        $("#crawl-severe .crawl").text("")
-                        $("#crawl-severe .crawl").marquee("destroy")
-                    } 
-                }
-            //}
+            })
         }
-    }, 1000);
+    } else {
+        //no warnings, end crawl
+        if ($("#crawl-severe .crawl").text() != "") {
+            //animation
+            $("#twc-logo").fadeIn(250)
+            $("#weatherscan-logo").animate({"right":"347px"}, {duration: 400, easing: "linear",})
+
+            $(".severe-lowerarea").fadeOut(0)
+            $(".normal-lowerarea").fadeIn(0)
+
+            $("#crawl-severe .crawl").text("")
+            $("#crawl-severe .crawl").marquee("destroy")
+        }
+    }
 }
 //this could be a setting to add to appearance settings
 //like say someone wants to let the ad run for 5 minutes

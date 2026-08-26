@@ -1050,6 +1050,34 @@ function makeTimetable(utcTime) {
 function minutesFromNow(utcTime) {
 	
 }
+
+function parseOffset(inputTime) {
+	return inputTime.slice(-5, -2)
+}
+//thanks gemini lol
+function getHourAtOffset(offset) {
+	//offset is an int
+  const now = new Date();
+  // Get UTC hour, add the offset, and use modulo 24 to keep it in range
+  let hour = (now.getUTCHours() + offset) % 24;
+  
+  // Handle negative results for negative offsets
+  if (hour < 0) hour += 24;
+  
+  return hour;
+}
+
+function udlGetOfflineTitle() {
+	var now = new Date()
+	switch (true) {
+		case (now.getHours < 7):
+			return "Today"
+		case (now.getHours < 14):
+			return "Tonight"
+		default:
+			return "Tomorrow"
+	}
+}
 /*
 // convert celsius to farenheight
 function C2F(c){
@@ -1153,6 +1181,7 @@ function calcBarHeights(currentTemp, maxTemp, minTemp, maxBarHeight, minBarHeigh
     }
     return height
 }
+
 function fadeSlideIn(div, time, delay, opacity) {
 	if (delay == "opacity") {delay = 0}
 	if (!opacity) {
@@ -1255,6 +1284,53 @@ function getCond(iconCode, type, language) {
 		}
 	}
 }
+
+var localCrawlAreas = [
+	{areaName: "Atlanta", lat: 33.751, lon: -84.39},
+	{areaName: "Forsyth/Dawson County", lat: 34.421, lon: -84.119},
+	{areaName: "New York", lat: 40.713, lon: -74.006}
+]
+
+function getLocalCrawls(area){
+	var newArea = area.split(",");
+	newArea[0] = Number(newArea[0]); newArea[1] = Number(newArea[1]);
+	var lcDistances = [];
+    for (var i = 0; i < localCrawlAreas.length; i++) {
+        let d = distanceByDegrees(systemSettings.mainCity, localCrawlAreas[i])
+        var x = { distance: d[0], index: i, coords: [d[1], d[2]] }
+        lcDistances.push(x);
+        //console.log(x);
+    }
+    lcDistances.sort((a, b) => a.distance - b.distance);
+	
+	$.getJSON("/localcrawlnetwork.json", function(localdata){
+		//console.log(lcDistances)
+		for(let j = 0; j < lcDistances.length; j++){
+			if(lcDistances[j].distance > 0.7) break;
+			//console.log(localCrawlAreas[lcDistances[j].index].areaName);
+			var lca = localCrawlAreas[lcDistances[j].index].lat + "," + localCrawlAreas[lcDistances[j].index].lon
+				if(localdata[lca]){
+					for(let i = 0; i < localdata[lca].length; i++){
+						systemSettings.appearanceSettings.adMessage.push(localdata[lca][i]);
+					}
+				}
+		}
+	})
+}
+function toSentenceCase(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+function setWInterLegend() {
+	const date = new Date();
+	if (date.getMonth() <= 2 || date.getDate() >= 10) {
+		$(".radar-doppler .radar-legend").fadeOut(0)
+		$(".radar-doppler .radar-legend-winter").fadeIn(0)
+	} else {''
+		$(".radar-doppler .radar-legend").fadeIn(0)
+		$(".radar-doppler .radar-legend-winter").fadeOut(0)
+	}
+}
+
 function createTopArea() {
 	var provimg = document.createElement("img")
 	provimg.src = "images/tvproviders/" + systemSettings.appearanceSettings.providerImage + ".png"
@@ -2583,10 +2659,178 @@ function setMainCityBackground(name, state){
 	systemSettings.mainCity.upNextBG = citybg;
 }
 
+var extraSlides = {
+	noBulletin: [
+		[
+        	{ duration: 8000, function: "upNext" },
+			{ crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+        	{ function: "changeELoc" },
+		],
+		[
+        	{ duration: 8000, function: "upNext" },
+			{ crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarSatellite" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+        	{ function: "changeELoc" },
+		],
+		[
+        	{ duration: 4000, function: "upNext" },
+			{ crawlLength: 56000, function: "LAScrawl" },
+          { duration: 8000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 36000, function: "localForecast" },
+        	{ function: "changeELoc" },
+		],
+	],
+	oneBulletin: [
+		[
+            { duration: 8000, function: "bulletin" },
+			{ crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+            { function: "changeELoc" },
+		],
+		[
+            { duration: 8000, function: "bulletin" },
+			{ crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarSatellite" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+            { function: "changeELoc" },
+		],
+		[
+            { duration: 5000, function: "bulletin" },
+			{ crawlLength: 55000, function: "LAScrawl" },
+          { duration: 7000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 36000, function: "localForecast" },
+            { function: "changeELoc" },
+		],
+	],
+	twoBulletins: [
+		[
+            { duration: 11000, function: "bulletin" },
+			{ crawlLength: 49000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarChooser" },
+          { duration: 11000, function: "dayPart" },
+          { duration: 12000, function: "extendedForecast" },
+            { function: "changeELoc" },
+        ],
+		[
+            { duration: 11000, function: "bulletin" },
+			{ crawlLength: 49000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarChooser" },
+          { duration: 11000, function: "dayPart" },
+          { duration: 12000, function: "extendedForecast" },
+            { function: "changeELoc" },
+        ],
+		[
+            { duration: 14000, function: "bulletin" },
+			{ crawlLength: 46000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 24000, function: "localForecast" },
+            { function: "changeELoc" },
+		],
+	],
+}
+
 function versionCheck(version) {
 	$.getJSON("https://mistwx.com/crawlnetwork.json", function(data) {
 		if (version != data.simVersions.scanv1) {
 			alert("New update available. Download latest version at\nhttps://github.com/MistWeatherMedia/weatherscan-v1")
 		}
 	})
+}
+
+async function getCoordsLocID(locID) {
+	if (!locID) {
+		console.error("invalid locID");
+		return ""
+	}
+	var url = "https://api.weather.com/v3/location/point?locid=" + locID + "&language=en-US&format=json&apiKey=" + api_key
+
+	try {
+		const data = await $.getJSON(url)
+		return String(data.location.latitude) + "," + String(data.location.longitude)
+	} catch (error) {
+		console.error(error)
+		return ""
+	}
+}
+
+async function centerDataMaps(lat, lon) {
+	const data = await $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+    var state = data.location.adminDistrictCode
+    switch (true) {
+        case state == "ME" || state == "VT" || state == "NH" || state == "MA" || state == "CT" || state == "RI" || state == "NY" || state == "NJ" || state == "PA" || state == "DE" || state == "MD" || state == "WV" || state == "OH" || state == "IN" || state == "MI" || state == "WI" || state == "MN" || state == "IA" || state == "IL":
+            systemSettings.dataMaps.topPos = 78
+            systemSettings.dataMaps.leftPos = -30
+            systemSettings.dataMaps.zoom = 3.3
+            break;
+        case state == "NC" || state == "VA" || state == "MO" || state == "KY" || state == "TN":
+            systemSettings.dataMaps.leftPos = -35.8;
+            systemSettings.dataMaps.topPos = 33.3;
+            systemSettings.dataMaps.zoom = 4;
+            break;
+        case state == "GA" || state == "FL" || state == "SC" || state == "AR" || state == "LA" || state == "MS" || state == "AL":
+            systemSettings.dataMaps.leftPos = -35.8;
+            systemSettings.dataMaps.topPos = 33.3;
+            systemSettings.dataMaps.zoom = 4;
+            break;
+        case state == "WA" || state == "ID" || state == "MT" || state == "ND" || state == "SD" || state == "WY" || state == "OR":
+            systemSettings.dataMaps.leftPos = 41;
+            systemSettings.dataMaps.topPos = 107;
+            systemSettings.dataMaps.zoom = 4;
+            break;
+        case state == "CA" || state == "NV" || state == "UT" || state == "CO" || state == "NE" || state == "KS":
+            systemSettings.dataMaps.leftPos = 34;
+            systemSettings.dataMaps.topPos = 67;
+            systemSettings.dataMaps.zoom = 3.7;
+            break;
+        case state == "TX" || state == "OK":
+            systemSettings.dataMaps.leftPos = 6;
+            systemSettings.dataMaps.topPos = 26;
+            systemSettings.dataMaps.zoom = 3.7;
+            break;
+        case state == "AZ" || state == "NM":
+            systemSettings.dataMaps.leftPos = 44;
+            systemSettings.dataMaps.topPos = 53;
+            systemSettings.dataMaps.zoom = 4.5;
+            break;
+        default:
+            systemSettings.dataMaps.leftPos = 0;
+            systemSettings.dataMaps.topPos = 18;
+            systemSettings.dataMaps.zoom = 1.25;
+    }
+}
+
+function distanceByDegrees(c1, c2) {
+    var lat1 = parseFloat(c1.lat), lon1 = parseFloat(c1.lon),
+        lat2 = parseFloat(c2.lat), lon2 = parseFloat(c2.lon),
+        dLat = lat2 - lat1, dLon = lon2 - lon1;
+    return [Math.sqrt(dLat ** 2 + dLon ** 2), dLat, dLon];
+}
+
+function getTravelMapLimits(type){
+    if(type === undefined){
+        return [225, -225, 685, -685];
+    }
+    if(type[0] == "pacific" && type[1] == "north"){
+        return [120, -340, 310, -1050];
+    }
+    // if(type[0] == "atlantic" && type[1] == null){
+    //     return [225, -225, 1085, -285]
+    // }
 }

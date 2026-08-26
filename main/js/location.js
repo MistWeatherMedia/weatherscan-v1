@@ -1,4 +1,5 @@
 var newExtraCities = [];
+var newCourses = []
 
 var golfRegional = [
     { locationName: "Seattle", lat: 47.6062, lon: -122.3321, topPos: "", leftPos: "" },
@@ -157,409 +158,413 @@ var travelRegional = [
   { locationName: "Millinocket", lat: 45.657, lon: -68.709, topPos: 790, leftPos: 6330 }
 ]
 
+async function getMainCity() {
+    if (mainquery != undefined && mainquery != "nationalForecast" && mainquery != "debugJoeMist" && mainquery != "debugJensonMist" && mainquery != "debugColsterMist") {
+        var queryURL = "https://api.weather.com/v3/location/search?query=" + mainquery + "&language=en-US&format=json&apiKey=" + systemSettings.apiKeys.api_key
+        const data = await $.getJSON(queryURL)
 
-function locationJS() {
-    //document.addEventListener("DOMContentLoaded", () => {
-        if (systemSettings.mainCity.autoFind == true) {
-            grabMainCity();
-        } else {
-            //automatic location pulls based off of the main city config
-        }
-        
-        setTimeout(() => {
-            if(systemSettings.travel.regionalMap.autoFind == true){
-                initTravelMap();
+        // fcst/obs
+        systemSettings.mainCity.timeZone = data.location.ianaTimeZone[0];
+        systemSettings.mainCity.locationName = data.location.displayName[0].replaceAll(" Charter Township", "").replaceAll(" Township", "");
+        systemSettings.mainCity.obsName = data.location.displayName[0];
+        systemSettings.mainCity.bulletinName = data.location.displayName[0] + " Area";
+        systemSettings.mainCity.almanacLocationName = data.location.displayName[0];
+        systemSettings.mainCity.lat = data.location.latitude[0];
+        systemSettings.mainCity.lon = data.location.longitude[0];
+        systemSettings.mainCity.icaoCode = data.location.icaoCode[0];
+    } else {
+        var autoURL = "https://pro.ip-api.com/json/?key=AmUN9xAaQALVYu6&exposeDate=false"
+        const data = await $.getJSON(autoURL)
+        var icaoURL = `https://api.weather.com/v3/location/near?geocode=${data.lat},${data.lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`
+        const icaoData = await $.getJSON(icaoURL)
+
+        var icID = 0
+        for (var i = 0; i < icaoData.location.stationId.length; i++) {
+            if (icaoData.location.stationId[i].length > 4) {icID++} else {
+                break
             }
-        }, 1000);
-    //})
-
-
-    var mainquery = window.location.search == "" ? undefined : window.location.search.replaceAll("?", "").replaceAll("%20", " ");
-    function grabMainCity() {
-        mainquery = window.location.search == "" ? undefined : window.location.search.replaceAll("?", "").replaceAll("%20", " ");
-        if (mainquery != undefined && mainquery != "nationalForecast") {
-            $.getJSON("https://api.weather.com/v3/location/search?query=" + mainquery + "&language=en-US&format=json&apiKey=" + systemSettings.apiKeys.api_key, function (data) {
-                //maincity
-                systemSettings.mainCity.locationName = data.location.displayName[0].replaceAll("Township", "");
-                systemSettings.mainCity.airportName = data.location.displayName[0];
-                systemSettings.mainCity.bulletinName = data.location.displayName[0] + " Area";
-                systemSettings.mainCity.almanacLocationName = data.location.displayName[0];
-                systemSettings.mainCity.lat = data.location.latitude[0];
-                systemSettings.mainCity.lon = data.location.longitude[0];
-                systemSettings.mainCity.obsIcaoCode = data.location.icaoCode[0];
-                if (systemSettings.dataMaps.auto) {
-                centerDataMaps(data.location.adminDistrictCode[0]);
-                }
-                systemSettings.mainCity.radar.lat = data.location.latitude[0];
-                systemSettings.mainCity.radar.lon = data.location.longitude[0];
-                if (systemSettings.mainCity.radar.auto) {
-                    systemSettings.mainCity.radar.satCoords = [data.location.longitude[0], data.location.latitude[0]]
-                    systemSettings.mainCity.radar.radarCities.push(
-                        {locationName: data.location.displayName[0], dotTopPos: "518", dotLeftPos: "788", nameTopMargin:"-11", nameLeftMargin:"43"}
-                    )
-                }
-                //lbar
-                systemSettings.LBar.locationName = data.location.displayName[0].replaceAll("Township", "");
-                systemSettings.LBar.airportName = data.location.displayName[0];
-                systemSettings.LBar.lat = data.location.latitude[0];
-                systemSettings.LBar.lon = data.location.longitude[0];
-                systemSettings.LBar.obsIcaoCode = data.location.icaoCode[0];
-                systemSettings.LBar.radar.lat = data.location.latitude[0];
-                systemSettings.LBar.radar.lon = data.location.longitude[0];
-                if (systemSettings.LBar.radar.auto) {
-                    systemSettings.mainCity.radar.satCoords = [data.location.longitude[0], data.location.latitude[0]]
-                    systemSettings.LBar.radar.radarCities.push(
-                       {locationName: data.location.displayName[0], dotTopPos: "518", dotLeftPos: "788", nameTopMargin:"-11", nameLeftMargin:"43"}
-                    )
-                }
-                setMainCityBackground(data.location.displayName[0].toLowerCase(), data.location.adminDistrictCode[0]);
-                //system location (intro screen)
-                systemSettings.systemLocation = data.location.displayName[0];
-
-                if (systemSettings.upperDisplayCity.autoFind == true) {
-                    systemSettings.upperDisplayCity.locationName = data.location.displayName[0].replaceAll("Township", "");
-                    systemSettings.upperDisplayCity.airportName = data.location.displayName[0];
-                    systemSettings.upperDisplayCity.lat = data.location.latitude[0];
-                    systemSettings.upperDisplayCity.lon = data.location.longitude[0];
-                    systemSettings.upperDisplayCity.obsIcaoCode = data.location.icaoCode[0];
-                }
-                if (systemSettings.health.autoFind == true) {
-                    systemSettings.health.locationName = data.location.displayName[0];
-                    systemSettings.health.airportName = data.location.displayName[0];
-                    systemSettings.health.lat = data.location.latitude[0];
-                    systemSettings.health.lon = data.location.longitude[0];
-                    systemSettings.health.obsIcaoCode = data.location.icaoCode[0];
-                }
-                if (systemSettings.nearbyCities.autoFind == true) {
-                    grabNearbyCities(data.location.icaoCode[0]);
-                }
-                if (systemSettings.golf.autoFind == true) {
-                    systemSettings.golf.teeTime.locationName = data.location.displayName[0];
-                    systemSettings.golf.teeTime.lat = data.location.latitude[0];
-                    systemSettings.golf.teeTime.lon = data.location.longitude[0];
-                }
-                if (systemSettings.garden.autoFind == true) {
-                    systemSettings.garden.locationName = data.location.displayName[0];
-                    systemSettings.garden.lat = data.location.latitude[0];
-                    systemSettings.garden.lon = data.location.longitude[0];
-                }
-                if (systemSettings.traffic.autoFind == true) {
-                    systemSettings.traffic.locationName = data.location.displayName[0];
-                    systemSettings.traffic.lat = data.location.latitude[0];
-                    systemSettings.traffic.lon = data.location.longitude[0];
-                }
-                if (systemSettings.airport.autoFind == true) {
-                    grabNearbyAirports(data.location.latitude[0], data.location.longitude[0]);
-                }
-                if (systemSettings.extraCity.autoFind == true) {
-                    grabExtraCities(data.location.latitude[0], data.location.longitude[0], data.location.displayName[0]);
-                }
-            }).fail(function () {
-                //CHAT ARE WE COOKING?!?!?!?!?
-                console.error("Location search failed, defaulted to automatic pull.");
-                mainquery = undefined;
-                grabMainCity();
-            })
-        } else {
-            $.getJSON("https://pro.ip-api.com/json/?key=AmUN9xAaQALVYu6&exposeDate=false", function (data) {
-                //maincity
-                systemSettings.mainCity.locationName = data.city;
-                systemSettings.mainCity.airportName = data.city;
-                systemSettings.mainCity.bulletinName = data.city + " Area";
-                systemSettings.mainCity.almanacLocationName = data.city;
-                systemSettings.mainCity.lat = data.lat;
-                systemSettings.mainCity.lon = data.lon;
-                if (systemSettings.dataMaps.auto) {
-                centerDataMaps(data.region);
-                }
-                systemSettings.mainCity.radar.lat = data.lat;
-                systemSettings.mainCity.radar.lon = data.lon;
-                if (systemSettings.mainCity.radar.auto) {
-                    systemSettings.mainCity.radar.satCoords = [data.lon, data.lat]
-                    systemSettings.mainCity.radar.radarCities.push(
-                        {locationName: data.city, dotTopPos: "518", dotLeftPos: "788", nameTopMargin:"-11", nameLeftMargin:"43"}
-                    )
-                }
-                //lbar
-                systemSettings.LBar.locationName = data.city;
-                systemSettings.LBar.airportName = data.city;
-                systemSettings.LBar.lat = data.lat;
-                systemSettings.LBar.lon = data.lon;
-                systemSettings.LBar.radar.lat = data.lat;
-                systemSettings.LBar.radar.lon = data.lon;
-                if (systemSettings.LBar.radar.auto) {
-                    systemSettings.LBar.radar.radarCities.push(
-                        {locationName: data.city, dotTopPos: "518", dotLeftPos: "788", nameTopMargin:"-11", nameLeftMargin:"43"}
-                    )
-                }
-                setMainCityBackground(data.city.toLowerCase(), data.region);
-                //system location (intro screen)
-                systemSettings.systemLocation = data.city;
-
-                if (systemSettings.upperDisplayCity.autoFind == true) {
-                    systemSettings.upperDisplayCity.locationName = data.city;
-                    systemSettings.upperDisplayCity.airportName = data.city;
-                    systemSettings.upperDisplayCity.lat = systemSettings.mainCity.lat;
-                    systemSettings.upperDisplayCity.lon = systemSettings.mainCity.lon;
-                }
-                if (systemSettings.health.autoFind == true) {
-                    systemSettings.health.locationName = data.city;
-                    systemSettings.health.airportName = data.city;
-                    systemSettings.health.lat = systemSettings.mainCity.lat;
-                    systemSettings.health.lon = systemSettings.mainCity.lon;
-                }
-                if (systemSettings.golf.autoFind == true) {
-                    systemSettings.golf.teeTime.locationName = data.city;
-                    systemSettings.golf.teeTime.lat = data.lat;
-                    systemSettings.golf.teeTime.lon = data.lon;
-                }
-                if (systemSettings.garden.autoFind == true) {
-                    systemSettings.garden.locationName = data.city;
-                    systemSettings.garden.lat = data.lat;
-                    systemSettings.garden.lon = data.lon;
-                }
-                if (systemSettings.traffic.autoFind == true) {
-                    systemSettings.traffic.locationName = data.city;
-                    systemSettings.traffic.lat = data.lat;
-                    systemSettings.traffic.lon = data.lon;
-                }
-                if (systemSettings.airport.autoFind == true) {
-                    grabNearbyAirports(data.lat, data.lon);
-                }
-                if (systemSettings.extraCity.autoFind == true) {
-                    grabExtraCities(data.lat, data.lon, data.city);
-                }
-                //pulling for icao code
-                $.getJSON(`https://api.weather.com/v3/location/near?geocode=${data.lat},${data.lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (icaodata) {
-                    systemSettings.mainCity.obsIcaoCode = icaodata.location.stationId[0];
-                    systemSettings.LBar.obsIcaoCode = icaodata.location.stationId[0];
-                    if (systemSettings.upperDisplayCity.autoFind == true) {
-                        systemSettings.upperDisplayCity.obsIcaoCode = icaodata.location.stationId[0];
-                    }
-                    if (systemSettings.health.autoFind == true) {
-                        systemSettings.health.obsIcaoCode = icaodata.location.stationId[0];
-                    }
-                    if (systemSettings.nearbyCities.autoFind == true) {
-                        grabNearbyCities(icaodata.location.stationId[0]);
-                    }
-                })
-            })
         }
+
+        systemSettings.mainCity.locationName = data.city;
+        systemSettings.mainCity.obsName = data.city;
+        systemSettings.mainCity.bulletinName = data.city + " Area";
+        systemSettings.mainCity.almanacLocationName = data.city;
+        systemSettings.mainCity.lat = data.lat;
+        systemSettings.mainCity.lon = data.lon;
+        systemSettings.mainCity.packageName = "locname Forecast";
+        systemSettings.mainCity.upNextName = "Up Next...locname";
+        systemSettings.mainCity.spanishPackageName = "Espanol";
+        systemSettings.mainCity.spanishUpNextName = "Up Next...Espanol";
+        systemSettings.mainCity.radarPackageName = "Your Local Radar";
+        systemSettings.mainCity.radarUpNextName = "Up Next...Radar";
+
+        systemSettings.mainCity.icaoCode = icaoData.location.stationId[icID];
     }
+}
 
+async function getNearbyCities() {
+    systemSettings.nearbyCities.cities = []
     let locationQueue = [], nearbyRound = 0, newCities = [];
-    function grabNearbyCities(icao) {
-        if (nearbyRound == 0) {
-            locationQueue.push(icao);
-        }
+
+    async function grabNearbyCities(lat, lon) {
+        locationQueue.push(`${lat},${lon}`);
         if (nearbyRound >= 10) {
-            systemSettings.nearbyCities.cities = newCities.sort((a, b) => a.locationName.localeCompare(b.locationName));
+            systemSettings.nearbyCities.cities = newCities.sort((a, b) => a.obsName.localeCompare(b.obsName));
             console.warn("Nearby pull was cut off after 10 turns, location list may not be full.");
+            nearbyRound = 0;
+            return;
+        }
+        if (newCities.length >= 8) {
+            systemSettings.nearbyCities.cities = newCities.sort((a, b) => a.obsName.localeCompare(b.obsName));
+            nearbyRound = 0;
             return;
         }
         nearbyRound++;
 
         let locpull = locationQueue.shift();
-        $.getJSON(`https://api.weather.com/v3/location/near?icaoCode=${locpull}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
-            for (let i = 0; i < data.location.stationId.length; i++) {
-                createNewNearbyCity(data.location.stationId[i]);
-            }
-        });
-        setTimeout(() => {
-            if (newCities.length >= 8) {
-                systemSettings.nearbyCities.cities = newCities.sort((a, b) => a.locationName.localeCompare(b.locationName));
-            } else {
-                var newcity = newCities[newCities.length - 1].obsIcaoCode;
-                if (newcity == undefined) { newcity = newCities[1].obsIcaoCode }
-                locationQueue.push(newcity);
-                grabNearbyCities();
-            }
-        }, 750);
+
+        const data = await $.getJSON(`https://api.weather.com/v3/location/near?geocode=${locpull}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+
+        for (let i = 0; i < data.location.stationId.length; i++) {
+            await createNewNearbyCity(data.location.stationId[i]);
+        }
+        if (newCities.length >= 8) {
+            systemSettings.nearbyCities.cities = newCities.sort((a, b) => a.obsName.localeCompare(b.obsName));
+            return;
+        } else {
+            grabNearbyCities(data.location.latitude[data.location.latitude.length-1],data.location.longitude[data.location.longitude.length-1]);
+        }
     }
-    function createNewNearbyCity(icao) {
+
+    async function createNewNearbyCity(icao) {
         var locName, dontPush;
-        $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
-            locName = data.location.displayName;
-        }).then(() => {
-            var cityObj = { locationName: locName, obsIcaoCode: icao };
+        try {
+            const data = await $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+            locName = data.location.displayName.replace(" Charter Township", "").replace(" Township", "");
+            /*if(data.location.locale["locale4"] != null){
+                if(!data.location.locale["locale4"].endsWith("Naval Air Station")){locName = data.location.locale["locale4"]}
+            }*/
+            var cityObj = { obsName: locName, icaoCode: icao};
             for (let i = 0; i < newCities.length; i++) {
-                if (cityObj.locationName == systemSettings.mainCity.locationName) { dontPush = true }
-                if (cityObj.locationName == newCities[i].locationName) { dontPush = true }
-                if (cityObj.obsIcaoCode == newCities[i].obsIcaoCode) { dontPush = true }
+                if (cityObj.obsName == systemSettings.mainCity.locationName) {
+                    cityObj.icaoCode = systemSettings.mainCity.icaoCode;
+                }
+                if (cityObj.obsName == newCities[i].obsName) { dontPush = true }
+                if (cityObj.icaoCode == newCities[i].icaoCode) { dontPush = true }
                 if (newCities.length >= 8) { dontPush = true }
             }
             if (!dontPush) { newCities.push(cityObj) }
-        })
+        } catch (error) {
+            
+        }
     }
-    function grabNearbyAirports(lat, lon) {
-        var airportCount = 0;
-        $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=airport&subproduct=major&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
-            for (let i = 0; i < data.location.iataCode.length; i++) {
-                if (airportCount == systemSettings.airport.main.length) return;
-                if (data.location.iataCode[i] == null) continue;
-                systemSettings.airport.main[airportCount].airportName = data.location.airportName[i];
-                systemSettings.airport.main[airportCount].iataCode = data.location.iataCode[i];
-                airportCount++;
+
+    await grabNearbyCities(systemSettings.mainCity.lat, systemSettings.mainCity.lon)
+}
+
+async function getExtraCities() {
+    systemSettings.extraCity.cities = []
+    async function grabExtraCities(lat, lon) {
+        const data = await $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+        //console.log(data);
+        for (let i = 0; i < data.location.stationId.length; i++) {
+            await createNewExtraCity(data.location.stationId[i], data.location.distanceMi[i]);
+            if (i == data.location.stationId.length - 1) {
+                await addExtraCities()
             }
-        })
+        }
     }
-    function grabExtraCities(lat, lon) {
-        $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
-            //console.log(data);
-            for (let i = 0; i < data.location.stationId.length; i++) {
-                createNewExtraCity(data.location.stationId[i], data.location.distanceMi[i]);
-                if (i == data.location.stationId.length - 1) {
-                    //console.log(newExtraCities);
-                    setTimeout(addExtraCities, 250);
-                }
-            }
-        })
-    }
-    function createNewExtraCity(icao, dist) {
+
+    async function createNewExtraCity(icao, dist) {
         var extraCityObj, dontPush = false;
-        $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
-            if (data.location.displayName == systemSettings.mainCity.locationName) return;
-            if (icao == systemSettings.mainCity.obsIcaoCode) return;
-            extraCityObj = {
-                locationName: data.location.displayName.replaceAll("Township", ""),
-                bulletinName: data.location.displayName.replaceAll("Township", "") + " Area",
-                lat: data.location.latitude,
-                lon: data.location.longitude,
-                airportName: data.location.displayName,
-                obsIcaoCode: data.location.icaoCode,
-                upNextBG: "city_bg",
-                slidesBG: "core_bg",
-                radar: {
-                    lat: data.location.latitude, lon: data.location.longitude, auto: true, zoom: systemSettings.mainCity.radar.zoom,
-                    satCoords: [data.location.longitude, data.location.latitude],
-                    radarCities: [
-                        {locationName: data.location.displayName.replaceAll("Township", ""), dotTopPos: "518", dotLeftPos: "788", nameTopMargin:"-11", nameLeftMargin:"43"}
-                    ],
-                    radarIcons: []
-                },
-                distance: dist
+        try {
+        const data = await $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+
+        extraCityObj = {
+            packageName:"locname Forecast",
+            upNextName:"Up Next...locname",
+            locationName: data.location.displayName.replaceAll(" Charter Township", "").replaceAll(" Township", ""),
+            bulletinName: data.location.displayName.replaceAll(" Charter Township", "").replaceAll(" Township", "") + " Area",
+            lat: data.location.latitude,
+            lon: data.location.longitude,
+            obsName: data.location.displayName,
+            icaoCode: data.location.icaoCode,
+            upNextBG: "city_bg",
+            slidesBG: "core_bg",
+            radar: {
+                auto: true,
+                radarCities: [],
+                radarIcons: []
+            },
+            distance: dist
+        }
+        if (data.location.displayName == systemSettings.mainCity.locationName)return;/*{
+            if(data.location.locale["locale4"] != null){
+                if(data.location.locale["locale4"].endsWith("Naval Air Station")) return;
+                extraCityObj.obsName = data.location.locale["locale4"];
+                extraCityObj.bulletinName = data.location.locale["locale4"] + " Area";
+                extraCityObj.locationName = data.location.locale["locale4"];
+            }else{
+                return;
             }
-            for (let i = 0; i < newExtraCities.length; i++) {
-                if (extraCityObj.locationName == newExtraCities[i].locationName) {
-                    dontPush = true;
-                    continue;
-                }
+        }*/
+        if (icao == systemSettings.mainCity.icaoCode) return;
+        for (let i = 0; i < newExtraCities.length; i++) {
+            if (extraCityObj.locationName == newExtraCities[i].locationName) {
+                dontPush = true;
+                continue;
             }
-            if (!dontPush) { newExtraCities.push(extraCityObj) }
-            newExtraCities = newExtraCities.sort((a, b) => a.distance - b.distance);
-        })
+        }
+        if (!dontPush) { newExtraCities.push(extraCityObj) }
+        newExtraCities = newExtraCities.sort((a, b) => a.distance - b.distance);
+        } catch (error) {
+        }
     }
+
     function addExtraCities() {
         for (let i = 0; i < systemSettings.extraCity.maxCities; i++) {
-            var extraCityUpNextBG = ["city_bg", "forest_bg", "mountain_bg"][i % 3]
-            newExtraCities[i].upNextBG = extraCityUpNextBG;
-            systemSettings.extraCity.cities.push(newExtraCities[i]);
-            //adding locations in the event that there are no golf courses automatically added
-            //YES it's the boring "(city) golf courses" joe but do you really want to burn money on a google api key?
-            if (systemSettings.golf.autoFind == true) {
-                systemSettings.golf.courses.push({
-                    courseName: newExtraCities[i].locationName + " Golf Courses",
-                    lat: newExtraCities[i].lat,
-                    lon: newExtraCities[i].lon
-                });
+            try {
+                if(newExtraCities[i] == undefined){throw new Error("Extra city undefined, won't be added to extra city list.")}
+                if (systemSettings.extraCity.maxCities == systemSettings.extraCity.cities.length) { break }
+                systemSettings.extraCity.cities.push(newExtraCities[i]);
+            } catch (error) {
+
+            }
+        }
+        /*
+        if (systemSettings.extraCity.maxCities != systemSettings.extraCity.cities.length) {
+            systemSettings.extraCity.maxCities = systemSettings.extraCity.cities.length;
+            while (systemSettings.extraCity.maxCities != systemSettings.extraCity.cities.length) {
+                systemSettings.extraCity.cities.pop();
+            }
+        }
+        */
+        if(systemSettings.extraCity.cities.length == 0){
+            for(let i = 0; i < systemSettings.packageSettings.length; i++){
+                systemSettings.packageSettings[i] = systemSettings.packageSettings[i].replaceAll("extralocal", Math.random() > 0.5 ? "minicoreone" : "minicoretwo");
             }
         }
     }
 
-    //data maps will be done later so them georgians can enjoy a localized temp unavailable map
-    function centerDataMaps(region) {
-    console.log(region)
-    var state = region
-    switch (true) {
-        case state == "ME" || state == "VT" || state == "NH" || state == "MA" || state == "CT" || state == "RI" || state == "NY" || state == "NJ" || state == "PA" || state == "DE" || state == "MD" || state == "WV" || state == "OH" || state == "IN" || state == "MI" || state == "WI" || state == "MN" || state == "IA" || state == "IL":
-            systemSettings.dataMaps.topPos = 78
-            systemSettings.dataMaps.leftPos = -30
-            systemSettings.dataMaps.zoom = 3.3
-            break;
-        case state == "NC" || state == "VA" || state == "MO" || state == "KY" || state == "TN":
-            systemSettings.dataMaps.leftPos = -35.8;
-            systemSettings.dataMaps.topPos = 33.3;
-            systemSettings.dataMaps.zoom = 4;
-            break;
-        case state == "GA" || state == "FL" || state == "SC" || state == "AR" || state == "LA" || state == "MS" || state == "AL":
-            systemSettings.dataMaps.leftPos = -35.8;
-            systemSettings.dataMaps.topPos = 33.3;
-            systemSettings.dataMaps.zoom = 4;
-            break;
-        case state == "WA" || state == "ID" || state == "MT" || state == "ND" || state == "SD" || state == "WY" || state == "OR":
-            systemSettings.dataMaps.leftPos = 41;
-            systemSettings.dataMaps.topPos = 107;
-            systemSettings.dataMaps.zoom = 4;
-            break;
-        case state == "CA" || state == "NV" || state == "UT" || state == "CO" || state == "NE" || state == "KS":
-            systemSettings.dataMaps.leftPos = 34;
-            systemSettings.dataMaps.topPos = 67;
-            systemSettings.dataMaps.zoom = 3.7;
-            break;
-        case state == "TX" || state == "OK":
-            systemSettings.dataMaps.leftPos = 6;
-            systemSettings.dataMaps.topPos = 26;
-            systemSettings.dataMaps.zoom = 3.7;
-            break;
-        case state == "AZ" || state == "NM":
-            systemSettings.dataMaps.leftPos = 44;
-            systemSettings.dataMaps.topPos = 53;
-            systemSettings.dataMaps.zoom = 4.5;
-            break;
-        default:
-            systemSettings.dataMaps.leftPos = 0;
-            systemSettings.dataMaps.topPos = 18;
-            systemSettings.dataMaps.zoom = 1.25;
+    await grabExtraCities(systemSettings.mainCity.lat, systemSettings.mainCity.lon)
+}
+
+function getExtraRadar() {
+    for (var i = 0; i < systemSettings.extraCity.cities.length; i++) {
+        if (systemSettings.extraCity.cities[i].radar.auto == true) {
+            systemSettings.extraCity.cities[i].radar.lat = systemSettings.extraCity.cities[i].lat;
+            systemSettings.extraCity.cities[i].radar.lon = systemSettings.extraCity.cities[i].lon;
+            systemSettings.extraCity.cities[i].radar.zoom = 8.1;
+            systemSettings.extraCity.cities[i].radar.satCoords = [systemSettings.extraCity.cities[i].lon, systemSettings.extraCity.cities[i].lat]
+            systemSettings.extraCity.cities[i].radar.radarCities = [
+                { locationName: systemSettings.extraCity.cities[i].locationName, dotTopPos: "518", dotLeftPos: "788", nameTopMargin: "-11", nameLeftMargin: "43" }
+        ]
+        }
     }
 }
 
-    function distanceByDegrees(c1, c2) {
-        var lat1 = parseFloat(c1.lat), lon1 = parseFloat(c1.lon),
-            lat2 = parseFloat(c2.lat), lon2 = parseFloat(c2.lon),
-            dLat = lat2 - lat1, dLon = lon2 - lon1;
-        return [Math.sqrt(dLat ** 2 + dLon ** 2), dLat, dLon];
+async function getTravelCities() {
+    systemSettings.travel.regionalMap.cities = []
+    distances = [];
+    for (var i = 0; i < travelRegional.length; i++) {
+        let d = distanceByDegrees(systemSettings.mainCity, travelRegional[i])
+        var x = { distance: d[0], index: i, coords: [d[1], d[2]] }
+        distances.push(x);
+        //console.log(x);
     }
-
-    function getTravelMapLimits(type){
-        if(type === undefined){
-            return [225, -225, 685, -685];
-        }
-        if(type[0] == "pacific" && type[1] == "north"){
-            return [120, -340, 310, -1050];
-        }
-        // if(type[0] == "atlantic" && type[1] == null){
-        //     return [225, -225, 1085, -285]
-        // }
+    distances.sort((a, b) => a.distance - b.distance);
+    var sysMapLeft = -(travelRegional[distances[0].index].leftPos - 645) > -600 ? -600 : -(travelRegional[distances[0].index].leftPos - 645);
+    systemSettings.travel.regionalMap.mapLeft = sysMapLeft;
+    var sysMapTop = -(travelRegional[distances[0].index].topPos - 455) > -250 ? -250 : -(travelRegional[distances[0].index].topPos - 455);
+    systemSettings.travel.regionalMap.mapTop = sysMapTop;
+    //travelLimits key: 0 = top, 1 = bottom, 2 = left, 3 = right
+    var travelLimits = getTravelMapLimits(travelRegional[distances[0].index].type);
+    var travelCount = 0;
+    for (let j = 0; j < distances.length; j++) {
+        if (travelCount >= 7) { break; }
+        var travelTopLimit = travelRegional[distances[0].index].topPos - travelRegional[distances[j].index].topPos;
+        var travelLeftLimit = travelRegional[distances[0].index].leftPos - travelRegional[distances[j].index].leftPos;
+        if (travelTopLimit > travelLimits[0] || travelTopLimit < travelLimits[1]) { continue; }
+        if (travelLeftLimit > travelLimits[2] || travelLeftLimit < travelLimits[3]) { continue; }
+        systemSettings.travel.regionalMap.cities[travelCount] = travelRegional[distances[j].index];
+        travelCount++;
     }
+}
 
-    function initTravelMap(){
-        distances = [];
-        for(var i = 0; i < travelRegional.length; i++){
-            let d = distanceByDegrees(systemSettings.mainCity, travelRegional[i])
-            var x = { distance: d[0], index: i, coords: [d[1], d[2]] }
-            distances.push(x);
-            //console.log(x);
-        }
-        distances.sort((a, b) => a.distance - b.distance);
-        var sysMapLeft = -(travelRegional[distances[0].index].leftPos - 645) > -600 ? -600 : -(travelRegional[distances[0].index].leftPos - 645);
-        systemSettings.travel.regionalMap.mapLeft = sysMapLeft;
-        var sysMapTop = -(travelRegional[distances[0].index].topPos - 455) > -250 ? -250 : -(travelRegional[distances[0].index].topPos - 455);
-        systemSettings.travel.regionalMap.mapTop = sysMapTop;
-        //travelLimits key: 0 = top, 1 = bottom, 2 = left, 3 = right
-        var travelLimits = getTravelMapLimits(travelRegional[distances[0].index].type);
-        var travelCount = 0;
-        for(let j = 0; j < distances.length; j++){
-            if(travelCount >= 7){break;}
-            var travelTopLimit = travelRegional[distances[0].index].topPos - travelRegional[distances[j].index].topPos;
-            var travelLeftLimit = travelRegional[distances[0].index].leftPos - travelRegional[distances[j].index].leftPos;
-            if(travelTopLimit > travelLimits[0] || travelTopLimit < travelLimits[1]){continue;}
-            if(travelLeftLimit > travelLimits[2] || travelLeftLimit < travelLimits[3]){continue;}
-            systemSettings.travel.regionalMap.cities[travelCount] = travelRegional[distances[j].index];
-            travelCount++;
+async function getAirports(lat, lon) {
+    //twc started duping airports? This breaks the entire code
+    var airportCount = 0;
+    const data = await $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=airport&subproduct=major&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+    for (let i = 0; i < data.location.iataCode.length; i++) {
+        if (systemSettings.airport.main.some(a => a.airportName === data.location.airportName[i] || a.iataCode === data.location.iataCode[i])) continue;
+        else if (data.location.iataCode[i] == null) continue;
+        else if (data.location.airportName[i].includes("Army") || data.location.airportName[i].includes("Air Force") || data.location.airportName[i].includes("Air Field") || data.location.airportName[i].includes(" Base") || !data.location.airportName[i].includes("Airport")) continue;
+        if (airportCount < systemSettings.airport.main.length){
+            systemSettings.airport.main[airportCount].airportName = data.location.airportName[i];
+            systemSettings.airport.main[airportCount].iataCode = data.location.iataCode[i];
+            airportCount++;
+        } else if (data.location.airportName[i].includes("International") || data.location.airportName[i].includes("Intl")){
+            systemSettings.airport.main[1].airportName = data.location.airportName[i];
+            systemSettings.airport.main[1].iataCode = data.location.iataCode[i];
         }
     }
 }
-var q = window.location.search ? window.location.search.split("?")[1] : undefined;
-if (q != "nationalForecast") {
-    //locationJS()
+
+async function getGolfCourses() {
+    systemSettings.golf.courses = []
+    async function getTTLoc(lat, lon, name) {
+        const data = await $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+
+        systemSettings.golf.teeTime.locationName = name
+        systemSettings.golf.teeTime.lat = data.location.latitude
+        systemSettings.golf.teeTime.lon = data.location.longitude
+    }
+
+    await getTTLoc(systemSettings.mainCity.lat, systemSettings.mainCity.lon, systemSettings.mainCity.locationName)
+
+    async function grabGolfCourses(lat, lon) {
+        const data = await $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+        
+        for (let i = 0; i < data.location.stationId.length; i++) {
+            await createNewGolfCourse(data.location.latitude[i], data.location.longitude[i]);
+            if (i == data.location.stationId.length - 1) {
+                await addGolfCourses() 
+            }
+        }
+    }
+
+    async function createNewGolfCourse(lat, lon) {
+        var courseObj, dontPush = false;
+        try {
+        const data = await $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+
+        courseObj = {
+            courseName: data.location.displayName.replaceAll(" Charter Township", "").replaceAll(" Township", "") + " Courses",
+            lat: data.location.latitude,
+            lon: data.location.longitude
+        }
+
+        if (!dontPush) { newCourses.push(courseObj) }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    function addGolfCourses() {
+        for (let i = 0; i < 3; i++) {
+            if (systemSettings.golf.courses.length == 3) { break }
+            systemSettings.golf.courses.push(newCourses[i]);
+        }
+    }
+
+    await grabGolfCourses(systemSettings.mainCity.lat, systemSettings.mainCity.lon)
+}
+
+async function getGardenLoc(lat, lon, name) {
+    const data = await $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`)
+
+    systemSettings.garden.locationName = name
+    systemSettings.garden.lat = data.location.latitude
+    systemSettings.garden.lon = data.location.longitude
+}
+
+var mainquery = ""
+
+async function locationJS() {
+    mainquery = window.location.search == "" ? undefined : window.location.search.replaceAll("?", "").replaceAll("%20", " ");
+
+    //main city
+    if (systemSettings.mainCity.autoFind == true) {
+        await getMainCity()
+    }
+
+    //startup location name
+    if (systemSettings.systemLocation == "") {
+        systemSettings.systemLocation = systemSettings.mainCity.locationName;
+    }
+
+    //system locationname
+    $("#startup .locationname").text("location name: " + systemSettings.systemLocation)
+
+    //main city radar
+    if (systemSettings.mainCity.radar.auto == true) {
+        systemSettings.mainCity.radar.lat = systemSettings.mainCity.lat;
+        systemSettings.mainCity.radar.lon = systemSettings.mainCity.lon;
+        systemSettings.mainCity.radar.zoom = 8.1
+        systemSettings.mainCity.radar.satCoords = [systemSettings.mainCity.lon, systemSettings.mainCity.lat]
+        systemSettings.mainCity.radar.radarCities = [
+            { locationName: systemSettings.mainCity.locationName, dotTopPos: "518", dotLeftPos: "788", nameTopMargin: "-11", nameLeftMargin: "43" }
+        ]
+    }
+
+    //udl
+    if (systemSettings.upperDisplayCity.autoFind == true) {
+        systemSettings.upperDisplayCity.locationName = systemSettings.mainCity.locationName
+        systemSettings.upperDisplayCity.lat = systemSettings.mainCity.lat
+        systemSettings.upperDisplayCity.lon = systemSettings.mainCity.lon
+        systemSettings.upperDisplayCity.obsName = systemSettings.mainCity.obsName
+        systemSettings.upperDisplayCity.icaoCode = systemSettings.mainCity.icaoCode
+    }
+
+    //nearby 8
+    if (systemSettings.nearbyCities.autoFind == true) {
+        await getNearbyCities()
+    }
+
+    if (systemSettings.extraCity.autoFind == true) {
+        await getExtraCities()
+    }
+
+    //extra radar
+    getExtraRadar()
+
+    if (systemSettings.extraCity.cities.length == 0) {
+        for (let i = 0; i < systemSettings.packageSettings.length; i++) {
+            systemSettings.packageSettings[i] = systemSettings.packageSettings[i].replaceAll("extralocal", Math.random() > 0.5 ? "minicoreone" : "minicoretwo");
+        }
+    }
+
+    //datamaps
+    if (systemSettings.dataMaps.auto == true) {
+        await centerDataMaps(systemSettings.mainCity.lat, systemSettings.mainCity.lon);
+    }
+
+    if (systemSettings.traffic.locationName == null || String(systemSettings.traffic.locationName).trim() == "") {
+        systemSettings.traffic.locationName = systemSettings.mainCity.locationName;
+    }
+    if (systemSettings.traffic.lat == null || systemSettings.traffic.lat === "" || !Number.isFinite(Number(systemSettings.traffic.lat))) {
+        systemSettings.traffic.lat = systemSettings.mainCity.lat;
+    }
+    if (systemSettings.traffic.lon == null || systemSettings.traffic.lon === "" || !Number.isFinite(Number(systemSettings.traffic.lon))) {
+        systemSettings.traffic.lon = systemSettings.mainCity.lon;
+    }
+
+    //travel
+    if (systemSettings.travel.regionalMap.autoFind == true) {
+        await getTravelCities()
+    }
+
+    //health
+    if (systemSettings.health.autoFind == true) {
+        systemSettings.health.lat = systemSettings.mainCity.lat
+        systemSettings.health.lon = systemSettings.mainCity.lon
+        systemSettings.health.locationName = systemSettings.mainCity.locationName
+        systemSettings.health.obsName = systemSettings.mainCity.obsName
+        systemSettings.health.icaoCode = systemSettings.mainCity.icaoCode
+    }
+
+    //airport
+    if (systemSettings.airport.autoFind == true) {
+        await getAirports(systemSettings.mainCity.lat, systemSettings.mainCity.lon)
+    }
+
+    //golf
+    if (systemSettings.golf.autoFind == true) {
+        await getGolfCourses()
+    }
+
+    //garden
+    if (systemSettings.garden.autoFind == true) {
+        await getGardenLoc(systemSettings.mainCity.lat, systemSettings.mainCity.lon, systemSettings.mainCity.locationName)
+    }
 }

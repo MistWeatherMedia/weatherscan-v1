@@ -647,7 +647,7 @@ its not 1 for 1 code using so i mean i guess its aight
 .city-intro .circle-one {
   position: absolute;
   background-color: rgb(10,10,160,0.4);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -662,7 +662,7 @@ its not 1 for 1 code using so i mean i guess its aight
 .city-intro .circle-two {
   position: absolute;
   background-color: rgb(255,212,14,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -677,7 +677,7 @@ its not 1 for 1 code using so i mean i guess its aight
 .city-intro .circle-three {
   position: absolute;
   background-color: rgb(255,212,14,0.5);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -801,7 +801,7 @@ its not 1 for 1 code using so i mean i guess its aight
 .upnext .circle-one {
   position: absolute;
   background-color: rgb(10,10,160,0.4);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -814,7 +814,7 @@ its not 1 for 1 code using so i mean i guess its aight
   display: none;
   position: absolute;
   background-color: rgb(255,212,14,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -827,7 +827,7 @@ its not 1 for 1 code using so i mean i guess its aight
   display: none;
   position: absolute;
   background-color: rgb(255,212,14,0.5);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -916,6 +916,31 @@ its not 1 for 1 code using so i mean i guess its aight
   background-color: rgba(0, 0, 256, 0.2);
   z-index: 4;
 }
+
+.gbul {
+  position: absolute;
+  top: 247px;
+  left: 162px;
+  width: 1458px;
+  height: 614px;
+  opacity: 0;
+}
+.gbul .alertsbox {
+  position: absolute;
+  top: 81px;
+  left: 106px;
+  width: 1100px;
+  height: 485px;
+}
+.gbul .alerts {
+    position: absolute;
+    font-family: 'Frutiger Bold Cn';
+    font-size: 61px;
+    line-height: 123%;
+    width: 1100px;
+    white-space: pre-wrap;
+}
+
 .bulletin {
   position: absolute;
   top: 247px;
@@ -2214,7 +2239,7 @@ position: absolute;
 .traffic-intro .circle-one {
   position: absolute;
   background-color: rgb(214,141,33,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -2227,7 +2252,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(176,121,35,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -2240,7 +2265,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(183,128,50,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -2670,7 +2695,7 @@ position: absolute;
 .travel-intro .circle-one {
   position: absolute;
   background-color: rgb(105,134,198,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -2683,7 +2708,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(105,134,198,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -2696,7 +2721,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(105,134,198,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -2890,6 +2915,7 @@ position: absolute;
     font-size: 41px;
     text-align: center;
     margin-left: -4px;
+    white-space: pre;
 }
 .travel-forecast .temperature {
     position: absolute;
@@ -3031,7 +3057,7 @@ position: absolute;
 .airport-intro .circle-one {
   position: absolute;
   background-color: rgb(105,134,198,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -3044,7 +3070,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(105,134,198,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -3057,7 +3083,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(105,134,198,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -3471,7 +3497,7 @@ position: absolute;
 .international-intro .circle-one {
   position: absolute;
   background-color: rgb(156,159,161,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -3484,7 +3510,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(156,159,161,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -3497,7 +3523,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(156,159,161,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -3611,6 +3637,7 @@ position: absolute;
     font-family: 'Frutiger Black';
     font-size: 41px;
     text-align: center;
+    white-space: pre;
 }
 .international-map .temperature {
     position: absolute;
@@ -4077,7 +4104,7 @@ position: absolute;
 .golf-intro .circle-one {
   position: absolute;
   background-color: rgb(163,192,87,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -4090,7 +4117,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(47,130,31,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -4103,7 +4130,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(26,100,25,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -4518,7 +4545,7 @@ position: absolute;
 .health-intro .circle-one {
   position: absolute;
   background-color: rgb(11,182,192,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -4531,7 +4558,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(11,182,192,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -4544,7 +4571,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(11,182,192,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -5643,7 +5670,7 @@ position: absolute;
 .garden-intro .circle-one {
   position: absolute;
   background-color: rgb(163,192,87,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -5656,7 +5683,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(47,130,31,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -5669,7 +5696,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(26,100,25,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -6449,7 +6476,7 @@ position: absolute;
 .ski-intro .circle-one {
   position: absolute;
   background-color: rgb(136,77,172,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -6462,7 +6489,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(136,77,172,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -6475,7 +6502,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(136,77,172,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;
@@ -6912,7 +6939,7 @@ position: absolute;
 .beach-intro .circle-one {
   position: absolute;
   background-color: rgb(163,192,87,0.6);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 124%; 
   height: 141%;
@@ -6925,7 +6952,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(47,130,31,0.9);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 145%; 
   height: 166%;
@@ -6938,7 +6965,7 @@ position: absolute;
   display: none;
   position: absolute;
   background-color: rgb(26,100,25,0.7);
-  -webkit-mask-image: url("/images/assets/ellipsewhite.png");
+  -webkit-mask-image: url("images/assets/ellipsewhite.png");
   -webkit-mask-size: 100% 100%;
   width: 148%; 
   height: 164%;

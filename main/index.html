@@ -28,7 +28,7 @@
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/extras.js"></script>
     <script type="text/javascript" src="js/location.js"></script>
-    <script type="text/javascript" src="js/settingspanel.js"></script>
+    <script type="text/javascript" src="js/startup.js"></script>
     <script type="text/javascript" src="js/radar.js"></script>
     <script type="text/javascript" src="js/slides.js"></script>
     <script type="text/javascript" src="js/loops.js"></script>
@@ -55,7 +55,7 @@
       <div class="normal-lowerarea">
         <div class="upnext-ticker shrinkY"></div>
         <div id="crawl-main">
-          <div class="crawl shrinkY"></div>
+          <div class="crawl shrinkY"><span></span></div>
           <div class="gradient"></div>
         </div>
       </div>
@@ -118,6 +118,12 @@
           <div class="upnext-slot four shrinkY" style="display: none;"></div>
           <div class="topbar"></div>
           <div class="bottombar"></div>
+        </div>
+
+        <div class="gbul">
+          <div class="alertsbox">
+            <div class="alerts group shrinkY"></div>
+          </div>
         </div>
 
         <div class="bulletin" style="display: none;">
@@ -387,9 +393,9 @@
             <div class="lbpanel one"></div>
             <div class="routeicon fullgroup"></div>
             <div class="description fullgroup shrinkY"></div>
-            <div class="trafficflow fullgroup shrinkY"></div>
-            <div class="mph mingroup fullgroup shrinkY">MPH</div>
-            <div class="trafficflowcover fullgroup shrinkY"></div>
+            <div class="trafficflow fullgroup shrinkY flowBlock"></div>
+            <div class="mph mingroup fullgroup shrinkY flowBlock">MPH</div>
+            <div class="trafficflowcover fullgroup shrinkY flowBlock"></div>
             <div class="triptime mingroup fullgroup shrinkY"></div>
             <div class="min mingroup fullgroup shrinkY">MIN</div>
           </div>

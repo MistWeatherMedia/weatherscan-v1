@@ -3,20 +3,16 @@
         "apiKeys":{
           "api_key":"e1f10a1e78da46f5b10a1e78da96f525",
           "map_key":"pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjbHAxbHNjdncwaDhvMmptcno1ZTdqNDJ0In0.iywE3NefjboFg11a11ON0Q",
-          "traf_key":"",
-          "HERE_key":""
+          "traf_key":""
         },
         "systemLocation":"",
         "appearanceSettings":{
             "nationalConfig":false,
             "providerName":"Mist Digital Cable",
-            "startupTime":15000,
-            "crawlMode":"both",
             "adMessage":["network"],
             "providerType":"provider",
             "providerImage":"mistdc",
-            "adImages":[],
-            "version":"1.14.2"
+            "adImages":[]
         },
         "audioSettings":{
             "enableMusic":true,
@@ -25,26 +21,8 @@
             "narrations":true,
             "order":[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
         },
-        "packageSettings":["forecast","health","traffic","travel", "airport","extralocal","minicoreone","garden","ski", "international"],
-        "LBar":{
-          "autoFind":true,
-          "locationName":"",
-          "lat":"",
-          "lon":"",
-          "airportName":"",
-          "obsIcaoCode":"",
-          "ccTicker":{
-            "airports":[],
-            "cities":[]
-          },
-          "radar": {
-              "lat":"",
-              "lon":"",
-              "auto":true,
-              "zoom":6.7,
-              "radarCities": []
-            }
-        },
+        "packageSettings":["forecast","health","traffic","travel", "airport","extralocal","minicoreone","garden","international"],
+        "severePackageSettings":["severe2"],
         "dataMaps":{
         "auto":true,
           "topPos":"",
@@ -52,13 +30,19 @@
           "zoom":""
         },
         "mainCity":{
-            "autoFind":true,
+          "autoFind":true,
+            "packageName":"locname Forecast",
+            "upNextName":"Up Next...locname",
+          "spanishPackageName":"Espanol",
+          "spanishUpNextName":"Up Next...Espanol",
+          "radarPackageName":"Your Local Radar",
+          "radarUpNextName":"Up Next...Radar",
             "locationName":"",
             "bulletinName":"",
             "lat": "",
             "lon": "",
-            "airportName":"",
-            "obsIcaoCode":"",
+            "obsName":"",
+            "icaoCode":"",
             "almanacLocationName":"",
             "introBG":"city_bg",
             "upNextBG":"city_bg",
@@ -82,63 +66,72 @@
             "autoFind":true,
             "cities": [
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 }
             ]
         },
         "upperDisplayCity": {
             "autoFind":true,
             "enabled":true,
-            "locationName": "",
-            "lat": "",
-            "lon": "",
-            "airportName": "",
-            "obsIcaoCode": ""
+            "locationName":"",
+            "lat":"",
+            "lon":"",
+            "obsName": "",
+            "icaoCode": ""
         },
         "traffic": {
-            "autoFind":true,
+          "packageName":"Traffic Report",
+          "upNextName":"Up Next...Traffic Report",
             "locationName": "",
             "lat": "",
             "lon": "",
+            "mapIcons":{
+              "zoomOut":[],
+              "zoomIn":[]
+            },
             "zoomOut": 8.6,
             "zoomIn": 9.4,
-            "routes": []
+            "routes": [
+            ]
         },
         "travel": {
+          "packageName":"Travel Forecast",
+          "upNextName":"Up Next...Travel Forecast",
           "regionalMap":{ 
             "enabled":true,
             "autoFind":true,
             "mapTop":"",
             "mapLeft":"",
+            "mapScale":"457%",
             "cities": [
               {"locationName": "", "lat": "", "lon":"", "topPos":"","leftPos":""},
               {"locationName": "", "lat": "", "lon":"", "topPos":"","leftPos":""},
@@ -162,14 +155,18 @@
           ]
         },
         "health": {
+          "packageName":"Weather & Your Health",
+          "upNextName":"Up Next...Health",
           "autoFind":true,
           "locationName": "",
           "lat": "",
           "lon": "",
-          "airportName": "",
-          "obsIcaoCode": ""
+          "obsName": "",
+          "icaoCode": ""
         },
         "airport": {
+          "packageName":"Airport Conditions",
+          "upNextName":"Up Next...Airport Conditions",
           "autoFind":true,
           "mainEnabled": true,
           "main": [
@@ -196,6 +193,22 @@
           ]
         },
         "international": {
+          "packageName":"International Forecast",
+          "upNextName":"Up Next...Int'l Forecast",
+          "mapOrder": [
+            "europe",
+            "canada",
+            "caribbean",
+            "southamerica",
+            "britain",
+            "mexico",
+            "africa",
+            "india",
+            "eastasia",
+            "oceania",
+            "australia"
+          ],
+          "maxMaps": 2,
           "map": {
             "canada": [
               {"locationName":"Dawson","lat":"64.0639","lon":"-139.4333"},
@@ -306,6 +319,8 @@
           ]
         },
         "golf": {
+          "packageName":"Golf Forecast",
+          "upNextName":"Up Next...Golf Forecast",
           "autoFind":true,
           "teeTime": {
            "locationName": "",
@@ -316,12 +331,16 @@
           "courses": []
         },
         "garden": {
+          "packageName":"Garden",
+          "upNextName":"Up Next...Garden",
           "autoFind":true,
           "locationName": "",
           "lat": "",
           "lon": ""
         },
         "ski": {
+          "packageName":"Ski & Snow",
+          "upNextName":"Up Next...Ski & Snow",
           "resorts": [
             { "displayName": "Snowshoe Mountain", "state": "WV", "resortId": "304001" },
             { "displayName": "Baker Mountain", "state": "ME", "resortId": "207024" },
@@ -338,6 +357,8 @@
           ]
         },
         "beach": {
+          "packageName":"Boat & Beach",
+          "upNextName":"Up Next...Boat & Beach",
           "surfReport": {
             "buoy":"",
             "displayName":""

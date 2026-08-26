@@ -1,7 +1,7 @@
 var radarTransform = false;
+var trafTransform = false;
 var satTransform = false;
 var radarSlide = false;
-var slideLength = 9995;
 var slideDivs = {
   //FORECAST
   "cityIntro":".city-intro",
@@ -84,43 +84,71 @@ var arrowColors = {
   "garden":"#14a00a",
   "ski":"#8b5ba5",
   "beach":"#14a00a",
-  "severe":"#d7220b",
-  "spanish":"#ffd40e"
+  "severeA":"#d7220b",
+  "severeB":"#d7220b",
+  "severe2":"#d7220b",
+  "spanish1":"#ffd40e",
+  "spanish2":"#ffd40e",
+  "radar":"#ffd40e"
 }
-var slideTitles = {
-  "forecast":"Your Local Forecast",
-  "extralocal":"Your Local Forecast",
-  "minicoreone":"Your Local Forecast",
-  "minicoretwo":"Your Local Forecast",
-  "traffic":"Traffic Report",
-  "travel":"Travel Forecast",
-  "airport":"Airport Conditions",
-  "international":"International Forecast",
-  "golf":"Golf Forecast",
-  "health":"Weather & Your Health",
-  "garden":"Garden",
-  "ski":"Ski & Snow",
-  "beach":"Boat & Beach",
-  "spanish":"Espanol"
-};
-var upNextTickTtls = {
-  "intro":"",
-  "forecast":"Up Next...Your Local Forecast",
-  "extralocal":"Up Next...Your Local Forecast",
-  "minicoreone":"Up Next...Your Local Forecast",
-  "minicoretwo":"Up Next...Your Local Forecast",
-  "traffic":"Up Next...Traffic Report",
-  "travel":"Up Next...Travel Forecast",
-  "airport":"Up Next...Airport Conditions",
-  "international":"Up Next...Int'l Forecast",
-  "golf":"Up Next...Golf Forecast",
-  "health":"Up Next...Health",
-  "garden":"Up Next...Garden",
-  "ski":"Up Next...Ski & Snow",
-  "beach":"Up Next...Boat & Beach",
-  "spanish":"Up Next...Espanol",
-};
-var slideLength = 10000;
+var slideTitles
+function setSlideTitles() {
+  slideTitles = {
+    "forecast":systemSettings.mainCity.packageName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "minicoreone":systemSettings.mainCity.packageName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "minicoretwo":systemSettings.mainCity.packageName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "extralocal":"",
+    "health":systemSettings.health.packageName,
+    "traffic":systemSettings.traffic.packageName,
+    "travel":systemSettings.travel.packageName,
+    "airport":systemSettings.airport.packageName,
+    "international":systemSettings.international.packageName,
+    "golf":systemSettings.golf.packageName,
+    "garden":systemSettings.garden.packageName,
+    "ski":systemSettings.ski.packageName,
+    "beach":systemSettings.beach.packageName,
+    "severeA":"",
+    "severeB":"",
+    "severe2":"",
+    "spanish1":systemSettings.mainCity.spanishPackageName,
+    "spanish2":systemSettings.mainCity.spanishPackageName,
+    "radar":systemSettings.mainCity.radarPackageName,
+    "intro":"Welcome"//really only used with national forecast
+  }
+
+  if (systemSettings.extraCity.cities.length > 0) {
+    slideTitles["extralocal"] = systemSettings.extraCity.cities[0].packageName.replaceAll("locname", systemSettings.extraCity.cities[0].locationName)
+  }
+}
+var upNextTickTtls
+function setUpNextTitles() {
+  upNextTickTtls = {
+    "forecast":systemSettings.mainCity.upNextName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "minicoreone":systemSettings.mainCity.upNextName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "minicoretwo":systemSettings.mainCity.upNextName.replaceAll("locname", systemSettings.mainCity.locationName),
+    "extralocal":"",
+    "health":systemSettings.health.upNextName,
+    "traffic":systemSettings.traffic.upNextName,
+    "travel":systemSettings.travel.upNextName,
+    "airport":systemSettings.airport.upNextName,
+    "international":systemSettings.international.upNextName,
+    "golf":systemSettings.golf.upNextName,
+    "garden":systemSettings.garden.upNextName,
+    "ski":systemSettings.ski.upNextName,
+    "beach":systemSettings.beach.upNextName,
+    "severeA":"",
+    "severeB":"",
+    "severe2":"",
+    "spanish1":systemSettings.mainCity.spanishUpNextName,
+    "spanish2":systemSettings.mainCity.spanishUpNextName,
+    "radar":systemSettings.mainCity.radarUpNextName,
+    "intro":"Up Next...Welcome"//really only used with national forecast
+  }
+
+  if (systemSettings.extraCity.cities.length > 0) {
+    upNextTickTtls["extralocal"] = systemSettings.extraCity.cities[0].upNextName.replaceAll("locname", systemSettings.extraCity.cities[0].locationName)
+  }
+}
 var currentProgram;
 var round = 0;
 var currentDiv;
@@ -155,7 +183,10 @@ function slideCallBack(){
 };
 var provType = "provider"
 var adImageIdx = 0;
+var providerAdMessage = false;
+let adImageInUse = false;
 function switchProvider(type) {
+  if (orderidx == 0) {
   if (type == "provider") {
     provType = "provider"
     $(".provider").fadeIn(0)
@@ -163,51 +194,103 @@ function switchProvider(type) {
       $(".adArea." + numToWord(i)).fadeOut(0)
     }
   } else {
-    if (systemSettings.appearanceSettings.providerType == "both") {
-      if (provType == "ad") {
-        provType = "provider"
-        $(".provider").fadeIn(0)
+    switch (systemSettings.appearanceSettings.providerType) {
+  case "both":
+    switch (provType) {
+      case "ad":
+        provType = "provider";
+        $(".provider").fadeIn(0);
         for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
-          $(".adArea." + numToWord(i)).fadeOut(0)
+          $(".adArea." + numToWord(i)).fadeOut(0);
         }
-      } else if (provType == "provider") {
-        provType = "ad"
-        $(".provider").fadeOut(0)
+        break;
+
+      case "provider":
+        provType = "ad";
+        $(".provider").fadeOut(0);
         for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
-          $(".adArea." + numToWord(i)).fadeOut(0)
+          $(".adArea." + numToWord(i)).fadeOut(0);
         }
-        $(".adArea." + numToWord(adImageIdx)).fadeIn(0)
-        adImageIdx++
+        $(".adArea." + numToWord(adImageIdx)).fadeIn(0);
+        adImageIdx++;
         if (adImageIdx >= systemSettings.appearanceSettings.adImages.length) {
-          adImageIdx = 0
+          adImageIdx = 0;
         }
+        break;
+    }
+    break;
+
+  case "provider":
+    provType = "provider";
+    $(".provider").fadeIn(0);
+    for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
+      $(".adArea." + numToWord(i)).fadeOut(0);
+    }
+    break;
+
+  case "ad":
+    provType = "ad";
+    $(".provider").fadeOut(0);
+    for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
+      $(".adArea." + numToWord(i)).fadeOut(0);
+    }
+    $(".adArea." + numToWord(adImageIdx)).fadeIn(0);
+    adImageIdx++;
+    if (adImageIdx >= systemSettings.appearanceSettings.adImages.length) {
+      adImageIdx = 0;
+    }
+    break;
+
+  case "custom":
+    for (let i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
+      if (systemSettings.appearanceSettings.adImages[i].type == "slide") {
+        if (systemSettings.appearanceSettings.adImages[i].value == slideSettings.order[orderidx].slideLineup[gidx].group) {
+          $(".adArea." + numToWord(i)).fadeIn(0);
+          $(".provider").fadeOut(0);
+          adImageIdx = i;
+          console.log(adImageIdx, systemSettings.appearanceSettings.adImages[adImageIdx].adMessage);
+          adImageInUse = true;
+          providerAdMessage = true;
+          break;
+        }
+        adImageIdx = undefined;
+        providerAdMessage = false;
+        adImageInUse = false;
       }
-    } else if (systemSettings.appearanceSettings.providerType == "provider") {
-      provType = "provider"
-      $(".provider").fadeIn(0)
-      for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
-        $(".adArea." + numToWord(i)).fadeOut(0)
+    }
+
+    if (!adImageInUse) {
+      provType = "provider";
+      $(".provider").fadeIn(0);
+      for (let i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
+        $(".adArea." + numToWord(i)).fadeOut(0);
       }
-    } else if (systemSettings.appearanceSettings.providerType == "ad") {
-      provType = "ad"
-      $(".provider").fadeOut(0)
-      for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
-        $(".adArea." + numToWord(i)).fadeOut(0)
-      }
-      $(".adArea." + numToWord(adImageIdx)).fadeIn(0)
-      adImageIdx++
-      if (adImageIdx >= systemSettings.appearanceSettings.adImages.length) {
-        adImageIdx = 0
-      }
+    }
+    break;
+
+  default:
+    $(".provider").fadeOut(0)
+    $(".adArea").fadeOut(0)
+    console.error("provider switching error")
+    break;
+}
+  }
+  } else {
+    provType = "provider"
+    $(".provider").fadeIn(0)
+    for (var i = 0; i < systemSettings.appearanceSettings.adImages.length; i++) {
+      $(".adArea." + numToWord(i)).fadeOut(0)
     }
   }
 }
-function slideBackground() {
+function segmentSet() {
   if (weatherData.severemode == true) {
-    orderidx = 1
-    idx = 0
-    gidx = 0
-    ngidx = 1
+    if (orderidx == 0) {
+      orderidx = 1
+      idx = 0
+      gidx = 0
+      ngidx = 1
+    }
     //severe
     $(".panel").css({"background":"url(images/assets/middle_midgrey.png)", "background-size":"1458px, 614px"})
     $(".panel.dBlue").css({"background":"url(images/assets/middle_midgrey.png)", "background-size":"1458px, 614px"})
@@ -220,8 +303,14 @@ function slideBackground() {
     $(".mapcorner.severe").fadeIn(0)
     $(".mapcorner.yellow").fadeOut(0)
   } else {
+    if (orderidx == 1) {
+      orderidx = 0
+      idx = 0
+      gidx = 0
+      ngidx = 1
+    }
+    
     //normal
-    orderidx = 0
     $(".panel").css({"background":"url(images/assets/middle_blue.png)", "background-size":"1458px, 614px"})
     $(".panel.dBlue").css({"background":"url(images/assets/middle_darkblue.png)", "background-size":"1458px, 614px"})
     $(".panel.white").css({"background":"url(images/assets/middle_white.png)", "background-size":"1458px, 614px"})
@@ -233,10 +322,17 @@ function slideBackground() {
     $(".mapcorner.severe").fadeOut(0)
     $(".mapcorner.yellow").fadeIn(0)
   }
+
+  manageDurations()
+
+  switchProvider()
+
   if (slideSettings.order[orderidx].slideLineup[gidx].group != "intro") {
-      $(".titlearrow").css("border-left", "47px solid " + arrowColors[slideSettings.order[orderidx].slideLineup[gidx].group])
-      $("#slides-background").css({"background":`transparent url(images/backgrounds/` + groupBackgrounds[slideSettings.order[orderidx].slideLineup[gidx].group] + `.png) no-repeat`, "background-size": "100% 100%"});
+
+    $(".titlearrow").css("border-left", "47px solid " + arrowColors[slideSettings.order[orderidx].slideLineup[gidx].group])
+    $("#slides-background").css({"background":`transparent url(images/backgrounds/` + groupBackgrounds[slideSettings.order[orderidx].slideLineup[gidx].group] + `.png) no-repeat`, "background-size": "100% 100%"});
   }
+
   if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
     $("#slides-background").css({"background":`transparent url(images/backgrounds/` + systemSettings.extraCity.cities[locationid].slidesBG + `.png) no-repeat`, "background-size": "100% 100%"});
   }
@@ -244,7 +340,6 @@ function slideBackground() {
 var slidePrograms = {
     /*INTRO*/
     cityIntro() {
-      switchProvider("provider")
       $(".city-intro .background").css({"background-image":`url(images/backgrounds/` + systemSettings.mainCity.introBG + `.png)`, "background-size": "100% 100%"});
       let d = new Date()
       let year = d.getFullYear()
@@ -282,31 +377,13 @@ var slidePrograms = {
         $(".city-intro .toptext-two").fadeOut(500)
         $(".city-intro .scrollingtext").fadeOut(500)
         $(".city-intro .locationname").fadeOut(500)
-      }, slideLength-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($('.city-intro'), 0, true)
         $(".logobranding").fadeIn(0)
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     upNext() {
-      //console.log("==UP NEXT==")
-      //if (systemSettings.extraCity.cities.length > 1 && (slideSettings.order[orderidx].slideLineup[ngidx].group == "extralocal" || slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal"/*< systemSettings.extraCity.cities.length-1*/)) {
-        //console.log("current locid", locationid)
-        //if (locationid > 0) {
-        //  console.log("nloc up")
-        //  Nlocationid++
-        //  if (Nlocationid >= systemSettings.extraCity.cities.length) {
-        //    Nlocationid = 0
-        //  }
-        //}
-        //console.log("nloc", Nlocationid)
-      //} else {
-        //if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal" && locationid == systemSettings.extraCity.cities.length-1) {
-        //  Nlocationid = 0
-        //  console.log("upnext ticker changed (UPNEXT SLIDE)")
-        //  $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
-        //}
-      //}
       if (slideSettings.order[orderidx].slideLineup[gidx].group == "forecast" || slideSettings.order[orderidx].slideLineup[gidx].group == "minicoreone" || slideSettings.order[orderidx].slideLineup[gidx].group == "minicoretwo") {
         $(".upnext .background").css({"background-image":`url(images/backgrounds/` + systemSettings.mainCity.upNextBG + `.png)`, "background-size": "100% 100%"});
       }
@@ -314,7 +391,7 @@ var slidePrograms = {
         $(".upnext .background").css({"background-image":`url(images/backgrounds/` + systemSettings.extraCity.cities[locationid].upNextBG + `.png)`, "background-size": "100% 100%"});
       }
       switchProvider()
-      //console.log(locationid)
+      
       $(".upnext .upnext-slot.one").text("")
       $(".upnext .upnext-slot.two").text("")
       $(".upnext .upnext-slot.three").text("")
@@ -323,17 +400,10 @@ var slidePrograms = {
       var ELOCID = locationid
       for (var UNSLOT = 0, GROUPID = gidx; UNSLOT < 4;) {
         if (GROUPID <= slideSettings.order[orderidx].slideLineup.length - 1) {
-          //console.log(slideSettings.order[orderidx].slideLineup[GROUPID].group)
           if (slideSettings.order[orderidx].slideLineup[GROUPID].group == "extralocal") {
-            if (systemSettings.extraCity.cities.length < 2) {
-              $(".upnext .upnext-slot" + divs[UNSLOT]).text(slideTitles[slideSettings.order[orderidx].slideLineup[GROUPID].group])
-              GROUPID++
-              UNSLOT++
-            } else {
               for (; ELOCID < systemSettings.extraCity.cities.length;) {
                 if (UNSLOT < 4) {
-                  //console.log(ELOCID)
-                  $(".upnext .upnext-slot" + divs[UNSLOT]).text(slideTitles[slideSettings.order[orderidx].slideLineup[GROUPID].group].cities[ELOCID].name)
+                  $(".upnext .upnext-slot" + divs[UNSLOT]).text(systemSettings.extraCity.cities[ELOCID].packageName.replaceAll("locname", systemSettings.extraCity.cities[ELOCID].locationName))
                   ELOCID++
                   UNSLOT++
                 } else {
@@ -342,7 +412,6 @@ var slidePrograms = {
               }
               GROUPID++
               ELOCID = 0
-            }
           } else {
             $(".upnext .upnext-slot" + divs[UNSLOT]).text(slideTitles[slideSettings.order[orderidx].slideLineup[GROUPID].group])
             UNSLOT++
@@ -351,39 +420,8 @@ var slidePrograms = {
         } else {
           break
         }
-      }/*
-      function stuff() {
-      if (gidx+i <= slideSettings.order[orderidx].slideLineup.length-1) {
-        console.log("i",i)
-        console.log("p", p)
-        if (slideSettings.order[orderidx].slideLineup[gidx+i].group == "extralocal") {
-          if (systemSettings.extraCity.cities.length > 1) {
-            for (var ii = 0; ii < systemSettings.extraCity.cities.length-locationid; ii++) {
-              console.log("locationId", locationid)
-              console.log("ii",ii)
-              var c = i + ii
-              if (c < 4) {
-                $(".upnext .upnext-slot" + divs[c]).text(slideTitles["extralocal"].cities[ii+locationid].name)
-                console.log(slideTitles["extralocal"].cities[ii+locationid].name)
-              }
-            }
-            i = i + (systemSettings.extraCity.cities.length-1)
-            p++
-            if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal" && locationid == systemSettings.extraCity.cities.length-1) {
-              i = i - 1
-            }
-          } else {
-            $(".upnext .upnext-slot" + divs[i]).text(slideTitles[slideSettings.order[orderidx].slideLineup[gidx+p].group])
-            console.log(slideSettings.order[orderidx].slideLineup[gidx+p].group)
-            p++
-          }
-        } else {
-          $(".upnext .upnext-slot" + divs[i]).text(slideTitles[slideSettings.order[orderidx].slideLineup[gidx+p].group])
-          console.log(slideSettings.order[orderidx].slideLineup[gidx+p].group)
-          p++
-        }
       }
-    }*/
+
       fadeSlideIn($(".upnext"), 0)
       $(".upnext .circlegroup").fadeIn(500)
       $(".upnext .scrollingtext").fadeIn(500)
@@ -394,10 +432,10 @@ var slidePrograms = {
         $(".upnext .scrollingtext").fadeOut(500)
         $(".upnext .upnext-pre").fadeOut(500)
         $(".upnext .upnext-slot").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".upnext"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     /*FORECAST*/
     bulletin() {
@@ -407,13 +445,12 @@ var slidePrograms = {
       } else {
         dataTunnel = weatherData.alerts.mainLoc
       }
-      if (dataTunnel.alertsAmount > 0) {
+      if (dataTunnel.warnings.length > 0) {
         $('.titletext').text("WEATHER BULLETIN")
         $('.headertext').text("")
         $(".titlearrow").css("border-left", "47px solid #d7220b")
         $(".bulletin .alerts").text("")
         $(".bulletin .cityname").text(dataTunnel.locationName)
-        var pages = 0
         var atext = ""
         var remainingHeight
         //max height 478px or 534px
@@ -421,21 +458,15 @@ var slidePrograms = {
         if (round == 0) {
           fadeSlideIn($(".bulletin"), 0) 
         }
-        for (var i = 0; i < dataTunnel.alertsAmount; i++) {
-          atext = atext + dataTunnel.warnings[i].headline + " " + "\n\n"
+        for (var i = 0; i < dataTunnel.warnings.length; i++) {
+          atext = atext + dataTunnel.warnings[i] + " " + "\n\n"
         }
         $(".bulletin .alerts").text(atext.slice(0, -2))
         $(".bulletin .group").fadeIn(500)
         
         setTimeout(() => {
           remainingHeight = $(".bulletin .alerts").height() - (478*round)
-          if (round == 0) {
-            pages = Math.floor($(".bulletin .alerts").height() / 534)
-          }
-          //console.log("pages",pages)
-        }, 500);
-        
-        setTimeout(() => {
+
           if (remainingHeight > 534) {
             round++
             $(".bulletin .alerts").css({"top":-1*(478*round)})
@@ -444,41 +475,40 @@ var slidePrograms = {
             fadeSlideOut($(".bulletin"), 0, true, 500)
             $(".bulletin .group").fadeOut(500)
             setTimeout(() => {
-              $(".titlearrow").css("border-left", "47px solid " + arrowColors[slideSettings.order[0].slideLineup[gidx].group])
+              $(".titlearrow").css("border-left", "47px solid " + arrowColors[slideSettings.order[orderidx].slideLineup[gidx].group])
               $(".bulletin .alerts").css({"top":"0px"})
             }, 500);
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/dataTunnel.pages)-500);
       } else {
         fadeSlideOut($(".bulletin"), 0, true, 0)
       }
     },
     changeELoc() {
-      //console.log("==CHANGE ELOC==")
-      //console.log("current segment", slideSettings.order[orderidx].slideLineup[gidx].group)
-      //console.log("next segment", slideSettings.order[orderidx].slideLineup[ngidx].group)
       if (systemSettings.extraCity.cities.length > 1) {
-        locationid++
-        if (locationid >= systemSettings.extraCity.cities.length) {
-          locationid = 0
-        }
-        //console.log("nloc up")
         Nlocationid++
         if (Nlocationid >= systemSettings.extraCity.cities.length) {
           Nlocationid = 0
         }
-        //console.log("Current Elocid", locationid)
-        //console.log("Next Elocid", Nlocationid)
-        if (locationid + 1 == systemSettings.extraCity.cities.length) {
-          if (orderidx == 0) {
-            $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
-          }
+
+        locationid++
+        if (locationid >= systemSettings.extraCity.cities.length - 1) {
+          $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
         } else {
-          //console.log("upnext ticker changed (CHANGEELOC)")
-          $(".normal-lowerarea .upnext-ticker").text("Up Next..." + systemSettings.extraCity.cities[Nlocationid].locationName)
+          setUpNextTicker()
         }
-        $("#slides-background").css({"background":`transparent url(images/backgrounds/` + systemSettings.extraCity.cities[locationid].slidesBG + `.png) no-repeat`, "background-size": "100% 100%"});
+
+        if (locationid >= systemSettings.extraCity.cities.length) {
+          locationid = 0
+        } else {
+          $("#slides-background").css({"background":`transparent url(images/backgrounds/` + systemSettings.extraCity.cities[locationid].slidesBG + `.png) no-repeat`, "background-size": "100% 100%"});
+        }
       }
+
+      $("#crawl-main .crawl").marquee('destroy')
+      $("#crawl-main").css({"opacity":"0"})
+      $(".upnext-ticker").fadeIn(0)
+
       round = 0
 			slideCallBack()
     },
@@ -563,13 +593,14 @@ var slidePrograms = {
         getIcon($(".current-conditions .icon"), dataTunnel.icon, "current", "large")
         $(".current-conditions .condition").text(dataTunnel.condition)
         $(".current-conditions .temperature").text(dataTunnel.temperature)
+
         if (locationChoice != "spanish") {
           audioPlayer.playCC()
         }
         fadeSlideIn($(".current-conditions"), 500)
         setTimeout(() => {
           fadeSlideOut($(".current-conditions"), 500, true)
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       } else {
         $(".noreport").fadeIn(500)
         setTimeout(() => {
@@ -578,7 +609,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     nearbyCities() {
@@ -617,20 +648,21 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".nearby-cities"), 500, true)
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/2)-500);
     },
     radarChooser() {
       var rdrPgm
       if (systemSettings.appearanceSettings.nationalConfig) {
         rdrPgm = slidePrograms["dopplerRadar"]
       } else {
-      if (radarCycle < 5) {
+      /*if (radarCycle < 5) {
         rdrPgm = slidePrograms["dopplerRadar"]
         radarCycle++
       } else {
         rdrPgm = slidePrograms["radarSatellite"]
         radarCycle = 0
-      }
+      }*/
+     rdrPgm = Math.random() > 0.5 ? slidePrograms["dopplerRadar"] : slidePrograms["radarSatellite"];
       }
       rdrPgm()
     },
@@ -650,26 +682,30 @@ var slidePrograms = {
         $(".doppler-radar .radar-legend-light").text("Light")
       }
       $('.headertext').text("")
-      weatherData.dopplerUnavailable = false
+      //weatherData.dopplerUnavailable = false
 
-      locradar.setProjection('mercator');
-      locradarAmenities.setProjection('mercator');
-      locradarAmenitiesTrans.setProjection('mercator');
-      radarEchoes.setProjection('mercator');
+      try {
+        locradar.setProjection('mercator');
+        locradarAmenities.setProjection('mercator');
+        locradarAmenitiesTrans.setProjection('mercator');
+        radarEchoes.setProjection('mercator');
 
-      locradar.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
-      locradarAmenities.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
-      locradarAmenitiesTrans.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
-      radarEchoes.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
+        locradar.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
+        locradarAmenities.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
+        locradarAmenitiesTrans.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
+        radarEchoes.jumpTo({center: [dataTunnel.lon, dataTunnel.lat]});
 
-      locradar.setZoom(dataTunnel.zoom)
-      locradarAmenities.setZoom(dataTunnel.zoom)
-      locradarAmenitiesTrans.setZoom(dataTunnel.zoom)
-      radarEchoes.setZoom(dataTunnel.zoom)
+        locradar.setZoom(dataTunnel.zoom)
+        locradarAmenities.setZoom(dataTunnel.zoom)
+        locradarAmenitiesTrans.setZoom(dataTunnel.zoom)
+        radarEchoes.setZoom(dataTunnel.zoom)
 
-      locradarAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
-      locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
-      locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
+        locradarAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
+        locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
+        locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
+      } catch(error) {
+        weatherData.dopplerUnavailable = true
+      }
       
       /*
       locradar.getStyle().layers.forEach(layer => {
@@ -732,36 +768,39 @@ var slidePrograms = {
         $(".doppler-radar .icons-trans").fadeOut(566)
         $(".doppler-radar .radar-legend").fadeOut(566)
         setTimeout(() => {
-          clearInterval(radarAnimation)
+          clearInterval(locRadarAnimation)
           $("#radar-basemap").fadeOut(0)
           $("#slides-background").fadeIn(0)
+          setTimeout(stopLocalRadar,500)
         }, 566);
-      }, 14434);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       try {
-        startRadar(radarEchoes)
+        startLocalRadar();
         $("#radar-echoes").fadeIn(566)
         setTimeout(() => {
           $("#radar-echoes").fadeOut(566)
-        }, 14434);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       } catch (error) {
         $(".tempunavailable").fadeIn(566)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(566)
-        }, 14434);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       }
+     setTimeout(() => {
+        //$(".doppler-radar .radar-shrink").attr("style","")
+        deleteRadarCities()
+        deleteRadarIcons()
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
       if (weatherData.dopplerUnavailable == false) {
         
       } else {
         
       }
-      setTimeout(() => {
-        //$(".doppler-radar .radar-shrink").attr("style","")
-        deleteRadarCities()
-        deleteRadarIcons()
-      }, 15000);
+      
     },
     //SATELLITE
     radarSatellite() {
+      if (!systemSettings.appearanceSettings.nationalConfig) {
       $("#slides-background").fadeOut(0)
       weatherData.satUnavailable = false
       var dataTunnel = locationChoice == "main" || locationChoice == "spanish" ? systemSettings.mainCity.radar : systemSettings.extraCity.cities[locationid].radar
@@ -787,16 +826,14 @@ var slidePrograms = {
 
       
       setTimeout(() => {
-        /*if (!satTransform) {
+        if (!satTransform) {
           satEchoes.resize()
           satmap.resize()
-          $(".doppler-radar .sat-shrink").css("transform","scaleY(0.83)")
+          satAmenities.resize()
+          //$(".doppler-radar .sat-shrink").css("transform","scaleY(0.83)")
           satTransform = true
-        }*/
-        satEchoes.resize()
-        satmap.resize()
-        satAmenities.resize()
-        satTransform = true
+        }
+        
       }, 50);
       fadeSlideIn($(".doppler-radar"), 0, 0)
       $("#sat-basemap").fadeIn(566)
@@ -808,40 +845,52 @@ var slidePrograms = {
         $("#sat-amenities").fadeOut(566)
         setTimeout(() => {
           $("#slides-background").fadeIn(0)
-          clearInterval(radarAnimation)
+          clearInterval(satRadarAnimation)
+          setTimeout(stopSatRadar,500)
         }, 566);
-      }, 14434);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       try {
-        startRadar(satEchoes)
+        startSatRadar();
         $("#sat-echoes").fadeIn(566)
         setTimeout(() => {
           $("#sat-echoes").fadeOut(566)
           $("#sat-basemap").fadeOut(566)
-        }, 14434);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       } catch (error) {
         $(".tempunavailable").fadeIn(566)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(566)
-        }, 14434);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-566);
       }
       if (weatherData.satUnavailable == false) {
         
       } else {
         
       }
+    } else {
+      rdrPgm = slidePrograms["dopplerRadar"]
+      rdrPgm()
+    }
     },
     localForecast() {
+      var dataTunnel
+      if (locationChoice == "extra") {
+        dataTunnel = weatherData.localForecast.extraLoc[locationid]
+      } else if (locationChoice == "main") {
+        dataTunnel = weatherData.localForecast.mainLoc
+      }
         $('.titletext').text("Local Forecast")
-        $('.headertext').text(weatherData.localForecast.locationName)
-        if (weatherData.localForecast.noReport == false) {
+        $('.headertext').text(dataTunnel.locationName)
+        $(".local-forecast .forecast").css({"font-size":"82.3px"})
+        if (dataTunnel.noReport == false) {
           if (round == 0) {
             audioPlayer.playLF()
             fadeSlideIn($(".local-forecast"), 500)
           } else {
             $(".local-forecast .group").fadeIn(250)
           }
-          $(".local-forecast .timetitle").text(weatherData.localForecast.times[round].timetitle)
-          $(".local-forecast .forecast").text(weatherData.localForecast.times[round].forecast)
+          $(".local-forecast .timetitle").text(dataTunnel.times[round].timetitle)
+          $(".local-forecast .forecast").text(dataTunnel.times[round].forecast)
           fSize = 82.3
           setTimeout(() => {
             if ($(".local-forecast .forecast").height() > 565) {
@@ -851,6 +900,7 @@ var slidePrograms = {
               }
             }
           }, 5);
+          var pre = round < 3 ? 250 : 500
           setTimeout(() => {
             if (round < 3) {
               $(".local-forecast .group").fadeOut(250)
@@ -861,7 +911,7 @@ var slidePrograms = {
             } else {
               fadeSlideOut($(".local-forecast"), 500, true)
             }
-          }, slideLength);
+          }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/dataTunnel.times.length)-pre);
         } else {
           $(".tempunavailable").fadeIn(500)
           setTimeout(() => {
@@ -870,7 +920,7 @@ var slidePrograms = {
               round = 0
               slideCallBack()
             }, 500);
-          }, slideLength); 
+          }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);//(slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.localForecast.mainLoc.times.length)-500);
         }
     },
     dayPart() {
@@ -923,7 +973,7 @@ var slidePrograms = {
             $(".daypart-forecast .wind").fadeOut(0)
             $('.daypart-forecast .bar').css("height", "0px")
           }, 500);
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -932,7 +982,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     extendedForecast() {
@@ -963,7 +1013,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".extended-forecast"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -972,7 +1022,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     almanac() {
@@ -997,7 +1047,7 @@ var slidePrograms = {
         fadeSlideIn($(".almanac"), 500)
         setTimeout(() => {
           fadeSlideOut($(".almanac"), 500, true)
-      } , slideLength);
+      } , slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".noreport").fadeIn(500)
         setTimeout(() => {
@@ -1006,7 +1056,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     //traffic
@@ -1022,38 +1072,46 @@ var slidePrograms = {
         $(".traffic-intro .circlegroup").fadeOut(500)
         $(".traffic-intro .scrollingtext").fadeOut(500)
         $(".traffic-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".traffic-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     trafficOverview() {
       $('.titletext').text("Traffic Overview")
       $('.headertext').text(systemSettings.traffic.locationName)
       var trafZoom = ((round < 1) ? systemSettings.traffic.zoomOut : systemSettings.traffic.zoomIn)
+      var cap = slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration.length-1
       if (weatherData.trafficMapUnavailable == false) {
-        if (round < 1) {
-          fadeSlideIn($(".traffic-overview"), 500)
+        createTrafficMapIcons(round)
+        if (round == 0) {
           audioPlayer.playTrafficCond()
+          fadeSlideIn($(".traffic-overview"), 500)
         } else {
           fadeSlideIn($(".traffic-overview"), 250)
         }
         setTimeout(() =>{
-          trfMap.setZoom(trafZoom)
-          trfMap.resize()
+          if (!trafTransform) {
+          trafficMap.resize()
+          trafTransform = true
+        }
+          trafficMap.setZoom(trafZoom)
         }, 1)
 
-        setTimeout(() => {
-          if (round < 1) {
-            fadeSlideOut($(".traffic-overview"), 250, false)
-            setTimeout(() => {
-              round++
-              currentProgram()
-            }, 500);
-          } else {
-            fadeSlideOut($(".traffic-overview"), 500, true)
-          }
-        }, slideLength);
+         setTimeout(() => {
+          setTimeout(() => {
+            deleteTrafficMapIcons()
+          }, 500);
+           if (round < cap) {
+             fadeSlideOut($(".traffic-overview"), 250, false)
+             setTimeout(() => {
+               round++
+               currentProgram()
+             }, 500);
+           } else {
+             fadeSlideOut($(".traffic-overview"), 500, true)
+           }
+         }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration[round]-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1062,7 +1120,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration[round]-500); 
       }
     },
     trafficReport() {
@@ -1097,9 +1155,9 @@ var slidePrograms = {
           $(".traffic-report .intensity" + divs[i]).text(weatherData.trafficReport.incidents[i+bump].impact)
           $(".traffic-report .intensitycover" + divs[i]).text(weatherData.trafficReport.incidents[i+bump].impact)
           $(".traffic-report .intensitycover" + divs[i]).css({"color":blockColors[weatherData.trafficReport.incidents[i+bump].impact], "background-color":blockColors[weatherData.trafficReport.incidents[i+bump].impact]})
-          $(".traffic-report .description" + divs[i]).text(initSpace[i] + weatherData.trafficReport.incidents[i+bump].fulldesc)
+          $(".traffic-report .description" + divs[i]).text(initSpace[i] + weatherData.trafficReport.incidents[i+bump].desc)
         }
-
+        
         setTimeout(() => {
           if (lastrd == false) {
             fadeSlideOut($(".traffic-report"), 250, false)
@@ -1110,7 +1168,7 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".traffic-report"), 500, true)
           }
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration[round]-500);
       } else {
         fadeSlideOut($(".traffic-report"), 0, true, 0)
       }
@@ -1118,15 +1176,20 @@ var slidePrograms = {
     trafficFlow() {
       $('.titletext').text("Traffic Flow")
       $('.headertext').text(weatherData.trafficFlow.locationName)
+      var fadeDur = round < (pages-1) ? 250 : 500
       var divs = [".one", ".two", ".three"]
-	  var bump = round*3
+	    var bump = round*3
       var blockColors = {"GREEN":"#59cb61", "YELLOW":"#dfcd26", "RED":"#bf2026"}
-	  var pages = Math.ceil(weatherData.trafficFlow.routes.length/3)
+	    var pages = Math.ceil(weatherData.trafficFlow.routes.length/3)
       if (weatherData.trafficFlow.noReport == false && weatherData.trafficFlow.routes.length > 0) {
-        fadeSlideIn($(".traffic-flow"), 500)
-		if (round == 0) {
-			audioPlayer.playTrafficFlow()
-		}
+        if (round == 0) {
+          fadeSlideIn($(".traffic-flow"), 500)
+          audioPlayer.playTrafficFlow()
+        } else {
+          fadeSlideIn($(".traffic-flow"), 250)
+          //$(".traffic-flow .panelContent").fadeIn(250)
+        }
+
         $(".traffic-flow .panel.one .fullgroup").fadeOut(0)
         $(".traffic-flow .panel.two .fullgroup").fadeOut(0)
         $(".traffic-flow .panel.three .fullgroup").fadeOut(0)
@@ -1134,16 +1197,23 @@ var slidePrograms = {
           if (weatherData.trafficFlow.routes[i+bump]) {
             $(".traffic-flow .panel" + divs[i] + " .fullgroup").fadeIn(0)
             $(".traffic-flow .panel" + divs[i] + " .description").text(weatherData.trafficFlow.routes[i+bump].from + " to " + weatherData.trafficFlow.routes[i+bump].to)
-            $(".traffic-flow .panel" + divs[i] + " .trafficflow").text(weatherData.trafficFlow.routes[i+bump].speed)
-            $(".traffic-flow .panel" + divs[i] + " .triptime").text(weatherData.trafficFlow.routes[i+bump].travelTime)
-            $(".traffic-flow .panel" + divs[i] + " .trafficflowcover").css({"background-color":blockColors[weatherData.trafficFlow.routes[i+bump].color]})
             $(".traffic-flow .panel" + divs[i] + " .routeicon").css({"background-image": "url(" + weatherData.trafficFlow.routes[i+bump].routeIcon + ")", "background-repeat":"no-repeat", "background-size":"100%"})
-            if (weatherData.trafficFlow.routes[i+bump].speed != "CLEAR") {
-              $(".traffic-flow .panel" + divs[i] + " .mingroup").fadeIn(0)
-              $(".traffic-flow .panel" + divs[i] + " .trafficflow").css({"padding-top":"0px","font-size":"92px"})
-            } else {
+            if (weatherData.trafficFlow.routes[i+bump].color == "NOREPORT") {
               $(".traffic-flow .panel" + divs[i] + " .mingroup").fadeOut(0)
-              $(".traffic-flow .panel" + divs[i] + " .trafficflow").css({"padding-top":"45px","font-size":"50px"})
+              $(".traffic-flow .panel" + divs[i] + " .flowBlock").fadeOut(0)
+            } else {
+              $(".traffic-flow .panel" + divs[i] + " .flowBlock").fadeIn(0)
+              $(".traffic-flow .panel" + divs[i] + " .trafficflow").text(weatherData.trafficFlow.routes[i+bump].speed)
+              $(".traffic-flow .panel" + divs[i] + " .triptime").text(weatherData.trafficFlow.routes[i+bump].travelTime)
+              $(".traffic-flow .panel" + divs[i] + " .trafficflowcover").css({"background-color":blockColors[weatherData.trafficFlow.routes[i+bump].color]})
+              
+              if (weatherData.trafficFlow.routes[i+bump].speed != "CLEAR") {
+                $(".traffic-flow .panel" + divs[i] + " .mingroup").fadeIn(0)
+                $(".traffic-flow .panel" + divs[i] + " .trafficflow").css({"padding-top":"0px","font-size":"92px"})
+              } else {
+                $(".traffic-flow .panel" + divs[i] + " .mingroup").fadeOut(0)
+                $(".traffic-flow .panel" + divs[i] + " .trafficflow").css({"padding-top":"45px","font-size":"50px"})
+              }
             }
           }
         }
@@ -1158,7 +1228,7 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".traffic-flow"), 500, true)
           }
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration[round]-fadeDur);
       } else {
         fadeSlideOut($(".traffic-flow"), 0, true, 0)
       }
@@ -1166,6 +1236,7 @@ var slidePrograms = {
     //travel
     travelIntro() {
       switchProvider()
+      //getTravelWeatherMap()
       fadeSlideIn($(".travel-intro"), 0)
       $(".travel-intro .circlegroup").fadeIn(500)
       $(".travel-intro .scrollingtext").fadeIn(500)
@@ -1176,22 +1247,29 @@ var slidePrograms = {
         $(".travel-intro .circlegroup").fadeOut(500)
         $(".travel-intro .scrollingtext").fadeOut(500)
         $(".travel-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".travel-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     travelWeather() {
       $("#slides-background").fadeOut(0)
       $('.titletext').text("Travel Weather")
       $('.headertext').text("")
       fadeSlideIn($(".travel-weather"), 0)
+      // setTimeout(() => {
+      //   if (!travelWeatherTransform) {
+      //     $("#slides").css("scale","none")
+      //     travelWeatherMap.resize()
+      //     travelWeatherTransform = true
+      //     $("#slides").css("scale","0.72")
+      //   }
+      // }, 50);
       if (weatherData.travelMapUnavailable) {
-        //set data map bg to blank basemap
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#travel-weather-map").fadeIn(500)
       $(".travel-weather .legend").fadeIn(500)
@@ -1199,10 +1277,7 @@ var slidePrograms = {
         fadeSlideOut($(".travel-weather"), 0, true, 500)
         $(".travel-weather .legend").fadeOut(500)
         $("#travel-weather-map").fadeOut(500)
-        /*setTimeout(() => {
-          $("#slides-background").fadeIn(0)
-        }, 500);*/
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     travelForecast() {
       $("#slides-background").fadeOut(0)
@@ -1255,7 +1330,7 @@ var slidePrograms = {
               $("#slides-background").fadeIn(0)
             }, 500);
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.travelForecast.dayName.length)-500);
       } else {
         fadeSlideIn($(".travel-forecast"), 0)
         $(".tempunavailable").fadeIn(500)
@@ -1266,7 +1341,7 @@ var slidePrograms = {
           setTimeout(() => {
             fadeSlideOut($(".travel-forecast"), 0, true, 500)
           }, 500);
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.travelForecast.dayName.length)-500);
       }
       } else {
         fadeSlideOut($(".travel-forecast"), 0, true, 0)
@@ -1302,6 +1377,9 @@ var slidePrograms = {
             }
           }
         }
+
+        var rdLength = round < 2 ? 10000 : 9000
+
         setTimeout(() => {
           if (round < 2) {
             fadeSlideOut($(".destination-forecast"), 500, false)
@@ -1312,7 +1390,7 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".destination-forecast"), 500, true)
           }
-        }, slideLength);
+        }, rdLength-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1321,7 +1399,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     //airport
@@ -1337,10 +1415,10 @@ var slidePrograms = {
         $(".airport-intro .circlegroup").fadeOut(500)
         $(".airport-intro .scrollingtext").fadeOut(500)
         $(".airport-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".airport-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     airportConditions() {
       $('.titletext').text("Current Airport Conditions")
@@ -1370,7 +1448,7 @@ var slidePrograms = {
         } else {
           fadeSlideOut($(".airport-conditions"), 500, true)
         }
-      }, slideLength);
+      }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.localAirportConditions.length)-500);
       } else {
         $(".datanotavailable").fadeIn(500)
 
@@ -1388,7 +1466,7 @@ var slidePrograms = {
               slideCallBack()
             }, 500);
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.localAirportConditions.length)-500);
       }
       } else {
         fadeSlideOut($(".airport-conditions"), 0, true, 0)
@@ -1399,6 +1477,8 @@ var slidePrograms = {
       $('.headertext').text("")
       var divs = [".one", ".two", ".three", ".four"]
       var bump = round*4
+      var arptCap = 6 - systemSettings.airport.main.length;
+      if(arptCap > 4) arptCap = 4;
       fadeSlideIn($(".national-airports"), 500)
       for (var i = 0; i < 4; i++) {
         $(".national-airports .airport" + divs[i]).text(weatherData.nationalAirportConditions[bump + i].airportName)
@@ -1407,7 +1487,7 @@ var slidePrograms = {
         $(".national-airports .delay" + divs[i]).html(weatherData.nationalAirportConditions[bump + i].delay)
       }
       setTimeout(() => {
-        if (round < (weatherData.nationalAirportConditions.length/4) - 1) {
+        if (round < arptCap - 1) {
           fadeSlideOut($(".national-airports"), 500, false)
           setTimeout(() => {
             round++
@@ -1416,7 +1496,7 @@ var slidePrograms = {
         } else {
           fadeSlideOut($(".national-airports"), 500, true)
         }
-      }, slideLength);
+      }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/arptCap)-500);
     },
     //international
     internationalIntro() {
@@ -1431,41 +1511,29 @@ var slidePrograms = {
         $(".international-intro .circlegroup").fadeOut(500)
         $(".international-intro .scrollingtext").fadeOut(500)
         $(".international-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".international-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     internationalMap() {
       if (round == 0) {$("#slides-background").fadeOut(0)}
       var divs = [".zero", ".one", ".two", ".three", ".four", ".five", ".six", ".seven"]
-      var roundToRegion = {
-        0:"canada",//canada
-        1:"mexico",
-        2:"caribbean",
-        3:"southamerica",
-        4:"britain",
-        5:"europe",
-        6:"africa",
-        7:"india",
-        8:"eastasia",
-        9:"oceania",
-        10:"australia",
+      var roundToRegion = systemSettings.international.mapOrder;
+      var regionToObj = {
+        "europe":weatherData.internationalMap.europe,
+        "canada":weatherData.internationalMap.canada,
+        "caribbean":weatherData.internationalMap.caribbean,
+        "southamerica":weatherData.internationalMap.southamerica,
+        "britain":weatherData.internationalMap.britain,
+        "mexico":weatherData.internationalMap.mexico,
+        "africa":weatherData.internationalMap.africa,
+        "india":weatherData.internationalMap.india,
+        "eastasia":weatherData.internationalMap.eastasia,
+        "oceania":weatherData.internationalMap.oceania,
+        "australia":weatherData.internationalMap.australia
       }
-      var roundToObj = {
-        0:weatherData.internationalMap.canada,//canada
-        1:weatherData.internationalMap.mexico,
-        2:weatherData.internationalMap.caribbean,
-        3:weatherData.internationalMap.southamerica,
-        4:weatherData.internationalMap.britain,
-        5:weatherData.internationalMap.europe,
-        6:weatherData.internationalMap.africa,
-        7:weatherData.internationalMap.india,
-        8:weatherData.internationalMap.eastasia,
-        9:weatherData.internationalMap.oceania,
-        10:weatherData.internationalMap.australia
-      }
-      var regionExt = roundToObj[round]
+      var regionExt = regionToObj[systemSettings.international.mapOrder[round]]
       $('.titletext').text("International Forecast")
       $('.headertext').text("")
 
@@ -1487,7 +1555,7 @@ var slidePrograms = {
       $(".international-map .dayname").fadeIn(500)
 
       setTimeout(() => {
-        if (round < 10) {
+        if (round < systemSettings.international.maxMaps - 1) {
           $(".international-map ." + roundToRegion[round]).fadeOut(500)
           $(".international-map .dayname").fadeOut(500)
           setTimeout(() => {
@@ -1502,7 +1570,7 @@ var slidePrograms = {
             $("#slides-background").fadeIn(0)
           }, 500);
         }
-      }, slideLength);
+      }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/systemSettings.international.maxMaps)-500);
     },
     internationalForecast() {
       var divs = [".one", ".two", ".three"]
@@ -1531,8 +1599,11 @@ var slidePrograms = {
             }
           }
         }
+        var intlCap = 6 - systemSettings.international.maxMaps;
+        if(intlCap > 4) intlCap = 4;
+        var rdLength = round < 2 ? 9000 : 10000
         setTimeout(() => {
-          if (round < 3) {
+          if (round < intlCap - 1) {
             fadeSlideOut($(".international-forecast"), 500, false)
             setTimeout(() => {
               round++
@@ -1541,7 +1612,7 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".international-forecast"), 500, true)
           }
-        }, slideLength);
+        }, rdLength-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1550,7 +1621,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     //golf
@@ -1566,10 +1637,10 @@ var slidePrograms = {
         $(".golf-intro .circlegroup").fadeOut(500)
         $(".golf-intro .scrollingtext").fadeOut(500)
         $(".golf-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".golf-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     teeTime() {
       $('.titletext').text("Tee Time Forecast")
@@ -1611,7 +1682,7 @@ var slidePrograms = {
             $(".teetime .wind").fadeOut(0)
             $('.teetime .bar').css("height", "0px")
           }, 500);
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1620,7 +1691,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     golfIndex() {
@@ -1628,12 +1699,21 @@ var slidePrograms = {
       $('.headertext').text("")
       $("#slides-background").fadeOut(0)
       fadeSlideIn($(".golf-index"), 0)
+      
+      //getGolfIndexMap()
+      // setTimeout(() => {
+      //   if (!golfIndexTransform) {
+      //     $("#slides").css("scale","none")
+      //     golfIndexMap.resize()
+      //     golfIndexTransform = true
+      //     $("#slides").css("scale","0.72")
+      //   }
+      // }, 50);
       if (weatherData.golfIndexUnavailable) {
-        //set data map bg to blank basemap
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#golf-index-map").fadeIn(500)
       $(".golf-index .legend").fadeIn(500)
@@ -1644,7 +1724,7 @@ var slidePrograms = {
         setTimeout(() => {
           $("#slides-background").fadeIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     courseForecast() {
       divs = [".one", ".two", ".three"]
@@ -1713,7 +1793,7 @@ var slidePrograms = {
               }
             }, 500);
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.courseForecast.length)-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1730,7 +1810,7 @@ var slidePrograms = {
               slideCallBack()
             }, 500);
           }
-        }, slideLength); 
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.courseForecast.length)-500); 
       }
     },
     golfPromo() {
@@ -1741,7 +1821,10 @@ var slidePrograms = {
 
       setTimeout(() => {
         fadeSlideOut($(".golf-promo"), 500, true)
-      }, slideLength/2);
+        setTimeout(() => {
+          $('.titlearrow').fadeIn(0)
+        }, 500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     //health
     healthIntro() {
@@ -1756,10 +1839,10 @@ var slidePrograms = {
         $(".health-intro .circlegroup").fadeOut(500)
         $(".health-intro .scrollingtext").fadeOut(500)
         $(".health-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".health-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     outdoorActivity() {
       $('.titletext').text("Outdoor Activity")
@@ -1792,7 +1875,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".outdoor-activity"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1801,7 +1884,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     allergyReport() {
@@ -1814,7 +1897,7 @@ var slidePrograms = {
         $('.titletext').text("Allergy Report")
         $('.headertext').text(weatherData.pollen.locationName)
         $(".allergy-report .treetype").text(weatherData.pollen.treeType)
-        if (weatherData.pollen.pollenCountCategory == "none") {
+        if (weatherData.pollen.pollenCountCategory == undefined || weatherData.pollen.pollenCount == "") {
           $(".allergy-report .count").fadeOut(0)
           $(".allergy-report .moreinfo").fadeIn(0)
         } else {
@@ -1835,7 +1918,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".allergy-report"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $('.headertext').text("")
         $('.titletext').text("")
@@ -1873,7 +1956,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".health-forecast"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1882,7 +1965,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     airQuality() {
@@ -1915,7 +1998,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".air-quality"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -1924,7 +2007,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     uvIndex() {
@@ -2009,7 +2092,7 @@ var slidePrograms = {
 
         setTimeout(() => {
           fadeSlideOut($(".uv-index"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -2018,7 +2101,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     healthTip() {
@@ -2032,7 +2115,7 @@ var slidePrograms = {
           healthTipId = 0
         }
         fadeSlideOut($(".health-tip"), 500, true)
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     healthPromo() {
       $('.titletext').text("")
@@ -2042,7 +2125,10 @@ var slidePrograms = {
 
       setTimeout(() => {
         fadeSlideOut($(".health-promo"), 500, true)
-      }, slideLength/2);
+        setTimeout(() => {
+          $('.titlearrow').fadeIn(0)
+        }, 500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     //garden
     gardenIntro() {
@@ -2057,10 +2143,10 @@ var slidePrograms = {
         $(".garden-intro .circlegroup").fadeOut(500)
         $(".garden-intro .scrollingtext").fadeOut(500)
         $(".garden-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".garden-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     gardenForecast() {
       $('.titletext').text("Gardening Forecast")
@@ -2108,7 +2194,7 @@ var slidePrograms = {
             $(".garden-forecast .index").css({"margin-left":"0px"})
             $(".garden-forecast .index").fadeOut(0)
           }, 500);
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -2117,7 +2203,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     estimatedPrecip() {
@@ -2126,12 +2212,21 @@ var slidePrograms = {
       $('.headertext').text("")
       $("#slides-background").fadeOut(0)
       fadeSlideIn($(".estimated-precip"), 0)
+
+      //getEstimatedPrecipMap()
+      // setTimeout(() => {
+      //   if (!estimatedPrecipTransform) {
+      //     $("#slides").css("scale","none")
+      //     estimatedPrecipMap.resize()
+      //     estimatedPrecipTransform = true
+      //     $("#slides").css("scale","0.72")
+      //   }
+      // }, 50);
       if (weatherData.estimatedPrecipMapUnavailable) {
-        //set data map bg to blank basemap
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#estimated-precip-map").fadeIn(500)
       $(".estimated-precip .legend").fadeIn(500)
@@ -2142,7 +2237,7 @@ var slidePrograms = {
         setTimeout(() => {
           //$("#slides-background").fadeOIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     precipForecast() {
       $('.titletext').text("Precip Forecast")
@@ -2154,7 +2249,7 @@ var slidePrograms = {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#precip-forecast-map").fadeIn(500)
       $(".precip-forecast .legend").fadeIn(500)
@@ -2165,7 +2260,7 @@ var slidePrograms = {
         setTimeout(() => {
           //$("#slides-background").fadeIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     droughtMonitor() {
       $('.titletext').text("Drought Monitor")
@@ -2177,7 +2272,7 @@ var slidePrograms = {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#drought-monitor-map").fadeIn(500)
       $(".drought-monitor .legend").fadeIn(500)
@@ -2186,9 +2281,11 @@ var slidePrograms = {
         $(".drought-monitor .legend").fadeOut(500)
         $("#drought-monitor-map").fadeOut(500)
         setTimeout(() => {
-          $("#slides-background").fadeIn(0)
+          if (!weatherData.frostFreezeWarning) {
+            $("#slides-background").fadeIn(0)
+          }
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     frostFreeze() {
       $('.titletext').text("Frost/Freeze Warnings")
@@ -2200,7 +2297,7 @@ var slidePrograms = {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#frost-freeze-map").fadeIn(500)
       $(".frost-freeze .legend").fadeIn(500)
@@ -2211,7 +2308,7 @@ var slidePrograms = {
         setTimeout(() => {
           $("#slides-background").fadeIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     gardenPromo() {
       $('.titletext').text("")
@@ -2221,7 +2318,10 @@ var slidePrograms = {
 
       setTimeout(() => {
         fadeSlideOut($(".garden-promo"), 500, true)
-      }, slideLength/2);
+        setTimeout(() => {
+          $('.titlearrow').fadeIn(0)
+        }, 500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     //ski
     skiIntro() {
@@ -2236,10 +2336,10 @@ var slidePrograms = {
         $(".ski-intro .circlegroup").fadeOut(500)
         $(".ski-intro .scrollingtext").fadeOut(500)
         $(".ski-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".ski-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     skiReport() {
       var bump = round*3
@@ -2266,7 +2366,7 @@ var slidePrograms = {
           } else {
             fadeSlideOut($(".ski-report"), 500, true)
           }
-        }, slideLength);
+        }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/Math.ceil(weatherData.skiReport.resorts.length/3))-500);
     },
     snowfallForecast() {
       $('.titletext').text("Snowfall Forecast")
@@ -2278,7 +2378,7 @@ var slidePrograms = {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#snowfall-forecast-map").fadeIn(500)
       $(".snowfall-forecast .legend").fadeIn(500)
@@ -2289,17 +2389,17 @@ var slidePrograms = {
         setTimeout(() => {
           $("#slides-background").fadeIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     skiTip() {
-      $('.titletext').text("Sun Safety Facts")
+      $('.titletext').text("Weather Safety Tips")
       $('.headertext').text("")
       fadeSlideIn($(".ski-tip"), 500)
 
       $(".ski-tip .skitip").text("In addition to using sunscreen, cover up:\n- Wear a wide brimmed hat (3\" or greater)\nthat covers ears and neck.\n- Choose tightly knit fabrics, with smaller and\nfewer spaces between threads.\n- Choose dark colored fabrics; they absorb\nmore UV rays that light colors.")
       setTimeout(() => {
         fadeSlideOut($(".ski-tip"), 500, true)
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     //boat beach
     beachIntro() {
@@ -2314,10 +2414,10 @@ var slidePrograms = {
         $(".beach-intro .circlegroup").fadeOut(500)
         $(".beach-intro .scrollingtext").fadeOut(500)
         $(".beach-intro .intro-title").fadeOut(500)
-      }, (slideLength/2)-500);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       setTimeout(() => {
         fadeSlideOut($(".beach-intro"), 0, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration);
     },
     surfReport() {
       $('.titletext').text("Current Surf Report")
@@ -2400,7 +2500,7 @@ var slidePrograms = {
             $(".surf-report .feet").fadeOut(0)
             $(".surf-report .wavenum").fadeOut(0)
           }, 500);
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".noreport").fadeIn(500)
         setTimeout(() => {
@@ -2409,7 +2509,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     waterTemps() {
@@ -2422,7 +2522,7 @@ var slidePrograms = {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
           $(".tempunavailable").fadeOut(500)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       }
       $("#water-temps-map").fadeIn(500)
       $(".water-temps .legend").fadeIn(500)
@@ -2433,7 +2533,7 @@ var slidePrograms = {
         setTimeout(() => {
           $("#slides-background").fadeIn(0)
         }, 500);
-      }, slideLength);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     coastalForecast() {
       $('.titletext').text("Coastal Waters Forecast")
@@ -2456,6 +2556,7 @@ var slidePrograms = {
       }
       $(".coastal-forecast .advisory").html(alertText)
       $(".coastal-forecast .forecast").html(weatherData.coastalForecast.times[round].forecast.replaceAll(" NIGHT", " night"))
+      var rdSubtractor = round < 2 ? 0 : 500
       setTimeout(() => {
         if (round < 2) {
           round++
@@ -2463,7 +2564,7 @@ var slidePrograms = {
         } else {
           fadeSlideOut($(".coastal-forecast"), 500, true)
         }
-      }, slideLength);
+      }, (slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration/weatherData.coastalForecast.times.length)-rdSubtractor);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -2472,7 +2573,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     tides() {
@@ -2494,7 +2595,7 @@ var slidePrograms = {
         
         setTimeout(() => {
           fadeSlideOut($(".tides"), 500, true)
-        }, slideLength);
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
       } else {
         $(".tempunavailable").fadeIn(500)
         setTimeout(() => {
@@ -2503,7 +2604,7 @@ var slidePrograms = {
             round = 0
             slideCallBack()
           }, 500);
-        }, slideLength); 
+        }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500); 
       }
     },
     severeMessage() {
@@ -2516,11 +2617,20 @@ var slidePrograms = {
       setTimeout(() => {
         $("#date-time").fadeIn(500)
         fadeSlideOut($(".severe-message"), 500, true)
-      }, slideLength/2);
+      }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
+    LAScrawl() {
+      adCrawl(slideSettings.order[orderidx].slideLineup[gidx].slides[idx].crawlLength, providerAdMessage, adImageIdx)
+      slideCallBack();
+    },
+    nullFunction(){
+      switchProvider();
+      slideCallBack();
+    }
   };
 function slideKickOff() {
   Nlocationid = ((systemSettings.extraCity.cities.length > 1) ? 1 : 0)
+
   groupBackgrounds = {
     "forecast": systemSettings.mainCity.slidesBG,
     "minicoreone":systemSettings.mainCity.slidesBG,
@@ -2535,96 +2645,509 @@ function slideKickOff() {
     "garden":"garden_bg",
     "ski":"ski_bg",
     "beach":"boatbeach_bg",
-    "severe":"severe_core_bg",
-    "spanish":"core_bg",
+    "severeA":"severe_core_bg",
+    "severeB":"severe_core_bg",
+    "severe2":"severe_core_bg",
+    "spanish1":"core_bg",
+    "spanish2":"core_bg",
   }
   createTopArea()
   switchProvider("provider")
-  if (systemSettings.extraCity.cities.length > 1) {
-    //upnext SLIDE
-    slideTitles["forecast"] = systemSettings.mainCity.locationName + " Forecast"
-    slideTitles["minicoreone"] = systemSettings.mainCity.locationName + " Forecast"
-    slideTitles["minicoretwo"] = systemSettings.mainCity.locationName + " Forecast"
-    slideTitles["extralocal"] = {cities: []}
-    for (var i = 0; i < systemSettings.extraCity.cities.length; i++) {
-      slideTitles["extralocal"].cities.push({name: systemSettings.extraCity.cities[i].locationName + " Forecast"})
-    }
-    //upnext TICKER
-    upNextTickTtls["forecast"] = "Up Next..." + systemSettings.mainCity.locationName
-    upNextTickTtls["minicoreone"] = "Up Next..." + systemSettings.mainCity.locationName
-    upNextTickTtls["minicoretwo"] = "Up Next..." + systemSettings.mainCity.locationName
-    upNextTickTtls["extralocal"] = "Up Next..." + systemSettings.extraCity.cities[0].locationName
+
+  if (!systemSettings.appearanceSettings.nationalConfig) {
+    setInterval(() => {
+      checkWarningCrawl()
+    }, 60000);
   }
-  allData();
-  checkWarningCrawl()
-  setInterval(() => {
-    checkWarningCrawl()
-  }, 120000);
-   //console.log(slideSettings.order[orderidx].slideLineup)
-   //console.log(orderidx)
-  slideBackground()
-  showSlides();
-  if (systemSettings.upperDisplayCity.enabled == true) {
-    getUdlData()
-    showUDL(lidx)
+  
+  setSlideTitles()
+  setUpNextTitles()
+
+  setUpNextTicker()
+  
+  showUDL(lidx)
+
+  segmentSet()
+
+  if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
+    locationChoice = "extra"
+  } else if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish1" || slideSettings.order[orderidx].slideLineup[gidx].group == "spanish2") {
+    locationChoice = "spanish"
   } else {
-    $(".udl").text("")
+    locationChoice = "main"
   }
-  crawlKickOff()
+
+  showSlides();
 } //end of slideKickOff() function
 function showSlides() {
+  if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
+    locationChoice = "extra"
+  } else if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish1" || slideSettings.order[orderidx].slideLineup[gidx].group == "spanish2") {
+    locationChoice = "spanish"
+  } else {
+    locationChoice = "main"
+  }
+
   if (idx >= slideSettings.order[orderidx].slideLineup[gidx].slides.length) {
-    //console.log(slideSettings.order[orderidx].slideLineup.length)
     idx = 0;
     gidx++;
-    $('.titlearrow').fadeIn(0)
+    $("#crawl-main .crawl").marquee('destroy')
+    $("#crawl-main").css({"opacity":"0"})
+    $(".upnext-ticker").fadeIn(0)
+    //setWInterLegend()
+
     if (gidx >= slideSettings.order[orderidx].slideLineup.length) {
       gidx = 0;
-      allData();
+      $('.titlearrow').fadeIn(0)
+      allData()
+      getUdlData()
     }
-    if (slideSettings.order[orderidx].slideLineup[gidx].group != "intro") {
-      ngidx++;
-    }
+    
+    ngidx++;
     if (ngidx >= slideSettings.order[orderidx].slideLineup.length) {
       ngidx = 1;
     }
-    //console.log("ngidx",ngidx)
-    //console.log(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
-    //console.log(slideSettings.order[orderidx].slideLineup)
-    //console.log(orderidx)
-    //this is a mess :(
-    //console.log("==SHOW SLIDES==")
-    //console.log("current segment", slideSettings.order[orderidx].slideLineup[gidx].group)
-    //console.log("next segment", slideSettings.order[orderidx].slideLineup[ngidx].group)
-    //console.log("Current Elocid", locationid)
-    //console.log("Next locid", Nlocationid)
+
     if (orderidx == 0) {
-      if (slideSettings.order[orderidx].slideLineup[gidx].group != "extralocal") {
-      //  $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group].cities[Nlocationid].name)
-      //} else {
-        $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
-      } else {
-        if (systemSettings.extraCity.cities.length > 1) {
-          //USE
-          //console.log("upnext ticker changed (SHOW SLIDES)")
-          $(".normal-lowerarea .upnext-ticker").text("Up Next..." + systemSettings.extraCity.cities[Nlocationid].locationName)
-        } else {
-          $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
-        }
-      }
+      setUpNextTicker()
     }
-    if (slideSettings.order[orderidx].slideLineup[gidx].group != "intro") {
-      slideBackground()
-    }
-    if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
-      locationChoice = "extra"
-    } else if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish") {
-      locationChoice = "spanish"
-    } else {
-      locationChoice = "main"
-    }
+    
+    segmentSet()
   }
+  
   currentProgram = slidePrograms[slideSettings.order[orderidx].slideLineup[gidx].slides[idx].function];
-  //currentDiv = slideDivs[slideSettings.order[0].slideLineup[gidx].slides[idx].function];
+  
   currentProgram();
 } //END OF showSlides() FUNCTION
+
+function setUpNextTicker() {
+  if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
+    $(".normal-lowerarea .upnext-ticker").text(systemSettings.extraCity.cities[Nlocationid].upNextName.replaceAll("locname", systemSettings.extraCity.cities[Nlocationid].locationName))
+  } else {
+    $(".normal-lowerarea .upnext-ticker").text(upNextTickTtls[slideSettings.order[orderidx].slideLineup[ngidx].group])
+  }
+}
+
+function manageDurations() {
+  switch (slideSettings.order[orderidx].slideLineup[gidx].group) {
+    case "intro":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 10000, function: "cityIntro" },
+        ]
+        break;
+    case "severeA":
+      if (weatherData.alerts.mainLoc.pages == 0) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 6000, function: "severeMessage" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 14000, function: "nearbyCities" },
+          { duration: 12000, function: "radarSatellite" },
+          { duration: 24000, function: "dopplerRadar" },
+          { duration: 42000, function: "localForecast" },
+          { duration: 12000, function: "extendedForecast" },
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 6000 * weatherData.alerts.mainLoc.pages, function: "bulletin" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 14000, function: "nearbyCities" },
+          { duration: 12000, function: "radarSatellite" },
+          { duration: 24000, function: "dopplerRadar" },
+          { duration: 42000, function: "localForecast" },
+          { duration: 12000, function: "extendedForecast" },
+        ]
+      }
+      break;
+    case "severeB":
+      if (weatherData.alerts.mainLoc.pages == 0) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 5000, function: "severeMessage" },
+          { duration: 8000, function: "currentConditions" },
+          { duration: 24000, function: "dopplerRadar" },
+          { duration: 11000, function: "dayPart" },
+          { duration: 12000, function: "extendedForecast" },
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 5000 * weatherData.alerts.mainLoc.pages, function: "bulletin" },
+          { duration: 8000, function: "currentConditions" },
+          { duration: 24000, function: "dopplerRadar" },
+          { duration: 11000, function: "dayPart" },
+          { duration: 12000, function: "extendedForecast" },
+        ]
+      }
+      break;
+    case "severe2":
+      if (weatherData.alerts.mainLoc.pages == 0) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 8000, function: "severeMessage" },
+          { duration: 52000, function: "dopplerRadar" },
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 8000 * weatherData.alerts.mainLoc.pages, function: "bulletin" },
+          { duration: 52000, function: "dopplerRadar" },
+        ]
+      }
+      break;
+    case "forecast":
+      if (weatherData.alerts.mainLoc.pages == 0 || weatherData.alerts.mainLoc.pages == undefined) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 10000, function: "cityIntro" },
+          { duration: 6000, function: "upNext" },
+          { crawlLength: 104000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 14000, function: "nearbyCities" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 42000, function: "localForecast" },
+          { duration: 14000, function: "extendedForecast" },
+          { duration: 8000, function: "almanac" }
+        ]
+      } else if (weatherData.alerts.mainLoc.pages == 1) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 10000, function: "cityIntro" },
+          { duration: 6000, function: "upNext" },
+          { duration: 8000, function: "bulletin" },
+          { crawlLength: 96000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 14000, function: "nearbyCities" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 42000, function: "localForecast" },
+          { duration: 14000, function: "extendedForecast" }
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 10000, function: "cityIntro" },
+          { duration: 14000, function: "bulletin" },
+          { crawlLength: 96000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 14000, function: "nearbyCities" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 42000, function: "localForecast" },
+          { duration: 14000, function: "extendedForecast" },
+        ]
+      }
+      break;
+    case "minicoreone":
+      if (weatherData.alerts.mainLoc.pages == 0 || weatherData.alerts.mainLoc.pages == undefined) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          {function: "nullFunction"},
+          { duration: 8000, function: "upNext" },
+          { crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarChooser" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+        ]
+      } else if (weatherData.alerts.mainLoc.pages == 1) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          {function: "nullFunction"},
+          { duration: 8000, function: "bulletin" },
+          { crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarChooser" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          {function: "nullFunction"},
+          { duration: 11000, function: "bulletin" },
+          { crawlLength: 49000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarChooser" },
+          { duration: 11000, function: "dayPart" },
+          { duration: 12000, function: "extendedForecast" },
+        ]
+      }
+      break;
+    case "minicoretwo":
+      if (weatherData.alerts.mainLoc.pages == 0 || weatherData.alerts.mainLoc.pages == undefined) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "upNext" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 8000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 36000, function: "localForecast" },
+        ]
+      } else if (weatherData.alerts.mainLoc.pages == 1) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 5000, function: "bulletin" },
+          { crawlLength: 55000, function: "LAScrawl" },
+          { duration: 7000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 36000, function: "localForecast" },
+        ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 14000, function: "bulletin" },
+          { crawlLength: 46000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 12000, function: "dopplerRadar" },
+          { duration: 24000, function: "localForecast" },
+        ]
+      }
+      break;
+    case "extralocal":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = []
+      slideSettings.order[orderidx].slideLineup[gidx].slides.push({function: "nullFunction"});
+      //purpose of the nullFunction is to act as an upNext because I think the locationChoice lags behind by just one slide,
+      //making the CC slide of the 1st extra location be the main city, but dayPart is the extra city
+      //makes no sense but it worked for me so... -jenson
+      for (var eLoc = 0; eLoc < systemSettings.extraCity.cities.length; eLoc++) {
+        var eSlides = []
+        if (weatherData.alerts.extraLoc[eLoc].pages == 0 || weatherData.alerts.extraLoc[eLoc].pages == undefined) {
+          eSlides = extraSlides.noBulletin[Math.floor(Math.random() * extraSlides.noBulletin.length)]
+        } else if (weatherData.alerts.extraLoc[eLoc].pages == 1) {
+          eSlides = extraSlides.oneBulletin[Math.floor(Math.random() * extraSlides.noBulletin.length)]
+        } else {
+          eSlides = extraSlides.twoBulletins[Math.floor(Math.random() * extraSlides.noBulletin.length)]
+        }
+        slideSettings.order[orderidx].slideLineup[gidx].slides.push(...eSlides)
+      }
+      //it just did the same for going from extralocal->minicore so now its also at the bottom
+      slideSettings.order[orderidx].slideLineup[gidx].slides.push({function: "nullFunction"});
+      break;
+    case "spanish1":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { function: "nullFunction" },
+        { duration: 8000, function: "upNext" },
+        { crawlLength: 52000, function: "LAScrawl" },
+        { duration: 10000, function: "currentConditions" },
+        { duration: 16000, function: "dopplerRadar" },
+        { duration: 12000, function: "dayPart" },
+        { duration: 14000, function: "extendedForecast" },
+         { function: "nullFunction" },
+      ]
+      break;
+    case "spanish2":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { function: "nullFunction" },
+        { duration: 8000, function: "upNext" },
+        { crawlLength: 52000, function: "LAScrawl" },
+        { duration: 10000, function: "currentConditions" },
+        { duration: 16000, function: "radarSatellite" },
+        { duration: 12000, function: "dayPart" },
+        { duration: 14000, function: "extendedForecast" },
+         { function: "nullFunction" },
+      ]
+      break;
+    case "radar":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { crawlLength: 60000, function: "LAScrawl" },
+        { duration: 60000, function: "dopplerRadar" }
+      ]
+      break;
+    case "health":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "healthIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 10000, function: "outdoorActivity" },
+      ]
+      if (weatherData.pollen.noReport) {
+        if (weatherData.airQuality.noReport) {
+          slideSettings.order[orderidx].slideLineup[gidx].slides.push(
+            { duration: 12000, function: "healthForecast" },
+            { duration: 12000, function: "uvIndex" },
+            { duration: 10000, function: "healthTip" },
+            { duration: 8000, function: "healthTip" },
+            { duration: 4000, function: "healthPromo" },
+          )
+        } else {
+          slideSettings.order[orderidx].slideLineup[gidx].slides.push(
+            { duration: 8000, function: "healthForecast" },
+            { duration: 8000, function: "airQuality" },
+            { duration: 8000, function: "uvIndex" },
+            { duration: 10000, function: "healthTip" },
+            { duration: 8000, function: "healthTip" },
+            { duration: 4000, function: "healthPromo" },
+          )
+        }
+      } else {
+        if (weatherData.airQuality.noReport) {
+          slideSettings.order[orderidx].slideLineup[gidx].slides.push(
+            { duration: 8000, function: "allergyReport" },
+            { duration: 8000, function: "healthForecast" },
+            { duration: 8000, function: "uvIndex" },
+            { duration: 10000, function: "healthTip" },
+            { duration: 8000, function: "healthTip" },
+            { duration: 4000, function: "healthPromo" },
+          )
+        } else {
+          slideSettings.order[orderidx].slideLineup[gidx].slides.push(
+            { duration: 8000, function: "allergyReport" },
+            { duration: 8000, function: "healthForecast" },
+            { duration: 8000, function: "airQuality" },
+            { duration: 8000, function: "uvIndex" },
+            { duration: 10000, function: "healthTip" },
+            { duration: 4000, function: "healthPromo" },
+          )
+        }
+      }
+      break;
+    case "airport":
+      //read national airports for more info
+      if (systemSettings.airport.mainEnabled) {
+      if(systemSettings.airport.main.length <= 2){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "airportIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 20000, function: "airportConditions" },
+          { duration: 36000, function: "nationalAirports" },
+        ]
+      }else if(systemSettings.airport.main.length == 3){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "airportIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 29000, function: "airportConditions" },
+          { duration: 27000, function: "nationalAirports" },
+        ]
+      }else if(systemSettings.airport.main.length >= 4){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "airportIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 38000, function: "airportConditions" },
+          { duration: 18000, function: "nationalAirports" },
+        ]
+      }
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 6000, function: "airportIntro" },
+          { crawlLength: 54000, function: "LAScrawl" },
+          { duration: 54000, function: "nationalAirports" },
+        ]
+      }
+      break;
+    case "travel":
+      if (systemSettings.travel.regionalMap.enabled) {
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "travelIntro" },
+        { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 9000, function: "travelWeather" },
+        { duration: 18000, function: "travelForecast" },
+        { duration: 29000, function: "destinationForecast" },
+      ]
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 6000, function: "travelIntro" },
+        { crawlLength: 54000, function: "LAScrawl" },
+        { duration: 25000, function: "travelWeather" },
+        { duration: 29000, function: "destinationForecast" },
+      ]
+      }
+      break;
+    case "international":
+      if(systemSettings.international.maxMaps <= 2){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "internationalIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 18000, function: "internationalMap" },
+          { duration: 38000, function: "internationalForecast" },
+        ]
+      }else if(systemSettings.international.maxMaps == 3){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "internationalIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 27000, function: "internationalMap" },
+          { duration: 29000, function: "internationalForecast" },
+        ]
+      }else if(systemSettings.international.maxMaps >= 4){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "internationalIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: 36000, function: "internationalMap" },
+          { duration: 20000, function: "internationalForecast" },
+        ]
+      }
+      break;
+    case "golf":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "golfIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 12000, function: "teeTime" },
+        { duration: 12000, function: "golfIndex" },
+        { duration: 24000, function: "courseForecast" },
+        { duration: 8000, function: "golfPromo" },
+      ]
+      break;
+    case "garden":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "gardenIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 12000, function: "gardenForecast" },
+        { duration: 12000, function: "estimatedPrecip" },
+        { duration: 8000, function: "precipForecast" },
+        { duration: 12000, function: "droughtMonitor" },
+      ]
+      if (weatherData.frostFreezeWarning) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides.push({ duration: 12000, function: "frostFreeze" })
+      } else {
+        slideSettings.order[orderidx].slideLineup[gidx].slides.push({ duration: 12000, function: "gardenPromo" })
+      }
+      break;
+    case "ski":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "skiIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 36000, function: "skiReport" },
+        { duration: 10000, function: "snowfallForecast" },
+        { duration: 10000, function: "skiTip" },
+      ]
+      break;
+    case "beach":
+      slideSettings.order[orderidx].slideLineup[gidx].slides = [
+        { duration: 4000, function: "beachIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+        { duration: 8000, function: "surfReport" },
+        { duration: 9000, function: "waterTemps" },
+        { duration: 30000, function: "coastalForecast" },
+        { duration: 9000, function: "tides" },
+      ]
+      break;
+    case "traffic":
+      var trafPages = Math.ceil(weatherData.trafficReport.incidents.length/2)
+      if (trafPages == 3){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "trafficIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: [9000], function: "trafficOverview" },
+          { duration: [10000,9000,9000], function: "trafficReport" },
+          { duration: [10000,9000], function: "trafficFlow" },
+        ]
+      } else if (trafPages == 2) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "trafficIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: [10000,9000], function: "trafficOverview" },
+          { duration: [10000,9000], function: "trafficReport" },
+          { duration: [9000,9000], function: "trafficFlow" },
+        ]
+      } else if (trafPages == 1) {
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { duration: 4000, function: "trafficIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+          { duration: [10000,9000], function: "trafficOverview" },
+          { duration: [12000], function: "trafficReport" },
+          { duration: [14000,11000], function: "trafficFlow" },
+        ]
+      } else {
+        if (weatherData.trafficFlow.noReport == true) {
+          slideSettings.order[orderidx].slideLineup[gidx].slides = [
+            { duration: 4000, function: "trafficIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+            { duration: [28000,28000], function: "trafficOverview" },
+          ]
+        } else {
+          slideSettings.order[orderidx].slideLineup[gidx].slides = [
+            { duration: 4000, function: "trafficIntro" },
+          { crawlLength: 56000, function: "LAScrawl" },
+            { duration: [13000,10000], function: "trafficOverview" },
+            { duration: [23000,10000], function: "trafficFlow" },
+          ]
+        }
+      }
+      break;
+    default:
+      break;
+  }
+}

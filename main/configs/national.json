@@ -3,1272 +3,1322 @@
         "apiKeys":{
           "api_key":"e1f10a1e78da46f5b10a1e78da96f525",
           "map_key":"pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjbHAxbHNjdncwaDhvMmptcno1ZTdqNDJ0In0.iywE3NefjboFg11a11ON0Q",
-          "traf_key":"",
-          "HERE_key":""
+          "traf_key":""
         },
-        "systemLocation":"Across the Nation",
+        "systemLocation":"Around the Nation",
         "appearanceSettings":{
             "nationalConfig":true,
             "providerName":"Mist Digital Cable",
-            "startupTime":10000,
-            "crawlMode":"both",
             "adMessage":["network"],
             "providerType":"provider",
             "providerImage":"mistdc",
-            "adImages":[],
-            "version":"1.14.2"
+            "adImages":[]
         },
         "audioSettings":{
             "enableMusic":true,
-            "shuffle":true,
+            "shuffle":false,
             "randomStart":true,
             "narrations":true,
             "order":[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
         },
-        "packagsSettings":["extralocal"],
-        "packageSettings":["extralocal", "airport", "international"],
-        "LBar":{
-          "locationName":"",
-          "lat":"",
-          "lon":"",
-          "airportName":"",
-          "obsIcaoCode":"",
-          "ccTicker":{
-            "airports":[],
-            "cities":[]
-          },
-          "radar": {
-              "enabled":false,
-              "lat":"",
-              "lon":"",
-              "auto":false,
-              "zoom":6.7,
-              "radarCities": [
-                {"locationName": "", "dotTopPos": "", "dotLeftPos": "", "nameTopMargin":"", "nameLeftMargin":""}
-              ]
-            }
-        },
+        "packageSettings":["intro", "extralocal","travel", "airport", "international"],
+        "severePackageSettings":["severe2"],
         "dataMaps":{
-            "auto":true,
-          "leftPos":"",
+        "auto":false,
           "topPos":"",
-        "zoom":""
+          "leftPos":"",
+          "zoom":""
         },
         "mainCity":{
-            "autoFind":false,
+          "autoFind":false,
+            "packageName":"locname Forecast",
+            "upNextName":"Up Next...locname",
+          "spanishPackageName":"Espanol",
+          "spanishUpNextName":"Up Next...Espanol",
+          "radarPackageName":"Your Local Radar",
+          "radarUpNextName":"Up Next...Radar",
             "locationName":"",
             "bulletinName":"",
             "lat": "",
             "lon": "",
-            "airportName":"",
-            "obsIcaoCode":"",
+            "obsName":"",
+            "icaoCode":"",
             "almanacLocationName":"",
             "introBG":"usa_bg",
-            "upNextBG":"city_bg",
+            "upNextBG":"usa_bg",
             "slidesBG":"core_bg",
             "radar": {
               "lat":"",
               "lon":"",
               "auto":false,
               "zoom":7.2,
-              "satCoords":[0, 0],
-              "radarCities": [
-                {"locationName": "", "dotTopPos": "", "dotLeftPos": "", "nameTopMargin":"", "nameLeftMargin":""}
-              ],
-              "radarIcons":[
-                {"type":"","text":"", "topPos":"","leftPos":""}
-              ]
+              "satCoords":[],
+              "radarCities": [],
+              "radarIcons":[]
             }
         },
         "extraCity":{
             "autoFind":false,
             "maxCities":3,
             "cities":[
-    {
-                    "locationName":"Atlanta",
-                    "bulletinName":"Atlanta Metro",
-                    "lat": "33.751",
-                    "lon": "-84.39",
-                    "airportName":"Atlanta Int`l Arpt.",
-                    "obsIcaoCode":"KATL",
-                    "upNextBG":"atlanta_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"33.751",
-                      "lon":"-84.39",
-                      "auto":false,
-                      "zoom":8.65,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Peachtree City", "dotTopPos": "720", "dotLeftPos": "689", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
-                        {"locationName": "Newnan", "dotTopPos": "741", "dotLeftPos": "573", "nameTopMargin":"-11", "nameLeftMargin":"-211", "locId": ""},
-                        {"locationName": "Conyers", "dotTopPos": "592", "dotLeftPos": "1010", "nameTopMargin":"22", "nameLeftMargin":"43", "locId": ""},
-                        {"locationName": "Lawrenceville", "dotTopPos": "410", "dotLeftPos": "995", "nameTopMargin":"26", "nameLeftMargin":"-123", "locId": ""},
-                        {"locationName": "Carrollton", "dotTopPos": "612", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
-                        {"locationName": "Marietta", "dotTopPos": "437", "dotLeftPos": "727", "nameTopMargin":"-11", "nameLeftMargin":"-211", "locId": ""},
-                        {"locationName": "Atlanta", "dotTopPos": "550", "dotLeftPos": "800", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
-                        {"locationName": "Roswell", "dotTopPos": "364", "dotLeftPos": "832", "nameTopMargin":"-44", "nameLeftMargin":"43", "locId": ""}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"575", "topPos":"294","leftPos":"701"},
-                        {"type":"stateHwySign","text":"400", "topPos":"256","leftPos":"920"},
-                        {"type":"stateHwySign","text":"316", "topPos":"371","leftPos":"1148"},
-                        {"type":"interstateSign","text":"20", "topPos":"524","leftPos":"440"},
-                        {"type":"interstateSign","text":"85", "topPos":"656","leftPos":"621"},
-                        {"type":"airplane","text":"", "topPos":"574","leftPos":"760"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Baltimore",
-                    "bulletinName":"Baltimore Area",
-                    "lat": "39.2905",
-                    "lon": "-76.6104",
-                    "airportName":"Baltimore",
-                    "obsIcaoCode":"KBWI",
-                    "upNextBG":"baltimore_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "39.2905",
-                      "lon": "-76.6104",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Baltimore", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Washington", "dotTopPos": "658", "dotLeftPos": "659", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Millsboro", "dotTopPos": "730", "dotLeftPos": "1178", "nameTopMargin":"-11", "nameLeftMargin":"-234"},
-                        {"locationName": "Philadelphia", "dotTopPos": "299", "dotLeftPos": "1262", "nameTopMargin":"-11", "nameLeftMargin":"-303"},
-                        {"locationName": "Wilmington", "dotTopPos": "372", "dotLeftPos": "1127", "nameTopMargin":"-11", "nameLeftMargin":"-303"},
-                        {"locationName": "Winchester", "dotTopPos": "560", "dotLeftPos": "300", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Dover", "dotTopPos": "567", "dotLeftPos": "1140", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"95", "topPos":"422","leftPos":"908"},
-                        {"type":"usHwySign","text":"13", "topPos":"631","leftPos":"1098"},
-                        {"type":"interstateSign","text":"70", "topPos":"494","leftPos":"637"},
-                        {"type":"usHwySign","text":"15", "topPos":"381","leftPos":"539"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Boston",
-                    "bulletinName":"Boston Area",
-                    "lat": "42.3555",
-                    "lon": "-71.0565",
-                    "airportName":"Boston",
-                    "obsIcaoCode":"KBOS",
-                    "upNextBG":"boston_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat": "42.3555",
-                      "lon": "-71.0565",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Boston", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Hartford", "dotTopPos": "729", "dotLeftPos": "284", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Springfield", "dotTopPos": "609", "dotLeftPos": "307", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Providence", "dotTopPos": "708", "dotLeftPos": "690", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Manchester", "dotTopPos": "291", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"91", "topPos":"335","leftPos":"296"},
-                        {"type":"interstateSign","text":"495", "topPos":"592","leftPos":"648"},
-                        {"type":"interstateSign","text":"95", "topPos":"397","leftPos":"802"},
-                        {"type":"usHwySign","text":"202", "topPos":"481","leftPos":"354"},
-                        {"type":"usHwySign","text":"6", "topPos":"753","leftPos":"853"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Charlotte",
-                    "bulletinName":"Charlotte Area",
-                    "lat": "35.2271",
-                    "lon": "-80.8409",
-                    "airportName":"Charlotte Douglas Arpt.",
-                    "obsIcaoCode":"KCLT",
-                    "upNextBG":"charlotte_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "35.2271",
-                      "lon": "-80.8409",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Charlotte", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Asheville", "dotTopPos": "402", "dotLeftPos": "255", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Greensboro", "dotTopPos": "254", "dotLeftPos": "1122", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fayetteville", "dotTopPos": "578", "dotLeftPos": "1408", "nameTopMargin":"-11", "nameLeftMargin":"-290"},
-                        {"locationName": "Greenville", "dotTopPos": "639", "dotLeftPos": "306", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Kershaw", "dotTopPos": "745", "dotLeftPos": "868", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Monroe", "dotTopPos": "601", "dotLeftPos": "899", "nameTopMargin":"-11", "nameLeftMargin":"-191"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"85", "topPos":"540","leftPos":"532"},
-                        {"type":"interstateSign","text":"77", "topPos":"700","leftPos":"717"},
-                        {"type":"interstateSign","text":"95", "topPos":"700","leftPos":"1355"},
-                        {"type":"usHwySign","text":"220", "topPos":"438","leftPos":"1110"},
-                        {"type":"interstateSign","text":"40", "topPos":"340","leftPos":"701"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Chicago",
-                    "bulletinName":"Chicago Area",
-                    "lat": "41.8832",
-                    "lon": "-87.6324",
-                    "airportName":"O'Hare Arpt.",
-                    "obsIcaoCode":"KORD",
-                    "upNextBG":"chicago_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "41.8832",
-                      "lon": "-87.6324",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Chicago", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Gary", "dotTopPos": "631", "dotLeftPos": "888", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "DeKalb", "dotTopPos": "505", "dotLeftPos": "437", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Rockford", "dotTopPos": "391", "dotLeftPos": "354", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Waukegan", "dotTopPos": "357", "dotLeftPos": "729", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Joliet", "dotTopPos": "657", "dotLeftPos": "649", "nameTopMargin":"23", "nameLeftMargin":"43"},
-                        {"locationName": "Hebron", "dotTopPos": "717", "dotLeftPos": "934", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Benton Harbor", "dotTopPos": "446", "dotLeftPos": "1170", "nameTopMargin":"-59", "nameLeftMargin":"-154"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"39", "topPos":"600","leftPos":"327"},
-                        {"type":"interstateSign","text":"88", "topPos":"539","leftPos":"572"},
-                        {"type":"interstateSign","text":"94", "topPos":"549","leftPos":"1054"},
-                        {"type":"interstateSign","text":"196", "topPos":"275","leftPos":"1223"},
-                        {"type":"interstateSign","text":"196", "topPos":"275","leftPos":"1223"},
-                        {"type":"usHwySign","text":"12", "topPos":"536","leftPos":"1256"},
-                        {"type":"interstateSign","text":"66", "topPos":"799","leftPos":"888"},
-                        {"type":"usHwySign","text":"41", "topPos":"701","leftPos":"830"},
-                        {"type":"usHwySign","text":"12", "topPos":"322","leftPos":"595"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Cleveland",
-                    "bulletinName":"Cleveland Area",
-                    "lat": "41.4993",
-                    "lon": "-81.6944",
-                    "airportName":"Cleveland Int'l",
-                    "obsIcaoCode":"KCLE",
-                    "upNextBG":"cleveland_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "41.4993",
-                      "lon": "-81.6944",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Cleveland", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Akron", "dotTopPos": "674", "dotLeftPos": "848", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Toledo", "dotTopPos": "467", "dotLeftPos": "213", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Marblehead", "dotTopPos": "516", "dotLeftPos": "473", "nameTopMargin":"-43", "nameLeftMargin":"26"},
-                        {"locationName": "Aurora", "dotTopPos": "592", "dotLeftPos": "908", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Bucyrus", "dotTopPos": "773", "dotLeftPos": "387", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Youngstown", "dotTopPos": "665", "dotLeftPos": "1130", "nameTopMargin":"28", "nameLeftMargin":"12"},
-                        {"locationName": "Andover", "dotTopPos": "485", "dotLeftPos": "1150", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Greenwich", "dotTopPos": "687", "dotLeftPos": "524", "nameTopMargin":"22", "nameLeftMargin":"43"},
-                        {"locationName": "Erie", "dotTopPos": "301", "dotLeftPos": "1332", "nameTopMargin":"-11", "nameLeftMargin":"-99"}
-                      ],
-                      "radarIcons":[
-                        {"type":"usHwySign","text":"224", "topPos":"655","leftPos":"349"},
-                        {"type":"usHwySign","text":"23", "topPos":"609","leftPos":"230"},
-                        {"type":"interstateSign","text":"77", "topPos":"766","leftPos":"859"},
-                        {"type":"interstateSign","text":"90", "topPos":"426","leftPos":"967"},
-                        {"type":"usHwySign","text":"20", "topPos":"352","leftPos":"1134"},
-                        {"type":"interstateSign","text":"71", "topPos":"647","leftPos":"736"},
-                        {"type":"interstateSign","text":"80", "topPos":"617","leftPos":"1279"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Dallas",
-                    "bulletinName":"Dalas Area",
-                    "lat": "32.7767",
-                    "lon": "-96.7970",
-                    "airportName":"Dallas Love Field",
-                    "obsIcaoCode":"KDAL",
-                    "upNextBG":"dallas_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "32.7767",
-                      "lon": "-97.0639",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Dallas", "dotTopPos": "522", "dotLeftPos": "873", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fort Worth", "dotTopPos": "545", "dotLeftPos": "713", "nameTopMargin":"-11", "nameLeftMargin":"-262"},
-                        {"locationName": "Denton", "dotTopPos": "388", "dotLeftPos": "768", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Sulphur", "dotTopPos": "414", "dotLeftPos": "1261", "nameTopMargin":"31", "nameLeftMargin":"-65"},
-                        {"locationName": "Corsicana", "dotTopPos": "729", "dotLeftPos": "988", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Cleburne", "dotTopPos": "654", "dotLeftPos": "702", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Stephenville", "dotTopPos": "704", "dotLeftPos": "441", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Gainesville", "dotTopPos": "258", "dotLeftPos": "770", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Paris", "dotTopPos": "248", "dotLeftPos": "1276", "nameTopMargin":"26", "nameLeftMargin":"-36"},
-                        {"locationName": "Tyler", "dotTopPos": "656", "dotLeftPos": "1351", "nameTopMargin":"-11", "nameLeftMargin":"-126"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"20", "topPos":"589","leftPos":"349"},
-                        {"type":"usHwySign","text":"380", "topPos":"367","leftPos":"560"},
-                        {"type":"interstateSign","text":"35", "topPos":"768","leftPos":"765"},
-                        {"type":"interstateSign","text":"45", "topPos":"574","leftPos":"888"},
-                        {"type":"interstateSign","text":"30", "topPos":"428","leftPos":"1046"},
-                        {"type":"usHwySign","text":"69", "topPos":"495","leftPos":"1232"},
-                        {"type":"usHwySign","text":"175", "topPos":"608","leftPos":"1048"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Denver",
-                    "bulletinName":"Denver Area",
-                    "lat": "39.7392",
-                    "lon": "-104.9903",
-                    "airportName":"Denver Int'l",
-                    "obsIcaoCode":"KDEN",
-                    "upNextBG":"denver_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "39.7392",
-                      "lon": "-104.9903",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Denver", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Deer Trail", "dotTopPos": "562", "dotLeftPos": "1088", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Centennial", "dotTopPos": "571", "dotLeftPos": "800", "nameTopMargin":"24", "nameLeftMargin":"-95"},
-                        {"locationName": "Castle Rock", "dotTopPos": "659", "dotLeftPos": "836", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fairplay", "dotTopPos": "700", "dotLeftPos": "481", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Minturn", "dotTopPos": "580", "dotLeftPos": "346", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Estes Park", "dotTopPos": "304", "dotLeftPos": "626", "nameTopMargin":"-11", "nameLeftMargin":"-242"},
-                        {"locationName": "Loveland", "dotTopPos": "302", "dotLeftPos": "764", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fort Morgan", "dotTopPos": "347", "dotLeftPos": "1166", "nameTopMargin":"34", "nameLeftMargin":"-127"},
-                        {"locationName": "Colorado Springs", "dotTopPos": "837", "dotLeftPos": "860", "nameTopMargin":"-39", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"usHwySign","text":"24", "topPos":"700","leftPos":"355"},
-                        {"type":"usHwySign","text":"285", "topPos":"608","leftPos":"599"},
-                        {"type":"interstateSign","text":"70", "topPos":"517","leftPos":"651"},
-                        {"type":"usHwySign","text":"34", "topPos":"365","leftPos":"1343"},
-                        {"type":"interstateSign","text":"76", "topPos":"371","leftPos":"918"},
-                        {"type":"interstateSign","text":"25", "topPos":"404","leftPos":"777"},
-                        {"type":"usHwySign","text":"40", "topPos":"464","leftPos":"522"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Detroit",
-                    "bulletinName":"Detroit Area",
-                    "lat": "42.3297",
-                    "lon": "-83.0425",
-                    "airportName":"Detroit Metro Arpt.",
-                    "obsIcaoCode":"KDTW",
-                    "upNextBG":"detroit_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat": "42.3297",
-                      "lon": "-83.0425",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Detroit", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Port Huron", "dotTopPos": "303", "dotLeftPos": "976", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Flint", "dotTopPos": "284", "dotLeftPos": "594", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Ann Arbor", "dotTopPos": "538", "dotLeftPos": "572", "nameTopMargin":"33", "nameLeftMargin":"-100"},
-                        {"locationName": "Jackson", "dotTopPos": "553", "dotLeftPos": "362", "nameTopMargin":"-60", "nameLeftMargin":"-71"},
-                        {"locationName": "Roseville", "dotTopPos": "469", "dotLeftPos": "836", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Toledo", "dotTopPos": "771", "dotLeftPos": "636", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Lansing", "dotTopPos": "379", "dotLeftPos": "307", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"96", "topPos":"443","leftPos":"607"},
-                        {"type":"interstateSign","text":"69", "topPos":"272","leftPos":"831"},
-                        {"type":"usHwySign","text":"23", "topPos":"647","leftPos":"575"},
-                        {"type":"interstateSign","text":"94", "topPos":"339","leftPos":"900"},
-                        {"type":"interstateSign","text":"75", "topPos":"653","leftPos":"672"},
-                        {"type":"usHwySign","text":"127", "topPos":"661","leftPos":"357"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Fort Worth",
-                    "bulletinName":"Fort Worth Area",
-                    "lat": "32.7555",
-                    "lon": "-97.3308",
-                    "airportName":"Dallas/Ft. Worth Arpt.",
-                    "obsIcaoCode":"KDFW",
-                    "upNextBG":"ftworth_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "32.7767",
-                      "lon": "-97.0639",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Dallas", "dotTopPos": "522", "dotLeftPos": "873", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fort Worth", "dotTopPos": "545", "dotLeftPos": "713", "nameTopMargin":"-11", "nameLeftMargin":"-262"},
-                        {"locationName": "Denton", "dotTopPos": "388", "dotLeftPos": "768", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Sulphur", "dotTopPos": "414", "dotLeftPos": "1261", "nameTopMargin":"31", "nameLeftMargin":"-65"},
-                        {"locationName": "Corsicana", "dotTopPos": "729", "dotLeftPos": "988", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Cleburne", "dotTopPos": "654", "dotLeftPos": "702", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Stephenville", "dotTopPos": "704", "dotLeftPos": "441", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Gainesville", "dotTopPos": "258", "dotLeftPos": "770", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Paris", "dotTopPos": "248", "dotLeftPos": "1276", "nameTopMargin":"26", "nameLeftMargin":"-36"},
-                        {"locationName": "Tyler", "dotTopPos": "656", "dotLeftPos": "1351", "nameTopMargin":"-11", "nameLeftMargin":"-126"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"20", "topPos":"589","leftPos":"349"},
-                        {"type":"usHwySign","text":"380", "topPos":"367","leftPos":"560"},
-                        {"type":"interstateSign","text":"35", "topPos":"768","leftPos":"765"},
-                        {"type":"interstateSign","text":"45", "topPos":"574","leftPos":"888"},
-                        {"type":"interstateSign","text":"30", "topPos":"428","leftPos":"1046"},
-                        {"type":"usHwySign","text":"69", "topPos":"495","leftPos":"1232"},
-                        {"type":"usHwySign","text":"175", "topPos":"608","leftPos":"1048"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Hartford",
-                    "bulletinName":"Hartford Area",
-                    "lat": "41.7658",
-                    "lon": "-72.6734",
-                    "airportName":"Hartford Arpt.",
-                    "obsIcaoCode":"KHFD",
-                    "upNextBG":"hartford_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "41.7658",
-                      "lon": "-72.6734",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Hartford", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "New Haven", "dotTopPos": "691", "dotLeftPos": "714", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Providence", "dotTopPos": "501", "dotLeftPos": "1205", "nameTopMargin":"44", "nameLeftMargin":"-106"},
-                        {"locationName": "Boston", "dotTopPos": "303", "dotLeftPos": "1302", "nameTopMargin":"-11", "nameLeftMargin":"-168"},
-                        {"locationName": "Poughkeepsie", "dotTopPos": "547", "dotLeftPos": "407", "nameTopMargin":"23", "nameLeftMargin":"43"},
-                        {"locationName": "Springfield", "dotTopPos": "408", "dotLeftPos": "814", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Catskill", "dotTopPos": "360", "dotLeftPos": "425", "nameTopMargin":"-44", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"90", "topPos":"356","leftPos":"668"},
-                        {"type":"interstateSign","text":"91", "topPos":"275","leftPos":"785"},
-                        {"type":"interstateSign","text":"495", "topPos":"399","leftPos":"1179"},
-                        {"type":"interstateSign","text":"95", "topPos":"721","leftPos":"579"},
-                        {"type":"usHwySign","text":"44", "topPos":"721","leftPos":"579"},
-                        {"type":"usHwySign","text":"9", "topPos":"424","leftPos":"398"},
-                        {"type":"interstateSign","text":"87", "topPos":"584","leftPos":"329"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Houston",
-                    "bulletinName":"Houston Area",
-                    "lat": "29.7601",
-                    "lon": "-95.3701",
-                    "airportName":"Houston",
-                    "obsIcaoCode":"KIAH",
-                    "upNextBG":"houston_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "29.7601",
-                      "lon": "-95.3701",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Houston", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "College Station", "dotTopPos": "266", "dotLeftPos": "500", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Galveston", "dotTopPos": "663", "dotLeftPos": "978", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Beaumont", "dotTopPos": "426", "dotLeftPos": "1190", "nameTopMargin":"-59", "nameLeftMargin":"-96"},
-                        {"locationName": "Port Arthur", "dotTopPos": "485", "dotLeftPos": "1244", "nameTopMargin":"37", "nameLeftMargin":"-113"},
-                        {"locationName": "Brenham", "dotTopPos": "405", "dotLeftPos": "468", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Conroe", "dotTopPos": "370", "dotLeftPos": "767", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Richmond", "dotTopPos": "593", "dotLeftPos": "677", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "El Campo", "dotTopPos": "698", "dotLeftPos": "506", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Bay City", "dotTopPos": "760", "dotLeftPos": "591", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"10", "topPos":"502","leftPos":"551"},
-                        {"type":"interstateSign","text":"45", "topPos":"415","leftPos":"754"},
-                        {"type":"usHwySign","text":"90", "topPos":"427","leftPos":"1007"},
-                        {"type":"usHwySign","text":"69", "topPos":"288","leftPos":"1081"},
-                        {"type":"usHwySign","text":"290", "topPos":"384","leftPos":"352"},
-                        {"type":"usHwySign","text":"59", "topPos":"733","leftPos":"389"},
-                        {"type":"usHwySign","text":"77", "topPos":"562","leftPos":"281"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Indianapolis",
-                    "bulletinName":"Indianapolis Area",
-                    "lat": "39.7691",
-                    "lon": "-86.1580",
-                    "airportName":"Indianapolis Int'l",
-                    "obsIcaoCode":"KIND",
-                    "upNextBG":"indianapolis_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "39.7691",
-                      "lon": "-86.1580",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Indianapolis", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Cincinnati", "dotTopPos": "766", "dotLeftPos": "1319", "nameTopMargin":"-11", "nameLeftMargin":"-244"},
-                        {"locationName": "Terre Haute", "dotTopPos": "628", "dotLeftPos": "400", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Lafayette", "dotTopPos": "308", "dotLeftPos": "554", "nameTopMargin":"-44", "nameLeftMargin":"43"},
-                        {"locationName": "Shelbyville", "dotTopPos": "611", "dotLeftPos": "911", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Lynn", "dotTopPos": "421", "dotLeftPos": "1186", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Anderson", "dotTopPos": "395", "dotLeftPos": "954", "nameTopMargin":"-11", "nameLeftMargin":"-234"},
-                        {"locationName": "Sharpsville", "dotTopPos": "326", "dotLeftPos": "830", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Edinburgh", "dotTopPos": "655", "dotLeftPos": "855", "nameTopMargin":"23", "nameLeftMargin":"43"},
-                        {"locationName": "Bloomfield", "dotTopPos": "781", "dotLeftPos": "550", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"65", "topPos":"352","leftPos":"628"},
-                        {"type":"interstateSign","text":"70", "topPos":"550","leftPos":"697"},
-                        {"type":"usHwySign","text":"36", "topPos":"426","leftPos":"1013"},
-                        {"type":"interstateSign","text":"74", "topPos":"414","leftPos":"567"},
-                        {"type":"usHwySign","text":"231", "topPos":"527","leftPos":"541"},
-                        {"type":"usHwySign","text":"50", "topPos":"767","leftPos":"954"},
-                        {"type":"usHwySign","text":"27", "topPos":"327","leftPos":"1154"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Los Angeles",
-                    "bulletinName":"Los Angeles Area",
-                    "lat": "34.0549",
-                    "lon": "-118.2426",
-                    "airportName":"Los Angeles Int'l",
-                    "obsIcaoCode":"KLAX",
-                    "upNextBG":"los_angeles_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "34.0549",
-                      "lon": "-118.2426",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Los Angeles", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"14", "nameLeftMargin":"-287"},
-                        {"locationName": "Santa Barbara", "dotTopPos": "405", "dotLeftPos": "337", "nameTopMargin":"30", "nameLeftMargin":"43"},
-                        {"locationName": "Avalon", "dotTopPos": "751", "dotLeftPos": "769", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Oceanside", "dotTopPos": "787", "dotLeftPos": "1068", "nameTopMargin":"14", "nameLeftMargin":"43"},
-                        {"locationName": "San Bernardino", "dotTopPos": "503", "dotLeftPos": "1085", "nameTopMargin":"28", "nameLeftMargin":"-163"},
-                        {"locationName": "Santa Clarita", "dotTopPos": "396", "dotLeftPos": "704", "nameTopMargin":"-43", "nameLeftMargin":"43"},
-                        {"locationName": "Victorville", "dotTopPos": "381", "dotLeftPos": "1086", "nameTopMargin":"14", "nameLeftMargin":"43"},
-                        {"locationName": "Barstow", "dotTopPos": "261", "dotLeftPos": "1186", "nameTopMargin":"-11", "nameLeftMargin":"-201"}
-                      ],
-                      "radarIcons":[
-                        {"type":"usHwySign","text":"66", "topPos":"413","leftPos":"1027"},
-                        {"type":"interstateSign","text":"40", "topPos":"266","leftPos":"1297"},
-                        {"type":"interstateSign","text":"10", "topPos":"571","leftPos":"1337"},
-                        {"type":"interstateSign","text":"15", "topPos":"714","leftPos":"1122"},
-                        {"type":"interstateSign","text":"5", "topPos":"305","leftPos":"610"},
-                        {"type":"usHwySign","text":"101", "topPos":"374","leftPos":"223"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Miami",
-                    "bulletinName":"Miami Area",
-                    "lat": "25.7617",
-                    "lon": "-80.1918",
-                    "airportName":"Miami Int'l",
-                    "obsIcaoCode":"KMIA",
-                    "upNextBG":"miami_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat": "25.7617",
-                      "lon": "-80.1918",
-                      "auto":false,
-                      "zoom":7.6,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Miami", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Naples", "dotTopPos": "430", "dotLeftPos": "357", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fort Myers", "dotTopPos": "305", "dotLeftPos": "332", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Homestead", "dotTopPos": "605", "dotLeftPos": "722", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Coral Springs", "dotTopPos": "398", "dotLeftPos": "775", "nameTopMargin":"-43", "nameLeftMargin":"43"},
-                        {"locationName": "West Palm Beach", "dotTopPos": "283", "dotLeftPos": "820", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fort Lauderdale", "dotTopPos": "434", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Key Largo", "dotTopPos": "697", "dotLeftPos": "725", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Key West", "dotTopPos": "829", "dotLeftPos": "348", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"usHwySign","text":"1", "topPos":"733","leftPos":"628"},
-                        {"type":"usHwySign","text":"41", "topPos":"498","leftPos":"615"},
-                        {"type":"usHwySign","text":"27", "topPos":"343","leftPos":"663"},
-                        {"type":"interstateSign","text":"75", "topPos":"407","leftPos":"595"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Minneapolis",
-                    "bulletinName":"Minneapolis Area",
-                    "lat": "44.9778",
-                    "lon": "-93.2650",
-                    "airportName":"Minneapolis - St. Paul",
-                    "obsIcaoCode":"KMSP",
-                    "upNextBG":"minneapolis_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "44.9778",
-                      "lon": "-93.2650",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Minneapolis", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Burnsville", "dotTopPos": "613", "dotLeftPos": "791", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Goodhue", "dotTopPos": "734", "dotLeftPos": "1000", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Green Isle", "dotTopPos": "636", "dotLeftPos": "558", "nameTopMargin":"-11", "nameLeftMargin":"-243"},
-                        {"locationName": "Hutchinson", "dotTopPos": "560", "dotLeftPos": "445", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Clearwater", "dotTopPos": "362", "dotLeftPos": "545", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Waterville", "dotTopPos": "800", "dotLeftPos": "693", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Regal", "dotTopPos": "363", "dotLeftPos": "292", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Turtle Lake", "dotTopPos": "371", "dotLeftPos": "1156", "nameTopMargin":"14", "nameLeftMargin":"-270"},
-                        {"locationName": "Colfax", "dotTopPos": "528", "dotLeftPos": "1287", "nameTopMargin":"14", "nameLeftMargin":"-156"},
-                        {"locationName": "Cumberland", "dotTopPos": "322", "dotLeftPos": "1188", "nameTopMargin":"-43", "nameLeftMargin":"-289"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"94", "topPos":"418","leftPos":"665"},
-                        {"type":"interstateSign","text":"35", "topPos":"692","leftPos":"767"},
-                        {"type":"usHwySign","text":"14", "topPos":"772","leftPos":"492"},
-                        {"type":"usHwySign","text":"12", "topPos":"466","leftPos":"494"},
-                        {"type":"usHwySign","text":"10", "topPos":"643","leftPos":"1241"},
-                        {"type":"usHwySign","text":"53", "topPos":"398","leftPos":"1295"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Nashville",
-                    "bulletinName":"Nashville Area",
-                    "lat": "36.1627",
-                    "lon": "-86.7816",
-                    "airportName":"Nashville Int'l",
-                    "obsIcaoCode":"KBNA",
-                    "upNextBG":"nashville_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat": "36.1627",
-                      "lon": "-86.7816",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Nashville", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Murfreesboro", "dotTopPos": "627", "dotLeftPos": "918", "nameTopMargin":"-43", "nameLeftMargin":"43"},
-                        {"locationName": "McMinnville", "dotTopPos": "672", "dotLeftPos": "1112", "nameTopMargin":"33", "nameLeftMargin":"-115"},
-                        {"locationName": "Clarksville", "dotTopPos": "405", "dotLeftPos": "614", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Camden", "dotTopPos": "564", "dotLeftPos": "375", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Columbia", "dotTopPos": "704", "dotLeftPos": "710", "nameTopMargin":"33", "nameLeftMargin":"-93"},
-                        {"locationName": "Adamsville", "dotTopPos": "824", "dotLeftPos": "290", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Livingston", "dotTopPos": "454", "dotLeftPos": "1151", "nameTopMargin":"-60", "nameLeftMargin":"-97"},
-                        {"locationName": "Scottsville", "dotTopPos": "331", "dotLeftPos": "973", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"65", "topPos":"600","leftPos":"755"},
-                        {"type":"usHwySign","text":"127", "topPos":"479","leftPos":"1344"},
-                        {"type":"interstateSign","text":"40", "topPos":"548","leftPos":"661"},
-                        {"type":"interstateSign","text":"24", "topPos":"307","leftPos":"513"},
-                        {"type":"usHwySign","text":"70", "topPos":"582","leftPos":"229"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"New Haven",
-                    "bulletinName":"New Haven Area",
-                    "lat": "41.3083",
-                    "lon": "-72.9279",
-                    "airportName":"New Haven Arpt.",
-                    "obsIcaoCode":"KHVN",
-                    "upNextBG":"new_haven_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat": "41.7658",
-                      "lon": "-72.6734",
-                      "auto":false,
-                      "zoom":7.8,
-                      "satCoords":[-79.9972, 40.4387],
-                      "radarCities": [
-                        {"locationName": "Hartford", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "New Haven", "dotTopPos": "691", "dotLeftPos": "714", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Providence", "dotTopPos": "501", "dotLeftPos": "1205", "nameTopMargin":"44", "nameLeftMargin":"-106"},
-                        {"locationName": "Boston", "dotTopPos": "303", "dotLeftPos": "1302", "nameTopMargin":"-11", "nameLeftMargin":"-168"},
-                        {"locationName": "Poughkeepsie", "dotTopPos": "547", "dotLeftPos": "407", "nameTopMargin":"23", "nameLeftMargin":"43"},
-                        {"locationName": "Springfield", "dotTopPos": "408", "dotLeftPos": "814", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Catskill", "dotTopPos": "360", "dotLeftPos": "425", "nameTopMargin":"-44", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"90", "topPos":"356","leftPos":"668"},
-                        {"type":"interstateSign","text":"91", "topPos":"275","leftPos":"785"},
-                        {"type":"interstateSign","text":"495", "topPos":"399","leftPos":"1179"},
-                        {"type":"interstateSign","text":"95", "topPos":"721","leftPos":"579"},
-                        {"type":"usHwySign","text":"44", "topPos":"721","leftPos":"579"},
-                        {"type":"usHwySign","text":"9", "topPos":"424","leftPos":"398"},
-                        {"type":"interstateSign","text":"87", "topPos":"584","leftPos":"329"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"New York",
-                    "bulletinName":"New York Area",
-                    "lat": "40.7128",
-                    "lon": "-74.0060",
-                    "airportName":"New York / LaGuardia",
-                    "obsIcaoCode":"KLGA",
-                    "upNextBG":"new_york_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"40.782222",
-                      "lon":"-73.965278", 
-                      "auto":false, 
-                      "zoom":7.2, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Philadelphia", "dotTopPos": "718", "dotLeftPos": "547", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "New York", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Trenton", "dotTopPos": "644", "dotLeftPos": "622", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Hartford", "dotTopPos": "296", "dotLeftPos": "1070", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Scranton", "dotTopPos": "377", "dotLeftPos": "439", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Allentown", "dotTopPos": "571", "dotLeftPos": "460", "nameTopMargin":"-60", "nameLeftMargin":"-109"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"95", "topPos":"418","leftPos":"938"},
-                        {"type":"interstateSign","text":"80", "topPos":"446","leftPos":"280"},
-                        {"type":"stateHwySign","text":"17", "topPos":"310","leftPos":"633"},
-                        {"type":"usHwySign","text":"206", "topPos":"452","leftPos":"614"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Oklahoma City",
-                    "bulletinName":"Oklahoma City Area",
-                    "lat": "35.4689",
-                    "lon": "-97.5195",
-                    "airportName":"Oklahoma City Int'l",
-                    "obsIcaoCode":"KOKC",
-                    "upNextBG":"oklahoma_city_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"35.4689",
-                      "lon":"-97.5195", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Oklahoma City", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Norman", "dotTopPos": "589", "dotLeftPos": "810", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Tulsa", "dotTopPos": "301", "dotLeftPos": "1278", "nameTopMargin":"-11", "nameLeftMargin":"-128"},
-                        {"locationName": "El Reno", "dotTopPos": "511", "dotLeftPos": "660", "nameTopMargin":"-50", "nameLeftMargin":"-77"},
-                        {"locationName": "Clinton", "dotTopPos": "511", "dotLeftPos": "337", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Seiling", "dotTopPos": "308", "dotLeftPos": "350", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Snyder", "dotTopPos": "783", "dotLeftPos": "335", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Elmore City", "dotTopPos": "797", "dotLeftPos": "835", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Perry", "dotTopPos": "263", "dotLeftPos": "868", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "McAlester", "dotTopPos": "693", "dotLeftPos": "1350", "nameTopMargin":"-11", "nameLeftMargin":"-243"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"35", "topPos":"354","leftPos":"830"},
-                        {"type":"interstateSign","text":"40", "topPos":"515","leftPos":"1279"},
-                        {"type":"interstateSign","text":"44", "topPos":"406","leftPos":"1080"},
-                        {"type":"usHwySign","text":"177", "topPos":"622","leftPos":"1041"},
-                        {"type":"usHwySign","text":"183", "topPos":"399","leftPos":"310"},
-                        {"type":"usHwySign","text":"81", "topPos":"762","leftPos":"634"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Orlando",
-                    "bulletinName":"Orlando Area",
-                    "lat": "28.5384",
-                    "lon": "-81.3789",
-                    "airportName":"Orlando Int'l",
-                    "obsIcaoCode":"KMCO",
-                    "upNextBG":"orlando_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"28.5384",
-                      "lon":"-81.3789", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Orlando", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Tampa", "dotTopPos": "698", "dotLeftPos": "455", "nameTopMargin":"-55", "nameLeftMargin":"-57"},
-                        {"locationName": "St Petersburg", "dotTopPos": "758", "dotLeftPos": "396", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Daytona Beach", "dotTopPos": "322", "dotLeftPos": "910", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Bartow", "dotTopPos": "714", "dotLeftPos": "643", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Ocala", "dotTopPos": "325", "dotLeftPos": "553", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Eustis", "dotTopPos": "440", "dotLeftPos": "641", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Melbourne", "dotTopPos": "661", "dotLeftPos": "1042", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"4", "topPos":"617","leftPos":"641"},
-                        {"type":"usHwySign","text":"19", "topPos":"515","leftPos":"391"},
-                        {"type":"usHwySign","text":"17", "topPos":"285","leftPos":"748"},
-                        {"type":"usHwySign","text":"1", "topPos":"383","leftPos":"934"},
-                        {"type":"interstateSign","text":"95", "topPos":"749","leftPos":"1037"},
-                        {"type":"interstateSign","text":"75", "topPos":"450","leftPos":"535"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Philadelphia",
-                    "bulletinName":"Philadelphia Area",
-                    "lat": "39.9526",
-                    "lon": "-75.1652",
-                    "airportName":"Philadelphia Int'l",
-                    "obsIcaoCode":"KPHL",
-                    "upNextBG":"philadelphia_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"39.9526",
-                      "lon":"-75.1652", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Philadelphia", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Somerville", "dotTopPos": "319", "dotLeftPos": "969", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Trenton", "dotTopPos": "424", "dotLeftPos": "923", "nameTopMargin":"-40", "nameLeftMargin":"43"},
-                        {"locationName": "Atlantic City", "dotTopPos": "715", "dotLeftPos": "1013", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Allentown", "dotTopPos": "286", "dotLeftPos": "709", "nameTopMargin":"-11", "nameLeftMargin":"-252"},
-                        {"locationName": "Harrisburg", "dotTopPos": "423", "dotLeftPos": "243", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Wilmington", "dotTopPos": "604", "dotLeftPos": "669", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Baltimore", "dotTopPos": "748", "dotLeftPos": "333", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"95", "topPos":"619","leftPos":"518"},
-                        {"type":"interstateSign","text":"78", "topPos":"272","leftPos":"842"},
-                        {"type":"interstateSign","text":"81", "topPos":"302","leftPos":"365"},
-                        {"type":"interstateSign","text":"195", "topPos":"442","leftPos":"1015"},
-                        {"type":"usHwySign","text":"9", "topPos":"614","leftPos":"1035"},
-                        {"type":"usHwySign","text":"30", "topPos":"489","leftPos":"507"},
-                        {"type":"interstateSign","text":"76", "topPos":"404","leftPos":"615"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Phoenix",
-                    "bulletinName":"Phoenix Area",
-                    "lat": "33.4483",
-                    "lon": "-112.0725",
-                    "airportName":"Phoenix Int'l",
-                    "obsIcaoCode":"KPHX",
-                    "upNextBG":"phoenix_bg",
-                    "slidesBG":"core_southwest_bg",
-                    "radar": {
-                      "lat":"33.4483",
-                      "lon":"-112.0725", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Phoenix", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Chandler", "dotTopPos": "574", "dotLeftPos": "863", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Scottsdale", "dotTopPos": "465", "dotLeftPos": "855", "nameTopMargin":"-55", "nameLeftMargin":"-103"},
-                        {"locationName": "Glendale", "dotTopPos": "492", "dotLeftPos": "759", "nameTopMargin":"-11", "nameLeftMargin":"-212"},
-                        {"locationName": "Theba", "dotTopPos": "693", "dotLeftPos": "533", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Florence", "dotTopPos": "644", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Roosevelt", "dotTopPos": "457", "dotLeftPos": "1085", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Wickenburg", "dotTopPos": "357", "dotLeftPos": "580", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Cibecue", "dotTopPos": "337", "dotLeftPos": "1296", "nameTopMargin":"-11", "nameLeftMargin":"-187"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"17", "topPos":"266","leftPos":"752"},
-                        {"type":"interstateSign","text":"10", "topPos":"473","leftPos":"411"},
-                        {"type":"interstateSign","text":"8", "topPos":"704","leftPos":"787"},
-                        {"type":"usHwySign","text":"60", "topPos":"374","leftPos":"1303"},
-                        {"type":"usHwySign","text":"70", "topPos":"540","leftPos":"1251"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Pittsburgh",
-                    "bulletinName":"Pittsburgh Area",
-                    "lat": "40.4387",
-                    "lon": "-79.9972",
-                    "airportName":"Pittsburgh Int'l",
-                    "obsIcaoCode":"KPIT",
-                    "upNextBG":"pittsburgh_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"40.4387",
-                      "lon":"-79.9972", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Pittsburgh", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "New Castle", "dotTopPos": "320", "dotLeftPos": "712", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Washington", "dotTopPos": "604", "dotLeftPos": "754", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Clearfield", "dotTopPos": "321", "dotLeftPos": "1306", "nameTopMargin":"-40", "nameLeftMargin":"-237"},
-                        {"locationName": "Dayton", "dotTopPos": "370", "dotLeftPos": "1056", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Akron", "dotTopPos": "305", "dotLeftPos": "315", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Cambridge", "dotTopPos": "660", "dotLeftPos": "291", "nameTopMargin":"11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"79", "topPos":"386","leftPos":"737"},
-                        {"type":"interstateSign","text":"76", "topPos":"669","leftPos":"1149"},
-                        {"type":"interstateSign","text":"70", "topPos":"620","leftPos":"618"},
-                        {"type":"interstateSign","text":"80", "topPos":"261","leftPos":"554"},
-                        {"type":"usHwySign","text":"30", "topPos":"429","leftPos":"569"},
-                        {"type":"interstateSign","text":"77", "topPos":"498","leftPos":"294"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Portland",
-                    "bulletinName":"Portland Area",
-                    "lat": "45.5152",
-                    "lon": "-122.6784",
-                    "airportName":"Portland Int'l",
-                    "obsIcaoCode":"KPDX",
-                    "upNextBG":"portland_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"45.5152",
-                      "lon":"-122.6784", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Portland", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Salem", "dotTopPos": "730", "dotLeftPos": "686", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Saint Helens", "dotTopPos": "385", "dotLeftPos": "753", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Mosier", "dotTopPos": "457", "dotLeftPos": "1188", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Astoria", "dotTopPos": "270", "dotLeftPos": "420", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Tillamook", "dotTopPos": "539", "dotLeftPos": "422", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Goldendale", "dotTopPos": "415", "dotLeftPos": "1386", "nameTopMargin":"-50", "nameLeftMargin":"-191"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"84", "topPos":"439","leftPos":"1074"},
-                        {"type":"interstateSign","text":"5", "topPos":"625","leftPos":"726"},
-                        {"type":"usHwySign","text":"97", "topPos":"584","leftPos":"1382"},
-                        {"type":"usHwySign","text":"101", "topPos":"719","leftPos":"359"},
-                        {"type":"usHwySign","text":"26", "topPos":"591","leftPos":"1067"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Sacramento",
-                    "bulletinName":"Sacramento Area",
-                    "lat": "38.5781",
-                    "lon": "-121.4944",
-                    "airportName":"Sacramento Int'l",
-                    "obsIcaoCode":"KSMF",
-                    "upNextBG":"sacramento_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"38.1765",
-                      "lon":"-121.4944", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "San Francisco", "dotTopPos": "657", "dotLeftPos": "498", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Sacramento", "dotTopPos": "384", "dotLeftPos": "792", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Petaluma", "dotTopPos": "504", "dotLeftPos": "432", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "San Jose", "dotTopPos": "805", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Livingston", "dotTopPos": "784", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Lodi", "dotTopPos": "533", "dotLeftPos": "869", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Santa Rosa", "dotTopPos": "438", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Auburn", "dotTopPos": "278", "dotLeftPos": "926", "nameTopMargin":"-11", "nameLeftMargin":"-178"},
-                        {"locationName": "South Lake Tahoe", "dotTopPos": "275", "dotLeftPos": "1274", "nameTopMargin":"30", "nameLeftMargin":"-231"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"80", "topPos":"313","leftPos":"844"},
-                        {"type":"interstateSign","text":"5", "topPos":"733","leftPos":"862"},
-                        {"type":"usHwySign","text":"101", "topPos":"314","leftPos":"311"},
-                        {"type":"usHwySign","text":"395", "topPos":"396","leftPos":"1409"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"San Diego",
-                    "bulletinName":"San Diego Area",
-                    "lat": "32.7157",
-                    "lon": "-117.1611",
-                    "airportName":"San Diego Int'l",
-                    "obsIcaoCode":"KSAN",
-                    "upNextBG":"san_diego_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat":"33.4157",
-                      "lon":"-117.1611", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "San Diego", "dotTopPos": "768", "dotLeftPos": "818", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Los Angeles", "dotTopPos": "326", "dotLeftPos": "455", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Hemet", "dotTopPos": "415", "dotLeftPos": "849", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Vista", "dotTopPos": "603", "dotLeftPos": "775", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Brawley", "dotTopPos": "648", "dotLeftPos": "1299", "nameTopMargin":"-11", "nameLeftMargin":"-193"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"10", "topPos":"424","leftPos":"1173"},
-                        {"type":"interstateSign","text":"8", "topPos":"702","leftPos":"1308"},
-                        {"type":"interstateSign","text":"15", "topPos":"502","leftPos":"777"},
-                        {"type":"interstateSign","text":"5", "topPos":"533","leftPos":"669"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"San Francisco",
-                    "bulletinName":"San Francisco Area",
-                    "lat": "37.7749",
-                    "lon": "-122.4194",
-                    "airportName":"San Francisco Int'l",
-                    "obsIcaoCode":"KSFO",
-                    "upNextBG":"san_francisco_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"38.1765",
-                      "lon":"-121.4944", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "San Francisco", "dotTopPos": "657", "dotLeftPos": "498", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Sacramento", "dotTopPos": "384", "dotLeftPos": "792", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Petaluma", "dotTopPos": "504", "dotLeftPos": "432", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "San Jose", "dotTopPos": "805", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Livingston", "dotTopPos": "784", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Lodi", "dotTopPos": "533", "dotLeftPos": "869", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Santa Rosa", "dotTopPos": "438", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Auburn", "dotTopPos": "278", "dotLeftPos": "926", "nameTopMargin":"-11", "nameLeftMargin":"-178"},
-                        {"locationName": "South Lake Tahoe", "dotTopPos": "275", "dotLeftPos": "1274", "nameTopMargin":"30", "nameLeftMargin":"-231"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"80", "topPos":"313","leftPos":"844"},
-                        {"type":"interstateSign","text":"5", "topPos":"733","leftPos":"862"},
-                        {"type":"usHwySign","text":"101", "topPos":"314","leftPos":"311"},
-                        {"type":"usHwySign","text":"395", "topPos":"396","leftPos":"1409"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Seattle",
-                    "bulletinName":"Seattle Area",
-                    "lat": "47.6061",
-                    "lon": "-122.3328",
-                    "airportName":"Seattle Int'l",
-                    "obsIcaoCode":"KSEA",
-                    "upNextBG":"seattle_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"47.6061",
-                      "lon":"-122.3328", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Seattle", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Aberdeen", "dotTopPos": "770", "dotLeftPos": "327", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Olympia", "dotTopPos": "748", "dotLeftPos": "611", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Tacoma", "dotTopPos": "669", "dotLeftPos": "752", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Leavenworth", "dotTopPos": "529", "dotLeftPos": "1327", "nameTopMargin":"25", "nameLeftMargin":"-205"},
-                        {"locationName": "Roslyn", "dotTopPos": "670", "dotLeftPos": "1214", "nameTopMargin":"11", "nameLeftMargin":"-159"},
-                        {"locationName": "Darrington", "dotTopPos": "277", "dotLeftPos": "1021", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Port Angeles", "dotTopPos": "328", "dotLeftPos": "450", "nameTopMargin":"-11", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"5", "topPos":"395","leftPos":"812"},
-                        {"type":"interstateSign","text":"90", "topPos":"583","leftPos":"1009"},
-                        {"type":"usHwySign","text":"101", "topPos":"628","leftPos":"272"},
-                        {"type":"usHwySign","text":"2", "topPos":"460","leftPos":"1112"},
-                        {"type":"usHwySign","text":"97", "topPos":"651","leftPos":"1296"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"St. Louis",
-                    "bulletinName":"St. Louis Area",
-                    "lat": "38.6274",
-                    "lon": "-90.1982",
-                    "airportName":"St. Louis Int'l",
-                    "obsIcaoCode":"KSTL",
-                    "upNextBG":"stlouis_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"38.6274",
-                      "lon":"-90.1982", 
-                      "auto":false, 
-                      "zoom":7.8, 
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "St. Louis", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Vandalia", "dotTopPos": "296", "dotLeftPos": "383", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Festus", "dotTopPos": "658", "dotLeftPos": "731", "nameTopMargin":"-11", "nameLeftMargin":"-154"},
-                        {"locationName": "Linn", "dotTopPos": "559", "dotLeftPos": "280", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Steelville", "dotTopPos": "737", "dotLeftPos": "426", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        
-                        {"locationName": "Fults", "dotTopPos": "681", "dotLeftPos": "794", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Ashley", "dotTopPos": "626", "dotLeftPos": "1117", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Percy", "dotTopPos": "728", "dotLeftPos": "967", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Ramsey", "dotTopPos": "345", "dotLeftPos": "1141", "nameTopMargin":"-11", "nameLeftMargin":"-183"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"55", "topPos":"755","leftPos":"812"},
-                        {"type":"interstateSign","text":"70", "topPos":"428","leftPos":"423"},
-                        {"type":"interstateSign","text":"64", "topPos":"583","leftPos":"1017"},
-                        {"type":"interstateSign","text":"44", "topPos":"649","leftPos":"466"},
-                        {"type":"usHwySign","text":"51", "topPos":"460","leftPos":"1125"},
-                        {"type":"usHwySign","text":"61", "topPos":"362","leftPos":"524"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Tampa",
-                    "bulletinName":"Tampa Area",
-                    "lat": "27.9517",
-                    "lon": "-82.4588",
-                    "airportName":"Tampa Int'l",
-                    "obsIcaoCode":"KTPA",
-                    "upNextBG":"tampa_bg",
-                    "slidesBG":"core_ocean_bg",
-                    "radar": {
-                      "lat":"27.9517",
-                      "lon":"-82.4588", 
-                      "auto":false, 
-                      "zoom":7.6,
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Tampa", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Orlando", "dotTopPos": "371", "dotLeftPos": "1086", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "St Petersburg", "dotTopPos": "574", "dotLeftPos": "737", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Venice", "dotTopPos": "741", "dotLeftPos": "798", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Leesburg", "dotTopPos": "302", "dotLeftPos": "960", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Melbourne", "dotTopPos": "490", "dotLeftPos": "1308", "nameTopMargin":"-30", "nameLeftMargin":"-263"},
-                        {"locationName": "Fort Pierce", "dotTopPos": "659", "dotLeftPos": "1382", "nameTopMargin":"-11", "nameLeftMargin":"-255"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"75", "topPos":"417","leftPos":"806"},
-                        {"type":"interstateSign","text":"4", "topPos":"452","leftPos":"948"},
-                        {"type":"usHwySign","text":"19", "topPos":"347","leftPos":"742"},
-                        {"type":"usHwySign","text":"17", "topPos":"638","leftPos":"962"},
-                        {"type":"interstateSign","text":"95", "topPos":"552","leftPos":"1295"},
-                        {"type":"usHwySign","text":"1", "topPos":"722","leftPos":"1404"},
-                        {"type":"usHwySign","text":"27", "topPos":"728","leftPos":"1086"}
-                      ]
-                    }
-                },
-                {
-                    "locationName":"Washington DC",
-                    "bulletinName":"Washington DC Area",
-                    "lat": "38.9072",
-                    "lon": "-77.0369",
-                    "airportName":"Washington DC",
-                    "obsIcaoCode":"KIAD",
-                    "upNextBG":"washington_dc_bg",
-                    "slidesBG":"core_bg",
-                    "radar": {
-                      "lat":"38.9072",
-                      "lon":"-77.0369", 
-                      "auto":false, 
-                      "zoom":7.6,
-                      "satCoords":[-79.9972, 40.4387], 
-                      "radarCities": [
-                        {"locationName": "Washington", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Annapolis", "dotTopPos": "504", "dotLeftPos": "949", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Baltimore", "dotTopPos": "411", "dotLeftPos": "906", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Wilmington", "dotTopPos": "287", "dotLeftPos": "1196", "nameTopMargin":"-11", "nameLeftMargin":"-280"},
-                        {"locationName": "Hagerstown", "dotTopPos": "312", "dotLeftPos": "601", "nameTopMargin":"11", "nameLeftMargin":"43"},
-                        {"locationName": "Winchester", "dotTopPos": "441", "dotLeftPos": "485", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Fredericksburg", "dotTopPos": "701", "dotLeftPos": "676", "nameTopMargin":"-11", "nameLeftMargin":"43"},
-                        {"locationName": "Harrisonburg", "dotTopPos": "660", "dotLeftPos": "289", "nameTopMargin":"-30", "nameLeftMargin":"43"}
-                      ],
-                      "radarIcons":[
-                        {"type":"interstateSign","text":"95", "topPos":"331","leftPos":"994"},
-                        {"type":"interstateSign","text":"64", "topPos":"772","leftPos":"401"},
-                        {"type":"interstateSign","text":"66", "topPos":"516","leftPos":"528"},
-                        {"type":"interstateSign","text":"81", "topPos":"509","leftPos":"374"},
-                        {"type":"usHwySign","text":"13", "topPos":"561","leftPos":"1173"}
-                      ]
-                    }
+              {
+                "packageName":"Atlanta Forecast",
+                "upNextName":"Up Next...Atlanta",
+                "locationName":"Atlanta",
+                "bulletinName":"Atlanta Metro",
+                "lat": "33.751",
+                "lon": "-84.39",
+                "obsName":"Atlanta Int`l Arpt.",
+                "icaoCode":"KATL",
+                "upNextBG":"atlanta_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"33.751",
+                  "lon":"-84.39",
+                  "auto":false,
+                  "zoom":8.65,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Peachtree City", "dotTopPos": "720", "dotLeftPos": "689", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
+                    {"locationName": "Newnan", "dotTopPos": "741", "dotLeftPos": "573", "nameTopMargin":"-11", "nameLeftMargin":"-211", "locId": ""},
+                    {"locationName": "Conyers", "dotTopPos": "592", "dotLeftPos": "1010", "nameTopMargin":"22", "nameLeftMargin":"43", "locId": ""},
+                    {"locationName": "Lawrenceville", "dotTopPos": "410", "dotLeftPos": "995", "nameTopMargin":"26", "nameLeftMargin":"-123", "locId": ""},
+                    {"locationName": "Carrollton", "dotTopPos": "612", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
+                    {"locationName": "Marietta", "dotTopPos": "437", "dotLeftPos": "727", "nameTopMargin":"-11", "nameLeftMargin":"-211", "locId": ""},
+                    {"locationName": "Atlanta", "dotTopPos": "550", "dotLeftPos": "800", "nameTopMargin":"-11", "nameLeftMargin":"43", "locId": ""},
+                    {"locationName": "Roswell", "dotTopPos": "364", "dotLeftPos": "832", "nameTopMargin":"-44", "nameLeftMargin":"43", "locId": ""}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"575", "topPos":"294","leftPos":"701"},
+                    {"type":"stateHwySign","text":"400", "topPos":"256","leftPos":"920"},
+                    {"type":"stateHwySign","text":"316", "topPos":"371","leftPos":"1148"},
+                    {"type":"interstateSign","text":"20", "topPos":"524","leftPos":"440"},
+                    {"type":"interstateSign","text":"85", "topPos":"656","leftPos":"621"},
+                    {"type":"airplane","text":"", "topPos":"574","leftPos":"760"}
+                  ]
                 }
-]
+              },
+              {
+                "packageName":"Baltimore Forecast",
+                "upNextName":"Up Next...Baltimore",
+                "locationName":"Baltimore",
+                "bulletinName":"Baltimore Area",
+                "lat": "39.2905",
+                "lon": "-76.6104",
+                "obsName":"Baltimore",
+                "icaoCode":"KBWI",
+                "upNextBG":"baltimore_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "39.2905",
+                  "lon": "-76.6104",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Baltimore", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Washington", "dotTopPos": "658", "dotLeftPos": "659", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Millsboro", "dotTopPos": "730", "dotLeftPos": "1178", "nameTopMargin":"-11", "nameLeftMargin":"-234"},
+                    {"locationName": "Philadelphia", "dotTopPos": "299", "dotLeftPos": "1262", "nameTopMargin":"-11", "nameLeftMargin":"-303"},
+                    {"locationName": "Wilmington", "dotTopPos": "372", "dotLeftPos": "1127", "nameTopMargin":"-11", "nameLeftMargin":"-303"},
+                    {"locationName": "Winchester", "dotTopPos": "560", "dotLeftPos": "300", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Dover", "dotTopPos": "567", "dotLeftPos": "1140", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"95", "topPos":"422","leftPos":"908"},
+                    {"type":"usHwySign","text":"13", "topPos":"631","leftPos":"1098"},
+                    {"type":"interstateSign","text":"70", "topPos":"494","leftPos":"637"},
+                    {"type":"usHwySign","text":"15", "topPos":"381","leftPos":"539"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Boston Forecast",
+                "upNextName":"Up Next...Boston",
+                "locationName":"Boston",
+                "bulletinName":"Boston Area",
+                "lat": "42.3555",
+                "lon": "-71.0565",
+                "obsName":"Boston",
+                "icaoCode":"KBOS",
+                "upNextBG":"boston_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat": "42.3555",
+                  "lon": "-71.0565",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Boston", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Hartford", "dotTopPos": "729", "dotLeftPos": "284", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Springfield", "dotTopPos": "609", "dotLeftPos": "307", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Providence", "dotTopPos": "708", "dotLeftPos": "690", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Manchester", "dotTopPos": "291", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"91", "topPos":"335","leftPos":"296"},
+                    {"type":"interstateSign","text":"495", "topPos":"592","leftPos":"648"},
+                    {"type":"interstateSign","text":"95", "topPos":"397","leftPos":"802"},
+                    {"type":"usHwySign","text":"202", "topPos":"481","leftPos":"354"},
+                    {"type":"usHwySign","text":"6", "topPos":"753","leftPos":"853"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Charlotte Forecast",
+                "upNextName":"Up Next...Charlotte",
+                "locationName":"Charlotte",
+                "bulletinName":"Charlotte Area",
+                "lat": "35.2271",
+                "lon": "-80.8409",
+                "obsName":"Charlotte Douglas Arpt.",
+                "icaoCode":"KCLT",
+                "upNextBG":"charlotte_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "35.2271",
+                  "lon": "-80.8409",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Charlotte", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Asheville", "dotTopPos": "402", "dotLeftPos": "255", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Greensboro", "dotTopPos": "254", "dotLeftPos": "1122", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fayetteville", "dotTopPos": "578", "dotLeftPos": "1408", "nameTopMargin":"-11", "nameLeftMargin":"-290"},
+                    {"locationName": "Greenville", "dotTopPos": "639", "dotLeftPos": "306", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Kershaw", "dotTopPos": "745", "dotLeftPos": "868", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Monroe", "dotTopPos": "601", "dotLeftPos": "899", "nameTopMargin":"-11", "nameLeftMargin":"-191"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"85", "topPos":"540","leftPos":"532"},
+                     {"type":"interstateSign","text":"77", "topPos":"700","leftPos":"717"},
+                    {"type":"interstateSign","text":"95", "topPos":"700","leftPos":"1355"},
+                    {"type":"usHwySign","text":"220", "topPos":"438","leftPos":"1110"},
+                    {"type":"interstateSign","text":"40", "topPos":"340","leftPos":"701"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Chicago Forecast",
+                "upNextName":"Up Next...Chicago",
+                "locationName":"Chicago",
+                "bulletinName":"Chicago Area",
+                "lat": "41.8832",
+                "lon": "-87.6324",
+                "obsName":"O'Hare Arpt.",
+                "icaoCode":"KORD",
+                "upNextBG":"chicago_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "41.8832",
+                  "lon": "-87.6324",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Chicago", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Gary", "dotTopPos": "631", "dotLeftPos": "888", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "DeKalb", "dotTopPos": "505", "dotLeftPos": "437", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Rockford", "dotTopPos": "391", "dotLeftPos": "354", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Waukegan", "dotTopPos": "357", "dotLeftPos": "729", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Joliet", "dotTopPos": "657", "dotLeftPos": "649", "nameTopMargin":"23", "nameLeftMargin":"43"},
+                    {"locationName": "Hebron", "dotTopPos": "717", "dotLeftPos": "934", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Benton Harbor", "dotTopPos": "446", "dotLeftPos": "1170", "nameTopMargin":"-59", "nameLeftMargin":"-154"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"39", "topPos":"600","leftPos":"327"},
+                    {"type":"interstateSign","text":"88", "topPos":"539","leftPos":"572"},
+                    {"type":"interstateSign","text":"94", "topPos":"549","leftPos":"1054"},
+                    {"type":"interstateSign","text":"196", "topPos":"275","leftPos":"1223"},
+                    {"type":"interstateSign","text":"196", "topPos":"275","leftPos":"1223"},
+                    {"type":"usHwySign","text":"12", "topPos":"536","leftPos":"1256"},
+                    {"type":"interstateSign","text":"66", "topPos":"799","leftPos":"888"},
+                    {"type":"usHwySign","text":"41", "topPos":"701","leftPos":"830"},
+                    {"type":"usHwySign","text":"12", "topPos":"322","leftPos":"595"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Cleveland Forecast",
+                "upNextName":"Up Next...Cleveland",
+                "locationName":"Cleveland",
+                "bulletinName":"Cleveland Area",
+                "lat": "41.4993",
+                "lon": "-81.6944",
+                "obsName":"Cleveland Int'l",
+                "icaoCode":"KCLE",
+                "upNextBG":"cleveland_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "41.4993",
+                  "lon": "-81.6944",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Cleveland", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Akron", "dotTopPos": "674", "dotLeftPos": "848", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Toledo", "dotTopPos": "467", "dotLeftPos": "213", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Marblehead", "dotTopPos": "516", "dotLeftPos": "473", "nameTopMargin":"-43", "nameLeftMargin":"26"},
+                    {"locationName": "Aurora", "dotTopPos": "592", "dotLeftPos": "908", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Bucyrus", "dotTopPos": "773", "dotLeftPos": "387", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Youngstown", "dotTopPos": "665", "dotLeftPos": "1130", "nameTopMargin":"28", "nameLeftMargin":"12"},
+                    {"locationName": "Andover", "dotTopPos": "485", "dotLeftPos": "1150", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Greenwich", "dotTopPos": "687", "dotLeftPos": "524", "nameTopMargin":"22", "nameLeftMargin":"43"},
+                    {"locationName": "Erie", "dotTopPos": "301", "dotLeftPos": "1332", "nameTopMargin":"-11", "nameLeftMargin":"-99"}
+                  ],
+                  "radarIcons":[
+                    {"type":"usHwySign","text":"224", "topPos":"655","leftPos":"349"},
+                    {"type":"usHwySign","text":"23", "topPos":"609","leftPos":"230"},
+                    {"type":"interstateSign","text":"77", "topPos":"766","leftPos":"859"},
+                    {"type":"interstateSign","text":"90", "topPos":"426","leftPos":"967"},
+                    {"type":"usHwySign","text":"20", "topPos":"352","leftPos":"1134"},
+                    {"type":"interstateSign","text":"71", "topPos":"647","leftPos":"736"},
+                    {"type":"interstateSign","text":"80", "topPos":"617","leftPos":"1279"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Dallas",
+                "upNextName":"Up Next...Dallas",
+                "locationName":"Dallas",
+                "bulletinName":"Dallas Area",
+                "lat": "32.7767",
+                "lon": "-96.7970",
+                "obsName":"Dallas Love Field",
+                "icaoCode":"KDAL",
+                "upNextBG":"dallas_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "32.7767",
+                  "lon": "-97.0639",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Dallas", "dotTopPos": "522", "dotLeftPos": "873", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fort Worth", "dotTopPos": "545", "dotLeftPos": "713", "nameTopMargin":"-11", "nameLeftMargin":"-262"},
+                    {"locationName": "Denton", "dotTopPos": "388", "dotLeftPos": "768", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Sulphur", "dotTopPos": "414", "dotLeftPos": "1261", "nameTopMargin":"31", "nameLeftMargin":"-65"},
+                    {"locationName": "Corsicana", "dotTopPos": "729", "dotLeftPos": "988", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Cleburne", "dotTopPos": "654", "dotLeftPos": "702", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Stephenville", "dotTopPos": "704", "dotLeftPos": "441", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Gainesville", "dotTopPos": "258", "dotLeftPos": "770", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Paris", "dotTopPos": "248", "dotLeftPos": "1276", "nameTopMargin":"26", "nameLeftMargin":"-36"},
+                    {"locationName": "Tyler", "dotTopPos": "656", "dotLeftPos": "1351", "nameTopMargin":"-11", "nameLeftMargin":"-126"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"20", "topPos":"589","leftPos":"349"},
+                    {"type":"usHwySign","text":"380", "topPos":"367","leftPos":"560"},
+                    {"type":"interstateSign","text":"35", "topPos":"768","leftPos":"765"},
+                    {"type":"interstateSign","text":"45", "topPos":"574","leftPos":"888"},
+                    {"type":"interstateSign","text":"30", "topPos":"428","leftPos":"1046"},
+                    {"type":"usHwySign","text":"69", "topPos":"495","leftPos":"1232"},
+                    {"type":"usHwySign","text":"175", "topPos":"608","leftPos":"1048"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Denver Forecast",
+                "upNextName":"Up Next...Denver",
+                "locationName":"Denver",
+                "bulletinName":"Denver Area",
+                "lat": "39.7392",
+                "lon": "-104.9903",
+                "obsName":"Denver Int'l",
+                "icaoCode":"KDEN",
+                "upNextBG":"denver_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "39.7392",
+                  "lon": "-104.9903",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Denver", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Deer Trail", "dotTopPos": "562", "dotLeftPos": "1088", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Centennial", "dotTopPos": "571", "dotLeftPos": "800", "nameTopMargin":"24", "nameLeftMargin":"-95"},
+                    {"locationName": "Castle Rock", "dotTopPos": "659", "dotLeftPos": "836", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fairplay", "dotTopPos": "700", "dotLeftPos": "481", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Minturn", "dotTopPos": "580", "dotLeftPos": "346", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Estes Park", "dotTopPos": "304", "dotLeftPos": "626", "nameTopMargin":"-11", "nameLeftMargin":"-242"},
+                    {"locationName": "Loveland", "dotTopPos": "302", "dotLeftPos": "764", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fort Morgan", "dotTopPos": "347", "dotLeftPos": "1166", "nameTopMargin":"34", "nameLeftMargin":"-127"},
+                    {"locationName": "Colorado Springs", "dotTopPos": "837", "dotLeftPos": "860", "nameTopMargin":"-39", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"usHwySign","text":"24", "topPos":"700","leftPos":"355"},
+                    {"type":"usHwySign","text":"285", "topPos":"608","leftPos":"599"},
+                    {"type":"interstateSign","text":"70", "topPos":"517","leftPos":"651"},
+                    {"type":"usHwySign","text":"34", "topPos":"365","leftPos":"1343"},
+                    {"type":"interstateSign","text":"76", "topPos":"371","leftPos":"918"},
+                    {"type":"interstateSign","text":"25", "topPos":"404","leftPos":"777"},
+                    {"type":"usHwySign","text":"40", "topPos":"464","leftPos":"522"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Detroit Forecast",
+                "upNextName":"Up Next...Detroit",
+                "locationName":"Detroit",
+                "bulletinName":"Detroit Area",
+                "lat": "42.3297",
+                "lon": "-83.0425",
+                "obsName":"Detroit Metro Arpt.",
+                "icaoCode":"KDTW",
+                "upNextBG":"detroit_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat": "42.3297",
+                  "lon": "-83.0425",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Detroit", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Port Huron", "dotTopPos": "303", "dotLeftPos": "976", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Flint", "dotTopPos": "284", "dotLeftPos": "594", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Ann Arbor", "dotTopPos": "538", "dotLeftPos": "572", "nameTopMargin":"33", "nameLeftMargin":"-100"},
+                    {"locationName": "Jackson", "dotTopPos": "553", "dotLeftPos": "362", "nameTopMargin":"-60", "nameLeftMargin":"-71"},
+                    {"locationName": "Roseville", "dotTopPos": "469", "dotLeftPos": "836", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Toledo", "dotTopPos": "771", "dotLeftPos": "636", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Lansing", "dotTopPos": "379", "dotLeftPos": "307", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"96", "topPos":"443","leftPos":"607"},
+                    {"type":"interstateSign","text":"69", "topPos":"272","leftPos":"831"},
+                    {"type":"usHwySign","text":"23", "topPos":"647","leftPos":"575"},
+                    {"type":"interstateSign","text":"94", "topPos":"339","leftPos":"900"},
+                    {"type":"interstateSign","text":"75", "topPos":"653","leftPos":"672"},
+                    {"type":"usHwySign","text":"127", "topPos":"661","leftPos":"357"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Fort Worth Forecast",
+                "upNextName":"Up Next...Fort Worth",
+                "locationName":"Fort Worth",
+                "bulletinName":"Fort Worth Area",
+                "lat": "32.7555",
+                "lon": "-97.3308",
+                "obsName":"Dallas/Ft. Worth Arpt.",
+                "icaoCode":"KDFW",
+                "upNextBG":"ftworth_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "32.7767",
+                  "lon": "-97.0639",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Dallas", "dotTopPos": "522", "dotLeftPos": "873", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fort Worth", "dotTopPos": "545", "dotLeftPos": "713", "nameTopMargin":"-11", "nameLeftMargin":"-262"},
+                    {"locationName": "Denton", "dotTopPos": "388", "dotLeftPos": "768", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Sulphur", "dotTopPos": "414", "dotLeftPos": "1261", "nameTopMargin":"31", "nameLeftMargin":"-65"},
+                    {"locationName": "Corsicana", "dotTopPos": "729", "dotLeftPos": "988", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Cleburne", "dotTopPos": "654", "dotLeftPos": "702", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Stephenville", "dotTopPos": "704", "dotLeftPos": "441", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Gainesville", "dotTopPos": "258", "dotLeftPos": "770", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Paris", "dotTopPos": "248", "dotLeftPos": "1276", "nameTopMargin":"26", "nameLeftMargin":"-36"},
+                    {"locationName": "Tyler", "dotTopPos": "656", "dotLeftPos": "1351", "nameTopMargin":"-11", "nameLeftMargin":"-126"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"20", "topPos":"589","leftPos":"349"},
+                    {"type":"usHwySign","text":"380", "topPos":"367","leftPos":"560"},
+                    {"type":"interstateSign","text":"35", "topPos":"768","leftPos":"765"},
+                    {"type":"interstateSign","text":"45", "topPos":"574","leftPos":"888"},
+                    {"type":"interstateSign","text":"30", "topPos":"428","leftPos":"1046"},
+                    {"type":"usHwySign","text":"69", "topPos":"495","leftPos":"1232"},
+                    {"type":"usHwySign","text":"175", "topPos":"608","leftPos":"1048"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Hartford Forecast",
+                "upNextName":"Up Next...Hartford",
+                "locationName":"Hartford",
+                "bulletinName":"Hartford Area",
+                "lat": "41.7658",
+                "lon": "-72.6734",
+                "obsName":"Hartford Arpt.",
+                "icaoCode":"KHFD",
+                "upNextBG":"hartford_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "41.7658",
+                  "lon": "-72.6734",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Hartford", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "New Haven", "dotTopPos": "691", "dotLeftPos": "714", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Providence", "dotTopPos": "501", "dotLeftPos": "1205", "nameTopMargin":"44", "nameLeftMargin":"-106"},
+                    {"locationName": "Boston", "dotTopPos": "303", "dotLeftPos": "1302", "nameTopMargin":"-11", "nameLeftMargin":"-168"},
+                    {"locationName": "Poughkeepsie", "dotTopPos": "547", "dotLeftPos": "407", "nameTopMargin":"23", "nameLeftMargin":"43"},
+                    {"locationName": "Springfield", "dotTopPos": "408", "dotLeftPos": "814", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Catskill", "dotTopPos": "360", "dotLeftPos": "425", "nameTopMargin":"-44", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"90", "topPos":"356","leftPos":"668"},
+                    {"type":"interstateSign","text":"91", "topPos":"275","leftPos":"785"},
+                    {"type":"interstateSign","text":"495", "topPos":"399","leftPos":"1179"},
+                    {"type":"interstateSign","text":"95", "topPos":"721","leftPos":"579"},
+                    {"type":"usHwySign","text":"44", "topPos":"721","leftPos":"579"},
+                    {"type":"usHwySign","text":"9", "topPos":"424","leftPos":"398"},
+                    {"type":"interstateSign","text":"87", "topPos":"584","leftPos":"329"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Houston Forecast",
+                "upNextName":"Up Next...Houston",
+                "locationName":"Houston",
+                "bulletinName":"Houston Area",
+                "lat": "29.7601",
+                "lon": "-95.3701",
+                "obsName":"Houston",
+                "icaoCode":"KIAH",
+                "upNextBG":"houston_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "29.7601",
+                  "lon": "-95.3701",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Houston", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "College Station", "dotTopPos": "266", "dotLeftPos": "500", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Galveston", "dotTopPos": "663", "dotLeftPos": "978", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Beaumont", "dotTopPos": "426", "dotLeftPos": "1190", "nameTopMargin":"-59", "nameLeftMargin":"-96"},
+                    {"locationName": "Port Arthur", "dotTopPos": "485", "dotLeftPos": "1244", "nameTopMargin":"37", "nameLeftMargin":"-113"},
+                    {"locationName": "Brenham", "dotTopPos": "405", "dotLeftPos": "468", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Conroe", "dotTopPos": "370", "dotLeftPos": "767", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Richmond", "dotTopPos": "593", "dotLeftPos": "677", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "El Campo", "dotTopPos": "698", "dotLeftPos": "506", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Bay City", "dotTopPos": "760", "dotLeftPos": "591", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"10", "topPos":"502","leftPos":"551"},
+                    {"type":"interstateSign","text":"45", "topPos":"415","leftPos":"754"},
+                    {"type":"usHwySign","text":"90", "topPos":"427","leftPos":"1007"},
+                    {"type":"usHwySign","text":"69", "topPos":"288","leftPos":"1081"},
+                    {"type":"usHwySign","text":"290", "topPos":"384","leftPos":"352"},
+                    {"type":"usHwySign","text":"59", "topPos":"733","leftPos":"389"},
+                    {"type":"usHwySign","text":"77", "topPos":"562","leftPos":"281"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Indianapolis Forecast",
+                "upNextName":"Up Next...Indianapolis",
+                "locationName":"Indianapolis",
+                "bulletinName":"Indianapolis Area",
+                "lat": "39.7691",
+                "lon": "-86.1580",
+                "obsName":"Indianapolis Int'l",
+                "icaoCode":"KIND",
+                "upNextBG":"indianapolis_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "39.7691",
+                  "lon": "-86.1580",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Indianapolis", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Cincinnati", "dotTopPos": "766", "dotLeftPos": "1319", "nameTopMargin":"-11", "nameLeftMargin":"-244"},
+                    {"locationName": "Terre Haute", "dotTopPos": "628", "dotLeftPos": "400", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Lafayette", "dotTopPos": "308", "dotLeftPos": "554", "nameTopMargin":"-44", "nameLeftMargin":"43"},
+                    {"locationName": "Shelbyville", "dotTopPos": "611", "dotLeftPos": "911", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Lynn", "dotTopPos": "421", "dotLeftPos": "1186", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Anderson", "dotTopPos": "395", "dotLeftPos": "954", "nameTopMargin":"-11", "nameLeftMargin":"-234"},
+                    {"locationName": "Sharpsville", "dotTopPos": "326", "dotLeftPos": "830", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Edinburgh", "dotTopPos": "655", "dotLeftPos": "855", "nameTopMargin":"23", "nameLeftMargin":"43"},
+                    {"locationName": "Bloomfield", "dotTopPos": "781", "dotLeftPos": "550", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"65", "topPos":"352","leftPos":"628"},
+                    {"type":"interstateSign","text":"70", "topPos":"550","leftPos":"697"},
+                    {"type":"usHwySign","text":"36", "topPos":"426","leftPos":"1013"},
+                    {"type":"interstateSign","text":"74", "topPos":"414","leftPos":"567"},
+                    {"type":"usHwySign","text":"231", "topPos":"527","leftPos":"541"},
+                    {"type":"usHwySign","text":"50", "topPos":"767","leftPos":"954"},
+                    {"type":"usHwySign","text":"27", "topPos":"327","leftPos":"1154"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Los Angeles Forecast",
+                "upNextName":"Up Next...Los Angeles",
+                "locationName":"Los Angeles",
+                "bulletinName":"Los Angeles Area",
+                "lat": "34.0549",
+                "lon": "-118.2426",
+                "obsName":"Los Angeles Int'l",
+                "icaoCode":"KLAX",
+                "upNextBG":"los_angeles_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "34.0549",
+                  "lon": "-118.2426",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Los Angeles", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"14", "nameLeftMargin":"-287"},
+                    {"locationName": "Santa Barbara", "dotTopPos": "405", "dotLeftPos": "337", "nameTopMargin":"30", "nameLeftMargin":"43"},
+                    {"locationName": "Avalon", "dotTopPos": "751", "dotLeftPos": "769", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Oceanside", "dotTopPos": "787", "dotLeftPos": "1068", "nameTopMargin":"14", "nameLeftMargin":"43"},
+                    {"locationName": "San Bernardino", "dotTopPos": "503", "dotLeftPos": "1085", "nameTopMargin":"28", "nameLeftMargin":"-163"},
+                    {"locationName": "Santa Clarita", "dotTopPos": "396", "dotLeftPos": "704", "nameTopMargin":"-43", "nameLeftMargin":"43"},
+                    {"locationName": "Victorville", "dotTopPos": "381", "dotLeftPos": "1086", "nameTopMargin":"14", "nameLeftMargin":"43"},
+                    {"locationName": "Barstow", "dotTopPos": "261", "dotLeftPos": "1186", "nameTopMargin":"-11", "nameLeftMargin":"-201"}
+                  ],
+                  "radarIcons":[
+                    {"type":"usHwySign","text":"66", "topPos":"413","leftPos":"1027"},
+                    {"type":"interstateSign","text":"40", "topPos":"266","leftPos":"1297"},
+                    {"type":"interstateSign","text":"10", "topPos":"571","leftPos":"1337"},
+                    {"type":"interstateSign","text":"15", "topPos":"714","leftPos":"1122"},
+                    {"type":"interstateSign","text":"5", "topPos":"305","leftPos":"610"},
+                    {"type":"usHwySign","text":"101", "topPos":"374","leftPos":"223"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Miami Forecast",
+                "upNextName":"Up Next...Miami",
+                "locationName":"Miami",
+                "bulletinName":"Miami Area",
+                "lat": "25.7617",
+                "lon": "-80.1918",
+                "obsName":"Miami Int'l",
+                "icaoCode":"KMIA",
+                "upNextBG":"miami_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat": "25.7617",
+                  "lon": "-80.1918",
+                  "auto":false,
+                  "zoom":7.6,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Miami", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Naples", "dotTopPos": "430", "dotLeftPos": "357", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fort Myers", "dotTopPos": "305", "dotLeftPos": "332", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Homestead", "dotTopPos": "605", "dotLeftPos": "722", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Coral Springs", "dotTopPos": "398", "dotLeftPos": "775", "nameTopMargin":"-43", "nameLeftMargin":"43"},
+                    {"locationName": "West Palm Beach", "dotTopPos": "283", "dotLeftPos": "820", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fort Lauderdale", "dotTopPos": "434", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Key Largo", "dotTopPos": "697", "dotLeftPos": "725", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Key West", "dotTopPos": "829", "dotLeftPos": "348", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"usHwySign","text":"1", "topPos":"733","leftPos":"628"},
+                    {"type":"usHwySign","text":"41", "topPos":"498","leftPos":"615"},
+                    {"type":"usHwySign","text":"27", "topPos":"343","leftPos":"663"},
+                    {"type":"interstateSign","text":"75", "topPos":"407","leftPos":"595"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Minneapolis Forecast",
+                "upNextName":"Up Next...Minneapolis",
+                "locationName":"Minneapolis",
+                "bulletinName":"Minneapolis Area",
+                "lat": "44.9778",
+                "lon": "-93.2650",
+                "obsName":"Minneapolis - St. Paul",
+                "icaoCode":"KMSP",
+                "upNextBG":"minneapolis_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "44.9778",
+                  "lon": "-93.2650",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Minneapolis", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Burnsville", "dotTopPos": "613", "dotLeftPos": "791", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Goodhue", "dotTopPos": "734", "dotLeftPos": "1000", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Green Isle", "dotTopPos": "636", "dotLeftPos": "558", "nameTopMargin":"-11", "nameLeftMargin":"-243"},
+                    {"locationName": "Hutchinson", "dotTopPos": "560", "dotLeftPos": "445", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Clearwater", "dotTopPos": "362", "dotLeftPos": "545", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Waterville", "dotTopPos": "800", "dotLeftPos": "693", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Regal", "dotTopPos": "363", "dotLeftPos": "292", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Turtle Lake", "dotTopPos": "371", "dotLeftPos": "1156", "nameTopMargin":"14", "nameLeftMargin":"-270"},
+                    {"locationName": "Colfax", "dotTopPos": "528", "dotLeftPos": "1287", "nameTopMargin":"14", "nameLeftMargin":"-156"},
+                    {"locationName": "Cumberland", "dotTopPos": "322", "dotLeftPos": "1188", "nameTopMargin":"-43", "nameLeftMargin":"-289"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"94", "topPos":"418","leftPos":"665"},
+                    {"type":"interstateSign","text":"35", "topPos":"692","leftPos":"767"},
+                    {"type":"usHwySign","text":"14", "topPos":"772","leftPos":"492"},
+                    {"type":"usHwySign","text":"12", "topPos":"466","leftPos":"494"},
+                    {"type":"usHwySign","text":"10", "topPos":"643","leftPos":"1241"},
+                    {"type":"usHwySign","text":"53", "topPos":"398","leftPos":"1295"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Nashville Forecast",
+                "upNextName":"Up Next...Nashville",
+                "locationName":"Nashville",
+                "bulletinName":"Nashville Area",
+                "lat": "36.1627",
+                "lon": "-86.7816",
+                "obsName":"Nashville Int'l",
+                "icaoCode":"KBNA",
+                "upNextBG":"nashville_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat": "36.1627",
+                  "lon": "-86.7816",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Nashville", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Murfreesboro", "dotTopPos": "627", "dotLeftPos": "918", "nameTopMargin":"-43", "nameLeftMargin":"43"},
+                    {"locationName": "McMinnville", "dotTopPos": "672", "dotLeftPos": "1112", "nameTopMargin":"33", "nameLeftMargin":"-115"},
+                    {"locationName": "Clarksville", "dotTopPos": "405", "dotLeftPos": "614", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Camden", "dotTopPos": "564", "dotLeftPos": "375", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Columbia", "dotTopPos": "704", "dotLeftPos": "710", "nameTopMargin":"33", "nameLeftMargin":"-93"},
+                    {"locationName": "Adamsville", "dotTopPos": "824", "dotLeftPos": "290", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Livingston", "dotTopPos": "454", "dotLeftPos": "1151", "nameTopMargin":"-60", "nameLeftMargin":"-97"},
+                    {"locationName": "Scottsville", "dotTopPos": "331", "dotLeftPos": "973", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"65", "topPos":"600","leftPos":"755"},
+                    {"type":"usHwySign","text":"127", "topPos":"479","leftPos":"1344"},
+                    {"type":"interstateSign","text":"40", "topPos":"548","leftPos":"661"},
+                    {"type":"interstateSign","text":"24", "topPos":"307","leftPos":"513"},
+                    {"type":"usHwySign","text":"70", "topPos":"582","leftPos":"229"}
+                  ]
+                }
+              },
+              {
+                "packageName":"New Haven Forecast",
+                "upNextName":"Up Next...New Haven",
+                "locationName":"New Haven",
+                "bulletinName":"New Haven Area",
+                "lat": "41.3083",
+                "lon": "-72.9279",
+                "obsName":"New Haven Arpt.",
+                "icaoCode":"KHVN",
+                "upNextBG":"new_haven_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat": "41.7658",
+                  "lon": "-72.6734",
+                  "auto":false,
+                  "zoom":7.8,
+                  "satCoords":[-79.9972, 40.4387],
+                  "radarCities": [
+                    {"locationName": "Hartford", "dotTopPos": "518", "dotLeftPos": "788", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "New Haven", "dotTopPos": "691", "dotLeftPos": "714", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Providence", "dotTopPos": "501", "dotLeftPos": "1205", "nameTopMargin":"44", "nameLeftMargin":"-106"},
+                    {"locationName": "Boston", "dotTopPos": "303", "dotLeftPos": "1302", "nameTopMargin":"-11", "nameLeftMargin":"-168"},
+                    {"locationName": "Poughkeepsie", "dotTopPos": "547", "dotLeftPos": "407", "nameTopMargin":"23", "nameLeftMargin":"43"},
+                    {"locationName": "Springfield", "dotTopPos": "408", "dotLeftPos": "814", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Catskill", "dotTopPos": "360", "dotLeftPos": "425", "nameTopMargin":"-44", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"90", "topPos":"356","leftPos":"668"},
+                    {"type":"interstateSign","text":"91", "topPos":"275","leftPos":"785"},
+                    {"type":"interstateSign","text":"495", "topPos":"399","leftPos":"1179"},
+                    {"type":"interstateSign","text":"95", "topPos":"721","leftPos":"579"},
+                    {"type":"usHwySign","text":"44", "topPos":"721","leftPos":"579"},
+                    {"type":"usHwySign","text":"9", "topPos":"424","leftPos":"398"},
+                    {"type":"interstateSign","text":"87", "topPos":"584","leftPos":"329"}
+                  ]
+                }
+              },
+              {
+                "packageName":"New York Forecast",
+                "upNextName":"Up Next...New York",
+                "locationName":"New York",
+                "bulletinName":"New York Area",
+                "lat": "40.7128",
+                "lon": "-74.0060",
+                "obsName":"New York / LaGuardia",
+                "icaoCode":"KLGA",
+                "upNextBG":"new_york_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"40.782222",
+                  "lon":"-73.965278", 
+                  "auto":false, 
+                  "zoom":7.2, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Philadelphia", "dotTopPos": "718", "dotLeftPos": "547", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "New York", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Trenton", "dotTopPos": "644", "dotLeftPos": "622", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Hartford", "dotTopPos": "296", "dotLeftPos": "1070", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Scranton", "dotTopPos": "377", "dotLeftPos": "439", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Allentown", "dotTopPos": "571", "dotLeftPos": "460", "nameTopMargin":"-60", "nameLeftMargin":"-109"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"95", "topPos":"418","leftPos":"938"},
+                    {"type":"interstateSign","text":"80", "topPos":"446","leftPos":"280"},
+                    {"type":"stateHwySign","text":"17", "topPos":"310","leftPos":"633"},
+                    {"type":"usHwySign","text":"206", "topPos":"452","leftPos":"614"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Oklahoma City Forecast",
+                "upNextName":"Up Next...Oklahoma City",
+                "locationName":"Oklahoma City",
+                "bulletinName":"Oklahoma City Area",
+                "lat": "35.4689",
+                "lon": "-97.5195",
+                "obsName":"Oklahoma City Int'l",
+                "icaoCode":"KOKC",
+                "upNextBG":"oklahoma_city_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"35.4689",
+                  "lon":"-97.5195", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Oklahoma City", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Norman", "dotTopPos": "589", "dotLeftPos": "810", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Tulsa", "dotTopPos": "301", "dotLeftPos": "1278", "nameTopMargin":"-11", "nameLeftMargin":"-128"},
+                    {"locationName": "El Reno", "dotTopPos": "511", "dotLeftPos": "660", "nameTopMargin":"-50", "nameLeftMargin":"-77"},
+                    {"locationName": "Clinton", "dotTopPos": "511", "dotLeftPos": "337", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Seiling", "dotTopPos": "308", "dotLeftPos": "350", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Snyder", "dotTopPos": "783", "dotLeftPos": "335", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Elmore City", "dotTopPos": "797", "dotLeftPos": "835", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Perry", "dotTopPos": "263", "dotLeftPos": "868", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "McAlester", "dotTopPos": "693", "dotLeftPos": "1350", "nameTopMargin":"-11", "nameLeftMargin":"-243"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"35", "topPos":"354","leftPos":"830"},
+                    {"type":"interstateSign","text":"40", "topPos":"515","leftPos":"1279"},
+                    {"type":"interstateSign","text":"44", "topPos":"406","leftPos":"1080"},
+                    {"type":"usHwySign","text":"177", "topPos":"622","leftPos":"1041"},
+                    {"type":"usHwySign","text":"183", "topPos":"399","leftPos":"310"},
+                    {"type":"usHwySign","text":"81", "topPos":"762","leftPos":"634"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Orlando Forecast",
+                "upNextName":"Up Next...Orlando",
+                "locationName":"Orlando",
+                "bulletinName":"Orlando Area",
+                "lat": "28.5384",
+                "lon": "-81.3789",
+                "obsName":"Orlando Int'l",
+                "icaoCode":"KMCO",
+                "upNextBG":"orlando_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"28.5384",
+                  "lon":"-81.3789", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Orlando", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Tampa", "dotTopPos": "698", "dotLeftPos": "455", "nameTopMargin":"-55", "nameLeftMargin":"-57"},
+                    {"locationName": "St Petersburg", "dotTopPos": "758", "dotLeftPos": "396", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Daytona Beach", "dotTopPos": "322", "dotLeftPos": "910", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Bartow", "dotTopPos": "714", "dotLeftPos": "643", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Ocala", "dotTopPos": "325", "dotLeftPos": "553", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Eustis", "dotTopPos": "440", "dotLeftPos": "641", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Melbourne", "dotTopPos": "661", "dotLeftPos": "1042", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"4", "topPos":"617","leftPos":"641"},
+                    {"type":"usHwySign","text":"19", "topPos":"515","leftPos":"391"},
+                    {"type":"usHwySign","text":"17", "topPos":"285","leftPos":"748"},
+                    {"type":"usHwySign","text":"1", "topPos":"383","leftPos":"934"},
+                    {"type":"interstateSign","text":"95", "topPos":"749","leftPos":"1037"},
+                    {"type":"interstateSign","text":"75", "topPos":"450","leftPos":"535"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Philadelphia Forecast",
+                "upNextName":"Up Next...Philadelphia",
+                "locationName":"Philadelphia",
+                "bulletinName":"Philadelphia Area",
+                "lat": "39.9526",
+                "lon": "-75.1652",
+                "obsName":"Philadelphia Int'l",
+                "icaoCode":"KPHL",
+                "upNextBG":"philadelphia_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"39.9526",
+                  "lon":"-75.1652", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Philadelphia", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Somerville", "dotTopPos": "319", "dotLeftPos": "969", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Trenton", "dotTopPos": "424", "dotLeftPos": "923", "nameTopMargin":"-40", "nameLeftMargin":"43"},
+                    {"locationName": "Atlantic City", "dotTopPos": "715", "dotLeftPos": "1013", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Allentown", "dotTopPos": "286", "dotLeftPos": "709", "nameTopMargin":"-11", "nameLeftMargin":"-252"},
+                    {"locationName": "Harrisburg", "dotTopPos": "423", "dotLeftPos": "243", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Wilmington", "dotTopPos": "604", "dotLeftPos": "669", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Baltimore", "dotTopPos": "748", "dotLeftPos": "333", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"95", "topPos":"619","leftPos":"518"},
+                    {"type":"interstateSign","text":"78", "topPos":"272","leftPos":"842"},
+                    {"type":"interstateSign","text":"81", "topPos":"302","leftPos":"365"},
+                    {"type":"interstateSign","text":"195", "topPos":"442","leftPos":"1015"},
+                    {"type":"usHwySign","text":"9", "topPos":"614","leftPos":"1035"},
+                    {"type":"usHwySign","text":"30", "topPos":"489","leftPos":"507"},
+                    {"type":"interstateSign","text":"76", "topPos":"404","leftPos":"615"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Phoenix Forecast",
+                "upNextName":"Up Next...Phoenix",
+                "locationName":"Phoenix",
+                "bulletinName":"Phoenix Area",
+                "lat": "33.4483",
+                "lon": "-112.0725",
+                "obsName":"Phoenix Int'l",
+                "icaoCode":"KPHX",
+                "upNextBG":"phoenix_bg",
+                "slidesBG":"core_southwest_bg",
+                "radar": {
+                  "lat":"33.4483",
+                  "lon":"-112.0725", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Phoenix", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Chandler", "dotTopPos": "574", "dotLeftPos": "863", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Scottsdale", "dotTopPos": "465", "dotLeftPos": "855", "nameTopMargin":"-55", "nameLeftMargin":"-103"},
+                    {"locationName": "Glendale", "dotTopPos": "492", "dotLeftPos": "759", "nameTopMargin":"-11", "nameLeftMargin":"-212"},
+                    {"locationName": "Theba", "dotTopPos": "693", "dotLeftPos": "533", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Florence", "dotTopPos": "644", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Roosevelt", "dotTopPos": "457", "dotLeftPos": "1085", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Wickenburg", "dotTopPos": "357", "dotLeftPos": "580", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Cibecue", "dotTopPos": "337", "dotLeftPos": "1296", "nameTopMargin":"-11", "nameLeftMargin":"-187"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"17", "topPos":"266","leftPos":"752"},
+                    {"type":"interstateSign","text":"10", "topPos":"473","leftPos":"411"},
+                    {"type":"interstateSign","text":"8", "topPos":"704","leftPos":"787"},
+                    {"type":"usHwySign","text":"60", "topPos":"374","leftPos":"1303"},
+                    {"type":"usHwySign","text":"70", "topPos":"540","leftPos":"1251"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Pittsburgh Forecast",
+                "upNextName":"Up Next...Pittsburgh",
+                "locationName":"Pittsburgh",
+                "bulletinName":"Pittsburgh Area",
+                "lat": "40.4387",
+                "lon": "-79.9972",
+                "obsName":"Pittsburgh Int'l",
+                "icaoCode":"KPIT",
+                "upNextBG":"pittsburgh_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"40.4387",
+                  "lon":"-79.9972", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Pittsburgh", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "New Castle", "dotTopPos": "320", "dotLeftPos": "712", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Washington", "dotTopPos": "604", "dotLeftPos": "754", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Clearfield", "dotTopPos": "321", "dotLeftPos": "1306", "nameTopMargin":"-40", "nameLeftMargin":"-237"},
+                    {"locationName": "Dayton", "dotTopPos": "370", "dotLeftPos": "1056", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Akron", "dotTopPos": "305", "dotLeftPos": "315", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Cambridge", "dotTopPos": "660", "dotLeftPos": "291", "nameTopMargin":"11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"79", "topPos":"386","leftPos":"737"},
+                    {"type":"interstateSign","text":"76", "topPos":"669","leftPos":"1149"},
+                    {"type":"interstateSign","text":"70", "topPos":"620","leftPos":"618"},
+                    {"type":"interstateSign","text":"80", "topPos":"261","leftPos":"554"},
+                    {"type":"usHwySign","text":"30", "topPos":"429","leftPos":"569"},
+                    {"type":"interstateSign","text":"77", "topPos":"498","leftPos":"294"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Portland Forecast",
+                "upNextName":"Up Next...Portland",
+                "locationName":"Portland",
+                "bulletinName":"Portland Area",
+                "lat": "45.5152",
+                "lon": "-122.6784",
+                "obsName":"Portland Int'l",
+                "icaoCode":"KPDX",
+                "upNextBG":"portland_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"45.5152",
+                  "lon":"-122.6784", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Portland", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Salem", "dotTopPos": "730", "dotLeftPos": "686", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Saint Helens", "dotTopPos": "385", "dotLeftPos": "753", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Mosier", "dotTopPos": "457", "dotLeftPos": "1188", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Astoria", "dotTopPos": "270", "dotLeftPos": "420", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Tillamook", "dotTopPos": "539", "dotLeftPos": "422", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Goldendale", "dotTopPos": "415", "dotLeftPos": "1386", "nameTopMargin":"-50", "nameLeftMargin":"-191"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"84", "topPos":"439","leftPos":"1074"},
+                    {"type":"interstateSign","text":"5", "topPos":"625","leftPos":"726"},
+                    {"type":"usHwySign","text":"97", "topPos":"584","leftPos":"1382"},
+                    {"type":"usHwySign","text":"101", "topPos":"719","leftPos":"359"},
+                    {"type":"usHwySign","text":"26", "topPos":"591","leftPos":"1067"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Sacramento Forecast",
+                "upNextName":"Up Next...Sacramento",
+                "locationName":"Sacramento",
+                "bulletinName":"Sacramento Area",
+                "lat": "38.5781",
+                "lon": "-121.4944",
+                "obsName":"Sacramento Int'l",
+                "icaoCode":"KSMF",
+                "upNextBG":"sacramento_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"38.1765",
+                  "lon":"-121.4944", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "San Francisco", "dotTopPos": "657", "dotLeftPos": "498", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Sacramento", "dotTopPos": "384", "dotLeftPos": "792", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Petaluma", "dotTopPos": "504", "dotLeftPos": "432", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "San Jose", "dotTopPos": "805", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Livingston", "dotTopPos": "784", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Lodi", "dotTopPos": "533", "dotLeftPos": "869", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Santa Rosa", "dotTopPos": "438", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Auburn", "dotTopPos": "278", "dotLeftPos": "926", "nameTopMargin":"-11", "nameLeftMargin":"-178"},
+                    {"locationName": "South Lake Tahoe", "dotTopPos": "275", "dotLeftPos": "1274", "nameTopMargin":"30", "nameLeftMargin":"-231"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"80", "topPos":"313","leftPos":"844"},
+                    {"type":"interstateSign","text":"5", "topPos":"733","leftPos":"862"},
+                    {"type":"usHwySign","text":"101", "topPos":"314","leftPos":"311"},
+                    {"type":"usHwySign","text":"395", "topPos":"396","leftPos":"1409"}
+                  ]
+                }
+              },
+              {
+                "packageName":"San Diego Forecast",
+                "upNextName":"Up Next...San Diego",
+                "locationName":"San Diego",
+                "bulletinName":"San Diego Area",
+                "lat": "32.7157",
+                "lon": "-117.1611",
+                "obsName":"San Diego Int'l",
+                "icaoCode":"KSAN",
+                "upNextBG":"san_diego_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat":"33.4157",
+                  "lon":"-117.1611", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "San Diego", "dotTopPos": "768", "dotLeftPos": "818", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Los Angeles", "dotTopPos": "326", "dotLeftPos": "455", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Hemet", "dotTopPos": "415", "dotLeftPos": "849", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Vista", "dotTopPos": "603", "dotLeftPos": "775", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Brawley", "dotTopPos": "648", "dotLeftPos": "1299", "nameTopMargin":"-11", "nameLeftMargin":"-193"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"10", "topPos":"424","leftPos":"1173"},
+                    {"type":"interstateSign","text":"8", "topPos":"702","leftPos":"1308"},
+                    {"type":"interstateSign","text":"15", "topPos":"502","leftPos":"777"},
+                    {"type":"interstateSign","text":"5", "topPos":"533","leftPos":"669"}
+                  ]
+                }
+              },
+              {
+                "packageName":"San Francisco Forecast",
+                "upNextName":"Up Next...San Francisco",
+                "locationName":"San Francisco",
+                "bulletinName":"San Francisco Area",
+                "lat": "37.7749",
+                "lon": "-122.4194",
+                "obsName":"San Francisco Int'l",
+                "icaoCode":"KSFO",
+                "upNextBG":"san_francisco_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"38.1765",
+                  "lon":"-121.4944", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "San Francisco", "dotTopPos": "657", "dotLeftPos": "498", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Sacramento", "dotTopPos": "384", "dotLeftPos": "792", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Petaluma", "dotTopPos": "504", "dotLeftPos": "432", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "San Jose", "dotTopPos": "805", "dotLeftPos": "670", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Livingston", "dotTopPos": "784", "dotLeftPos": "1032", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Lodi", "dotTopPos": "533", "dotLeftPos": "869", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Santa Rosa", "dotTopPos": "438", "dotLeftPos": "403", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Auburn", "dotTopPos": "278", "dotLeftPos": "926", "nameTopMargin":"-11", "nameLeftMargin":"-178"},
+                    {"locationName": "South Lake Tahoe", "dotTopPos": "275", "dotLeftPos": "1274", "nameTopMargin":"30", "nameLeftMargin":"-231"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"80", "topPos":"313","leftPos":"844"},
+                    {"type":"interstateSign","text":"5", "topPos":"733","leftPos":"862"},
+                    {"type":"usHwySign","text":"101", "topPos":"314","leftPos":"311"},
+                    {"type":"usHwySign","text":"395", "topPos":"396","leftPos":"1409"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Seattle Forecast",
+                "upNextName":"Up Next...Seattle",
+                "locationName":"Seattle",
+                "bulletinName":"Seattle Area",
+                "lat": "47.6061",
+                "lon": "-122.3328",
+                "obsName":"Seattle Int'l",
+                "icaoCode":"KSEA",
+                "upNextBG":"seattle_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"47.6061",
+                  "lon":"-122.3328", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Seattle", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Aberdeen", "dotTopPos": "770", "dotLeftPos": "327", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Olympia", "dotTopPos": "748", "dotLeftPos": "611", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Tacoma", "dotTopPos": "669", "dotLeftPos": "752", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Leavenworth", "dotTopPos": "529", "dotLeftPos": "1327", "nameTopMargin":"25", "nameLeftMargin":"-205"},
+                    {"locationName": "Roslyn", "dotTopPos": "670", "dotLeftPos": "1214", "nameTopMargin":"11", "nameLeftMargin":"-159"},
+                    {"locationName": "Darrington", "dotTopPos": "277", "dotLeftPos": "1021", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Port Angeles", "dotTopPos": "328", "dotLeftPos": "450", "nameTopMargin":"-11", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"5", "topPos":"395","leftPos":"812"},
+                    {"type":"interstateSign","text":"90", "topPos":"583","leftPos":"1009"},
+                    {"type":"usHwySign","text":"101", "topPos":"628","leftPos":"272"},
+                    {"type":"usHwySign","text":"2", "topPos":"460","leftPos":"1112"},
+                    {"type":"usHwySign","text":"97", "topPos":"651","leftPos":"1296"}
+                  ]
+                }
+              },
+              {
+                "packageName":"St. Louis Forecast",
+                "upNextName":"Up Next...St. Louis",
+                "locationName":"St. Louis",
+                "bulletinName":"St. Louis Area",
+                "lat": "38.6274",
+                "lon": "-90.1982",
+                "obsName":"St. Louis Int'l",
+                "icaoCode":"KSTL",
+                "upNextBG":"stlouis_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"38.6274",
+                  "lon":"-90.1982", 
+                  "auto":false, 
+                  "zoom":7.8, 
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "St. Louis", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Vandalia", "dotTopPos": "296", "dotLeftPos": "383", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Festus", "dotTopPos": "658", "dotLeftPos": "731", "nameTopMargin":"-11", "nameLeftMargin":"-154"},
+                    {"locationName": "Linn", "dotTopPos": "559", "dotLeftPos": "280", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Steelville", "dotTopPos": "737", "dotLeftPos": "426", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    
+                    {"locationName": "Fults", "dotTopPos": "681", "dotLeftPos": "794", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Ashley", "dotTopPos": "626", "dotLeftPos": "1117", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Percy", "dotTopPos": "728", "dotLeftPos": "967", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Ramsey", "dotTopPos": "345", "dotLeftPos": "1141", "nameTopMargin":"-11", "nameLeftMargin":"-183"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"55", "topPos":"755","leftPos":"812"},
+                    {"type":"interstateSign","text":"70", "topPos":"428","leftPos":"423"},
+                    {"type":"interstateSign","text":"64", "topPos":"583","leftPos":"1017"},
+                    {"type":"interstateSign","text":"44", "topPos":"649","leftPos":"466"},
+                    {"type":"usHwySign","text":"51", "topPos":"460","leftPos":"1125"},
+                    {"type":"usHwySign","text":"61", "topPos":"362","leftPos":"524"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Tampa Forecast",
+                "upNextName":"Up Next...Tampa",
+                "locationName":"Tampa",
+                "bulletinName":"Tampa Area",
+                "lat": "27.9517",
+                "lon": "-82.4588",
+                "obsName":"Tampa Int'l",
+                "icaoCode":"KTPA",
+                "upNextBG":"tampa_bg",
+                "slidesBG":"core_ocean_bg",
+                "radar": {
+                  "lat":"27.9517",
+                  "lon":"-82.4588", 
+                  "auto":false, 
+                  "zoom":7.6,
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Tampa", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Orlando", "dotTopPos": "371", "dotLeftPos": "1086", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "St Petersburg", "dotTopPos": "574", "dotLeftPos": "737", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Venice", "dotTopPos": "741", "dotLeftPos": "798", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Leesburg", "dotTopPos": "302", "dotLeftPos": "960", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Melbourne", "dotTopPos": "490", "dotLeftPos": "1308", "nameTopMargin":"-30", "nameLeftMargin":"-263"},
+                    {"locationName": "Fort Pierce", "dotTopPos": "659", "dotLeftPos": "1382", "nameTopMargin":"-11", "nameLeftMargin":"-255"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"75", "topPos":"417","leftPos":"806"},
+                    {"type":"interstateSign","text":"4", "topPos":"452","leftPos":"948"},
+                    {"type":"usHwySign","text":"19", "topPos":"347","leftPos":"742"},
+                    {"type":"usHwySign","text":"17", "topPos":"638","leftPos":"962"},
+                    {"type":"interstateSign","text":"95", "topPos":"552","leftPos":"1295"},
+                    {"type":"usHwySign","text":"1", "topPos":"722","leftPos":"1404"},
+                    {"type":"usHwySign","text":"27", "topPos":"728","leftPos":"1086"}
+                  ]
+                }
+              },
+              {
+                "packageName":"Washington DC Forecast",
+                "upNextName":"Up Next...Washington DC",
+                "locationName":"Washington DC",
+                "bulletinName":"Washington DC Area",
+                "lat": "38.9072",
+                "lon": "-77.0369",
+                "obsName":"Washington DC",
+                "icaoCode":"KIAD",
+                "upNextBG":"washington_dc_bg",
+                "slidesBG":"core_bg",
+                "radar": {
+                  "lat":"38.9072",
+                  "lon":"-77.0369", 
+                  "auto":false, 
+                  "zoom":7.6,
+                  "satCoords":[-79.9972, 40.4387], 
+                  "radarCities": [
+                    {"locationName": "Washington", "dotTopPos": "526", "dotLeftPos": "803", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Annapolis", "dotTopPos": "504", "dotLeftPos": "949", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Baltimore", "dotTopPos": "411", "dotLeftPos": "906", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Wilmington", "dotTopPos": "287", "dotLeftPos": "1196", "nameTopMargin":"-11", "nameLeftMargin":"-280"},
+                    {"locationName": "Hagerstown", "dotTopPos": "312", "dotLeftPos": "601", "nameTopMargin":"11", "nameLeftMargin":"43"},
+                    {"locationName": "Winchester", "dotTopPos": "441", "dotLeftPos": "485", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Fredericksburg", "dotTopPos": "701", "dotLeftPos": "676", "nameTopMargin":"-11", "nameLeftMargin":"43"},
+                    {"locationName": "Harrisonburg", "dotTopPos": "660", "dotLeftPos": "289", "nameTopMargin":"-30", "nameLeftMargin":"43"}
+                  ],
+                  "radarIcons":[
+                    {"type":"interstateSign","text":"95", "topPos":"331","leftPos":"994"},
+                    {"type":"interstateSign","text":"64", "topPos":"772","leftPos":"401"},
+                    {"type":"interstateSign","text":"66", "topPos":"516","leftPos":"528"},
+                    {"type":"interstateSign","text":"81", "topPos":"509","leftPos":"374"},
+                    {"type":"usHwySign","text":"13", "topPos":"561","leftPos":"1173"}
+                  ]
+                }
+              }
+            ]
         },
         "nearbyCities":{
             "autoFind":false,
             "cities": [
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": ".",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 },
                 {
-                  "locationName": "",
-                  "obsIcaoCode": ""
+                  "obsName": "",
+                  "icaoCode": ""
                 }
             ]
         },
         "upperDisplayCity": {
-            "enabled":false,
-            "locationName": "",
-            "lat": "",
-            "lon": "",
-            "airportName": "",
-            "obsIcaoCode": ""
+            "autoFind":false,
+            "locationName":"Washington DC",
+            "lat": "38.9072",
+            "lon": "-77.0369",
+            "obsName":"Washington DC",
+            "icaoCode":"KIAD"
         },
         "traffic": {
+          "packageName":"Traffic Report",
+          "upNextName":"Up Next...Traffic Report",
             "locationName": "",
             "lat": "",
             "lon": "",
+            "mapIcons":{
+              "zoomOut":[],
+              "zoomIn":[]
+            },
+            "zoomOut": 8.6,
+            "zoomIn": 9.4,
             "routes": [
-              {"from":"","fromStreet":"","to":"","toStreet":"","routeIcon":""},
-              {"from":"","fromStreet":"","to":"","toStreet":"","routeIcon":""},
-              {"from":"","fromStreet":"","to":"","toStreet":"","routeIcon":""}
             ]
         },
         "travel": {
+          "packageName":"Travel Forecast",
+          "upNextName":"Up Next...Travel Forecast",
           "regionalMap":{ 
             "enabled":false,
-            "mapTop":"-",
+            "autoFind":false,
+            "mapTop":"",
             "mapLeft":"",
+            "mapScale":"457%",
             "cities": [
               {"locationName": "", "lat": "", "lon":"", "topPos":"","leftPos":""},
               {"locationName": "", "lat": "", "lon":"", "topPos":"","leftPos":""},
@@ -1292,13 +1342,19 @@
           ]
         },
         "health": {
-           "locationName": "",
-           "lat": "",
-           "lon": "",
-          "airportName": "",
-          "obsIcaoCode": ""
+          "packageName":"Weather & Your Health",
+          "upNextName":"Up Next...Health",
+          "autoFind":false,
+          "locationName": "",
+          "lat": "",
+          "lon": "",
+          "obsName": "",
+          "icaoCode": ""
         },
         "airport": {
+          "packageName":"Airport Conditions",
+          "upNextName":"Up Next...Airport Conditions",
+          "autoFind":false,
           "mainEnabled": false,
           "main": [
             {"airportName":"","iataCode":""},
@@ -1324,6 +1380,22 @@
           ]
         },
         "international": {
+          "packageName":"International Forecast",
+          "upNextName":"Up Next...Int'l Forecast",
+          "mapOrder": [
+            "europe",
+            "canada",
+            "caribbean",
+            "southamerica",
+            "britain",
+            "mexico",
+            "africa",
+            "india",
+            "eastasia",
+            "oceania",
+            "australia"
+          ],
+          "maxMaps": 2,
           "map": {
             "canada": [
               {"locationName":"Dawson","lat":"64.0639","lon":"-139.4333"},
@@ -1434,37 +1506,46 @@
           ]
         },
         "golf": {
+          "packageName":"Golf Forecast",
+          "upNextName":"Up Next...Golf Forecast",
+          "autoFind":true,
           "teeTime": {
            "locationName": "",
            "lat": "",
            "lon": ""
           },
-          "indexMap": {},
-          "courses": [
-            {"courseName":"", "lat":"", "lon":""},
-            {"courseName":"", "lat":"", "lon":""},
-            {"courseName":"", "lat":"", "lon":""}
-          ]
+          "indexMap": [],
+          "courses": []
         },
         "garden": {
-           "locationName": "",
-           "lat": "",
-           "lon": ""
+          "packageName":"Garden",
+          "upNextName":"Up Next...Garden",
+          "autoFind":true,
+          "locationName": "",
+          "lat": "",
+          "lon": ""
         },
         "ski": {
+          "packageName":"Ski & Snow",
+          "upNextName":"Up Next...Ski & Snow",
           "resorts": [
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""},
-            {"displayName":"", "state":"", "resortId":""}
+            { "displayName": "Snowshoe Mountain", "state": "WV", "resortId": "304001" },
+            { "displayName": "Baker Mountain", "state": "ME", "resortId": "207024" },
+            { "displayName": "Bolton Valley Resort", "state": "VT", "resortId": "802002" },
+            { "displayName": "Berkshire East Ski Resort", "state": "MA", "resortId": "413001" },
+            { "displayName": "Bear Creek Ski Resort", "state": "PA", "resortId": "215003" },
+            { "displayName": "Arrowhead Ski Area", "state": "NH", "resortId": "603031" },
+            { "displayName": "Big Bear Mtn. Resort", "state": "CA", "resortId": "909002" },
+            { "displayName": "Arapahoe Basin", "state": "CO", "resortId": "303001" },
+            { "displayName": "Beaver Mountain", "state": "UT", "resortId": "801002" },
+            { "displayName": "Bristol Mountain", "state": "NY", "resortId": "716001" },
+            { "displayName": "Grand Targhee Resort", "state": "WY", "resortId": "307002" },
+            { "displayName": "Aspen Highlands", "state": "CO", "resortId": "303004" }
           ]
         },
         "beach": {
+          "packageName":"Boat & Beach",
+          "upNextName":"Up Next...Boat & Beach",
           "surfReport": {
             "buoy":"",
             "displayName":""

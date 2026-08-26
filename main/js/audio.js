@@ -120,7 +120,12 @@ class AudioManager {
 
         let current = 0;
 
-        this.musicPlayer.jPlayer('volume', 0.3);
+        if (files.includes('narrations/beep.wav')) {
+            this.musicPlayer.jPlayer('volume', 0.0);
+        } else {
+            this.musicPlayer.jPlayer('volume', 0.3);
+        }
+        
 
         const playNext = () => {
             if (current >= files.length) {
@@ -149,7 +154,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-CurrentConditions_Default1.wav'
+            'narrations/Local-CurrentConditions_Default1.wav'
         ]);
     }
 
@@ -157,7 +162,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-TextForecast_Default1.wav'
+            'narrations/Local-TextForecast_Default1.wav'
         ]);
     }
 
@@ -165,7 +170,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-DaypartForecast_Default1.wav'
+            'narrations/Local-DaypartForecast_Default1.wav'
         ]);
     }
 
@@ -173,7 +178,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-TrafficOverview_Default1.wav'
+            'narrations/Local-TrafficOverview_Default1.wav'
         ]);
     }
 
@@ -181,7 +186,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-TrafficFlow_Default1.wav'
+            'narrations/Local-TrafficFlow_Default1.wav'
         ]);
     }
 
@@ -189,7 +194,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-RegionalForecastConditions_Default1.wav'
+            'narrations/Local-RegionalForecastConditions_Default1.wav'
         ]);
     }
 
@@ -197,16 +202,19 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-AllergyReport_Default1.wav'
+            'narrations/Local-AllergyReport_Default1.wav'
         ]);
     }
 
     playWarningBeep() {
         this.playVoice([
-            '/narrations/beep.wav',
-            '/narrations/beep.wav',
-            '/narrations/beep.wav',
-            '/narrations/beep.wav'
+            'narrations/beep.wav',
+            'narrations/beep.wav',
+            'narrations/beep.wav',
+            'narrations/beep.wav',
+            'narrations/beep.wav',
+            'narrations/beep.wav',
+            'narrations/beep.wav'
         ]);
     }
 
@@ -214,7 +222,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-LocalAirportConditions_Default1.wav'
+            'narrations/Local-LocalAirportConditions_Default1.wav'
         ]);
     }
 
@@ -222,7 +230,7 @@ class AudioManager {
         if (!systemSettings.audioSettings.narrations) return;
 
         this.playVoice([
-            '/narrations/Local-LocalDoppler_Default1.wav'
+            'narrations/Local-LocalDoppler_Default1.wav'
         ]);
     }
     startPlaying(arr, loop = false) {
