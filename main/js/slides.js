@@ -286,7 +286,7 @@ function segmentSet() {
       orderidx = 1
       idx = 0
       gidx = 0
-      ngidx = 1
+      ngidx = systemSettings.packageSettings.length > 1 ? 1 : 0;
     }
     //severe
     $(".panel").css({"background":"url(images/assets/middle_midgrey.png)", "background-size":"1458px, 614px"})
@@ -304,7 +304,7 @@ function segmentSet() {
       orderidx = 0
       idx = 0
       gidx = 0
-      ngidx = 1
+      ngidx = systemSettings.packageSettings.length > 1 ? 1 : 0;
     }
     
     //normal
@@ -2631,6 +2631,8 @@ var slidePrograms = {
 function slideKickOff() {
   Nlocationid = ((systemSettings.extraCity.cities.length > 1) ? 1 : 0)
 
+  ngidx = systemSettings.packageSettings.length > 1 ? 1 : 0;
+
   groupBackgrounds = {
     "forecast": systemSettings.mainCity.slidesBG,
     "minicoreone":systemSettings.mainCity.slidesBG,
@@ -2705,7 +2707,7 @@ function showSlides() {
     
     ngidx++;
     if (ngidx >= slideSettings.order[orderidx].slideLineup.length) {
-      ngidx = 1;
+      ngidx = systemSettings.packageSettings.length > 1 ? 1 : 0;
     }
 
     if (orderidx == 0) {
