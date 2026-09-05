@@ -63,13 +63,7 @@ var extraPackage = {duration: 60000, /*times amount of cities*/
   group: "extralocal", slides: [
   ]
 }
-var spanishPackageOne = {duration: 60000, group: "spanish1", slides: [
-  {duration: 10000,  function: "currentConditions" },
-  {duration: 15000,  function: "radarChooser" },
-  {duration: 10000,  function: "dayPart" },
-  {duration: 10000,  function: "extendedForecast" },
-]}
-var spanishPackageTwo = {duration: 60000, group: "spanish2", slides: [
+var spanishPackage = {duration: 60000, group: "spanish", slides: [
   {duration: 10000,  function: "currentConditions" },
   {duration: 15000,  function: "radarChooser" },
   {duration: 10000,  function: "dayPart" },

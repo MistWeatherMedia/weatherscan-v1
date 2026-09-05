@@ -87,8 +87,7 @@ var arrowColors = {
   "severeA":"#d7220b",
   "severeB":"#d7220b",
   "severe2":"#d7220b",
-  "spanish1":"#ffd40e",
-  "spanish2":"#ffd40e",
+  "spanish":"#ffd40e",
   "radar":"#ffd40e"
 }
 var slideTitles
@@ -110,8 +109,7 @@ function setSlideTitles() {
     "severeA":"",
     "severeB":"",
     "severe2":"",
-    "spanish1":systemSettings.mainCity.spanishPackageName,
-    "spanish2":systemSettings.mainCity.spanishPackageName,
+    "spanish":systemSettings.mainCity.spanishPackageName,
     "radar":systemSettings.mainCity.radarPackageName,
     "intro":"Welcome"//really only used with national forecast
   }
@@ -139,8 +137,7 @@ function setUpNextTitles() {
     "severeA":"",
     "severeB":"",
     "severe2":"",
-    "spanish1":systemSettings.mainCity.spanishUpNextName,
-    "spanish2":systemSettings.mainCity.spanishUpNextName,
+    "spanish":systemSettings.mainCity.spanishUpNextName,
     "radar":systemSettings.mainCity.radarUpNextName,
     "intro":"Up Next...Welcome"//really only used with national forecast
   }
@@ -335,6 +332,9 @@ function segmentSet() {
 
   if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
     $("#slides-background").css({"background":`transparent url(images/backgrounds/` + systemSettings.extraCity.cities[locationid].slidesBG + `.png) no-repeat`, "background-size": "100% 100%"});
+  }
+  if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish") {
+    $("#slides-background").css({"background":`transparent url(images/backgrounds/` + systemSettings.mainCity.slidesBG + `.png) no-repeat`, "background-size": "100% 100%"});
   }
 }
 var slidePrograms = {
@@ -2682,7 +2682,7 @@ function slideKickOff() {
 function showSlides() {
   if (slideSettings.order[orderidx].slideLineup[gidx].group == "extralocal") {
     locationChoice = "extra"
-  } else if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish1" || slideSettings.order[orderidx].slideLineup[gidx].group == "spanish2") {
+  } else if (slideSettings.order[orderidx].slideLineup[gidx].group == "spanish") {
     locationChoice = "spanish"
   } else {
     locationChoice = "main"
@@ -2908,30 +2908,31 @@ function manageDurations() {
       //it just did the same for going from extralocal->minicore so now its also at the bottom
       slideSettings.order[orderidx].slideLineup[gidx].slides.push({function: "nullFunction"});
       break;
-    case "spanish1":
-      slideSettings.order[orderidx].slideLineup[gidx].slides = [
-        { function: "nullFunction" },
-        { duration: 8000, function: "upNext" },
-        { crawlLength: 52000, function: "LAScrawl" },
-        { duration: 10000, function: "currentConditions" },
-        { duration: 16000, function: "dopplerRadar" },
-        { duration: 12000, function: "dayPart" },
-        { duration: 14000, function: "extendedForecast" },
-         { function: "nullFunction" },
-      ]
-      break;
-    case "spanish2":
-      slideSettings.order[orderidx].slideLineup[gidx].slides = [
-        { function: "nullFunction" },
-        { duration: 8000, function: "upNext" },
-        { crawlLength: 52000, function: "LAScrawl" },
-        { duration: 10000, function: "currentConditions" },
-        { duration: 16000, function: "radarSatellite" },
-        { duration: 12000, function: "dayPart" },
-        { duration: 14000, function: "extendedForecast" },
-         { function: "nullFunction" },
-      ]
-      break;
+    case "spanish":
+      if(Math.random() > 0.5){
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { function: "nullFunction" },
+          { duration: 8000, function: "upNext" },
+          { crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "dopplerRadar" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+          { function: "nullFunction" },
+        ]
+      }else{
+        slideSettings.order[orderidx].slideLineup[gidx].slides = [
+          { function: "nullFunction" },
+          { duration: 8000, function: "upNext" },
+          { crawlLength: 52000, function: "LAScrawl" },
+          { duration: 10000, function: "currentConditions" },
+          { duration: 16000, function: "radarSatellite" },
+          { duration: 12000, function: "dayPart" },
+          { duration: 14000, function: "extendedForecast" },
+          { function: "nullFunction" },
+        ]
+      }
+    break;
     case "radar":
       slideSettings.order[orderidx].slideLineup[gidx].slides = [
           { crawlLength: 60000, function: "LAScrawl" },

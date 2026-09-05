@@ -167,6 +167,10 @@ var udlDisplays = {
     }, udlLength);
   },
   fctUVIndex() {
+    if(udlData.forecast.timeTitle == "Tonight"){
+      udlCallBack();
+      return;
+    }
     $(".udl").html(udlData.forecast.timeTitle + "'s UV Index  <em>" + udlData.forecast.uvIndex + " " + udlData.forecast.uvIndexWord + "</em>")
     setTimeout(() => {
       udlCallBack()
