@@ -1277,6 +1277,11 @@ var slidePrograms = {
         fadeSlideOut($(".travel-weather"), 0, true, 500)
         $(".travel-weather .legend").fadeOut(500)
         $("#travel-weather-map").fadeOut(500)
+        if (systemSettings.nationalConfig) {
+          setTimeout(() => {
+            $("#slides-background").fadeIn(0)
+          }, 500);
+        }
       }, slideSettings.order[orderidx].slideLineup[gidx].slides[idx].duration-500);
     },
     travelForecast() {
