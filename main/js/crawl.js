@@ -65,6 +65,7 @@ async function checkWarningCrawl() {
         }
     } else {
         //no warnings, end crawl
+        alertCrawlActive = false
         if ($("#crawl-severe .crawl").text() != "") {
             //animation
             $("#twc-logo").fadeIn(250)
