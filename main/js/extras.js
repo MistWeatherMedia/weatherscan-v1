@@ -1331,6 +1331,13 @@ function setWInterLegend() {
 	}
 }
 
+async function updateCrawls() {
+	if (systemSettings.appearanceSettings.adMessage[0] == "network") {
+      const data = await $.getJSON("https://mistwx.com/crawlnetwork.json")
+      systemSettings.appearanceSettings.adMessage = data.crawls.scanv2
+    }
+}
+
 function createTopArea() {
 	var provimg = document.createElement("img")
 	provimg.src = "images/tvproviders/" + systemSettings.appearanceSettings.providerImage + ".png"

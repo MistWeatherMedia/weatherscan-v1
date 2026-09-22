@@ -2708,6 +2708,7 @@ function showSlides() {
       $('.titlearrow').fadeIn(0)
       allData()
       getUdlData()
+      updateCrawls()
     }
     
     ngidx++;

@@ -147,11 +147,7 @@ function animate(now) {
   
   await startupAnimations()
 
-   if (systemSettings.appearanceSettings.adMessage[0] == "network") {
-    $.getJSON("https://mistwx.com/crawlnetwork.json", function(data) {
-      systemSettings.appearanceSettings.adMessage = data.crawls.scanv1
-    })
-  }
+  await updateCrawls()
 
   if (traf_key == "nada" || traf_key == "") {
     function fl(id) {
